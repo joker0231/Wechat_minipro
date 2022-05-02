@@ -1,7 +1,7 @@
 <view class="mine-container">
     <image class="mine-bgimg" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/personbgimage.png?sign=b7ae5ac2a29a7a5806004a6d48fb88e4&t=1651473040"></image>
     <view class="mine-header">
-        <view class="mine-signbutton">
+        <view class="mine-signbutton" bindtap="clickCheckIn">
             <image class="mine-sign" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/sign_in.png?sign=1156de8f33a9d7a9ed929cc99ba9c602&t=1651473726"></image>
             <text>每日签到</text>
         </view>
@@ -51,5 +51,5 @@
         </view>
 
     </view>
-    <button class="mine-button" style="width:500rpx">退出账号</button>
+    <button bindtap="clickLogout" class="mine-button" style="width:500rpx">退出账号</button>
 </view>
