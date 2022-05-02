@@ -1,0 +1,1 @@
+"/Applications/wechatwebdevtools.app/Contents/MacOS/cli" cloud functions deploy --e cloud1-8gewoncl3097661b --n quickstartFunctions --r --project "/Users/suyapeng/Desktop/微信小程序" --report_first && "/Applications/wechatwebdevtools.app/Contents/MacOS/cli" cloud functions deploy --e lemon-7glhwqyu5304e1f9 --n quickstartFunctions --r --project "/Users/suyapeng/Desktop/微信小程序" --report
