@@ -43,7 +43,7 @@
         <view style="width:85%;margin-top:-17rpx">
             <view class="mine-option">我的提问</view>
             <view class="hr"/>
-            <view class="mine-option">学习进度</view>
+            <view class="mine-option" bindtap="clickProgress">学习进度</view>
             <view class="hr"/>
             <view class="mine-option">好友列表</view>
             <view class="hr"/>

@@ -1,0 +1,25 @@
+/* pages/mine/progress/index.wxss */
+ec-canvas {
+  width: 700rpx;
+  height: 800rpx;
+}
+
+
+.my-style {
+  --tabs-card-height: 80rpx;
+  position: relative;
+}
+
+.my-style .van-tab__pane--active {
+  height: auto;
+  margin: 0 38rpx;
+}
+
+
+.gl-container {
+  height: 880rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
