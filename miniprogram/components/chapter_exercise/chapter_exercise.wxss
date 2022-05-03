@@ -1,0 +1,16 @@
+.exer-options{
+    width: 90%;
+    border-radius: 45rpx;
+    background-color: #FFFEB1;
+    padding: 20rpx;
+    font-weight: 250;
+    font-size: 30rpx;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}
+
+.hr{
+    height: 3rpx;
+    width: 100%;
+    background-color: #7F7F7F;
+}

@@ -12,9 +12,41 @@
             </view>
         </view>
         <view class="class-navigation">
-            <text>专业</text>
-            <text>拓展</text>
-            <text>娱乐</text>
+            <text bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'navswitch-style':''}}">专业</text>
+            <text bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'navswitch-style':''}}">拓展</text>
+            <text bindtap="navSwitch" data-index="2" class="{{navState==2 ? 'navswitch-style':''}}">娱乐</text>
         </view>
     </view>
+    <scroll-view class="class-container">
+        <view wx:if="{{navState==0}}">
+            <view class="class-classes">
+                <text style="font-size:35rpx">语文</text>
+                <classcard/>
+            </view>
+            <view class="class-classes">
+                <text style="font-size:35rpx">数学</text>
+                <classcard/>
+            </view>
+            <view class="class-classes">
+                <text style="font-size:35rpx">英语</text>
+                <classcard/>
+            </view>
+        </view>
+
+        <view wx:elif="{{navState==1}}">
+            <view class="class-classes">
+                <text style="font-size:35rpx">视频</text>
+                <classcard/>
+            </view>
+            <view class="class-classes">
+                <text style="font-size:35rpx">文本</text>
+                <classcard/>
+                <classcard/>
+            </view>
+        </view>
+
+        <view wx:else="{{navState==2}}">
+        </view>
+
+    </scroll-view>
 </view>

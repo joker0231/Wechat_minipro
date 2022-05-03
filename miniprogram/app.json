@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/exercise/index/index",
+    "pages/class/index/index",
     "pages/mine/sign/index",
     "pages/mine/index/index",
-    "pages/class/index/index",
     "pages/register/index",
     "pages/login/index",
     "pages/index/index",
-    "pages/exercise/index/index",
     "pages/community/index/index",
     "miniprogram/pages/index/index"
   ],

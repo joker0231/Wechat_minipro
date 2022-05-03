@@ -1,4 +1,5 @@
 {
   "usingComponents": {
+    "classcard": "/components/classcard/classcard"
   }
 }

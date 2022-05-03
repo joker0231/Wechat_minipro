@@ -1,0 +1,9 @@
+<view>
+    <view bindtap="changeshow" class="exer-options">{{ chapter_num }}</view>
+    <view hidden="{{!isShow}}">
+        <view class="exer-section" wx:for="{{section}}" wx:key="index">
+            <view>{{item}}</view>
+            <view class="hr"/>
+        </view>
+    </view>
+</view>

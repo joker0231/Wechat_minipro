@@ -1,0 +1,64 @@
+.classcard-container{
+    width: 90%;
+    height: 180rpx;
+    background-color: #F9F2E7;
+    border-radius: 15rpx;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+    padding: 5%;
+}
+
+.classcard-header{
+    width: 100%;
+    height: 40%;
+    display: flex;
+}
+
+.classcard-header image{
+    width: 90rpx;
+    height: 90rpx;
+}
+
+.classcard-addinfo{
+    font-size: 25rpx;
+    color: #555555;
+}
+
+.classcard-info{
+    margin-left: 15px;
+}
+
+.classcard-infotitle {
+    font-size: 30rpx;
+}
+
+.hr{
+    height: 3rpx;
+    width: 100%;
+    background-color: gainsboro;
+}
+
+.classcard-footer{
+    width: 82%;
+    height: 20%;
+    margin-top: 12%;
+    margin-left: 23%;
+}
+
+.classcard-footer image{
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 40rpx;
+}
+
+.classcard-teacher{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.classcard-teacher text{
+    font-size: 25rpx;
+    color: #888888;
+}

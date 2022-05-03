@@ -1,0 +1,96 @@
+.class-header{
+    width: 100%;
+    height: 180rpx;
+    background-color: #FFFFFF;
+    box-shadow: 0 10rpx 10rpx gainsboro;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+}
+
+.class-headercontainer{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30rpx;
+}
+
+.down{
+    display: inline;
+    height: 30rpx;
+    width: 30rpx;
+    margin-left: 10rpx;
+    margin-top: 5rpx;
+}
+
+.class_grade{
+    display: flex;
+    width: 20%;
+    align-content: center;
+    justify-content: center;
+    margin-top: 10rpx;
+}
+
+.class_grade text{
+    font-size: 25rpx;
+    margin-left: 10rpx;
+}
+
+.class_title{
+    font-weight: bold;
+    font-size: large;
+}
+
+.class_notes{
+    height: 50rpx;
+    width: 50rpx;
+    margin-right: 10rpx;
+}
+
+.class-navigation{
+    margin-top: 35rpx;
+    margin-left: 20rpx;
+}
+
+.class-navigation text{
+    font-size: medium;
+    margin-left: 35rpx;
+}
+
+.class-container{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: 10rpx auto;
+    position: relative;
+    top: 180rpx;
+}
+
+.class-classes{
+    width: 90%;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    background-color: #FFFFFF;
+    border-radius: 20rpx;
+    box-shadow: 10rpx 10rpx 10rpx gainsboro;
+    padding: 30rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.exer-options{
+    width: 90%;
+    border-radius: 45rpx;
+    background-color: #FFFEB1;
+    padding: 20rpx;
+    font-weight: 250;
+    font-size: 30rpx;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}
+
+.navswitch-style{
+    font-size: 35rpx;
+    color: #7B4D12;
+}
+
+

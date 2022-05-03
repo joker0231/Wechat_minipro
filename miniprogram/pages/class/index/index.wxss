@@ -3,6 +3,9 @@
     height: 180rpx;
     background-color: #FFFFFF;
     box-shadow: 0 10rpx 10rpx gainsboro;
+    position: fixed;
+    z-index: 10;
+    top: 0;
 }
 
 .class-headercontainer{
@@ -24,6 +27,7 @@
     width: 20%;
     align-content: center;
     justify-content: center;
+    margin-top: 10rpx;
 }
 
 .class_grade text{
@@ -57,3 +61,29 @@
     font-size: medium;
     margin-left: 35rpx;
 }
+
+.class-container{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: 10rpx auto;
+    position: relative;
+    top: 180rpx;
+}
+
+.class-classes{
+    width: 90%;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    background-color: #FFFFFF;
+    border-radius: 20rpx;
+    box-shadow: 10rpx 10rpx 10rpx gainsboro;
+    padding: 30rpx;
+}
+
+.navswitch-style{
+    font-size: 35rpx;
+    color: #7B4D12;
+}
+
+
