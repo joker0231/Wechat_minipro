@@ -1,0 +1,14 @@
+<!--pages/mine/progress/index.wxml-->
+
+<view class="gl-container">
+<View>可视化学习进度</View>
+<ec-canvas wx:if="{{ecFlag}}" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>
+
+
+<van-tabs class="my-style" color="orange" active="radar" type="card" bind:change="onChange">
+  <van-tab name="radar" title="科目雷达图">展示了对语文，数学，外语，物理，化学各门课的视频学习数和联系数，反应掌握情况</van-tab>
+  <van-tab name="bar" title="打卡柱状图">展示一个月内每周打卡数，满七天为金色！</van-tab>
+  <van-tab name="pie" title="整体饼状图">展示用户整体活动分布图</van-tab>
+  <van-tab name="donut" title="题目环形图">展示用户做题正确率</van-tab>
+</van-tabs>

@@ -1,0 +1,181 @@
+.mine-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mine-bgimg{
+    height: 100%;
+    width: 100%;
+    opacity: 70%;
+    z-index: -2;
+    position:fixed;
+    top:0;
+    left:0;
+}
+
+.mine-header{
+    display: flex;
+    padding-top: 30rpx;
+    width: 100%;
+}
+
+.mine-signbutton{
+    display: flex;
+    margin-left: 10%;
+}
+
+.mine-sign{
+    height: 60rpx;
+    width: 60rpx;
+    margin-right: 10rpx;
+}
+
+.mine-signbutton text{
+    font-size: small;
+    line-height: 60rpx;
+}
+
+.mine-title{
+    font-weight: bold;
+    font-size: large;
+    line-height: 60rpx;
+    margin-left: 10%;
+}
+
+.mine-button{
+    border-radius: 20px;
+    background-color: #FFFF80;
+    margin-top: 30rpx;
+    font-weight: 10rpx;
+    width: 500rpx;
+}
+
+.mine-personalinfo{
+    width: 100%;
+    height: 18%;
+    border-radius: 50rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.mine-mask1{
+    width: 85%;
+    height: 18%;
+    opacity: 70%;
+    background-color: #FFFFFF;
+    position: absolute;
+    border-radius: 50rpx;
+    z-index: -1;
+}
+
+.mine-mask2{
+    width: 85%;
+    height: 20%;
+    opacity: 70%;
+    background-color: #FFFFFF;
+    position: absolute;
+    border-radius: 50rpx;
+    z-index: -1;
+}
+
+.mine-mask3{
+    width: 85%;
+    height: 26%;
+    opacity: 70%;
+    background-color: #FFFFFF;
+    position: absolute;
+    border-radius: 50rpx;
+    z-index: -1;
+}
+
+.mine-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right{
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.mine-head{
+    width: 140rpx;
+    height: 140rpx;
+}
+
+.mine-name{
+    font-size: large;
+}
+
+.mine-school{
+    font-size: small;
+    color: #888888;
+    margin-top: 30rpx;
+}
+
+.mine-tools{
+    display: flex;
+}
+
+.mine-tool image{
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.hr{
+    height: 3rpx;
+    width: 100%;
+    background-color: gainsboro;
+}
+
+.mine-usualtools{
+    width: 85%;
+    height: 20%;
+    border-radius: 30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.mine-usualtools text{
+    margin-left: -68%;
+    margin-top: 5rpx;
+}
+
+.mine-tools{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: -5rpx;
+}
+
+.mine-tool view{
+    font-size: 24rpx;
+    text-align: center;
+}
+
+.mine-otheroptions{
+    width: 100%;
+    height: 26%;
+    border-radius: 50rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 5%;
+    align-items: center;
+}
+
+.mine-option{
+    font-size: 28rpx;
+    margin-left: 20rpx;
+    margin-top: 25rpx;
+    width: 100%;
+}

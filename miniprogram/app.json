@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/login/index/index",
+    "pages/login/register/index",
+
+    "pages/class/index/index",
+
+    "pages/exercise/index/index",
+
+    "pages/community/index/index",
+    
+    "pages/mine/index/index",
+    "pages/mine/checkIn/index",
+    "pages/mine/progress/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "萌蛋云乡",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#7B4D12",
+    "backgroundColor": "black",
+    "list": [
+      {
+        "pagePath": "pages/class/index/index",
+        "text": "课程",
+        "iconPath": "images/tab1.png",
+        "selectedIconPath": "images/tab1.png"
+      },
+      {
+        "pagePath": "pages/exercise/index/index",
+        "text": "题库",
+        "iconPath": "images/tab2.png",
+        "selectedIconPath": "images/tab2.png"
+      },
+      {
+        "pagePath": "pages/community/index/index",
+        "text": "社区",
+        "iconPath": "images/tab3.png",
+        "selectedIconPath": "images/tab3.png"
+      },
+      {
+        "pagePath": "pages/mine/index/index",
+        "text": "我的",
+        "iconPath": "images/tab4.png",
+        "selectedIconPath": "images/tab4.png"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

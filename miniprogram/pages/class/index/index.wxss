@@ -1,0 +1,59 @@
+.class-header{
+    width: 100%;
+    height: 180rpx;
+    background-color: #FFFFFF;
+    box-shadow: 0 10rpx 10rpx gainsboro;
+}
+
+.class-headercontainer{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30rpx;
+}
+
+.down{
+    display: inline;
+    height: 30rpx;
+    width: 30rpx;
+    margin-left: 10rpx;
+    margin-top: 5rpx;
+}
+
+.class_grade{
+    display: flex;
+    width: 20%;
+    align-content: center;
+    justify-content: center;
+}
+
+.class_grade text{
+    font-size: 25rpx;
+    margin-left: 10rpx;
+}
+
+.class_title{
+    font-weight: bold;
+    font-size: large;
+}
+
+.class_search{
+    height: 50rpx;
+    width: 50rpx;
+    margin-right: 10rpx;
+}
+
+.class_note{
+    height: 50rpx;
+    width: 50rpx;
+    margin-right: 20rpx;
+}
+
+.class-navigation{
+    margin-top: 35rpx;
+    margin-left: 20rpx;
+}
+
+.class-navigation text{
+    font-size: medium;
+    margin-left: 35rpx;
+}
