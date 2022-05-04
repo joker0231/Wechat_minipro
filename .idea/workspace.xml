@@ -5,12 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3b9c328-790a-4913-874f-5edb5d093280" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_card/community_card.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_card/community_card.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_card/community_card.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_card/community_card.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_class/community_class.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_class/community_class.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_class/community_class.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_class/community_class.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_headpic/community_headpic.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_headpic/community_headpic.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_headpic/community_headpic.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/exercise_chapter/exercise_chapter.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/exercise/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/exercise/index/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/exercise/index/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/exercise/index/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/exercise_chapter/exercise_chapter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.json" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/community_headpic/community_headpic.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/exercise_chapter/exercise_chapter.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/exercise_chapter/exercise_chapter.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/class/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/class/index/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/class/index/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/class/index/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/community/index/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/community/index/index.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/community/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/community/index/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/community/index/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/community/index/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/exercise/index/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/exercise/index/index.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/login/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/login/index/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/login/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/login/index/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/login/register/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/login/register/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/login/register/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/login/register/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/mine/progress/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/mine/progress/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/mine/progress/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/mine/progress/index.wxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +66,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -54,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651494144412</updated>
       <workItem from="1651494146866" duration="12956000" />
-      <workItem from="1651654151253" duration="2049000" />
+      <workItem from="1651654151253" duration="12208000" />
     </task>
     <servers />
   </component>

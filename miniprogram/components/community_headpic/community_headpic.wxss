@@ -1,0 +1,45 @@
+.headpic-container{
+    padding: 10rpx;
+    position: relative;
+    margin-bottom: 90rpx;
+    width: 120rpx;
+    height: 20rpx;
+    display: inline-block;
+}
+
+.if-online{
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 5;
+    height: 25rpx;
+    width: 25rpx;
+    background-color: #95F204;
+    left: 80rpx;
+    position: absolute;
+}
+
+.headpic{
+    border-radius: 50%;
+    overflow:hidden;
+    height: 100rpx;
+    width: 100rpx;
+    position: absolute;
+}
+
+.headpic-add{
+    height: 40rpx;
+    width: 40rpx;
+    position: absolute;
+    z-index: 5;
+    top: 80rpx;
+    left: 65rpx;
+}
+
+.headpic_name{
+    color: #353535;
+    font-size: 25rpx;
+    font-weight: lighter;
+    position: absolute;
+    top: 100rpx;
+    left: 33rpx;
+}

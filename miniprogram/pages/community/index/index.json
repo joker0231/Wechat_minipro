@@ -1,4 +1,6 @@
 {
   "usingComponents": {
+    "community_headpic": "/components/community_headpic/community_headpic",
+    "community_class": "/components/community_class/community_class"
   }
 }

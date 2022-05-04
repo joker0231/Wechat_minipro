@@ -1,4 +1,4 @@
-<!--pages/index/index.wxml-->
+<!--pages/index/community_headpic.wxml-->
 <view class="login_container">
     <image class="login_bgimg" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/login_bgimage.jpg?sign=8787e0e4053213d48db6e9f25ba21f30&t=1651226286"></image>
     <view>

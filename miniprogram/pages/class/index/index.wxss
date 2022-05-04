@@ -22,7 +22,7 @@
     margin-top: 5rpx;
 }
 
-.class_grade{
+.class-grade{
     display: flex;
     width: 20%;
     align-content: center;
@@ -30,23 +30,23 @@
     margin-top: 10rpx;
 }
 
-.class_grade text{
+.class-grade text{
     font-size: 25rpx;
     margin-left: 10rpx;
 }
 
-.class_title{
+.class-title{
     font-weight: bold;
     font-size: large;
 }
 
-.class_search{
+.class-search{
     height: 50rpx;
     width: 50rpx;
     margin-right: 10rpx;
 }
 
-.class_note{
+.class-note{
     height: 50rpx;
     width: 50rpx;
     margin-right: 20rpx;

@@ -1,0 +1,66 @@
+.com-header{
+    width: 100%;
+    height: 100rpx;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.com-headerpic{
+    height: 50rpx;
+    width: 50rpx;
+    margin-left: 28%;
+}
+
+.com-title{
+    font-weight: bold;
+    font-size: large;
+    margin-left: 47%;
+}
+
+.com-bg {
+    width: 90%;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    background-color: #FFFFFF;
+    border-radius: 20rpx;
+    box-shadow: 10rpx 10rpx 10rpx gainsboro;
+    padding: 20rpx;
+}
+
+.com-container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    top: 100rpx;
+    justify-content: center;
+    align-items: center;
+}
+
+.com-down{
+    display: inline;
+    height: 25rpx;
+    width: 25rpx;
+    margin-left: 10rpx;
+    margin-top: 5rpx;
+}
+
+.community-filter {
+    display: flex;
+    width: 20%;
+    align-content: center;
+    justify-content: center;
+}
+
+.community-filter text{
+    font-size: 25rpx;
+}
+
+.com-cardhead{
+    display: flex;
+    align-items: center;
+}

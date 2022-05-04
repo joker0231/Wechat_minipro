@@ -1,0 +1,31 @@
+.communitycard-container {
+    width: 90%;
+    height: 200rpx;
+    background-color: #F9F2E7;
+    border-radius: 15rpx;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+    padding: 5%;
+}
+
+.headpic{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.communitycard-name{
+    font-weight: bold;
+    font-size: medium;
+}
+
+.communitycard-school{
+    font-weight: 200;
+    font-size: small;
+}
+
+.communitycard-header{
+    display: flex;
+}
