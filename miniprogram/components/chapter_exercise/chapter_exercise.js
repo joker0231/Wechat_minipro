@@ -1,9 +1,9 @@
 Component({
+    options: {
+        multipleSlots: true // 在组件定义时的选项中启用多slot支持
+    },
     properties: {
-        chapter_num:{
-            type: Number,
-            value: null
-        }
+        chapter_num:String
     },
     data: {
         isShow: false,
@@ -11,7 +11,6 @@ Component({
     },
     methods: {
         changeshow: function (){
-            console.log(chapter_num)
             if (this.data.isShow){
                 this.setData({
                     isShow:false

@@ -1,9 +1,15 @@
 <view>
-    <view bindtap="changeshow" class="exer-options">{{ chapter_num }}</view>
-    <view hidden="{{!isShow}}">
-        <view class="exer-section" wx:for="{{section}}" wx:key="index">
-            <view>{{item}}</view>
+    <view class="exer-options" bindtap="changeshow">
+        <text>{{chapter_num}}</text>
+        <image class="exer-down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
+    </view>
+
+    <view style="position: relative;" wx:if="{{isShow}}">
+        <image class="exer-chick" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"></image>
+        <view class="exer-option" wx:for="{{section}}" wx:for-item="item">
+            {{item}}
             <view class="hr"/>
         </view>
     </view>
+
 </view>
