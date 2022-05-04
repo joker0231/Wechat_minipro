@@ -42,7 +42,8 @@
     "minifyWXML": true,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true
+    "ignoreUploadUnusedFiles": true,
+    "useStaticServer": true
   },
   "appid": "wx86f85654541e1cab",
   "projectname": "Mengdanyun-Township",
