@@ -1,14 +1,17 @@
 {
   "pages": [
-    "pages/exercise/index/index",
+    "pages/login/index/index",
+    "pages/login/register/index",
+
     "pages/class/index/index",
-    "pages/mine/sign/index",
-    "pages/mine/index/index",
-    "pages/register/index",
-    "pages/login/index",
-    "pages/index/index",
+
+    "pages/exercise/index/index",
+
     "pages/community/index/index",
-    "miniprogram/pages/index/index"
+    
+    "pages/mine/index/index",
+    "pages/mine/checkIn/index",
+    "pages/mine/progress/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -38,15 +41,16 @@
         "pagePath": "pages/community/index/index",
         "text": "社区",
         "iconPath": "images/tab3.png",
-        "selectedIconPath": "images/tab3.png"      },
+        "selectedIconPath": "images/tab3.png"
+      },
       {
         "pagePath": "pages/mine/index/index",
-        "text": "我",
+        "text": "我的",
         "iconPath": "images/tab4.png",
-        "selectedIconPath": "images/tab4.png"      }
+        "selectedIconPath": "images/tab4.png"
+      }
     ]
   },
   "usingComponents": {},
-"sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "sitemapLocation": "sitemap.json"
 }
