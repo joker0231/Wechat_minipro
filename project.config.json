@@ -38,7 +38,8 @@
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
     "minifyWXML": true,
-    "useStaticServer": true
+    "useStaticServer": true,
+    "ignoreUploadUnusedFiles": true
   },
   "appid": "wx86f85654541e1cab",
   "projectname": "quickstart-wx-cloud",
