@@ -5,35 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3b9c328-790a-4913-874f-5edb5d093280" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_card/community_card.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_card/community_card.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_card/community_card.wxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_card/community_card.wxss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_class/community_class.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_class/community_class.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_class/community_class.wxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_class/community_class.wxss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_headpic/community_headpic.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_headpic/community_headpic.wxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_headpic/community_headpic.wxss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/exercise_chapter/exercise_chapter.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_post/community_post.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_post/community_post.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_post/community_post.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/community_post/community_post.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/exercise_card/exercise_card.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/exercise_card/exercise_card.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/exercise_card/exercise_card.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/exercise_card/exercise_card.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/mine_friend/mine_friend.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/mine_friend/mine_friend.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/mine_friend/mine_friend.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/mine_friend/mine_friend.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/mine_message/mine_message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/mine_message/mine_message.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/components/mine_message/mine_message.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/pages/community/classzone/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/pages/community/classzone/index.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/pages/community/classzone/index.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/pages/community/classzone/index.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/pages/mine/favourite/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/pages/mine/favourite/index.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/pages/mine/favourite/index.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/pages/mine/favourite/index.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/pages/mine/message/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/pages/mine/message/index.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/pages/mine/message/index.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/miniprogram/pages/mine/message/index.wxss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/exercise_chapter/exercise_chapter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.json" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/community_headpic/community_headpic.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/exercise_chapter/exercise_chapter.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/components/chapter_exercise/chapter_exercise.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/exercise_chapter/exercise_chapter.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/class/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/class/index/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/class/index/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/class/index/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/components/classcard/classcard.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/classcard/classcard.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/components/community_card/community_card.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/components/community_card/community_card.json" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/mine_message/mine_message.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/components/community_card/community_card.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/components/community_card/community_card.wxss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/miniprogram/pages/community/index/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/community/index/index.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniprogram/pages/community/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/community/index/index.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniprogram/pages/community/index/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/community/index/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/exercise/index/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/exercise/index/index.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/login/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/login/index/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/login/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/login/index/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/login/register/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/login/register/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/login/register/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/login/register/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/mine/progress/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/mine/progress/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/mine/progress/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/mine/progress/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@vant/weapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vant/weapp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.private.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.private.config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +56,8 @@
       <list>
         <option value="Wechat mini program component js file" />
         <option value="Wechat mini program component json file" />
+        <option value="Wechat mini program page js file(Page API)" />
+        <option value="Wechat mini program page json file(Page API)" />
       </list>
     </option>
   </component>
@@ -78,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651494144412</updated>
       <workItem from="1651494146866" duration="12956000" />
-      <workItem from="1651654151253" duration="12208000" />
+      <workItem from="1651654151253" duration="21076000" />
     </task>
     <servers />
   </component>
