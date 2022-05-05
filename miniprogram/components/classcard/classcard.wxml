@@ -6,8 +6,8 @@
             <view class="classcard-addinfo">课程简介…（比如课本的哪一章节之类）</view>
         </view>
     </view>
-    <view class="hr"/>
     <view class="classcard-footer">
+        <view class="hr"/>
         <view class="classcard-teacher">
             <text>老师名称</text>
             <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/love.png?sign=0180f45f2c372f276b7f200338ca0217&t=1651498880"></image>

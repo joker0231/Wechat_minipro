@@ -1,0 +1,9 @@
+image{
+    left: 620rpx;
+    width: 50rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 15rpx;
+}

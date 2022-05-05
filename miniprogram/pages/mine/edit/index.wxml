@@ -1,0 +1,8 @@
+<van-cell title="头像" is-link />
+<image src="{{src}}"/>
+<van-cell title="姓名" is-link value="{{name}}" />
+<van-cell title="性别" is-link value="{{sex}}" />
+<van-cell title="学校" is-link value="{{school}}" />
+<van-cell title="年级" is-link value="{{grade}}" />
+<van-cell title="班级" is-link value="{{classes}}" />
+<van-cell title="手机号" is-link value="{{phone}}" />
