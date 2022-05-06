@@ -26,7 +26,8 @@ Component({
         like:String,
         comment:String,
         favour:String,
-        type:String
+        type:String,
+        headpic:String
     },
     data: {
         allsrc :["https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/img1650631053868.png?sign=190a587faee454f47c41de09728a404e&t=1651712992","https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/img1650630846878.png?sign=46f2b748daf2bfb88af67f2080f3bb66&t=1651713020","https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/img1650631059155.png?sign=186ffea85df0ed45f56425c66c0cb11d&t=1651713037"],

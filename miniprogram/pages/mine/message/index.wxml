@@ -6,8 +6,7 @@
         </van-tab>
         <van-tab title="回帖">
             <view class="message-postcontainer">
-                <community_post type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
-                <community_post type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <mine_reply viewer_headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239" viewer_name="cici" reply="xxxxxxx" type="题目" comment="2" favour="3" like="1" post_content="xxxxx" author_info="学校 班级" author_name="tom" author_pic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
             </view>
         </van-tab>
         <van-tab title="新朋友">

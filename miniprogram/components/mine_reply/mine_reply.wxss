@@ -1,0 +1,37 @@
+.reply-container{
+    width: 636rpx;
+    height: 352rpx;
+    border-radius: 30rpx;
+    background-color: #ffffff;
+    padding: 20rpx;
+    margin: 20rpx auto;
+}
+
+image {
+    width: 56rpx;
+    height: 56rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.viewer-content {
+    display: flex;
+    align-items: center;
+}
+
+.reply-name{
+    width: 300rpx;
+    height: 38rpx;
+    text-align: left;
+    line-height: normal;
+    font-size: 28rpx;
+}
+
+.reply-reply{
+    width: 132rpx;
+    height: 32rpx;
+    color: #888888;
+    text-align: left;
+    line-height: normal;
+    font-size: 24rpx;
+}
