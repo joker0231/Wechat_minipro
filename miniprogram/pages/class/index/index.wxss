@@ -24,14 +24,14 @@
 
 .class_grade{
     display: flex;
-    width: 20%;
     align-content: center;
     justify-content: center;
     margin-top: 10rpx;
+    margin-left: 20rpx;
 }
 
 .class_grade text{
-    font-size: 25rpx;
+    font-size: 28rpx;
     margin-left: 10rpx;
 }
 

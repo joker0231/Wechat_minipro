@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "classcard": "/components/classcard/classcard"
+    "classcard": "/components/class_card/index"
   }
 }
