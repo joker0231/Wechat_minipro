@@ -12,27 +12,28 @@
     display: flex;
     justify-content: space-between;
     padding-top: 30rpx;
+    height: 48rpx;
 }
 
 .down{
-    display: inline;
     height: 30rpx;
     width: 30rpx;
     margin-left: 10rpx;
-    margin-top: 5rpx;
 }
 
 .class_grade{
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
-    margin-top: 10rpx;
     margin-left: 20rpx;
+    height: 100%;
 }
 
 .class_grade text{
     font-size: 28rpx;
     margin-left: 10rpx;
+    height: 48rpx;
+    line-height: 48rpx;
 }
 
 .class_title{
@@ -43,18 +44,19 @@
 .class_search{
     height: 50rpx;
     width: 50rpx;
-    margin-right: 10rpx;
+    margin-right: 18rpx;
 }
 
 .class_note{
     height: 50rpx;
     width: 50rpx;
-    margin-right: 20rpx;
+    margin-right: 25rpx;
 }
 
 .class-navigation{
     margin-top: 35rpx;
     margin-left: 20rpx;
+    height: 46rpx;
 }
 
 .class-navigation text{
