@@ -7,3 +7,54 @@ image{
     position: absolute;
     top: 15rpx;
 }
+
+button {
+    border-radius: 20px;
+    background-color: #FFFF80;
+    margin-top: 30rpx;
+    font-weight: 10rpx;
+    width: 500rpx;
+}
+
+input{
+    width: 600rpx;
+    border-bottom: gainsboro solid 0.5rpx ;
+    padding-bottom: 10rpx;
+}
+
+.edit-container{
+    width: 90%;
+    height: 300rpx;
+    margin: 30rpx auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.grades-container{
+    width: 80%;
+    height: 550rpx;
+    margin: 0 auto;
+}
+
+.grade-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: wrap;
+}
+
+.grade-container view{
+    width: 160rpx;
+    height: 56rpx;
+    padding: 4rpx;
+    border-radius: 32rpx;
+    background-color: #dfdfdf;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 50rpx;
+    margin-top: 22rpx;
+    margin-bottom: 22rpx;
+    font-size: small;
+}

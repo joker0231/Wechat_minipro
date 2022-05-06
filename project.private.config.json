@@ -69,6 +69,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/login/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
