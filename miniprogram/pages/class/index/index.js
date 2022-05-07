@@ -1,6 +1,30 @@
 Page({
     data: {
         navState: 0,
+        classArray: [
+            {
+                title: '语文',
+                subArray: ['1', '2', '3']
+            },
+            {
+                title: '数学',
+                subArray: ['1']
+            },
+            {
+                title: '外语',
+                subArray: ['1']
+            }
+        ],
+        extendArray: [
+            {
+                title: '视频',
+                subArray: ['1', '2']
+            },
+            {
+                title: '文本',
+                subArray: ['1']
+            }
+        ]
     },
     onLoad: function (options) {
 

@@ -4,9 +4,11 @@
     "pages/login/register/index",
 
     "pages/class/index/index",
+    "pages/class/class_detail/index",
+    "pages/class/extend_detail/index",
+    "pages/class/class_search/index",
 
     "pages/exercise/index/index",
-
     "pages/community/index/index",
     
     "pages/mine/index/index",

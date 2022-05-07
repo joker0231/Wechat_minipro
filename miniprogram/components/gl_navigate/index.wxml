@@ -1,0 +1,9 @@
+<!--components/gl_naviagte/index.wxml-->
+<!-- 通用用户跳转组件 三个按钮 分别是发帖 发起在线聊天 和收藏 -->
+<!-- 对应肯定很多接口 或者唤起pop层啥的 先搞静态吧慢慢来 还可以加入动态参数  -->
+<!-- suggestions chat love -->
+<view class="naviagte_wrap inner-class">
+  <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/suggestion.png?sign=e134cb611ad5aa641d86f38e6a18bc0d&t=1651932986"></image>
+  <image style="margin-left: 16rpx;" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/chat.png?sign=3b158c584ea6c9cee816115f8e33808e&t=1651933005"></image>
+  <image style="margin-left: 16rpx;"  src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/love.png?sign=11e5d29516488331a5c04f5b6a88a2ad&t=1651933033"></image>
+</view>

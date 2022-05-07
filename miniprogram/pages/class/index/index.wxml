@@ -18,35 +18,33 @@
         </view>
     </view>
     <scroll-view class="class-container">
-        <view wx:if="{{navState==0}}">
+        <view class="if-view" wx:if="{{navState==0}}" wx:for="{{classArray}}">
             <view class="class-classes">
-                <text style="font-size:35rpx">语文</text>
-                <classcard/>
-            </view>
-            <view class="class-classes">
-                <text style="font-size:35rpx">数学</text>
-                <classcard/>
-            </view>
-            <view class="class-classes">
-                <text style="font-size:35rpx">英语</text>
-                <classcard/>
+                <text>{{item.title}}</text>
+                <!-- 不能用猫头鹰选择器 -->
+                <View style="margin-top: -14rpx">
+                    <view wx:for="{{item.subArray}}">
+                        <classcard inner-class="cardStyle"/>
+                    </view>
+                </View>
             </view>
         </view>
 
-        <view wx:elif="{{navState==1}}">
+        <view class="if-view" wx:if="{{navState==1}}" wx:for="{{extendArray}}">
             <view class="class-classes">
-                <text style="font-size:35rpx">视频</text>
-                <classcard/>
-            </view>
-            <view class="class-classes">
-                <text style="font-size:35rpx">文本</text>
-                <classcard/>
-                <classcard/>
+                <text>{{item.title}}</text>
+                <!-- 不能用猫头鹰选择器 -->
+                <View style="margin-top: -14rpx">
+                    <view wx:for="{{item.subArray}}">
+                        <classcard inner-class="cardStyle"/>
+                    </view>
+                </View>
             </view>
         </view>
 
-        <view wx:else="{{navState==2}}">
+        <view wx:if="{{navState==2}}">
         </view>
 
     </scroll-view>
+    <van-toast id="van-toast" />
 </view>
