@@ -1,4 +1,4 @@
-// pages/mine/progress/index.js
+// pages/mine/progress/community_headpic.js
 import * as echarts from '../../../libs/ec-canvas/echarts';
 
 let chart = null;

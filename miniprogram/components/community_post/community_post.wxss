@@ -1,0 +1,80 @@
+.communitycard-container {
+    width: 90%;
+    height: 200rpx;
+    background-color: #F9F2E7;
+    border-radius: 15rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20rpx auto;
+    padding: 4%;
+}
+
+.headpic{
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.communitycard-name{
+    font-weight: 400;
+    font-size: medium;
+}
+
+.communitycard-school{
+    font-weight: 200;
+    font-size: small;
+}
+
+.communitycard-header{
+    display: flex;
+    align-items: center;
+}
+
+.communitycard-footer{
+    display: flex;
+    width: 40%;
+    margin-top: 10rpx;
+}
+
+.communitycard-footer image{
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.communitycard-icon {
+  margin-left: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.communitycard-icon text{
+  margin-left: 10rpx;
+}
+
+.communitycard-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 20rpx;
+}
+
+.communitycard-type{
+    width: 180rpx;
+    height: 90rpx;
+    margin-left: 160rpx;
+}
+
+.communitycard-content {
+  margin-left: 10rpx;
+  font-weight: 400;
+}
+
+.hr{
+    height: 3rpx;
+    width: 100%;
+    background-color: gainsboro;
+    margin-top: 20rpx;
+}

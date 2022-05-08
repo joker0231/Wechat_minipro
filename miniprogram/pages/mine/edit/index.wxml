@@ -1,0 +1,52 @@
+<van-cell title="头像" is-link />
+<image src="{{src}}"/>
+<van-cell title="姓名" bind:click="showname" is-link value="{{name}}" />
+<van-cell title="性别" bind:click="showsex" is-link value="{{sex}}" />
+<van-cell title="学校" bind:click="showschool" is-link value="{{school}}" />
+<van-cell title="年级" bind:click="showgrade" is-link value="{{grade}}" />
+<van-cell title="班级" bind:click="showclass" is-link value="{{classes}}" />
+<van-cell title="手机号" bind:click="showphone" is-link value="{{phone}}" />
+<van-action-sheet show="{{ showname }}" bind:close="closename" title="修改姓名">
+    <view class="edit-container">
+        <input placeholder="请输入姓名"></input>
+        <button style="width: 500rpx; margin-bottom:30rpx">确定</button>
+    </view>
+</van-action-sheet>
+<van-action-sheet show="{{ showsex }}" bind:close="closesex" title="修改性别">
+    <view class="edit-container">
+        <button style="width: 500rpx">男</button>
+        <button style="width: 500rpx; margin-bottom:30rpx">女</button>
+    </view>
+</van-action-sheet>
+<van-action-sheet show="{{ showgrade }}" bind:close="closegrade" title="修改年级">
+    <view class="grades-container">
+        <view style="margin-left: 32rpx;">小学</view>
+        <view class="grade-container">
+            <view>一年级</view>
+            <view>二年级</view>
+            <view>三年级</view>
+            <view>四年级</view>
+            <view>五年级</view>
+            <view>六年级</view>
+        </view>
+        <view style="margin-left: 32rpx;">初中</view>
+        <view class="grade-container">
+            <view>初一</view>
+            <view>初二</view>
+            <view>初三</view>
+        </view>
+        <button style="width: 500rpx; margin-bottom:30rpx">确定</button>
+    </view>
+</van-action-sheet>
+<van-action-sheet show="{{ showclass }}" bind:close="closeclass" title="修改班级">
+    <view class="edit-container">
+        <input placeholder="请输入1-99的数字"></input>
+        <button style="width: 500rpx; margin-bottom:30rpx">确定</button>
+    </view>
+</van-action-sheet>
+<van-action-sheet show="{{ showphone }}" bind:close="closephone" title="修改手机号">
+    <view class="edit-container">
+        <input placeholder="请输入手机号"></input>
+        <button style="width: 500rpx; margin-bottom:30rpx">确定</button>
+    </view>
+</van-action-sheet>

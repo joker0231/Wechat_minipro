@@ -1,0 +1,26 @@
+<view class="communitycard-container">
+    <view class="communitycard-header">
+        <image class="headpic" src="{{headpic}}"></image>
+        <view class="communitycard-info">
+            <view class="communitycard-name">{{name}}</view>
+            <view class="communitycard-school">{{info}}</view>
+        </view>
+        <image class="communitycard-type" src="{{src}}"/>
+    </view>
+    <view class="communitycard-content">{{content}}</view>
+    <view class="hr"/>
+    <view class="communitycard-footer">
+        <view class="communitycard-icon">
+            <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/like.png?sign=9feaf469589033a255519e13e9a9d5ce&t=1651709599"></image>
+            <text>{{like}}</text>
+        </view>
+        <view class="communitycard-icon">
+            <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/comment.png?sign=22f441cf4a6b16d16a34cdfe756b46ec&t=1651709555"></image>
+            <text>{{comment}}</text>
+        </view>
+        <view class="communitycard-icon">
+            <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/love.png?sign=11ab881289c17626869c8abf5970740c&t=1651709579"></image>
+            <text>{{favour}}</text>
+        </view>
+    </view>
+</view>

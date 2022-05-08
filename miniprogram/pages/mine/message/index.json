@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+  "van-tab": "@vant/weapp/tab/index",
+  "van-tabs": "@vant/weapp/tabs/index",
+    "mine_message": "/components/mine_message/mine_message",
+    "mine_friend": "/components/mine_friend/mine_friend",
+    "mine_reply": "/components/mine_reply/mine_reply"
+  }
+}

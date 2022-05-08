@@ -1,0 +1,4 @@
+<view class="post-container">
+    <community_post type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+    <community_post type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+</view>

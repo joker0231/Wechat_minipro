@@ -1,0 +1,6 @@
+<view class="communityclass-container">
+    <view class="classpic-bg">
+        <image class="classpic" src="{{src}}"></image>
+    </view>
+    <view class="classname">{{name}}</view>
+</view>

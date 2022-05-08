@@ -1,0 +1,10 @@
+<view class="reply-container">
+    <view class="viewer-content">
+        <image src="{{viewer_headpic}}"/>
+        <view class="reply-info">
+            <view class="reply-name">{{viewer_name}}回复了你的帖子：</view>
+            <view class="reply-reply">{{reply}}</view>
+        </view>
+    </view>
+    <community_post type="{{type}}" comment="{{comment}}" favour="{{favour}}" like="{{like}}" content="{{post_content}}" info="{{author_info}}" name="{{author_name}}" headpic="{{author_pic}}"/>
+</view>

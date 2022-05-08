@@ -1,0 +1,30 @@
+<view>
+    <view class="com-container">
+        <view class="com-bg">
+            <text>专区答疑</text>
+            <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
+                <community_headpic name="lily"/>
+                <community_headpic name="lily"/>
+                <community_headpic name="lily"/>
+                <community_headpic name="lily"/>
+                <community_headpic name="lily"/>
+            </scroll-view>
+        </view>
+
+        <view class="com-bg">
+            <view class="com-cardhead">
+                <view class="community-filter">
+                    <text>年级</text>
+                    <image class="com-down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
+                </view>
+            </view>
+            <view class="com-cardcontainer">
+                <community_post type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post type="课程" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post type="课程" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+            </view>
+        </view>
+    </view>
+</view>

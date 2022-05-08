@@ -1,0 +1,17 @@
+<view>
+    <van-tabs active="{{ active }}" bind:change="onChange" title-active-color="#7B4D12" color="#FACD91">
+        <van-tab title="实时">
+            <mine_message name="tom" content="xxxxx" time="2022年5月4日" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
+            <mine_message name="tom" content="xxxxx" time="2022年5月4日" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
+        </van-tab>
+        <van-tab title="回帖">
+            <view class="message-postcontainer">
+                <mine_reply viewer_headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239" viewer_name="cici" reply="xxxxxxx" type="题目" comment="2" favour="3" like="1" post_content="xxxxx" author_info="学校 班级" author_name="tom" author_pic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
+            </view>
+        </van-tab>
+        <van-tab title="新朋友">
+            <mine_friend name="tom" school="学校 年级" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
+            <mine_friend name="tom" school="学校 年级" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
+        </van-tab>
+    </van-tabs>
+</view>

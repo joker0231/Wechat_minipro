@@ -10,10 +10,15 @@
 
     "pages/exercise/index/index",
     "pages/community/index/index",
+    "pages/community/classzone/index",
     
     "pages/mine/index/index",
     "pages/mine/checkIn/index",
-    "pages/mine/progress/index"
+    "pages/mine/progress/index",
+    "pages/mine/message/index",
+    "pages/mine/favourite/index",
+    "pages/mine/post/index",
+    "pages/mine/edit/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

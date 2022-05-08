@@ -7,7 +7,7 @@
             </view>
             <text class="class_title">练习</text>
             <view>
-                <image class="class_notes" src=""></image>
+                <image class="exer_notes" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/%E8%AE%B0%E5%BD%95%20(1).png?sign=77c970db2da29fd4408fadf67d9cb469&t=1651655453"></image>
             </view>
         </view>
         <view class="class-navigation">
@@ -19,24 +19,29 @@
 
     <scroll-view class="class-container">
         <view wx:if="{{navState==0}}">
-            <chapter_exercise chapter_num="第一章"/>
             <view class="class-classes">
-                <view class="exer-options">第一章</view>
-                <view class="exer-options">第二章</view>
-                <view class="exer-options">第三章</view>
-                <view class="exer-options">第四章</view>
+                <chapter_exercise chapter_num='第一章'/>
+                <chapter_exercise chapter_num='第二章'/>
+                <chapter_exercise chapter_num='第三章'/>
+                <chapter_exercise chapter_num='第四章'/>
             </view>
         </view>
 
         <view wx:elif="{{navState==1}}">
             <view class="class-classes">
-                <text style="font-size:35rpx">视频</text>
+                <chapter_exercise chapter_num='第一章'/>
+                <chapter_exercise chapter_num='第二章'/>
+                <chapter_exercise chapter_num='第三章'/>
+                <chapter_exercise chapter_num='第四章'/>
             </view>
         </view>
 
         <view wx:else="{{navState==2}}">
             <view class="class-classes">
-                <text style="font-size:35rpx">视频</text>
+                <chapter_exercise chapter_num='第一章'/>
+                <chapter_exercise chapter_num='第二章'/>
+                <chapter_exercise chapter_num='第三章'/>
+                <chapter_exercise chapter_num='第四章'/>
             </view>
         </view>
 

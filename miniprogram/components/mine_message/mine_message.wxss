@@ -1,0 +1,39 @@
+.message-container{
+    width: 80%;
+    border-radius: 30rpx;
+    box-shadow: darkgrey 0 10rpx 10rpx;
+    display: flex;
+    justify-content: space-around;
+    margin: 20rpx auto;
+    background-color: white;
+    padding: 15rpx;
+}
+
+.message-pic{
+    width: 100rpx;
+    height: 110rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.message-info{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.message-name{
+    font-weight: 400;
+    font-size: 33rpx;
+}
+
+.message-content{
+    font-weight: 300;
+    font-size: 32rpx;
+}
+
+.message-time{
+    color: #B2B2B2;
+    font-size: 20rpx;
+}
+
