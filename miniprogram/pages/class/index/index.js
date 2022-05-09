@@ -36,4 +36,9 @@ Page({
             navState:index
         })
     },
+    clickToSeach: function() {
+        wx.navigateTo({
+          url: '/pages/class/class_search/index',
+        })
+    }
 });

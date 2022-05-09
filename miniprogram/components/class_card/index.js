@@ -22,6 +22,10 @@ Component({
         is_collected: {
             type: Boolean,
             value: false
+        },
+        type: {   // 类型是 分 class专业课 和 extend拓展课 样式相同 跳转链接和逻辑不同
+            type: String,
+            value: 'class'
         }
         
     },
@@ -44,9 +48,16 @@ Component({
             })
         },
         onClickToDetail: function() {
-            wx.navigateTo({
-              url: '/pages/class/class_detail/index',
-            })
+            if(this.properties.type === 'class') {
+                wx.navigateTo({
+                    url: '/pages/class/class_detail/index',
+                })
+            } else if (this.properties.type === 'extend') {
+                wx.navigateTo({
+                    url: '/pages/class/extend_detail/index',
+                })
+            }
+            
         }
     }
 });

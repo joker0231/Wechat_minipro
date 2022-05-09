@@ -81,6 +81,10 @@
   margin: 20rpx auto;
 } 
 
+.scroll-inner community_post + community_post {
+  margin-top: 20rpx;
+}
+
 
 .class_title {
   display: flex;

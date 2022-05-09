@@ -1,4 +1,4 @@
-<view class="communitycard-container">
+<view class="communitycard-container inner-class">
     <view class="communitycard-header">
         <image class="headpic" src="{{headpic}}"></image>
         <view class="communitycard-info">

@@ -3,7 +3,11 @@ Component({
         multipleSlots: true // 在组件定义时的选项中启用多slot支持
     },
     properties: {
-        chapter_num:String
+        chapter_num:String,
+        showLucky: {
+            type: Boolean,
+            value: true
+        }
     },
     data: {
         isShow: false,
@@ -20,6 +24,11 @@ Component({
                     isShow:true
                 })
             }
+        },
+        clickToQuizOnline: function() {
+            wx.navigateTo({
+              url: '/pages/exercise/exercise_online/index',
+            })
         }
     }
 });

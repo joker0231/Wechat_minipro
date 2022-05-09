@@ -39,6 +39,7 @@
 .exer-down{
     height: 30rpx;
     width: 30rpx;
-    margin-left: 350rpx;
+    margin-left: auto;
     margin-top: 10rpx;
+    margin-right: 34rpx;
 }

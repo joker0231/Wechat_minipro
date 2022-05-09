@@ -1,0 +1,8 @@
+<!--pages/class/class_search/search_result/index.wxml-->
+<view class="if-view"  >
+  <scroll-view class="class-classes">
+  <view wx:for="{{subArray}}" >
+    <class_card inner-class="cardStyle"/>
+  </view>
+  </scroll-view>
+</view>

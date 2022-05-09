@@ -3,15 +3,20 @@
     "pages/login/index/index",
     "pages/login/register/index",
 
+
     "pages/class/index/index",
     "pages/class/class_detail/index",
     "pages/class/extend_detail/index",
-    "pages/class/class_search/index",
+    "pages/class/class_search/index",   "pages/class/class_search/search_result/index",
+
 
     "pages/exercise/index/index",
+    "pages/exercise/exercise_online/index",
+    "pages/exercise/exercise_report/index",    "pages/exercise/exercise_report/report_detail/index",
+
+
     "pages/community/index/index",
     "pages/community/classzone/index",
-    
     "pages/mine/index/index",
     "pages/mine/checkIn/index",
     "pages/mine/progress/index",
@@ -23,7 +28,7 @@
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "萌蛋云乡",
     "navigationBarTextStyle": "black"
   },

@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "classcard": "/components/class_card/index",
+    "class_card": "/components/class_card/index",
     "van-toast": "@vant/weapp/toast/index"
   }
 }

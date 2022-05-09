@@ -18,13 +18,6 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/class/index/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
           "pathName": "pages/mine/progress/index",
           "query": "",
           "launchMode": "default",
@@ -85,6 +78,27 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mine/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/exercise/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/exercise/exercise_online/index",
+          "query": "",
+          "scene": null,
+          "launchMode": "default"
         }
       ]
     }

@@ -1,12 +1,13 @@
 <view class="detail_container">
   <view id="outer">
-    <text id="text">课程名称</text>
+    <!-- <text id="text">课程名称</text> -->
     <video id="myVideo" src="https://cdn.ekko306.top/wx/temp.mp4" danmu-list="{{danmuList}}" controls></video>
   </view>
   <view class="detail-tabs">
     <van-tabs class="my-style" active="intro" bind:change="onChange" color="rgb(255,255,128)" line-width="120rpx" line-height="8rpx">
     <van-tab title="课程简介" name="intro">
       <scroll-view scroll-y="true" class="scroll-outer" style="{{dynamicStyle}}">
+        <view style="content: ''; overflow: hidden;"></view>
         <view class="scroll-inner">
           <view class="class_title">
             <text>课程名称</text>
@@ -100,12 +101,33 @@
             <view>课程简介</view>
             <view>课程简介</view>
           </view>
-          
         </view>
       </scroll-view>
     </van-tab>
-    <van-tab title="课程目录" name="toc">内容 2</van-tab>
-    <van-tab title="讨论区" name="discuss">内容 3</van-tab>
+    <van-tab title="课程目录" name="toc">
+      <scroll-view scroll-y="true" class="scroll-outer" style="{{dynamicStyle}}">
+        <view style="content: ''; overflow: hidden;"></view>
+        <view class="scroll-inner">
+          <exercise_chapter showLucky="{{false}}" chapter_num='第一章'/>
+          <exercise_chapter showLucky="{{false}}" chapter_num='第二章'/>
+          <exercise_chapter showLucky="{{false}}" chapter_num='第三章'/>
+          <exercise_chapter showLucky="{{false}}" chapter_num='第四章'/>
+        </view>
+      </scroll-view>
+    </van-tab>
+    <van-tab title="讨论区" name="discuss">
+      <scroll-view scroll-y="true" class="scroll-outer" style="{{dynamicStyle}}">
+        <view style="content: ''; overflow: hidden;"></view>
+        <view class="scroll-inner">
+          <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+          <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+          <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+          <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+          <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+          <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+        </view>
+      </scroll-view>
+    </van-tab>
   </van-tabs>
 </view>
 <!-- <view class="down">

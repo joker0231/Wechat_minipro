@@ -49,7 +49,7 @@
 .class-note{
     height: 50rpx;
     width: 50rpx;
-    margin-right: 25rpx;
+    margin-right: 40rpx;
 }
 
 .class-navigation{

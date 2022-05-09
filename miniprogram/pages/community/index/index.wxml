@@ -18,11 +18,11 @@
         <view class="com-bg">
             <text>课程专区</text>
             <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
-                <community_class src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/chinese.png?sign=1932d521909a69c663a972ba838ae0ad&t=1651672319" name="语文"/>
-                <community_class src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/math.png?sign=ba4907dee17f8b56ef5a91ec4c360c3f&t=1651673015" name="数学"/>
-                <community_class src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/english.png?sign=6617b31f3e811479608812d303ced8b3&t=1651673051" name="英语"/>
-                <community_class src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/physics.png?sign=5d312e8e689a32f6f980621efb9234bf&t=1651673093" name="物理"/>
-                <community_class src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/chem.png?sign=99d651175a990477626cd1c2615aaa2a&t=1651673117" name="化学" />
+                <community_class bindtap="clickToZone" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/chinese.png?sign=1932d521909a69c663a972ba838ae0ad&t=1651672319" name="语文"/>
+                <community_class bindtap="clickToZone" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/math.png?sign=ba4907dee17f8b56ef5a91ec4c360c3f&t=1651673015" name="数学"/>
+                <community_class bindtap="clickToZone" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/english.png?sign=6617b31f3e811479608812d303ced8b3&t=1651673051" name="英语"/>
+                <community_class bindtap="clickToZone" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/physics.png?sign=5d312e8e689a32f6f980621efb9234bf&t=1651673093" name="物理"/>
+                <community_class bindtap="clickToZone" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/chem.png?sign=99d651175a990477626cd1c2615aaa2a&t=1651673117" name="化学" />
             </scroll-view>
         </view>
 

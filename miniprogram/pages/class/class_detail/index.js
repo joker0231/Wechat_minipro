@@ -13,10 +13,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    wx.setNavigationBarTitle({
+      title: '动态课程名称',
+    })
+
     let screenHeight = wx.getSystemInfoSync().windowHeight
     let screenWidth = wx.getSystemInfoSync().windowWidth
     let ratio = 750 / screenWidth;
     let rpxScreenHeight = screenHeight * ratio
+
 
 
     wx.createSelectorQuery().select('#outer').boundingClientRect(rect=>{

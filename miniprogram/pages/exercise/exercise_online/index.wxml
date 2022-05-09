@@ -1,0 +1,55 @@
+<view class="exercise_header">
+  <view class="show_index">{{index + 1 + '/' + exercise.length}}</view>
+  <view class="title-first">第x章 主题名称</view>
+  <image  bindtap="showPopup" class="sheet" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/answer_sheet.png?sign=821e7183b208e4871c406ca97b0b1a9e&t=1652085450"></image>
+</view>
+<view class="exercise_content"> 
+  <swiper class="swiper" current="{{index}}" bindchange="onChange">
+    <swiper-item class="swiper-item" wx:for="{{exercise}}">
+      <view class="card">
+        <scroll-view class="scroll" scroll-y="true">
+          <view class="title">{{item.title}}</view>
+
+          <!-- 选择题情况 -->
+          <view class="choice" wx:if="{{item.type === 'choice'}}">
+            <view class="small-choice" wx:for="{{item.choices}}">
+              <view class="small-choice-text">{{item}}</view>
+            </view>
+          </view>
+
+          <!-- 简答题情况 -->
+          <view class="text" wx:if="{{item.type === 'text'}}">
+            本题为简答题哦！可在下方填写思路以便在答题报告对比！
+            <view class="field">
+              <van-field
+                class="field"
+                value="{{ message }}"
+                type="textarea"
+                placeholder="请输入简答思路"
+                autosize
+                border="{{ false }}"
+              />
+            </view>
+          </view>
+          
+          
+        </scroll-view>
+
+        <view class="two-buttons">
+          <view wx:if="{{index !== 0}}" bindtap="onClickPrev">上一题</view>
+          <view wx:if="{{index !== exercise.length-1}}" class="second-button" bindtap="onClickNext">下一题</view>
+          <view wx:if="{{index === exercise.length-1}}" bindtap="clickToReport">提交</view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <van-popup 
+    show="{{ show }}"
+    round
+    position="bottom"
+    custom-style="height: 30%"
+    bind:close="onClose"
+  >
+    内容
+  </van-popup>
+</view>
