@@ -108,10 +108,10 @@
       <scroll-view scroll-y="true" class="scroll-outer" style="{{dynamicStyle}}">
         <view style="content: ''; overflow: hidden;"></view>
         <view class="scroll-inner">
-          <exercise_chapter showLucky="{{false}}" chapter_num='第一章'/>
-          <exercise_chapter showLucky="{{false}}" chapter_num='第二章'/>
-          <exercise_chapter showLucky="{{false}}" chapter_num='第三章'/>
-          <exercise_chapter showLucky="{{false}}" chapter_num='第四章'/>
+          <class_chapter showLucky="{{false}}" chapter_num='第一章'/>
+          <class_chapter showLucky="{{false}}" chapter_num='第二章'/>
+          <class_chapter showLucky="{{false}}" chapter_num='第三章'/>
+          <class_chapter showLucky="{{false}}" chapter_num='第四章'/>
         </view>
       </scroll-view>
     </van-tab>

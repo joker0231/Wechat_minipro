@@ -1,10 +1,10 @@
 <view class="exercise_header">
-  <view class="show_index">{{index + 1 + '/' + exercise.length}}</view>
+  <view class="show_index">{{current + 1 + '/' + exercise.length}}</view>
   <view class="title-first">第x章 主题名称</view>
   <image  bindtap="showPopup" class="sheet" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/answer_sheet.png?sign=821e7183b208e4871c406ca97b0b1a9e&t=1652085450"></image>
 </view>
 <view class="exercise_content"> 
-  <swiper class="swiper" current="{{index}}" bindchange="onChange">
+  <swiper class="swiper" current="{{current}}" bindchange="onChange">
     <swiper-item class="swiper-item" wx:for="{{exercise}}">
       <view class="card">
         <scroll-view class="scroll" scroll-y="true">
@@ -13,7 +13,8 @@
           <!-- 选择题情况 -->
           <view class="choice" wx:if="{{item.type === 'choice'}}">
             <view class="small-choice" wx:for="{{item.choices}}">
-              <view class="small-choice-text">{{item}}</view>
+              <view wx:if="{{user_input[current] !== index + ''}}" bindtap="onClickChoice" data-choiceIndex="{{index}}" class="small-choice-text">{{item}}</view>
+              <view wx:else style="background-color: orange;color: white;" bindtap="onClickChoice" data-choiceIndex="{{index}}" class="small-choice-text">{{item}}</view>
             </view>
           </view>
 
@@ -28,6 +29,7 @@
                 placeholder="请输入简答思路"
                 autosize
                 border="{{ false }}"
+                bind:change="onInput"
               />
             </view>
           </view>
@@ -36,20 +38,42 @@
         </scroll-view>
 
         <view class="two-buttons">
-          <view wx:if="{{index !== 0}}" bindtap="onClickPrev">上一题</view>
-          <view wx:if="{{index !== exercise.length-1}}" class="second-button" bindtap="onClickNext">下一题</view>
-          <view wx:if="{{index === exercise.length-1}}" bindtap="clickToReport">提交</view>
+          <view wx:if="{{current !== 0}}" bindtap="onClickPrev">上一题</view>
+          <view wx:if="{{current !== exercise.length-1}}" class="second-button" bindtap="onClickNext">下一题</view>
+          <view wx:if="{{current === exercise.length-1}}" bindtap="clickToReport">提交</view>
         </view>
       </view>
     </swiper-item>
   </swiper>
   <van-popup 
     show="{{ show }}"
-    round
+    closeable
+    close-icon="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/no.png?sign=321eefe94306fc0384371e054a515654&t=1652169259"
+    close-icon-position="top-left"
     position="bottom"
-    custom-style="height: 30%"
+    custom-style="height: 354rpx"
     bind:close="onClose"
   >
-    内容
+    <view class="pop-title">答题卡</view>
+    <view class="pop-scroll-wrapper">
+      <scroll-view class="pop-scroll" scroll-y="true" scroll-x="true" enable-flex="true">
+        <view class="pop-dots-wrapper">
+          <view data-inputindex="{{index}}" bindtap="onClickPopDot" class="pop-dot-wrapper" wx:for="{{exercise}}">
+            <!-- 没做完颜色 蓝色 -->
+            <view wx:if="{{user_input[index] === ''}}" class="pop-dot">
+              {{index + 1}}
+            </view>
+
+            <!-- 做完颜色 橘色 -->
+            <view wx:else style="background-color: #ffff80" class="pop-dot">
+              {{index + 1}}
+            </view>
+          </view>
+
+    
+        </view>
+      </scroll-view>
+    </view>
+    <view class="pop-submit" bindtap="clickToReport">直接提交</view>
   </van-popup>
 </view>

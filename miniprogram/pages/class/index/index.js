@@ -1,6 +1,6 @@
 Page({
     data: {
-        navState: 2,
+        navState: 0,
         classArray: [
             {
                 title: '语文',

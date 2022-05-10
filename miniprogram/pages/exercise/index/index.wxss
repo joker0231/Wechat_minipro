@@ -65,7 +65,7 @@
 .class-container{
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 682rpx;
     margin: 0 auto;
     position: relative;
     top: 180rpx;

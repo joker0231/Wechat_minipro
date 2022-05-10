@@ -7,6 +7,10 @@ Component({
         showLucky: {
             type: Boolean,
             value: true
+        },
+        forExercise: {
+            type: Boolean,
+            value: false
         }
     },
     data: {
@@ -26,9 +30,12 @@ Component({
             }
         },
         clickToQuizOnline: function() {
-            wx.navigateTo({
-              url: '/pages/exercise/exercise_online/index',
-            })
+            if(this.data.forExercise) {
+                wx.navigateTo({
+                    url: '/pages/exercise/exercise_online/index',
+                })
+            }
+            
         }
     }
 });

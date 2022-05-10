@@ -98,6 +98,12 @@
   font-size: 28rpx;
   width: 594rpx;
   margin: 40rpx 0;
+  
+}
+
+.small-choice-text {
+  min-height: 76rpx;
+  line-height: 76rpx;
   padding-left: 20rpx;
   border-radius: 30rpx;
   background-color: #fffeb1;
@@ -105,13 +111,6 @@
   font-family: 'ArialMT', 'Arial', sans-serif;
   color: #333333;
   overflow: hidden;
-}
-
-.small-choice-text {
-  min-height: 76rpx;
-  line-height: 76rpx;
-  /* margin-top: 18rpx;
-  margin-bottom: 18rpx; */
 }
 
 
@@ -128,4 +127,63 @@
 .field {
   --field-input-text-color: rgb(239,179,54);
   --cell-horizontal-padding: 0rpx;
+}
+
+.pop-title {
+  margin-top: 28rpx;
+  margin-left: 110rpx;
+  font-size: 34rpx;
+}
+
+.pop-scroll {
+  width: 530rpx;
+  height: 80rpx;
+}
+
+.pop-scroll-wrapper {
+  margin: 60rpx 110rpx 0;
+  height: 80rpx;
+  /* padding-bottom: 30rpx; */
+}
+
+.pop-dots-wrapper {
+  display: flex;
+  justify-content: start;
+}
+
+/* 猫头鹰选择器hhh */
+.pop-dots-wrapper .pop-dot-wrapper + .pop-dot-wrapper {
+  margin-left: 60rpx;
+}
+
+.pop-dot-wrapper {
+  width: 56rpx;
+  height: 56rpx;
+  flex-shrink: 0;
+}
+
+.pop-dot {
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #b4ebf1;
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pop-submit {
+  width: 282rpx;
+  height: 60rpx;
+  line-height: 60rpx !important;
+  border-radius: 36rpx;
+  background-color: #ffff80;
+  box-sizing: border-box;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #333333;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: normal;
+  margin: 30rpx auto 0;
 }
