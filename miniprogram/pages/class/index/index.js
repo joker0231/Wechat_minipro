@@ -1,6 +1,6 @@
 Page({
     data: {
-        navState: 0,
+        navState: 2,
         classArray: [
             {
                 title: '语文',
@@ -40,5 +40,22 @@ Page({
         wx.navigateTo({
           url: '/pages/class/class_search/index',
         })
+    },
+
+    clickToGame: function(e) {
+        let link = e.currentTarget.dataset.link 
+        // link可能两种参数，一种是：https://ekko306/game1 为webview
+        // 另一种是： /pages/class/game_statc/snake/index 静态本地游戏
+        if(/(http|https):\/\/([\w.]+\/?)\S*/.test(link)) { //网络 webview类型
+            console.log(link, '网络')
+            wx.navigateTo({
+              url: '/pages/class/game_webview/index' + '?link=' + link ,
+            })
+        } else {
+            console.log(link, '本地')
+            wx.navigateTo({
+              url: link,
+            })
+        }
     }
 });

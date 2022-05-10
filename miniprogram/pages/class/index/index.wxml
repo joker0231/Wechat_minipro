@@ -43,6 +43,14 @@
         </view>
 
         <view wx:if="{{navState==2}}">
+            <view class="game_area">
+                <view class="game_tag" data-link="{{item.link}}" bindtap="clickToGame"  wx:for="{{[{title: '组词游戏', link: 'https://ekko306.top/game1/'}, {title: 'westore贪吃蛇', link: '/pages/class/game_static/snake/game'}, {title: '我的博客', link: 'https://ekko306.top'}, {title: '小游戏1', link: ''}, {title: '小游戏1', link: ''} ]}}">
+                    <!-- // 没有背景就用纯色 -->
+                    <view class="game_image"></view>
+                    <!-- <image class="game_image"></image> -->
+                    <view class="game_title">{{item.title}}</view>
+                </view>
+            </view>
         </view>
 
     </scroll-view>

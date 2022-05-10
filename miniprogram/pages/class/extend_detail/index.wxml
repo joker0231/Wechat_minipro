@@ -6,7 +6,7 @@
 <view class="detail_container">
   <scroll-view class="up-view" scroll-y="true" >
     <view class="fixed-header">
-      <text class="extend_name">课程名称</text>
+      <!-- <text class="extend_name">课程名称</text> -->
       <view class="extend_title">
         <text>扩展课标题</text>
         <gl_navigate></gl_navigate>

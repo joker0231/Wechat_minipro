@@ -10,6 +10,6 @@
     wx:if="{{ closeable }}"
     name="cross"
     custom-class="van-tag__close"
-    catch:tap="onClose"
+    bind:click="onClose"
   />
 </view>

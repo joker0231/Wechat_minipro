@@ -101,3 +101,31 @@
 }
 
 
+
+.game_area {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250rpx);
+    grid-auto-rows: 1fr;
+    grid-gap: 40rpx 90rpx;
+    padding: 44rpx 70rpx;
+}
+
+.game_tag {
+    height: 336rpx;
+    width: 260rpx;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20rpx;
+    box-shadow: 10rpx 10rpx 10rpx gainsboro;
+}
+
+.game_image {
+    width: 250rpx;
+    height: 250rpx;
+    border-radius: 50%;
+    background-color: #b4ebf1;
+}
+

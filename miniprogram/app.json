@@ -4,19 +4,26 @@
     "pages/login/register/index",
 
 
+
     "pages/class/index/index",
     "pages/class/class_detail/index",
     "pages/class/extend_detail/index",
     "pages/class/class_search/index",   "pages/class/class_search/search_result/index",
+    "pages/class/game_webview/index",
+    "pages/class/game_static/snake/game",
+    
+
 
 
     "pages/exercise/index/index",
     "pages/exercise/exercise_online/index",
-    "pages/exercise/exercise_report/index",    "pages/exercise/exercise_report/report_detail/index",
+    "pages/exercise/exercise_report/index",   "pages/exercise/exercise_report/report_detail/index",
 
 
     "pages/community/index/index",
     "pages/community/classzone/index",
+
+
     "pages/mine/index/index",
     "pages/mine/checkIn/index",
     "pages/mine/progress/index",

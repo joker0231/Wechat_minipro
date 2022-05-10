@@ -97,6 +97,13 @@
           "name": "",
           "pathName": "pages/exercise/exercise_online/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/class/index/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }
