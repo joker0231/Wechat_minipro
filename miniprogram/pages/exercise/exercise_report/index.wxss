@@ -1,1 +1,225 @@
 /* pages/exercise/quiz_report/index.wxss */
+.scroll {
+  height: 100%;
+  width: 100%;
+}
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #353535;
+  text-align: left;
+  line-height: normal;
+  font-size: 36rpx;
+  margin: 24rpx 0;
+}
+
+.card {
+  padding-bottom: 44rpx;
+  margin: 0 42rpx 24rpx;
+  width: 666rpx;
+  background-color: white;
+  border-radius: 20rpx;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  box-shadow: 4rpx 4rpx 10rpx 0px rgba(0, 0, 0, 0.35);
+}
+
+
+.front {
+  border-radius: 20rpx;
+  height: 220rpx;
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  padding: 0 52rpx;
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 500rpx;
+}
+
+.title-in {
+  font-size: 32rpx;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #353535;
+  line-height: normal;
+  white-space: nowrap;
+  margin-top: 44rpx;
+}
+
+
+.correct {
+  display: flex;
+  margin-top: 34rpx;
+  font-size: 32rpx;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #464646;
+  line-height: normal;
+}
+
+
+.bold {
+  font-size: 34rpx;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #f59a23;
+  text-align: left;
+  line-height: normal;
+  padding: 0 8rpx;
+}
+
+.logo {
+  width: 180rpx;
+  /* justify-self: auto; */
+  height: 190rpx;
+  margin-top: 14rpx;
+}
+
+.hr {
+  height: 10rpx;
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+.back {
+  padding: 42rpx 54rpx 0;
+}
+
+.back-title {
+  font-size: 32rpx;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #353535;
+}
+
+.back-tip {
+  margin-top: 6rpx;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #555555;
+  font-size: 24rpx;
+}
+
+
+.pop-scroll {
+  height: 80rpx;
+}
+
+
+.pop-scroll-wrapper {
+  margin: 34rpx 16rpx 0;
+  height: 80rpx;
+  /* padding-bottom: 30rpx; */
+}
+
+.pop-dots-wrapper {
+  display: flex;
+  justify-content: start;
+}
+
+/* 猫头鹰选择器hhh */
+.pop-dots-wrapper .pop-dot-wrapper + .pop-dot-wrapper {
+  margin-left: 60rpx;
+}
+
+.pop-dot-wrapper {
+  width: 56rpx;
+  height: 56rpx;
+  flex-shrink: 0;
+}
+
+.pop-dot {
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #b4ebf1;
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-mean {
+  display: flex;
+  margin-left: 5rpx;
+  margin-top: 10rpx;
+}
+
+.color-tip {
+  display: flex;
+  height: 20rpx;
+  width: 70rpx;
+  justify-content: space-between;
+}
+
+.color-mean .color-tip + .color-tip {
+  margin-left: 20rpx;
+}
+
+.color-dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+}
+
+.color-text {
+  font-size: 20rpx;
+  height: 20rpx;
+  line-height: 20rpx;
+}
+
+
+.wrong-title {
+  box-sizing: border-box;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #353535;
+  text-align: left;
+  line-height: normal;
+  font-size: 32rpx;
+  margin-top: 64rpx;
+}
+
+
+.card-list {
+  margin: 0 -54rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 22rpx;
+}
+
+.card-list exercise_card + exercise_card {
+   margin-top: 20rpx;
+}
+
+.quit-button {
+    width: 352rpx;
+    border-radius: 72rpx;
+    height: 60rpx;
+    line-height: 60rpx !important;
+    background-color: #ffff80;
+    box-sizing: border-box;
+    font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+    color: #333333;
+    text-align: center;
+    line-height: normal;  
+    margin: 52rpx auto 0;
+    font-size: 28rpx;
+}

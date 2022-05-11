@@ -1,2 +1,62 @@
 <!--pages/exercise/quiz_report/index.wxml-->
-<text>pages/exercise/quiz_report/index.wxml</text>
+<scroll-view class="scroll" scroll-y="true">
+  <view class="wrapper">
+    <view class="title">练习报告</view>
+    <view class="card">
+      <view class="front">
+        <view class="left">
+          <view class="title-in">第x章 主题名称</view>
+          <view class="correct">一共答对<view class="bold">5</view>题</view>
+        </view>
+        <image class="logo" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=9422a33fbe17b9b4643f416ab3ec445b&t=1652256405"></image>
+      </view>
+      <view class="hr"></view>
+      <view class="back">
+        <view class="back-title">答题卡</view>
+        <view class="back-tip">点击题号查看所有题目解析</view>
+        <view class="pop-scroll-wrapper">
+          <scroll-view class="pop-scroll" scroll-y="true" scroll-x="true" enable-flex="true">
+            <view class="pop-dots-wrapper">
+              <view data-inputindex="{{index}}" bindtap="onClickToDetail" class="pop-dot-wrapper" wx:for="{{exercise}}">
+                <!-- 作对的颜色 绿色 -->
+                <view wx:if="{{index === 1}}" style="background-color: #caf982;" class="pop-dot">
+                  {{index + 1}}
+                </view>
+
+                 <!-- 没做的颜色 蓝绿色 -->
+                 <view wx:elif="{{index === 2}}" style="background-color:  #fb5266" class="pop-dot">
+                  {{index + 1}}
+                </view>
+
+                <!-- 其他：做错的颜色 红色 -->
+                <view wx:else style="background-color: #b4ebf1" class="pop-dot">
+                  {{index + 1}}
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+        <view class="color-mean">
+          <view class="color-tip" wx:for="{{[{a: '#caf982', b: '正确'}, {a: '#fb5266', b: '错误'}, {a: '#b4ebf1', b: '未做'}]}}">
+          <view class="color-dot" style="background-color: {{item.a}};"></view>          
+           <view class="color-text">{{item.b}}</view>
+          </view>
+        </view>
+
+        <view class="wrong-title">
+          错题解析
+        </view>
+        <view class="card-list">
+          <exercise_card inner-class="exercise_card" wx:for="{{['1', '2', '3', '4']}}" content="1.xxxxxxx" option="xxxxxx" resolution="解析：xxxxxxxx"/>
+        </view>
+
+
+        <!-- // 还有这里超过边界好看吗hh？ -->
+
+        <!-- // 左上角可以退出 这里也可以滑到很下面点击退出 -->
+        <view class="quit-button" bindtap="clickQuit">关闭报告</view>
+        
+      </view>
+    </view>
+  </view>
+</scroll-view>

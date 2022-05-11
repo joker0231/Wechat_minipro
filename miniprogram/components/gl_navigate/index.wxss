@@ -1,4 +1,3 @@
-/* components/gl_naviagte/index.wxss */
 .naviagte_wrap {
   display: flex;
   

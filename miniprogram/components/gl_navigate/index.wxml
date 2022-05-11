@@ -1,4 +1,3 @@
-<!--components/gl_naviagte/index.wxml-->
 <!-- 通用用户跳转组件 三个按钮 分别是发帖 发起在线聊天 和收藏 -->
 <!-- 对应肯定很多接口 或者唤起pop层啥的 先搞静态吧慢慢来 还可以加入动态参数  -->
 <!-- suggestions chat love -->

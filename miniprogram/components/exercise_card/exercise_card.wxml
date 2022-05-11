@@ -1,4 +1,4 @@
-<view class="exercisecard-container">
+<view class="exercisecard-container inner-class">
     <view class="exercisecard-content">{{content}}</view>
     <view class="exercisecard-option">{{option}}</view>
     <view class="exercisecard-resolution">{{resolution}}</view>

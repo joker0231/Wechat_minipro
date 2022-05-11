@@ -95,7 +95,7 @@
         },
         {
           "name": "",
-          "pathName": "pages/exercise/exercise_online/index",
+          "pathName": "pages/exercise/exercise_report/report_detail/index",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -103,6 +103,20 @@
         {
           "name": "",
           "pathName": "pages/class/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/exercise/exercise_report/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/exercise/exercise_online/index",
           "query": "",
           "scene": null,
           "launchMode": "default"

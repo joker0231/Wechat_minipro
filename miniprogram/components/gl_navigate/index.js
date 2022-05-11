@@ -1,4 +1,3 @@
-// components/gl_naviagte/index.js
 Component({
   externalClasses: ['inner-class'],
   /**

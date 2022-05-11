@@ -126,7 +126,7 @@ Page({
       success (res) {
         if (res.confirm) {
           console.log('用户点击确定')
-          wx.navigateTo({
+          wx.redirectTo({
             url: '/pages/exercise/exercise_report/index',
           })
         } else if (res.cancel) {

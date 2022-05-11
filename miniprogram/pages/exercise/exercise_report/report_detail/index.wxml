@@ -1,2 +1,59 @@
-<!--pages/exercise/exercise_report/report_detail/index.wxml-->
-<text>pages/exercise/exercise_report/report_detail/index.wxml</text>
+<!-- 大部分抄袭exercise_online，不同之处：
+1. 用户不能选选择题 输入思路
+2. 展示答案
+3. 展示用户输入（页面传值） exercise_oline exercise_report和report_detail用westore处理传值 
+比如逻辑：这个页面的current也可以用全局传递 上一个页面onclick设置curretn这里用到 就很强
+4. 右上角答题变成了 发帖 在线聊天 收藏三大件 （这里收藏是收藏一道道题目 历史记录是一个个做题报告） -->
+<view class="exercise_header">
+  <view class="show_index">{{current + 1 + '/' + exercise.length}}</view>
+  <view class="title-first">第x章 主题名称</view>
+  <gl_navigate></gl_navigate>
+</view>
+<view class="exercise_content"> 
+  <swiper class="swiper" current="{{current}}" bindchange="onChange">
+    <swiper-item class="swiper-item" wx:for="{{exercise}}">
+      <view class="card">
+        <scroll-view class="scroll" scroll-y="true">
+          <view class="title">{{item.title}}</view>
+
+          <!-- 选择题情况 -->
+          <view class="choice" wx:if="{{item.type === 'choice'}}">
+            <view class="small-choice" wx:for="{{item.choices}}">
+              <view wx:if="{{user_input[current] !== index + ''}}" data-choiceIndex="{{index}}" class="small-choice-text">{{item}}</view>
+              <view wx:else style="background-color: orange;color: white;" data-choiceIndex="{{index}}" class="small-choice-text">{{item}}</view>
+            </view>
+          </view>
+
+          <!-- 简答题情况 -->
+          <view class="text" wx:if="{{item.type === 'text'}}">
+            记录思路：
+            <view class="field">
+              <van-field
+                disabled="{{user_input[current] === ''}}"
+                class="field"
+                value="{{ user_input[current] === '' ? '没有填写思路！' : user_input[current] }}"
+                type="textarea"
+                placeholder="请输入简答思路"
+                autosize
+                border="{{ false }}"
+              />
+            </view>
+          </view>
+          <view class="text">
+            参考答案：
+            <view class="field">
+              <view class="answer">{{answer_array[current]}}</view>
+            </view>
+          </view>
+          
+          
+        </scroll-view>
+
+        <view class="two-buttons">
+          <view wx:if="{{current !== 0}}" bindtap="onClickPrev">上一题</view>
+          <view wx:if="{{current !== exercise.length-1}}" class="second-button" bindtap="onClickNext">下一题</view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
