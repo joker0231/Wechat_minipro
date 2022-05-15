@@ -1,8 +1,8 @@
 /* pages/class/class_search/search_result/index.wxss */
 .if-view {
-  background-color: white;
-  height: 100vh;
   width: 100vw;
+  background-color: white;
+  padding-bottom: 40rpx;
 }
 
 .class-classes {
@@ -10,6 +10,7 @@
   margin: 30rpx auto 0;
   display: flex;
   flex-direction: column;
+  
 }
 
 .if-view view + view {

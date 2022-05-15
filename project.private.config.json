@@ -20,6 +20,27 @@
           "name": "",
           "pathName": "pages/community/classzone/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/community/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/community/post_new/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/community/post_detail/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

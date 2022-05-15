@@ -1,0 +1,128 @@
+/* components/community_comment/index.wxss */
+.comment-card {
+  width: 666rpx;
+  border-bottom:  #ccc3c3 2rpx dashed;
+}
+
+.image {
+  width: 64rpx;
+  height: 64rpx;
+  flex-shrink: 0;
+}
+
+.head {
+  display: flex;
+}
+
+.left {
+  display: flex;
+}
+
+.info {
+  margin-left: 12rpx;
+}
+
+.info-name {
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #464646;
+  text-align: left;
+  line-height: normal;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.info-content {
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+    color: #7f7f7f;
+    font-size: 24rpx;
+}
+
+ 
+.right {
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #b2b2b2;
+  font-size: 22rpx;
+  /* margin-left: auto; */
+  /* width: 156rpx; */
+  margin-left: 22rpx;
+  flex-shrink: 0;
+  width: 576rpx;
+}
+
+.info-up {
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  margin-left: auto;
+}
+
+.act {
+  display: flex;
+  align-items: center;
+}
+
+.act image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.second {
+  margin-left: 20rpx;
+}
+
+.act .num {
+  font-size: 22rpx;
+  margin-left: 6rpx;
+}
+
+.sub-card {
+  width: 608rpx;
+  margin: 20rpx auto;
+  padding: 0 15rpx;
+  border-radius: 12rpx;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+}
+
+.sub-avatar {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 6rpx;
+}
+
+.sub-comment {
+  display: flex;
+  padding: 10rpx 0;
+  border-bottom: #eeeeee 1rpx solid;
+}
+
+.sub-main {
+  margin-left: auto;
+  width: 510rpx;
+}
+
+.sub-name {
+  font-size: 24rpx;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #464646;
+}
+
+.sub-content {
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #7f7f7f;
+  text-align: left;
+  line-height: normal;
+  font-size: 20rpx;
+}

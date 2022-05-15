@@ -1,2 +1,40 @@
 <!--pages/community/postDetail/index.wxml-->
-<text>pages/community/postDetail/index.wxml</text>
+<view class="comment-button">
+    <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/comment.png?sign=b8c037d659ec5a3f7c5df1f2d4d0bad6&t=1652625748"></image>
+  </view>
+<view class="detail_container">
+  <scroll-view class="up-view" scroll-y="true" >
+    <view class="fixed-header">
+      <!-- <text class="extend_name">课程名称</text> -->
+      <view class="extend_title">
+        <view class="big_title">
+          帖子标题
+          <image class="title-image" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/report.png?sign=71ee3d6c8fe4935a74b0266cd03c6e3c&t=1652621924"></image>
+          <view class="report">举报</view>
+        </view>
+        <gl_navigate></gl_navigate>
+      </view>
+      <view class="basic_info">作者 时间信息</view>
+      <class_card inner-class="class_card "></class_card>
+    </view>
+    <view class="rich_text">
+      <rich-text nodes="{{htmlsnip}}"></rich-text>
+      <rich-text nodes="{{htmlsnip}}"></rich-text>
+      <rich-text nodes="{{htmlsnip}}"></rich-text>
+      <!-- <rich-text nodes="{{htmlsnip}}"></rich-text>
+      <rich-text nodes="{{htmlsnip}}"></rich-text>
+      <rich-text nodes="{{htmlsnip}}"></rich-text> -->
+    </view>
+    
+  </scroll-view>
+  <scroll-view class="down-view" scroll-y="true" style="{{dynamicStyle}}">
+    <view class="down-wrapper">
+      <view class="down-title">讨论区</view>
+      <view class="down-list">
+        <community_comment></community_comment>
+        <community_comment></community_comment>
+      </view>
+    </view>
+  </scroll-view>
+  
+</view>

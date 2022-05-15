@@ -41,12 +41,15 @@
                 </view>
             </view>
             <view class="com-cardcontainer">
-                <community_post inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
-                <community_post inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
-                <community_post inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
-                <community_post inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
-                <community_post inner-class="card" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post bindtap="clickToDetail" inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+                <community_post bindtap="clickToDetail" inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+                <community_post bindtap="clickToDetail" inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+                <community_post bindtap="clickToDetail" inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+                <community_post bindtap="clickToDetail" inner-class="card" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
             </view>
         </view>
+    </view>
+    <view bindtap="clickToNewPost" class="post-new">
+        <image class="new-image" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/add.png?sign=c45e2eb29eb082db12ab6ead6e9fcf4e&t=1652584568"></image>
     </view>
 </view>

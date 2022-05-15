@@ -13,5 +13,17 @@ Page({
       wx.navigateTo({
         url: '/pages/community/chat/index',
       })
+    },
+
+    clickToNewPost: function() {
+      wx.navigateTo({
+        url: '/pages/community/post_new/index',
+      })
+    },
+
+    clickToDetail: function() {
+      wx.navigateTo({
+        url: '/pages/community/post_detail/index',
+      })
     }
 });

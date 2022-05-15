@@ -114,3 +114,19 @@
 .second {
     padding: 20rpx 18rpx;
 }
+
+.post-new {
+    width: 100rpx;
+    height: 100rpx;
+    position: fixed;
+    bottom: 40rpx;
+    right: 56rpx;
+    background-color: white;
+    border-radius: 50%;
+}
+
+
+.new-image {
+    width: 100rpx;
+    height: 100rpx;
+}
