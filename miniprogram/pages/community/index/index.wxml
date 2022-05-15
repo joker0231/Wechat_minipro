@@ -1,23 +1,25 @@
 <view>
     <view class="com-header">
+        <!-- 这里乱方法居中哈哈 要么不用flex 用position -->
+        <text class="com-title" style="opacity: 0;">区</text>
         <text class="com-title">社区</text>
         <image class="com-headerpic" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/suggestion.png?sign=8afbdd101253b76c6414a5e98ad1393f&t=1651660017"></image>
     </view>
     <view class="com-container">
         <view class="com-bg">
             <text>在线答疑</text>
-            <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
-                <community_headpic name="lily"/>
-                <community_headpic name="lily"/>
-                <community_headpic name="lily"/>
-                <community_headpic name="lily"/>
-                <community_headpic name="lily"/>
+            <scroll-view class="scroll" scroll-y="true" scroll-x="true" style=" white-space: nowrap; display: flex" >
+                <community_headpic name="lily" bindtap="clickToChat"/>
+                <community_headpic name="lily" bindtap="clickToChat"/>
+                <community_headpic name="lily" bindtap="clickToChat"/>
+                <community_headpic name="lily" bindtap="clickToChat"/>
+                <community_headpic name="lily" bindtap="clickToChat"/>
             </scroll-view>
         </view>
 
         <view class="com-bg">
             <text>课程专区</text>
-            <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
+            <scroll-view scroll-y="true" scroll-x="true" style=" white-space: nowrap; display: flex" >
                 <community_class bindtap="clickToZone" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/chinese.png?sign=1932d521909a69c663a972ba838ae0ad&t=1651672319" name="语文"/>
                 <community_class bindtap="clickToZone" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/math.png?sign=ba4907dee17f8b56ef5a91ec4c360c3f&t=1651673015" name="数学"/>
                 <community_class bindtap="clickToZone" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/english.png?sign=6617b31f3e811479608812d303ced8b3&t=1651673051" name="英语"/>
@@ -26,24 +28,24 @@
             </scroll-view>
         </view>
 
-        <view class="com-bg">
+        <view class="com-bg second">
             <view class="com-cardhead">
-                <text>公共区域</text>
+                <view class="head-text">公共区域</view>
                 <view class="community-filter">
-                    <text>最新</text>
+                    <view class="head-choose-text">最新</view>
                     <image class="com-down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
                 </view>
                 <view class="community-filter">
-                    <text>最热</text>
+                    <view class="head-choose-text">最热</view>
                     <image class="com-down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
                 </view>
             </view>
             <view class="com-cardcontainer">
-                <community_post type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
-                <community_post type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
-                <community_post type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
-                <community_post type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
-                <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+                <community_post inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+                <community_post inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+                <community_post inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+                <community_post inner-class="card" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
             </view>
         </view>
     </view>

@@ -43,7 +43,7 @@ Page({
 
     clickPost: function() {
       wx.navigateTo({
-        url: '/pages/mine/post/index',
+        url: '/pages/mine/post_history/index',
       })
     }
 });

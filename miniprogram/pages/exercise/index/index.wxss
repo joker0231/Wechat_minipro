@@ -11,8 +11,8 @@
 .class-headercontainer{
     display: flex;
     justify-content: space-between;
-    padding-top: 30rpx;
     height: 48rpx;
+    padding: 30rpx 40rpx 0;
 }
 
 .down{
@@ -25,7 +25,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 40rpx;
     height: 100%;
 }
 
@@ -38,6 +37,7 @@
 .class-title{
     font-weight: bold;
     font-size: large;
+    transform: translateX(-50%);
 }
 
 .class-search{
@@ -49,7 +49,6 @@
 .class-note{
     height: 50rpx;
     width: 50rpx;
-    margin-right: 40rpx;
 }
 
 .class-navigation{

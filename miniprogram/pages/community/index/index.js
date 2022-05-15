@@ -8,5 +8,10 @@ Page({
         wx.navigateTo({
           url: '/pages/community/classzone/index',
         })
+    },
+    clickToChat: function() {
+      wx.navigateTo({
+        url: '/pages/community/chat/index',
+      })
     }
 });
