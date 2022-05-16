@@ -18,28 +18,21 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/community/classzone/index",
+          "pathName": "pages/mine/favourite/index",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
           "name": "",
-          "pathName": "pages/community/index/index",
+          "pathName": "pages/mine/record/index",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
           "name": "",
-          "pathName": "pages/community/post_new/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/community/post_detail/index",
+          "pathName": "pages/mine/post_history/index",
           "query": "",
           "scene": null,
           "launchMode": "default"

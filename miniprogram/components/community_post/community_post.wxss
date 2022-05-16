@@ -7,8 +7,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
     padding: 24rpx 0 16rpx 34rpx;
 }
 

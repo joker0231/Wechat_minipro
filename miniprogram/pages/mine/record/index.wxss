@@ -1,0 +1,36 @@
+/* pages/mine/record/index.wxss */
+
+.favourite-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+
+classcard {
+  margin: 0 auto;
+}
+
+community_post {
+  margin: 0 auto;
+}
+
+exercise_report {
+  margin: 0 auto;
+}
+
+
+.favourite-container classcard + classcard {
+  margin-top: 20rpx;
+}
+
+
+.favourite-container community_post + community_post {
+  margin-top: 20rpx;
+}
+
+.favourite-container exercise_report + exercise_report {
+  margin-top: 20rpx;
+}
+

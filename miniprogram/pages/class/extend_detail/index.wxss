@@ -102,3 +102,8 @@
 .down-list community_post + community_post {
   margin-top: 20rpx;
 }
+
+community_post {
+  margin-left: auto;
+  margin-right: auto;
+}

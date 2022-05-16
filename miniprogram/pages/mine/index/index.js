@@ -45,5 +45,23 @@ Page({
       wx.navigateTo({
         url: '/pages/mine/post_history/index',
       })
+    },
+
+    clickToSpace: function() {
+      wx.navigateTo({
+        url: '/pages/mine/space/index',
+      })
+    },
+
+    clickToRecord: function() {
+      wx.navigateTo({
+        url: '/pages/mine/record/index',
+      })
+    },
+
+    clickToFriendList: function() {
+      wx.navigateTo({
+        url: '/pages/mine/friendList/index',
+      })
     }
 });
