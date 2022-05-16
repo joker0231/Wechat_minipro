@@ -1,0 +1,35 @@
+<!--pages/class/class_search/index.wxml-->
+<view class="search-wrap">
+  <van-field
+    type="text"
+    confirm-type="搜索"
+    value="{{ value }}"
+    placeholder="请输入用户名"
+    border="{{ false }}"
+    bind:change="onChange"
+    left-icon="search"
+    class="my-input"
+    bind:confirm="onConfirm"
+  />
+
+  <view class="search-title">搜索记录</view>
+
+  <view class="grid-tags" bind:tap="onConfirmTag">
+  <view wx:for="{{tags}}" >
+    <van-tag
+      wx:if="true"
+      closeable
+      size="medium"
+      type="primary"
+      id="{{index}}"
+      catchclose="onClose"
+      color="#f2f2f2"
+      text-color="#333333"
+    >
+      {{item}}
+    </van-tag>
+  </view>
+    
+    
+  </view>
+</view>

@@ -1,4 +1,5 @@
 Component({
+    externalClasses: ['inner-class'],
     options: {
         multipleSlots: true // 在组件定义时的选项中启用多slot支持
     },
@@ -12,9 +13,13 @@ Component({
                 this.setData({
                     src: this.data.allsrc[1]
                 })
-            }else {
+            }else if(this.properties.type == "题目") {
                 this.setData({
                     src: this.data.allsrc[2]
+                })
+            } else {
+                this.setData({
+                    src: ''
                 })
             }
         },

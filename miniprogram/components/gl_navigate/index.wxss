@@ -1,0 +1,9 @@
+.naviagte_wrap {
+  display: flex;
+  
+}
+
+.naviagte_wrap image {
+  width: 46rpx;
+  height: 46rpx;
+}

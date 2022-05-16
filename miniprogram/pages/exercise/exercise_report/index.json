@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "exercise_card": "/components/exercise_card/exercise_card"
+  }
+}

@@ -1,0 +1,37 @@
+<!--components/community_comment/index.wxml-->
+<view class="comment-card">
+  <view class="head">
+    <view class="left">
+      <image class="image" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/normal_u43.png?sign=8c8b0377b5ccc87c86aa6843341006d9&t=1652622676"></image>
+    </view>
+    
+    <view class="right">
+
+        <view class="info-up">
+          <view class="info-name">姓名</view>
+            <view class="time">
+              xxxx年xx月xx日
+            </view>
+        </view>
+        <view class="info-content">评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</view>
+      </view>
+
+  </view>
+  <view class="act">
+    <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/like.png?sign=0f139e9366ea7207072289f853d8c0e7&t=1652624194"></image>
+    <view class="num">1</view>
+    <image class="second" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/comment.png?sign=6f9ad16e30fedb72bec126ee73918fc0&t=1652624237"></image>
+    <view class="num">2</view>
+  </view>
+  <view class="sub-card">
+    <view class="sub-comment" wx:for="{{[{avatar: 'https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/normal_u43.png?sign=8c8b0377b5ccc87c86aa6843341006d9&t=1652622676', name: '姓名', content: '评论内容'}, {avatar: 'https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/normal_u43.png?sign=8c8b0377b5ccc87c86aa6843341006d9&t=1652622676', name: '姓名', content: '评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容'}]}}">
+      <image class="sub-avatar" src="{{item.avatar}}"></image>
+      <view class="sub-main">
+        <view class="sub-name">{{item.name}}</view>
+        <view class="sub-content">{{item.content}}</view>
+      </view>
+      <view></view>
+    </view>
+  </view>
+
+</view>

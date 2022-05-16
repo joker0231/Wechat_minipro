@@ -20,5 +20,48 @@ Page({
       wx.navigateTo({
         url: '/pages/mine/progress/index',
       })
+    },
+
+    clickFavourite: function() {
+      wx.navigateTo({
+        url: '/pages/mine/favourite/index',
+      })
+    },
+
+    clickEdit: function() {
+      wx.navigateTo({
+        url: '/pages/mine/edit/index',
+      })
+    },
+
+
+    clickMessage: function() {
+      wx.navigateTo({
+        url: '/pages/mine/message/index',
+      })
+    },
+
+    clickPost: function() {
+      wx.navigateTo({
+        url: '/pages/mine/post_history/index',
+      })
+    },
+
+    clickToSpace: function() {
+      wx.navigateTo({
+        url: '/pages/mine/space/index',
+      })
+    },
+
+    clickToRecord: function() {
+      wx.navigateTo({
+        url: '/pages/mine/record/index',
+      })
+    },
+
+    clickToFriendList: function() {
+      wx.navigateTo({
+        url: '/pages/mine/friendList/index',
+      })
     }
 });

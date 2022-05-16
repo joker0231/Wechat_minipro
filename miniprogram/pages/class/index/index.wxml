@@ -7,7 +7,7 @@
             </view>
             <text class="class-title">上课</text>
             <view>
-                <image class="class-search" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/search.png?sign=9b4ef3ba117fbf72437677fc2cffe9bc&t=1651407998"></image>
+                <image bindtap="clickToSeach"  class="class-search" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/search.png?sign=9b4ef3ba117fbf72437677fc2cffe9bc&t=1651407998"></image>
                 <image class="class-note" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/%E8%AE%B0%E5%BD%95%20(1).png?sign=7122b1a872a180fc692544f0f2d6212d&t=1651408047"></image>
             </view>
         </view>
@@ -18,35 +18,41 @@
         </view>
     </view>
     <scroll-view class="class-container">
-        <view wx:if="{{navState==0}}">
+        <view class="if-view" wx:if="{{navState==0}}" wx:for="{{classArray}}">
             <view class="class-classes">
-                <text style="font-size:35rpx">语文</text>
-                <classcard/>
-            </view>
-            <view class="class-classes">
-                <text style="font-size:35rpx">数学</text>
-                <classcard/>
-            </view>
-            <view class="class-classes">
-                <text style="font-size:35rpx">英语</text>
-                <classcard/>
+                <text>{{item.title}}</text>
+                <!-- 不能用猫头鹰选择器 -->
+                <View style="margin-top: -14rpx">
+                    <view wx:for="{{item.subArray}}">
+                        <class_card inner-class="cardStyle"/>
+                    </view>
+                </View>
             </view>
         </view>
 
-        <view wx:elif="{{navState==1}}">
+        <view class="if-view" wx:if="{{navState==1}}" wx:for="{{extendArray}}">
             <view class="class-classes">
-                <text style="font-size:35rpx">视频</text>
-                <classcard/>
-            </view>
-            <view class="class-classes">
-                <text style="font-size:35rpx">文本</text>
-                <classcard/>
-                <classcard/>
+                <text>{{item.title}}</text>
+                <!-- 不能用猫头鹰选择器 -->
+                <View style="margin-top: -14rpx">
+                    <view wx:for="{{item.subArray}}">
+                        <class_card  type="extend" inner-class="cardStyle"/>
+                    </view>
+                </View>
             </view>
         </view>
 
-        <view wx:else="{{navState==2}}">
+        <view wx:if="{{navState==2}}">
+            <view class="game_area">
+                <view class="game_tag" data-link="{{item.link}}" bindtap="clickToGame"  wx:for="{{[{title: '组词游戏', link: 'https://ekko306.top/game1/', color: 'lightgreen'}, {title: 'westore贪吃蛇', link: '/pages/class/game_static/snake/game', color: 'orange'}, {title: '我的博客', link: 'https://ekko306.top', color: 'yellow'}, {title: '小游戏1', link: ''}, {title: '小游戏1', link: ''} ]}}">
+                    <!-- // 没有背景就用纯色 -->
+                    <view class="game_image" style="background-color: {{item.color}};"></view>
+                    <!-- <image class="game_image"></image> -->
+                    <view class="game_title">{{item.title}}</view>
+                </view>
+            </view>
         </view>
 
     </scroll-view>
+    <van-toast id="van-toast" />
 </view>

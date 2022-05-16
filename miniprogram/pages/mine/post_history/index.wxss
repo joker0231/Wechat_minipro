@@ -1,0 +1,18 @@
+.post-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    justify-content: center;
+    margin-top: 20rpx;
+}
+
+
+.post-container community_post + community_post {
+    margin-top: 20rpx;
+}
+
+community_post {
+    margin: 0 auto;
+}

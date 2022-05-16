@@ -1,0 +1,28 @@
+<!--pages/community/post_new/index.wxml-->
+<view class="post-card">
+  <view class="post-select">
+    <view class="select-title">课程选择</view>
+    <image class="com-down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
+  </view>
+  <view class="selected-card">
+    <community_post inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+  </view>
+  <view class="input-content">
+    <scroll-view scroll-y="true" class="scroll">
+      <van-field
+        class="field"
+        show-word-limit="true"
+        maxlength="300"
+        value="{{ message }}"
+        type="textarea"
+        placeholder="请输入发帖详情..."
+        autosize
+        border="{{ false }}"
+      />
+    </scroll-view>
+  </view>
+
+  <van-uploader preview-size="60" file-list="{{ fileList }}" bind:after-read="afterRead" max-count="2"/>
+</view>
+
+<view class="post-button" bindtap="clickPost">发帖</view>

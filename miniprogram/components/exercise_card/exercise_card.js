@@ -1,4 +1,5 @@
 Component({
+    externalClasses: ['inner-class'],
     properties: {
         content: String,
         option:String,

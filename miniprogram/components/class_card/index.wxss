@@ -1,0 +1,81 @@
+.classcard-container{
+    box-sizing: border-box;
+    width: 642rpx;
+    height: 220rpx;
+    background-color: #F9F2E7;
+    border-radius: 15rpx;
+    display: flex;
+    flex-direction: column;
+    padding: 28rpx;
+}
+
+.classcard-header{
+    width: 100%;
+    height: 76rpx;
+    display: flex;
+}
+
+.classcard-header image{
+    width: 76rpx;
+    height: 76rpx;
+    border-radius: 50%;
+}
+
+.classcard-addinfo{
+    font-size: 24rpx;
+    color: #555555;
+}
+
+.classcard-info{
+    margin-left: 24rpx;
+}
+
+.classcard-infotitle {
+    font-size: 32rpx;
+}
+
+.hr{
+    height: 3rpx;
+    width: 100%;
+    background-color: gainsboro;
+}
+
+.classcard-footer{
+    width: 520rpx;
+    /* height: 20%; */
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: -24rpx;
+}
+
+.classcard-footer image{
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: auto;
+    margin-right: 24rpx;
+}
+
+.classcard-teacher{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.classcard-teacher text{
+    font-size: 24rpx;
+    height: 32rpx;
+    color: #888888;
+    font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+}
+
+
+.gray { 
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    
+    filter: grayscale(100%);
+	
+    filter: gray;
+}

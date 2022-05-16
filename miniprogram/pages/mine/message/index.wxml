@@ -1,6 +1,7 @@
 <view>
     <van-tabs active="{{ active }}" bind:change="onChange" title-active-color="#7B4D12" color="#FACD91">
         <van-tab title="实时">
+            <view>建议使用IM的实时消息</view>
             <mine_message name="tom" content="xxxxx" time="2022年5月4日" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
             <mine_message name="tom" content="xxxxx" time="2022年5月4日" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
         </van-tab>
@@ -10,6 +11,7 @@
             </view>
         </van-tab>
         <van-tab title="新朋友">
+            <view>建议使用IM的新好友</view>
             <mine_friend name="tom" school="学校 年级" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
             <mine_friend name="tom" school="学校 年级" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
         </van-tab>

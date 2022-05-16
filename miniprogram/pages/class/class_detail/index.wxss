@@ -1,0 +1,114 @@
+/* pages/class/class_detail/index.wxss */
+.detail_container {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#outer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.down {
+  background-color: pink;
+  width: 100%; 
+  display: flex; 
+  flex-direction: column;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+#text {
+  font-size: 36rpx;
+  color: #353535;
+  padding: 16rpx;
+}
+
+#myVideo {
+  width: 100%;
+  /* height: 440rpx; */
+  flex-shrink: 0;
+  flex-basis: 440rpx;
+}
+
+.scroll {
+  background-color: lightgreen;
+  height: var(--downHeight);
+}
+
+.detail-tabs {
+  width: 100%;
+  flex-grow: 1;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: 20;
+}
+
+.my-style {
+  --tab-font-size: 32rpx;
+}
+
+/* 上面一些属性是demo的属性 */
+
+
+
+.my-style .van-tabs__wrap {
+  height: 112rpx !important;
+  --tabs-line-height: 86rpx;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.35);
+  font-size: 32rpx;
+}
+
+.scroll-outer {
+  height: var(--downHeight);
+}
+
+.scroll-inner {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 700rpx;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  margin: 20rpx auto;
+} 
+
+.scroll-inner community_post + community_post {
+  margin-top: 20rpx;
+}
+
+
+.class_title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 40rpx;
+}
+
+.info {
+  width: 224rpx;
+  height: 32rpx;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #b2b2b2;
+  line-height: normal;
+  font-size: 24rpx;
+}
+
+.intro-title {
+  margin-top: 54rpx;
+  font-size: 34rpx;
+}
+
+.intro-detail {
+  font-size: 28rpx;
+  font-weight: 400;
+}

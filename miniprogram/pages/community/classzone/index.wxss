@@ -18,19 +18,38 @@
 }
 
 .com-bg {
-    width: 90%;
-    margin-top: 20rpx;
-    margin-bottom: 20rpx;
+    width: 100%;
+    margin-top: 32rpx;
+    /* margin-bottom: 20rpx; */
     background-color: #FFFFFF;
     border-radius: 20rpx;
     box-shadow: 10rpx 10rpx 10rpx gainsboro;
-    padding: 20rpx;
+    /* padding: 20rpx; */
+    box-sizing: border-box;
+}
+
+.first {
+    padding: 16rpx 20rpx 0rpx;
+}
+
+.first-title {
+    font-size: 28rpx;
+    width: 56px;
+    height: 19px;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+    color: #353535;
+}
+
+.second {
+    padding: 20rpx 18rpx;
 }
 
 .com-container{
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 682rpx;
     margin: 0 auto;
     position: relative;
     justify-content: center;
@@ -41,22 +60,26 @@
     display: inline;
     height: 25rpx;
     width: 25rpx;
-    margin-left: 10rpx;
-    margin-top: 5rpx;
+    margin-left: 6rpx;
 }
 
 .community-filter {
     display: flex;
     width: 20%;
-    align-content: center;
+    align-items: center;
     justify-content: center;
 }
 
 .community-filter text{
-    font-size: 25rpx;
+    font-size: 28rpx;
 }
 
 .com-cardhead{
     display: flex;
     align-items: center;
+}
+
+.card {
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
 }

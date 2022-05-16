@@ -9,29 +9,29 @@
     </view>
     <view class="mine-personalinfo">
         <view class="mine-mask1"/>
-        <view class="mine-info">
+        <view  bindtap="clickToSpace"  class="mine-info">
             <image class="mine-head" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/tab4.png?sign=459acdf6e3f821719265cdbc523923ef&t=1651474550"></image>
             <view>
                 <view class="mine-name">姓名</view>
                 <view class="mine-school">学校 年级 班级</view>
             </view>
         </view>
-        <image class="right" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/%E5%90%91%E5%8F%B3.png?sign=f10db49242482e86ca50ac5177d18057&t=1651475010"></image>
+        <image  bindtap="clickToSpace"  class="right" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/%E5%90%91%E5%8F%B3.png?sign=f10db49242482e86ca50ac5177d18057&t=1651475010"></image>
     </view>
     <view class="mine-usualtools">
         <view class="mine-mask2"/>
         <text>常用工具</text>
         <view class="hr"/>
         <view class="mine-tools">
-            <view class="mine-tool">
+            <view bindtap="clickMessage" class="mine-tool">
                 <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/news.png?sign=89f299b731c5ae4f78c64251d424ef59&t=1651475202"></image>
                 <view>消息提醒</view>
             </view>
-            <view class="mine-tool">
+            <view bindtap="clickFavourite" class="mine-tool">
                 <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/favourite.png?sign=e7ef7c912ace8f6fecc625f823bf8264&t=1651475293"></image>
                 <view>收藏</view>
             </view>
-            <view class="mine-tool">
+            <view bindtap="clickToRecord" class="mine-tool">
                 <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/notes.png?sign=84f6f51a0867b85c3f2dd5b9bdeee7b8&t=1651475310"></image>
                 <view>学习记录</view>
             </view>
@@ -41,13 +41,13 @@
     <view class="mine-otheroptions">
         <view class="mine-mask3"/>
         <view style="width:85%;margin-top:-17rpx">
-            <view class="mine-option">我的提问</view>
+            <view bindtap="clickPost" class="mine-option">我的提问</view>
             <view class="hr"/>
             <view class="mine-option" bindtap="clickProgress">学习进度</view>
             <view class="hr"/>
-            <view class="mine-option">好友列表</view>
+            <view bindtap="clickToFriendList" class="mine-option">好友列表</view>
             <view class="hr"/>
-            <view class="mine-option">资料编辑</view>
+            <view bindtap="clickEdit" class="mine-option">资料编辑</view>
         </view>
 
     </view>

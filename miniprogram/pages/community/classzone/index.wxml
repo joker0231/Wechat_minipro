@@ -1,7 +1,7 @@
 <view>
     <view class="com-container">
-        <view class="com-bg">
-            <text>专区答疑</text>
+        <view class="com-bg first">
+            <text class="first-title">专区答疑</text>
             <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
                 <community_headpic name="lily"/>
                 <community_headpic name="lily"/>
@@ -11,7 +11,7 @@
             </scroll-view>
         </view>
 
-        <view class="com-bg">
+        <view class="com-bg second">
             <view class="com-cardhead">
                 <view class="community-filter">
                     <text>年级</text>
@@ -19,11 +19,11 @@
                 </view>
             </view>
             <view class="com-cardcontainer">
-                <community_post type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
-                <community_post type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
-                <community_post type="课程" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
-                <community_post type="课程" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
-                <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post inner-class="card" type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post inner-class="card" type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post inner-class="card" type="课程" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post inner-class="card" type="课程" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post inner-class="card" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
             </view>
         </view>
     </view>

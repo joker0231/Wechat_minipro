@@ -1,0 +1,41 @@
+/* pages/class/class_search/index.wxss */
+.my-input {
+  width: 674rpx;
+  margin: 16rpx auto;
+}
+
+
+.my-input .van-cell {
+  border-radius:24rpx;
+  background-color:  #f4f4f4;
+  color:  #c9c9c9;
+  --cell-vertical-padding: 8rpx;
+  --cell-horizontal-padding: 20rpx;
+}
+
+
+.search-wrap {
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.search-title {
+  width: 674rpx;
+  margin: 18rpx auto;
+}
+
+
+.grid-tags {
+  width: 674rpx;
+  margin: 18rpx auto;
+  padding: 7rpx;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 30rpx;
+}

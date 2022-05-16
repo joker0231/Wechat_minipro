@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "gl_navigate": "/components/gl_navigate/index",
+    "community_post": "/components/community_post/community_post",
+    "class_card": "/components/class_card/index",
+    "community_comment": "/components/community_comment/index"
+  }
+}
