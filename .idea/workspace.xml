@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3b9c328-790a-4913-874f-5edb5d093280" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/mine_reply/mine_reply.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/mine_reply/mine_reply.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/mine_reply/mine_reply.wxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniprogram/components/mine_reply/mine_reply.wxss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/components/community_post/community_post.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/community_post/community_post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/components/community_post/community_post.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/community_post/community_post.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/community/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/community/index/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/mine/message/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/mine/message/index.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/mine/message/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/mine/message/index.wxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +52,8 @@
       <option name="presentableId" value="Default" />
       <updated>1651494144412</updated>
       <workItem from="1651494146866" duration="12956000" />
-      <workItem from="1651654151253" duration="35033000" />
+      <workItem from="1651654151253" duration="35576000" />
+      <workItem from="1652372518683" duration="93000" />
     </task>
     <servers />
   </component>
