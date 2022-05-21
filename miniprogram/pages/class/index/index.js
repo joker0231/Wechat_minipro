@@ -1,20 +1,11 @@
 Page({
     data: {
+        index: null,
+        grade: "一年级",
         navState: 0,
-        classArray: [
-            {
-                title: '语文',
-                subArray: ['1', '2', '3']
-            },
-            {
-                title: '数学',
-                subArray: ['1']
-            },
-            {
-                title: '外语',
-                subArray: ['1']
-            }
-        ],
+        showgrade:false,
+        gradebgcolor: '#dfdfdf',
+        classArray: null,
         extendArray: [
             {
                 title: '视频',
@@ -27,8 +18,18 @@ Page({
         ]
     },
     onLoad: function (options) {
-
+      this.getClassByGrade()
     },
+    
+    selectApply:function(e){
+      let index = e.target.dataset.index
+      let grade = e.target.dataset.grade
+       this.setData({
+         index: index,
+         grade: grade
+       })
+   },
+
     navSwitch: function(e) {
         // console.log(e.currentTarget.dataset.index)
         let index = e.currentTarget.dataset.index;
@@ -40,6 +41,106 @@ Page({
         wx.navigateTo({
           url: '/pages/class/class_search/index',
         })
+    },
+
+    showgrade:function (){
+      this.setData({
+          showgrade:true
+      })
+   },
+
+    closegrade: function (){
+      this.setData({
+          showgrade:false
+      })
+    },
+
+    getClassByGrade: function (){
+      wx.cloud.callFunction({
+        name: 'classFunctions',
+        config: {
+          env: 'lemon-7glhwqyu5304e1f9'
+        },
+        data: {
+          type: "getClassByGrade",
+          grade: this.data.grade
+        }
+      }).then((resp) => {
+        let classData = resp.result.data
+        let chinese = []
+        let math = []
+        let english = []
+        let physics = []
+        let chemical = []
+        let biology = []
+        classData.forEach(element => {
+          if(element.subject=="语文"){
+            chinese.push(element)
+          }else if(element.subject=="数学"){
+            math.push(element)
+          }else if(element.subject=="英语"){
+            english.push(element)
+          }else if(element.subject=="物理"){
+            physics.push(element)
+          }else if(element.subject=="化学"){
+            chemical.push(element)
+          }else if(element.subject=="生物"){
+            biology.push(element)
+          }
+        });
+        if(this.data.grade==("初一"||"初二"||"初三")){
+          this.setData({
+            classArray: [
+              {
+                  title: '语文',
+                  subArray: chinese
+              },
+              {
+                  title: '数学',
+                  subArray: math
+              },
+              {
+                  title: '外语',
+                  subArray: english
+              },
+              {
+                  title: '物理',
+                  subArray: physics
+              },
+              {
+                  title: '化学',
+                  subArray: chemical
+              },
+              {
+                  title: '生物',
+                  subArray: biology
+              }
+          ],
+        })
+        }else{
+          this.setData({
+          classArray: [
+            {
+                title: '语文',
+                subArray: chinese
+            },
+            {
+                title: '数学',
+                subArray: math
+            },
+            {
+                title: '外语',
+                subArray: english 
+            },
+          ]
+        })
+        }
+      }).catch((e) => {
+        console.log(e);
+      });
+      this.setData({
+          showgrade:false
+      })
     },
 
     clickToGame: function(e) {
@@ -59,3 +160,4 @@ Page({
         }
     }
 });
+
