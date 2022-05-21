@@ -3,6 +3,10 @@ import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 Component({
     externalClasses: ['inner-class'],
     properties: {
+        classId: {
+            type: String,
+            value: ''
+        },
         title: {
             type: String,
             value: '标题'
@@ -27,7 +31,6 @@ Component({
             type: String,
             value: 'class'
         }
-        
     },
     data: {},
     methods: {
