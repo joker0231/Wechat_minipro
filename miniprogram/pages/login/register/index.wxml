@@ -5,21 +5,21 @@
         <view class="login_mask"/>
         <view class="login_item" style="margin-top:-50rpx">
             <text>姓名</text>
-            <input/>
+            <input bindinput="getName"/>
         </view>
         <view class="login_item">
             <text>手机号</text>
-            <input/>
+            <input bindinput="getAccount"/>
         </view>
         <view class="login_item">
             <text>密码</text>
-            <input/>
+            <input bindinput="getPassword"/>
         </view>
         <view class="login_item">
             <text>性别</text>
             <radio-group>
-                <radio checked="true" color="#F7950CFF"/><text>男</text>
-                <radio color="#F7950CFF" class="radio_left"/><text>女</text>
+                <radio checked="true" color="#F7950CFF" bindtap="changetoman"/><text>男</text>
+                <radio color="#F7950CFF" class="radio_left" bindtap="changetowoman"/><text>女</text>
             </radio-group>
         </view>
         <view class="login_item">
@@ -31,34 +31,37 @@
         </view>
         <view class="login_item">
             <text>学校</text>
-            <input/>
+            <input bindinput="getSchool"/>
         </view>
         <view class="{{register_student}}" >
             <view class="login_item">
                 <text>年级</text>
-                <input/>
+                <view bindtap="showgrade">{{grade}}</view>
             </view>
             <view class="login_item">
                 <text>班级</text>
-                <input/>
+                <input placeholder="请输入1-99的数字" bindinput="getClass" />
             </view>
         </view>
         <view class="{{register_teacher}}">
             <text>擅长科目</text>
-            <checkbox-group>
-                <checkbox color="#F7950CFF">语文</checkbox>
-                <checkbox color="#F7950CFF">数学</checkbox>
-                <checkbox color="#F7950CFF">英语</checkbox>
-                <checkbox color="#F7950CFF">物理</checkbox>
-                <checkbox color="#F7950CFF">化学</checkbox>
-                <checkbox color="#F7950CFF">生物</checkbox>
-                <checkbox color="#F7950CFF">政治</checkbox>
-                <checkbox color="#F7950CFF">地理</checkbox>
-                <checkbox color="#F7950CFF">历史</checkbox>
+            <checkbox-group bindchange="checkboxChange">
+                <checkbox value="语文" color="#F7950CFF">语文</checkbox>
+                <checkbox value="数学" color="#F7950CFF">数学</checkbox>
+                <checkbox value="英语" color="#F7950CFF">英语</checkbox>
+                <checkbox value="物理" color="#F7950CFF">物理</checkbox>
+                <checkbox value="化学" color="#F7950CFF">化学</checkbox>
+                <checkbox value="生物" color="#F7950CFF">生物</checkbox>
+                <checkbox value="政治" color="#F7950CFF">政治</checkbox>
+                <checkbox value="地理" color="#F7950CFF">地理</checkbox>
+                <checkbox value="历史" color="#F7950CFF">历史</checkbox>
             </checkbox-group>
         </view>
         <view>
-            <button class="login_button" style="width: 500rpx; margin-bottom:30rpx">注册</button>
+            <button class="login_button" style="width: 500rpx; margin-bottom:30rpx" bindtap="clickRegister">注册</button>
         </view>
     </view>
 </view>
+<van-action-sheet show="{{ showgrade }}" title="年级" bind:close="closegrade">
+  <van-picker columns="{{ gradelist }}" bind:change="onchangegrade" />
+</van-action-sheet>

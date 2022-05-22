@@ -45,6 +45,15 @@
     padding-left: 20rpx;
 }
 
+.login_item view{
+  background-color: white;
+  height: 60rpx;
+  border-radius: 30rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  padding-left: 20rpx;
+}
+
 radio-group{
     display: flex;
     align-items: center;
@@ -78,7 +87,7 @@ text{
 }
 
 checkbox-group{
-    display: flex;
+    display: flex; 
     flex-wrap: wrap;
     justify-content: flex-start;
 }

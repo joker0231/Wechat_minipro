@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    account: '',
+    password: ''
   },
 
   /**
@@ -64,14 +65,70 @@ Page({
 
   },
 
+  getAccount(event) {
+    this.setData({
+     account: event.detail.value
+    })
+    },
+    //获取用户账号
+  getPassword(event) {
+    this.setData({
+     password: event.detail.value
+    })
+    },
 
   clickLogin: function() {
-    wx.switchTab({
-      url: '/pages/class/index/index',
+    if(this.data.account.length!=11){
+      console.log(this.data.account)
+      wx.showToast({
+        title: '手机号应为11位',
+        icon: "none"
+      })
+      return
+    }
+    wx.cloud.callFunction({
+      name: 'userFunctions',
+      config: {
+        env: 'lemon-7glhwqyu5304e1f9'
+      },
+      data: {
+        type: "loginUser",
+        account: this.data.account,
+        password: this.data.password
+      }
+    }).then((resp) => {
+      if(resp.result.errMsg=="账号或密码错误！"){
+        console.log(resp, 'loginUser')
+               wx.showToast({
+          title: '密码不正确',
+          icon: "none"
+        })
+      }else{
+        console.log(resp, 'loginUser')
+              wx.showToast({
+          title: '登录成功',
+          icon: "success",
+          success:function(){
+            wx.setStorageSync('userid', resp.result.data[0]._id)
+            setTimeout(function(){
+              wx.switchTab({
+                url: '/pages/class/index/index',
+              })
+            })
+          }
+        })
+      }
+    }).catch((e) => {
+      console.log(e);
+          wx.showToast({
+      title: '账号不存在',
+      icon:"none"
     })
+    });
   },
 
   clickSignup: function() {
+      
     wx.navigateTo({
       url: '/pages/login/register/index',
     })

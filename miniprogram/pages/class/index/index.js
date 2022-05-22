@@ -6,16 +6,7 @@ Page({
         showgrade:false,
         gradebgcolor: '#dfdfdf',
         classArray: null,
-        extendArray: [
-            {
-                title: '视频',
-                subArray: ['1', '2']
-            },
-            {
-                title: '文本',
-                subArray: ['1']
-            }
-        ]
+        extendArray: null
     },
     onLoad: function (options) {
       this.getClassByGrade()
@@ -135,6 +126,24 @@ Page({
           ]
         })
         }
+      }).catch((e) => {
+        console.log(e);
+      });
+
+      wx.cloud.callFunction({
+        name: 'classFunctions',
+        config: {
+          env: 'lemon-7glhwqyu5304e1f9'
+        },
+        data: {
+          type: "getExpandclassByGrade",
+          grade: this.data.grade
+        }
+      }).then((resp) => {
+        let expandclassData = resp.result.data
+        this.setData({
+          extendArray:expandclassData
+      })
       }).catch((e) => {
         console.log(e);
       });

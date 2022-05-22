@@ -5,20 +5,174 @@ Page({
    * 页面的初始数据
    */
   data: {
-     register_student:"register_show",
-     register_teacher:"register_hide"
+    name: "",
+    account: "",
+    password: "",
+    sex: "",
+    kind: "学生",
+    school: "",
+    grade: "",
+    class: 0,
+    speciality: [],
+    register_student: "register_show",
+    register_teacher: "register_hide",
+    grade: '',
+    gradelist: ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级', '初一', '初二', '初三'],
+    showgrade: false
   },
 
-  changetostudent: function (){
-      this.setData({
-        register_student:"register_show",
-        register_teacher:"register_hide"})
+  checkboxChange(e) {
+    this.setData({
+      speciality: e.detail.value
+    })
   },
 
-  changetoteacher: function (){
-      this.setData({
-        register_student:"register_hide",
-        register_teacher:"register_show"})
+  getAccount(event) {
+    this.setData({
+      account: event.detail.value
+    })
+  },
+
+  getPassword(event) {
+    this.setData({
+      password: event.detail.value
+    })
+  },
+
+  getName(event) {
+    this.setData({
+      name: event.detail.value
+    })
+  },
+
+  getSpeciality(event) {
+    this.setData({
+      speciality: event.detail,
+    });
+  },
+
+  changetoman(event) {
+    this.setData({
+      sex: "男"
+    })
+  },
+
+  changetowoman(event) {
+    this.setData({
+      sex: "女"
+    })
+  },
+
+  getSchool(event) {
+    this.setData({
+      school: event.detail.value
+    })
+  },
+
+  getClass(event) {
+    this.setData({
+      class: event.detail.value
+    })
+  },
+
+  getPassword(event) {
+    this.setData({
+      password: event.detail.value
+    })
+  },
+
+  showgrade: function () {
+    this.setData({
+      showgrade: true
+    })
+  },
+
+  onchangegrade(event) {
+    const { value } = event.detail;
+    this.setData({
+      grade: value
+    })
+  },
+
+  closegrade: function () {
+    this.setData({
+      showgrade: false
+    })
+  },
+
+  changetostudent: function () {
+    this.setData({
+      kind: "学生",
+      register_student: "register_show",
+      register_teacher: "register_hide"
+    })
+  },
+
+  changetoteacher: function () {
+    this.setData({
+      kind: "教师",
+      register_student: "register_hide",
+      register_teacher: "register_show"
+    })
+  },
+
+  clickRegister: function () {
+    if (this.data.account.length != 11) {
+      console.log(this.data.account)
+      wx.showToast({
+        title: '手机号应为11位',
+        icon: "none"
+      })
+      return
+    }
+    if (this.data.grade == "") {
+      wx.showToast({
+        title: '请输入年级',
+        icon: "none"
+      })
+      return
+    }
+    wx.cloud.callFunction({
+      name: 'userFunctions',
+      config: {
+        env: 'lemon-7glhwqyu5304e1f9'
+      },
+      data: {
+        type: "createUser",
+        body: {
+          "account": this.data.account,
+          "avatar": "null",
+          "checkIn": "0",
+          "educationInfo": {
+            "class": this.data.class,
+            "grade": this.data.grade,
+            "school": this.data.school,
+            "speciality": this.data.speciality,
+          },
+          "kind": this.data.kind,
+          "nickname": this.data.name,
+          "password": this.data.password,
+          "sex":this.data.sex,
+          "admin_status": "null",
+          "admin_webId": "null"
+        }
+      }
+    }).then((resp) => {
+      console.log(resp, 'loginUser')
+      wx.showToast({
+        title: '注册成功',
+        icon: "success"
+      })
+      wx.navigateTo({
+        url: '/pages/login/index/index',
+      })
+    }).catch((e) => {
+      console.log(e);
+      wx.showToast({
+        title: '创建用户失败',
+        icon: "none"
+      })
+    });
   },
   /**
    * 生命周期函数--监听页面加载
