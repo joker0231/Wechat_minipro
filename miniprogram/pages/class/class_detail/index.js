@@ -6,13 +6,22 @@ Page({
    */
   data: {
     screenHeight: 1,
-    dynamicStyle: ''
+    dynamicStyle: '',
+    _id: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const that = this
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('acceptDataFromOpenerPage', function(data) {
+      that.setData({
+        _id: data.data
+      })
+      console.log(that.data._id)
+    })
 
     wx.setNavigationBarTitle({
       title: '动态课程名称',

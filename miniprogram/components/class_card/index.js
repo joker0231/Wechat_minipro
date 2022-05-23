@@ -100,9 +100,14 @@ Component({
             })
         },
         onClickToDetail: function() {
+          const _id = this.data._id
             if(this.properties.type === 'class') {
                 wx.navigateTo({
                     url: '/pages/class/class_detail/index',
+                    success: function(res) {
+                      // 通过 eventChannel 向被打开页面传送数据
+                      res.eventChannel.emit('acceptDataFromOpenerPage', { data: _id})
+                    }
                 })
             } else if (this.properties.type === 'extend') {
                 wx.navigateTo({
