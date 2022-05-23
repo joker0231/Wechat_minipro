@@ -11,7 +11,7 @@ const deleteExpandclass = require('./deleteExpandclass/index');
 const getClassPostById = require('./getClassPostById/index');
 const getClassById = require('./getClassById/index');
 const getClassVideoById = require('./getClassVideoById/index');
-const getExpandclassByGrade = require('./getExpandclassByGrade/index');
+const getExpandclassById = require('./getExpandclassByGrade/index');
 const getGameAll = require('./getGameAll/index');
 const updateGame = require('./updateGame/index');
 
@@ -31,7 +31,7 @@ exports.main = async (event, context) => {
       return await createClassRecord.main(event, context);
     case 'createClassVideo':
       return await createClassVideo.main(event, context);
-    case 'createCollectClasss':
+    case 'createCollectClass':
       return await createCollectClass.main(event, context);
     case 'createExpandclass':
       return await createExpandclass.main(event, context);

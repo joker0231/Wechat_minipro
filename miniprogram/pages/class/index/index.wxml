@@ -24,7 +24,7 @@
                 <!-- 不能用猫头鹰选择器 -->
                 <View style="margin-top: -14rpx">
                     <view wx:for="{{item.subArray}}">
-                        <class_card inner-class="cardStyle" title="{{item.title}}" brief_intro="{{item.introduction}}" teacher_name="{{item.author}}" is_collected="{{item.is_collected}}" classId="{{item._id}}" type="class" />
+                        <class_card inner-class="cardStyle" title="{{item.title}}" introduction="{{item.introduction}}" author="{{item.author}}" is_collected="{{item.is_collected}}" _id="{{item._id}}" detail="{{item.detail}}" grade="{{item.grade}}" semester="{{item.semester}}" subject="{{item.subject}}" type="class" />
                     </view>
                 </View>
             </view>
