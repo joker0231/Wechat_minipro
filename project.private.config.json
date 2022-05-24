@@ -88,8 +88,8 @@
           "name": "",
           "pathName": "pages/community/post_detail/index",
           "query": "topicId=f6e08a646288a60f045ea3bb2f9870ec",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
