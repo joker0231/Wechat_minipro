@@ -1,0 +1,14 @@
+.exercisecard-container {
+    width: 640rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: #F9F2E7;
+    border-radius: 30rpx;
+    padding: 25rpx;
+    /* margin: 20rpx auto; */
+}
+
+.exercisecard-content {
+
+}

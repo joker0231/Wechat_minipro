@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "classcard": "/components/class_card/index",
+    "community_post": "/components/community_post/community_post",
+    "exercise_card": "/components/exercise_card/exercise_card"
+  }
+}

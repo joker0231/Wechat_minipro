@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "gl_navigate": "/components/gl_navigate/index",
+    "class_chapter": "/components/gl_chapter/index",
+    "community_post": "/components/community_post/community_post"
+  }
+}

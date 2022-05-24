@@ -1,0 +1,18 @@
+/* pages/class/class_search/search_result/index.wxss */
+.if-view {
+  width: 100vw;
+  background-color: white;
+  padding-bottom: 40rpx;
+}
+
+.class-classes {
+  width: 642rpx;
+  margin: 30rpx auto 0;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.if-view view + view {
+  margin-top: 30rpx;
+}

@@ -1,0 +1,10 @@
+<!--pages/class/game_webview/index.wxml-->
+<view class="container">
+<web-view class="web-view"src="{{link}}"/>
+
+
+<!-- 开发者工具演示就不校验webview域名演示跳转游玩，上传到体验版就提示复制到浏览器游玩 -->
+<!-- <view>因个人小程序不支持web-view，注意信息安全，可点击复制以下链接到浏览器游玩哦！</view>
+<view style="color: orange;" bindtap="copyUrl">{{link}}</view>
+<view>放一张动画吸引人的演示图片 或者gif</view> -->
+</view>

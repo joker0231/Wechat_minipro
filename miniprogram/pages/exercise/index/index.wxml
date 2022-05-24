@@ -1,0 +1,55 @@
+<view>
+    <view class="class-header">
+        <view class="class-headercontainer">
+            <view class="class-grade">
+                <text>年级</text>
+                <image class="down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
+            </view>
+            <text class="class-title">练习</text>
+            <view>
+                <image class="class-note" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/%E8%AE%B0%E5%BD%95%20(1).png?sign=7122b1a872a180fc692544f0f2d6212d&t=1651408047"></image>
+            </view>
+        </view>
+        <view class="class-navigation">
+            <text bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'navswitch-style':''}}">专业</text>
+            <text bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'navswitch-style':''}}">拓展</text>
+            <text bindtap="navSwitch" data-index="2" class="{{navState==2 ? 'navswitch-style':''}}">娱乐</text>
+        </view>
+    </view>
+
+    <scroll-view class="class-container">
+        <view wx:if="{{navState==0}}">
+            <view class="class-classes">
+                <exercise_chapter forExercise="{{true}}" chapter_num='第一章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第二章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第三章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第四章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第六章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第七章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第八章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第九章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第十章'/>
+
+            </view>
+        </view>
+
+        <view wx:elif="{{navState==1}}">
+            <view class="class-classes">
+                <exercise_chapter forExercise="{{true}}" chapter_num='第一章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第二章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第三章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第四章'/>
+            </view>
+        </view>
+
+        <view wx:else="{{navState==2}}">
+            <view class="class-classes">
+                <exercise_chapter forExercise="{{true}}" chapter_num='第一章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第二章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第三章'/>
+                <exercise_chapter forExercise="{{true}}" chapter_num='第四章'/>
+            </view>
+        </view>
+
+    </scroll-view>
+</view>

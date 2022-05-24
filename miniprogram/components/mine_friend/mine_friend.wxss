@@ -1,0 +1,36 @@
+.message-container{
+    width: 80%;
+    border-radius: 30rpx;
+    box-shadow: darkgrey 0 10rpx 10rpx;
+    display: flex;
+    justify-content: space-around;
+    margin: 20rpx auto;
+    background-color: white;
+    padding: 15rpx;
+    align-items: center;
+}
+
+.message-pic{
+    width: 100rpx;
+    height: 110rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.message-info{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.message-name{
+    font-weight: 400;
+    font-size: 35rpx;
+}
+
+.message-school{
+    font-weight: 300;
+    font-size: 28rpx;
+}
+
+

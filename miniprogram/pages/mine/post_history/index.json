@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "community_post": "/components/community_post/community_post",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-toast": "@vant/weapp/toast/index"
+  }
+}

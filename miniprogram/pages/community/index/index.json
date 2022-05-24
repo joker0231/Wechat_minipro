@@ -1,4 +1,10 @@
 {
   "usingComponents": {
+    "community_headpic": "/components/community_headpic/community_headpic",
+    "community_class": "/components/community_class/community_class",
+    "community_post": "/components/community_post/community_post",
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index"
   }
 }

@@ -1,0 +1,32 @@
+.favourite-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    margin-top: 20rpx;
+}
+
+classcard {
+    margin: 0 auto;
+}
+
+.favourite-container classcard + classcard {
+    margin-top: 20rpx;
+}
+
+
+.favourite-container community_post + community_post {
+    margin-top: 20rpx;
+}
+
+.favourite-container exercise_card + exercise_card {
+    margin-top: 20rpx;
+}
+
+exercise_card {
+    margin: 0 auto;
+}
+
+community_post {
+    margin: 0 auto;
+  }

@@ -1,0 +1,23 @@
+<view class="post-container">
+    <view style="margin-left: auto; margin-right: auto;">左滑可删除哦~</view>
+    <van-swipe-cell wx:for="{{userTopic}}" right-width="{{ 65 }}">
+        <community_post 
+        bindtap="clickToDetail"
+        inner-class="card" 
+        type="{{item.type}}" 
+        comment="{{item.comment_num}}" 
+        favour="{{item.collect_num}}" 
+        like="{{item.like_num}}" 
+        content="{{item.content}}" 
+        info="{{item.user.kind==='teacher' ? item.user.educationInfo.school + ' '  + item.user.educationInfo.speciality : item.user.educatinoInfo.school + item.user.user.education.grade + item.user.user.education.class}}" 
+        name="{{item.user.nickname}}" 
+        headpic="{{item.user.avatar}}"
+        data-topicId="{{item._id}}"
+        />
+    <view data-topicId="{{item._id}}" class="delete" bindtap="clickDelete" slot="right">删除</view>
+    </van-swipe-cell>
+
+    <van-dialog id="van-dialog" />
+    <van-toast id="van-toast" />
+   
+</view>

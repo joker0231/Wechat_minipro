@@ -1,0 +1,27 @@
+.post-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    justify-content: center;
+    margin-top: 20rpx;
+}
+
+
+/* .post-container van-swipe-cell + van-swipe-cellt {
+    margin-top: 20rpx;
+} */
+
+van-swipe-cell {
+    margin: 20rpx auto 0;
+}
+
+
+.delete {
+    background-color: pink;
+    height: 100%;
+    width: 65px;
+    line-height: 232rpx;
+    text-align: center;
+}

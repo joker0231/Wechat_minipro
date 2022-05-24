@@ -1,0 +1,8 @@
+<view class="message-container">
+    <image class="message-pic" src="{{headpic}}"></image>
+    <view class="message-info">
+        <view class="message-name">{{name}}</view>
+        <view class="message-content">{{content}}</view>
+    </view>
+    <view class="message-time">{{time}}</view>
+</view>

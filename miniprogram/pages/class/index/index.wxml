@@ -1,20 +1,58 @@
 <view>
     <view class="class-header">
         <view class="class-headercontainer">
-            <view class="class_grade">
+            <view class="class-grade">
                 <text>年级</text>
                 <image class="down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
             </view>
-            <text class="class_title">上课</text>
+            <text class="class-title">上课</text>
             <view>
-                <image class="class_search" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/search.png?sign=9b4ef3ba117fbf72437677fc2cffe9bc&t=1651407998"></image>
-                <image class="class_note" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/%E8%AE%B0%E5%BD%95%20(1).png?sign=7122b1a872a180fc692544f0f2d6212d&t=1651408047"></image>
+                <image bindtap="clickToSeach"  class="class-search" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/search.png?sign=9b4ef3ba117fbf72437677fc2cffe9bc&t=1651407998"></image>
+                <image class="class-note" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/%E8%AE%B0%E5%BD%95%20(1).png?sign=7122b1a872a180fc692544f0f2d6212d&t=1651408047"></image>
             </view>
         </view>
         <view class="class-navigation">
-            <text>专业</text>
-            <text>拓展</text>
-            <text>娱乐</text>
+            <text bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'navswitch-style':''}}">专业</text>
+            <text bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'navswitch-style':''}}">拓展</text>
+            <text bindtap="navSwitch" data-index="2" class="{{navState==2 ? 'navswitch-style':''}}">娱乐</text>
         </view>
     </view>
+    <scroll-view class="class-container">
+        <view class="if-view" wx:if="{{navState==0}}" wx:for="{{classArray}}">
+            <view class="class-classes">
+                <text>{{item.title}}</text>
+                <!-- 不能用猫头鹰选择器 -->
+                <View style="margin-top: -14rpx">
+                    <view wx:for="{{item.subArray}}">
+                        <class_card inner-class="cardStyle"/>
+                    </view>
+                </View>
+            </view>
+        </view>
+
+        <view class="if-view" wx:if="{{navState==1}}" wx:for="{{extendArray}}">
+            <view class="class-classes">
+                <text>{{item.title}}</text>
+                <!-- 不能用猫头鹰选择器 -->
+                <View style="margin-top: -14rpx">
+                    <view wx:for="{{item.subArray}}">
+                        <class_card  type="extend" inner-class="cardStyle"/>
+                    </view>
+                </View>
+            </view>
+        </view>
+
+        <view wx:if="{{navState==2}}">
+            <view class="game_area">
+                <view class="game_tag" data-link="{{item.link}}" bindtap="clickToGame"  wx:for="{{[{title: '组词游戏', link: 'https://ekko306.top/game1/', color: 'lightgreen'}, {title: 'westore贪吃蛇', link: '/pages/class/game_static/snake/game', color: 'orange'}, {title: '我的博客', link: 'https://ekko306.top', color: 'yellow'}, {title: '小游戏1', link: ''}, {title: '小游戏1', link: ''} ]}}">
+                    <!-- // 没有背景就用纯色 -->
+                    <view class="game_image" style="background-color: {{item.color}};"></view>
+                    <!-- <image class="game_image"></image> -->
+                    <view class="game_title">{{item.title}}</view>
+                </view>
+            </view>
+        </view>
+
+    </scroll-view>
+    <van-toast id="van-toast" />
 </view>

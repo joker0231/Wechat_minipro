@@ -1,0 +1,39 @@
+<!--pages/class/extend_detail/index.wxml-->
+
+<!-- 有问题： 这里拓展内容太长怎么办？ 暂时设计上面是scroll-view 下面也是scrollview -->
+
+
+<view class="detail_container">
+  <scroll-view class="up-view" scroll-y="true" >
+    <view class="fixed-header">
+      <!-- <text class="extend_name">课程名称</text> -->
+      <view class="extend_title">
+        <text>扩展课标题</text>
+        <gl_navigate></gl_navigate>
+      </view>
+      <view class="basic_info">出处 作者 时间信息</view>
+    </view>
+    <view class="rich_text">
+      <rich-text nodes="{{htmlsnip}}"></rich-text>
+      <rich-text nodes="{{htmlsnip}}"></rich-text>
+      <rich-text nodes="{{htmlsnip}}"></rich-text>
+      <!-- <rich-text nodes="{{htmlsnip}}"></rich-text>
+      <rich-text nodes="{{htmlsnip}}"></rich-text>
+      <rich-text nodes="{{htmlsnip}}"></rich-text> -->
+    </view>
+    
+  </scroll-view>
+  <scroll-view class="down-view" scroll-y="true" style="{{dynamicStyle}}">
+    <view class="down-wrapper">
+      <view class="down-title">讨论区</view>
+      <view class="down-list">
+        <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+        <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+        <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+        <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+        <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+        <community_post comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
+      </view>
+    </view>
+  </scroll-view>
+</view>

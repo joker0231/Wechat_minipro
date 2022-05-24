@@ -1,4 +1,5 @@
 {
   "usingComponents": {
+    "exercise_chapter": "/components/gl_chapter/index"
   }
 }

@@ -1,4 +1,4 @@
-// pages/register/index.js
+// pages/register/community_headpic.js
 Page({
 
   /**

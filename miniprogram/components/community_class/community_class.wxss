@@ -1,0 +1,30 @@
+.classpic {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.classpic-bg{
+    background-color: #FEFFBC;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100rpx;
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.classname{
+    color: #353535;
+    font-size: 25rpx;
+    font-weight: lighter;
+    width: 110rpx;
+    text-align: center;
+    margin-top: 5rpx;
+}
+
+.communityclass-container{
+    width: 110rpx;
+    display: inline-block;
+    margin: 0 15rpx;
+}

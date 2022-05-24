@@ -1,0 +1,39 @@
+<view>
+    <view class="com-container">
+        <view class="com-bg first">
+            <text class="first-title">专区答疑</text>
+            <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
+                <community_headpic name="lily"/>
+                <community_headpic name="lily"/>
+                <community_headpic name="lily"/>
+                <community_headpic name="lily"/>
+                <community_headpic name="lily"/>
+            </scroll-view>
+        </view>
+
+        <view class="com-bg second">
+            <view class="com-cardhead">
+                <view class="community-filter">
+                    <text>年级</text>
+                    <image class="com-down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
+                </view>
+            </view>
+            <view class="com-cardcontainer">
+                <community_post 
+                wx:for="{{classCard}}" 
+                bindtap="clickToDetail" 
+                inner-class="card" 
+                type="{{item.type}}" 
+                comment="{{item.comment_num}}" 
+                favour="{{item.collect_num}}" 
+                like="{{item.like_num}}" 
+                content="{{item.content}}" 
+                info="{{item.user.kind==='teacher' ? item.user.educationInfo.school + ' '  + item.user.educationInfo.speciality : item.user.educatinoInfo.school + item.user.user.education.grade + item.user.user.education.class}}" 
+                name="{{item.user.nickname}}" 
+                headpic="{{item.user.avatar}}"
+                data-topicId="{{item._id}}"
+                />
+            </view>
+        </view>
+    </view>
+</view>

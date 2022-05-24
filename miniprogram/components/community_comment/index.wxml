@@ -1,0 +1,40 @@
+<!--components/community_comment/index.wxml-->
+<view class="comment-card">
+  <view class="head">
+    <view class="left">
+      <image class="image" src="{{comment_main.user.avatar}}"></image>
+    </view>
+    
+    <view class="right">
+
+        <view class="info-up">
+          <view class="info-name">{{comment_main.user.nickname}}</view>
+            <view class="time">
+              {{comment_main.date}}
+            </view>
+        </view>
+        <view class="info-content">{{comment_main.content}}</view>
+      </view>
+
+  </view>
+  <view class="act">
+    <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/like.png?sign=0f139e9366ea7207072289f853d8c0e7&t=1652624194"></image>
+    <view class="num">1</view>
+    <image bindtap="clickComment" class="second" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/comment.png?sign=6f9ad16e30fedb72bec126ee73918fc0&t=1652624237"></image>
+    <view class="num">2</view>
+  </view>
+  <view class="sub-card">
+    <view class="sub-comment" wx:for="{{comment_main.comment_vice}}">
+      <image class="sub-avatar" src="{{item.user.avatar}}"></image>
+      <view class="sub-main">
+        <view class="sub-name">
+          <view class="detail-name">{{item.user.nickname}}</view>
+          <view class="detail-date">{{item.date}}</view>
+        </view>
+        <view class="sub-content">{{item.content}}</view>
+      </view>
+      <view></view>
+    </view>
+  </view>
+
+</view>

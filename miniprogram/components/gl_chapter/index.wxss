@@ -1,0 +1,45 @@
+.exer-options{
+    width: 90%;
+    border-radius: 45rpx;
+    background-color: #FFFEB1;
+    padding: 20rpx;
+    font-weight: 250;
+    font-size: 30rpx;
+    margin: 20rpx auto;
+    display: flex;
+    z-index: 10;
+}
+
+.exer-options text{
+    margin-left: 20rpx;
+}
+
+.exer-option{
+    width: 90%;
+    height: 80rpx;
+    font-size: 30rpx;
+    margin: 0 auto;
+}
+
+.hr{
+    height: 3rpx;
+    width: 100%;
+    background-color: #a4a3a3;
+    margin-top: 20rpx;
+}
+
+.exer-chick{
+    width: 140rpx;
+    height: 120rpx;
+    position: absolute;
+    top: -60rpx;
+    left: 400rpx;
+}
+
+.exer-down{
+    height: 30rpx;
+    width: 30rpx;
+    margin-left: auto;
+    margin-top: 10rpx;
+    margin-right: 34rpx;
+}
