@@ -90,6 +90,13 @@
           "query": "topicId=f6e08a646288a60f045ea3bb2f9870ec",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/community/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
