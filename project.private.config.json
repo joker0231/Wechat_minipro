@@ -41,6 +41,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/class/class_detail/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -11,11 +11,11 @@ Component({
         forExercise: {
             type: Boolean,
             value: false
-        }
+        },
+        section: []
     },
     data: {
         isShow: false,
-        section: ['1.1 xxxxx','1.2 xxxxxx','1.3 xxxxxx']
     },
     methods: {
         changeshow: function (){

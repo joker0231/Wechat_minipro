@@ -7,7 +7,16 @@ Page({
   data: {
     screenHeight: 1,
     dynamicStyle: '',
-    _id: ''
+    _id: '',
+    author: '',
+    title: '',
+    detail: '',
+    grade: '',
+    introduction: '',
+    is_collected: '',
+    semester: '',
+    subjct: '',
+    content: []
   },
 
   /**
@@ -16,12 +25,55 @@ Page({
   onLoad: function (options) {
     const that = this
     const eventChannel = this.getOpenerEventChannel()
-    eventChannel.on('acceptDataFromOpenerPage', function(data) {
+    eventChannel.on('acceptDataFromOpenerPage', function (data) {
       that.setData({
         _id: data.data
       })
       console.log(that.data._id)
     })
+
+    wx.cloud.callFunction({
+      name: 'classFunctions',
+      config: {
+        env: 'lemon-7glhwqyu5304e1f9'
+      },
+      data: {
+        type: "getClassById",
+        classId: this.data._id
+      }
+    }).then((resp) => {
+      const result = resp.result.data[0]
+      this.setData({
+        _id: result._id,
+        author: result.author,
+        title: result.title,
+        detail: result.detail,
+        grade: result.grade,
+        introduction: result.introduction,
+        is_collected: result.is_collected,
+        semester: result.semester,
+        subjct: result.subjct,
+      })
+    }).catch((e) => {
+      console.log(e);
+    });
+
+    wx.cloud.callFunction({
+      name: 'classFunctions',
+      config: {
+        env: 'lemon-7glhwqyu5304e1f9'
+      },
+      data: {
+        type: "getClassVideoById",
+        classId: this.data._id
+      }
+    }).then((resp) => {
+      this.setData({
+        content: resp.result.data[0].content
+      })
+    }).catch((e) => {
+      console.log(e);
+    });
 
     wx.setNavigationBarTitle({
       title: '动态课程名称',
@@ -34,7 +86,7 @@ Page({
 
 
 
-    wx.createSelectorQuery().select('#outer').boundingClientRect(rect=>{
+    wx.createSelectorQuery().select('#outer').boundingClientRect(rect => {
       // console.log(screenHight, 'screenHeight')
       // console.log(rect.height,'textHeight');
 
@@ -56,8 +108,8 @@ Page({
 
 
       // 112源头
-  //      .my-style .van-tabs__wrap {
-  // --tabs-line-height: 112rpx;
+      //      .my-style .van-tabs__wrap {
+      // --tabs-line-height: 112rpx;
 
       let DynamicStyle = `
         --downHeight: ${rpxRestHeight - 112}rpx
