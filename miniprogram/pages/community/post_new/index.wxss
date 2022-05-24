@@ -8,7 +8,6 @@
   background-color: #ffffff;
   box-sizing: border-box;
   box-shadow: 4rpx 6rpx 10rpx 0rpx rgba(0, 0, 0, 0.35);
-  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
   color: #333333;
   text-align: left;
   line-height: normal;
@@ -53,7 +52,7 @@
 }
 
 .scroll {
-  height: 522rpx;
+  height: 602rpx;
 }
 
 .post-button {

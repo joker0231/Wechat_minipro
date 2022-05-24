@@ -1,2 +1,5 @@
 <!--pages/mine/space/index.wxml-->
 <text>个人空间</text>
+<image class="background-image" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/personbgimage.png?sign=d6ee14429c64afc4083e6ea4004dd117&t=1652698510"></image>
+
+<view class="card"></view>

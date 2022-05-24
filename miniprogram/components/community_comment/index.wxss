@@ -115,6 +115,15 @@
   box-sizing: border-box;
   font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
   color: #464646;
+  display: flex;
+  align-items: center;
+}
+
+.detail-date {
+  margin-left: auto;
+  font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
+  color: #b2b2b2;
+  font-size: 22rpx;
 }
 
 .sub-content {

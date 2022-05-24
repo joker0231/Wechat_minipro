@@ -1,5 +1,5 @@
 <!--pages/community/postDetail/index.wxml-->
-<view class="comment-button">
+<view class="comment-button" bindtap="inputComment">
     <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/comment.png?sign=b8c037d659ec5a3f7c5df1f2d4d0bad6&t=1652625748"></image>
   </view>
 <view class="detail_container">
@@ -8,21 +8,18 @@
       <!-- <text class="extend_name">课程名称</text> -->
       <view class="extend_title">
         <view class="big_title">
-          帖子标题
+          {{detail.user.nickname}}
           <image class="title-image" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/report.png?sign=71ee3d6c8fe4935a74b0266cd03c6e3c&t=1652621924"></image>
           <view class="report">举报</view>
         </view>
         <gl_navigate></gl_navigate>
       </view>
-      <view class="basic_info">作者 时间信息</view>
+      <view class="basic_info">{{detail.date}}</view>
       <class_card inner-class="class_card "></class_card>
     </view>
     <view class="rich_text">
-      <rich-text nodes="{{htmlsnip}}"></rich-text>
-      <rich-text nodes="{{htmlsnip}}"></rich-text>
-      <rich-text nodes="{{htmlsnip}}"></rich-text>
+      <rich-text nodes="{{detail.content}}"></rich-text>
       <!-- <rich-text nodes="{{htmlsnip}}"></rich-text>
-      <rich-text nodes="{{htmlsnip}}"></rich-text>
       <rich-text nodes="{{htmlsnip}}"></rich-text> -->
     </view>
     
@@ -31,10 +28,49 @@
     <view class="down-wrapper">
       <view class="down-title">讨论区</view>
       <view class="down-list">
-        <community_comment></community_comment>
-        <community_comment></community_comment>
+        <community_comment data-commentid="{{item._id}}" bindsubcomment="subcomment" wx:for="{{detail.comment_main}}" comment_main="{{item}}"></community_comment>
+        <view wx:if="{{detail.comment_main.length === 0}}">暂时没有评论~</view>
       </view>
     </view>
   </scroll-view>
   
 </view>
+
+
+<van-action-sheet show="{{ show }}" bind:close="onClose" title="发布主评论">
+  <view class="comment-container">
+    <van-field
+      label="我的评论："
+      model:value="{{ commentValue }}"
+      border="{{ true }}"
+      style="width: 750rpx;"
+      type="textarea"
+      autosize
+    >
+      <van-button bind:click="submitComment" slot="button" size="small" type="primary">
+        提交
+      </van-button>
+    </van-field>
+  </view>
+</van-action-sheet>
+
+
+<van-action-sheet show="{{ showSub }}" bind:close="onCloseSub" title="发布子评论">
+  <view class="comment-container">
+    <van-field
+      label="我的评论："
+      model:value="{{ commentValueSub }}"
+      border="{{ true }}"
+      style="width: 750rpx;"
+      type="textarea"
+      autosize
+    >
+      <van-button bind:click="submitCommentSub" slot="button" size="small" type="primary">
+        提交
+      </van-button>
+    </van-field>
+  </view>
+</van-action-sheet>
+
+
+<van-toast id="van-toast" />

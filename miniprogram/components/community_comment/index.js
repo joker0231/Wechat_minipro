@@ -4,7 +4,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    comment_main: {
+      type: Object
+    }
   },
 
   /**
@@ -18,6 +20,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    clickComment: function() {
+      console.log('触发内部')
+      this.triggerEvent('subcomment', {}, {})
+    }
   }
 })

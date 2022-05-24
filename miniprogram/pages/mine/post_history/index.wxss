@@ -9,10 +9,19 @@
 }
 
 
-.post-container community_post + community_post {
+/* .post-container van-swipe-cell + van-swipe-cellt {
     margin-top: 20rpx;
+} */
+
+van-swipe-cell {
+    margin: 20rpx auto 0;
 }
 
-community_post {
-    margin: 0 auto;
+
+.delete {
+    background-color: pink;
+    height: 100%;
+    width: 65px;
+    line-height: 232rpx;
+    text-align: center;
 }

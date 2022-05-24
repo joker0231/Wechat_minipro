@@ -41,7 +41,7 @@
     <view class="mine-otheroptions">
         <view class="mine-mask3"/>
         <view style="width:85%;margin-top:-17rpx">
-            <view bindtap="clickPost" class="mine-option">我的提问</view>
+            <view bindtap="clickPost" class="mine-option">我的发帖</view>
             <view class="hr"/>
             <view class="mine-option" bindtap="clickProgress">学习进度</view>
             <view class="hr"/>

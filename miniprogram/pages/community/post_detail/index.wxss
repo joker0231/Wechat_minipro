@@ -115,6 +115,8 @@
   margin-top: 20rpx;
   display: flex;
   flex-direction: column;
+  padding-bottom: 200rpx;
+  box-sizing: border-box;
 }
 
 .down-list community_comment + community_comment {
@@ -145,3 +147,17 @@
   width: 100rpx;
   height: 100rpx;
 }
+
+
+.comment-container {
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-container .van-cell__title {
+  display: flex;
+  align-items: center;
+}
+

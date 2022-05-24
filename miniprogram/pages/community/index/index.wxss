@@ -69,7 +69,14 @@
 .com-cardhead{
     display: flex;
     /* align-items: center; */
-    height: 38rpx;
+    height: 78rpx;
+    background-color: white;
+    padding: 20rpx ;
+    box-sizing: border-box;
+    width: 646rpx;
+    margin-top: 0 auto;
+    /* border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx; */
 }
 
 .head-text {
@@ -90,9 +97,22 @@
 
 
 .com-cardcontainer {
-    margin-top: 20rpx;
+    overflow: hidden;
+    margin-top: -20rpx;
 }
 
+.sticky .van-sticky-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio {
+    font-size: 25rpx;
+    --radio-label-margin: 10rpx;
+    margin-left: 14rpx;
+    --padding-sm: 10rpx
+}
 
 .card {
     margin-top: 20rpx;
@@ -112,7 +132,7 @@
 }
 
 .second {
-    padding: 20rpx 18rpx;
+    padding: 0 18rpx 20rpx;
 }
 
 .post-new {

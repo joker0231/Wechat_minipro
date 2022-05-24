@@ -19,11 +19,20 @@
                 </view>
             </view>
             <view class="com-cardcontainer">
-                <community_post inner-class="card" type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
-                <community_post inner-class="card" type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
-                <community_post inner-class="card" type="课程" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
-                <community_post inner-class="card" type="课程" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
-                <community_post inner-class="card" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post 
+                wx:for="{{classCard}}" 
+                bindtap="clickToDetail" 
+                inner-class="card" 
+                type="{{item.type}}" 
+                comment="{{item.comment_num}}" 
+                favour="{{item.collect_num}}" 
+                like="{{item.like_num}}" 
+                content="{{item.content}}" 
+                info="{{item.user.kind==='teacher' ? item.user.educationInfo.school + ' '  + item.user.educationInfo.speciality : item.user.educatinoInfo.school + item.user.user.education.grade + item.user.user.education.class}}" 
+                name="{{item.user.nickname}}" 
+                headpic="{{item.user.avatar}}"
+                data-topicId="{{item._id}}"
+                />
             </view>
         </view>
     </view>
