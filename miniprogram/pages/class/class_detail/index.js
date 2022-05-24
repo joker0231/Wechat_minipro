@@ -68,6 +68,7 @@ Page({
         classId: this.data._id
       }
     }).then((resp) => {
+      console.log(resp.result.data[0].content)
       this.setData({
         content: resp.result.data[0].content
       })

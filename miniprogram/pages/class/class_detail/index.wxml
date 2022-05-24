@@ -24,8 +24,10 @@
     <van-tab title="课程目录" name="toc">
       <scroll-view scroll-y="true" class="scroll-outer" style="{{dynamicStyle}}">
         <view style="content: ''; overflow: hidden;"></view>
-        <view class="scroll-inner" wx:for="{{content}}">
-          <class_chapter showLucky="{{false}}" chapter_num="{{item.chapter}}" section="{{item.content}}"/>
+        <view class="scroll-inner" >
+        <view wx:for="{{content}}">
+        <class_chapter showLucky="{{false}}" chapter_num="{{item.chapter}}" section="{{item.classLink}}"/>
+        </view>
         </view>
       </scroll-view>
     </van-tab>

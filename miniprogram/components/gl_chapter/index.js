@@ -12,7 +12,7 @@ Component({
             type: Boolean,
             value: false
         },
-        section: []
+        section: Array
     },
     data: {
         isShow: false,
