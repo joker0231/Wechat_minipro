@@ -8,13 +8,12 @@
         <view class="login_mask"/>
         <view class="login_item">
             <text>手机号</text>
-            <input/>
+            <input bindinput="getAccount"/>
         </view>
         <view class="login_item">
             <text>密码</text>
-            <input password="true"/>
+            <input password="true" bindinput="getPassword"/>
         </view>
-        <text class="login_forget">忘记密码</text>
         <view>
             <button bindtap="clickLogin" class="login_button" style="width: 500rpx; font-weight: 100px;">登录</button>
             <button bindtap="clickSignup" class="login_button" style="width: 500rpx;">注册</button>

@@ -30,70 +30,28 @@
         },
         {
           "name": "",
-          "pathName": "pages/mine/space/index",
+          "pathName": "pages/login/register/index",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
           "name": "",
-          "pathName": "pages/community/post_detail/index",
+          "pathName": "pages/class/index/index",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
           "name": "",
-          "pathName": "pages/mine/checkIn/index",
+          "pathName": "pages/class/class_detail/index",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
           "name": "",
-          "pathName": "pages/community/index/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/community/post_new/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/mine/post_history/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/community/post_detail/index",
-          "query": "topicId=16db756f62861ac8038650777afb065d",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/community/index/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/community/post_detail/index",
-          "query": "topicId=f6e08a646288a60f045ea3bb2f9870ec",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/community/index/index",
+          "pathName": "pages/class/index/index",
           "query": "",
           "launchMode": "default",
           "scene": null

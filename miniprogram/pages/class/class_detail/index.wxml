@@ -10,96 +10,13 @@
         <view style="content: ''; overflow: hidden;"></view>
         <view class="scroll-inner">
           <view class="class_title">
-            <text>课程名称</text>
+            <text>{{title}}</text>
             <gl_navigate></gl_navigate>
           </view>
-          <text class="info">授课老师 学生等信息</text>
-          <view class="intro-title">课程简介</view>
+          <text class="info">{{author}}</text>
+          <view class="intro-title">{{introduction}}</view>
           <view class="intro-detail">
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
-            <view>课程简介</view>
+            <view>{{detail}}</view>
           </view>
         </view>
       </scroll-view>
@@ -107,11 +24,10 @@
     <van-tab title="课程目录" name="toc">
       <scroll-view scroll-y="true" class="scroll-outer" style="{{dynamicStyle}}">
         <view style="content: ''; overflow: hidden;"></view>
-        <view class="scroll-inner">
-          <class_chapter showLucky="{{false}}" chapter_num='第一章'/>
-          <class_chapter showLucky="{{false}}" chapter_num='第二章'/>
-          <class_chapter showLucky="{{false}}" chapter_num='第三章'/>
-          <class_chapter showLucky="{{false}}" chapter_num='第四章'/>
+        <view class="scroll-inner" >
+        <view wx:for="{{content}}">
+        <class_chapter showLucky="{{false}}" chapter_num="{{item.chapter}}" section="{{item.classLink}}"/>
+        </view>
         </view>
       </scroll-view>
     </van-tab>

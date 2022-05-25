@@ -1,7 +1,7 @@
 <view>
     <view class="class-header">
         <view class="class-headercontainer">
-            <view class="class-grade">
+            <view class="class-grade" bindtap="showgrade">
                 <text>年级</text>
                 <image class="down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
             </view>
@@ -24,19 +24,19 @@
                 <!-- 不能用猫头鹰选择器 -->
                 <View style="margin-top: -14rpx">
                     <view wx:for="{{item.subArray}}">
-                        <class_card inner-class="cardStyle"/>
+                        <class_card inner-class="cardStyle" title="{{item.title}}" introduction="{{item.introduction}}" author="{{item.author}}" is_collected="{{item.is_collected}}" _id="{{item._id}}" detail="{{item.detail}}" grade="{{item.grade}}" semester="{{item.semester}}" subject="{{item.subject}}" type="class" />
                     </view>
                 </View>
             </view>
         </view>
 
-        <view class="if-view" wx:if="{{navState==1}}" wx:for="{{extendArray}}">
+        <view class="if-view" wx:if="{{navState==1}}">
             <view class="class-classes">
-                <text>{{item.title}}</text>
+                <text>拓展内容</text>
                 <!-- 不能用猫头鹰选择器 -->
                 <View style="margin-top: -14rpx">
-                    <view wx:for="{{item.subArray}}">
-                        <class_card  type="extend" inner-class="cardStyle"/>
+                    <view wx:for="{{extendArray}}">
+                        <class_card  title="{{item.title}}" brief_intro="{{item.introduction}}" teacher_name="{{item.author}}" is_collected="{{item.is_collected}}" classId="{{item._id}}"   type="extend" inner-class="cardStyle"/>
                     </view>
                 </View>
             </view>
@@ -55,4 +55,25 @@
 
     </scroll-view>
     <van-toast id="van-toast" />
-</view>
+
+</view> 
+ <van-action-sheet show="{{ showgrade }}" bind:close="closegrade" title="修改年级">
+    <view class="grades-container">
+        <view style="margin-left: 32rpx;">小学</view>
+        <view class="grade-container">
+            <view class="grade-detail {{index==1 ?'selected':''}}"bindtap='selectApply' data-index="1" data-grade="一年级">一年级</view>
+            <view class="grade-detail {{index==2 ?'selected':''}}"bindtap='selectApply'  data-index="2" data-grade="二年级">二年级</view>
+            <view class="grade-detail {{index==3 ?'selected':''}}"bindtap='selectApply'  data-index="3" data-grade="三年级">三年级</view>
+            <view class="grade-detail {{index==4 ?'selected':''}}"bindtap='selectApply'  data-index="4" data-grade="四年级">四年级</view>
+            <view class="grade-detail {{index==5 ?'selected':''}}"bindtap='selectApply'  data-index="5" data-grade="五年级">五年级</view>
+            <view class="grade-detail {{index==6 ?'selected':''}}"bindtap='selectApply'  data-index="6" data-grade="六年级">六年级</view>
+        </view>
+        <view style="margin-left: 32rpx;">初中</view>
+        <view class="grade-container">
+            <view class="grade-detail {{index==7 ?'selected':''}}"bindtap='selectApply'  data-index="7" data-grade="初一">初一</view>
+            <view class="grade-detail {{index==8 ?'selected':''}}"bindtap='selectApply'  data-index="8" data-grade="初二">初二</view>
+            <view class="grade-detail {{index==9 ?'selected':''}}"bindtap='selectApply'  data-index="9" data-grade="初三">初三</view>
+        </view>
+        <button style="width: 500rpx; margin-bottom:30rpx" bindtap="getClassByGrade">确定</button>
+    </view>
+</van-action-sheet>

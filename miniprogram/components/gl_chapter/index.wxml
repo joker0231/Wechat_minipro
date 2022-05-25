@@ -7,7 +7,7 @@
     <view style="position: relative;" wx:if="{{isShow}}">
         <image wx:if="{{showLucky}}" class="exer-chick" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"></image>
         <view class="exer-option" wx:for="{{section}}" wx:for-item="item" bindtap="clickToQuizOnline">
-            {{item}}
+            {{item.section}}{{item.title}}
             <view class="hr"/>
         </view>
     </view>
