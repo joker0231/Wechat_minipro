@@ -54,6 +54,7 @@ Component({
                 env: 'lemon-7glhwqyu5304e1f9'
               },
               data: {
+                classId: this.data._id,
                 type: "createCollectClass",
                 body: {
                   "_id" : this.data._id,

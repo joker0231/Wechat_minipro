@@ -5,15 +5,15 @@ Component({
     },
     lifetimes: {
         ready: function() {
-            if(this.properties.type == "课程"){
+            if(this.properties.type == "class"){
                 this.setData({
                     src: this.data.allsrc[0]
                 })
-            } else if(this.properties.type == "拓展"){
+            } else if(this.properties.type == "extend"){
                 this.setData({
                     src: this.data.allsrc[1]
                 })
-            }else if(this.properties.type == "题目") {
+            }else if(this.properties.type == "exercise") {
                 this.setData({
                     src: this.data.allsrc[2]
                 })

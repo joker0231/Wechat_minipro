@@ -1,1 +1,9 @@
 node_modules
+<<<<<<< HEAD
+=======
+cloudfunctions/classFunctions/node_modules
+cloudfunctions/communityFunctions/node_modules
+cloudfunctions/exerciseFunctions/node_modules
+cloudfunctions/personFunctions/node_modules
+cloudfunctions/userFunctions/node_modules
+>>>>>>> syp

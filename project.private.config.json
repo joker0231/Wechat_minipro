@@ -48,6 +48,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/class/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -6,14 +6,109 @@ Page({
    */
   data: {
     value: '',
-    tags: ['数学', '第一小节', '标12312签3', '标签4', '标签5', '标签6', '标签7', '标签8', '标签9', ]
+    searchKey: '',
+    result: [],
+    tags: []
+  },
+
+  onChange: function (e) {
+    console.log(e)
+    let value = e.detail //搜索框输入的信息
+    this.setData({
+      searchKey: value //监听搜索输入关键字信息
+    })
+  },
+
+  onConfirm: function (e) {
+    let value = e.detail //搜索框输入的信息
+    this.setData({
+      searchKey: value //监听搜索输入关键字信息
+    })
+    let searchKey = this.data.searchKey //监听搜索框输入的信息
+    if (searchKey == '') { //如果不输入任何字符直接搜索，返回提示信息
+      wx.showToast({
+        title: '请输入关键词',
+        icon: "error"
+      })
+      return
+    }
+
+    wx.cloud.callFunction({
+      name: 'classFunctions',
+      config: {
+        env: 'lemon-7glhwqyu5304e1f9'
+      },
+      data: {
+        type: "createSearchHistory",
+        body:{
+          keyword:searchKey
+        }
+      }
+    }).then((resp) => {
+      console.log(resp, 'createSearchHistory')
+    }).catch((e) => {
+      console.log(e);
+    });
+
+    var db = wx.cloud.database() //连接msg数据库
+    wx.cloud.init({
+      env: 'lemon-7glhwqyu5304e1f9',
+      traceUser: true,
+    })    
+    db.collection('class').where({
+      title: db.RegExp({//按照KeyWord模糊查询
+        regexp: searchKey, //模糊搜索监听到的搜索信息
+        options: 'i', //不区分大小写
+      })
+    }).get().then(res => { //获取查询到的信息
+      if (res.data.length == 0) { //如果搜索信息在数据库中找不到
+        wx.showToast({
+          title: '没有找到对应课程',
+        })
+        return
+      }
+
+      var total = res.data.length //总匹配信息个数
+      var _collections = new Array() //声明一个数组
+      //console.log(total)
+      //将匹配信息存入数组
+      for (var i = 0; i < total; i++) {
+        _collections.push(JSON.parse(JSON.stringify(res.data[i])))
+      }
+      this.setData({
+        result: _collections
+      })
+      wx.navigateTo({
+        url: '/pages/class/class_search/search_result/index',
+        success: function(res) {
+          // 通过 eventChannel 向被打开页面传送数据
+          res.eventChannel.emit('acceptDataFromOpenerPage', { data: _collections})
+        }
+    })
+    }).catch(res => {
+      console.log(res)
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */ 
   onLoad: function (options) {
-
+    wx.cloud.callFunction({
+      name: 'classFunctions',
+      config: {
+        env: 'lemon-7glhwqyu5304e1f9'
+      },
+      data: {
+        type: "getSearchHistory"
+      }
+    }).then((resp) => {
+      this.setData({
+        tags: resp.result.data
+      })
+    }).catch((e) => {
+      console.log(e);
+    });
   },
 
   /**
@@ -70,27 +165,67 @@ Page({
     // console.log(event.detail);
   },
 
-
-  onConfirm(event) {
-    console.log(event.detail)
-    wx.navigateTo({
-      url: '/pages/class/class_search/search_result/index',
-    })
-  },
-
   onClose(event) {
-    event.stopP
     let preData = this.data.tags
     preData.splice(event.target.id, 1)
     this.setData({
       tags: preData
     })
+    wx.cloud.callFunction({
+      name: 'classFunctions',
+      config: {
+        env: 'lemon-7glhwqyu5304e1f9'
+      },
+      data: {
+        type: "deleteSearchHistory",
+        _id : event.target.dataset._id
+      }
+    }).then((resp) => {
+      console.log(resp, 'deleteSearchHistory')
+    }).catch((e) => {
+      console.log(e);
+    });
   },
 
   onConfirmTag(event) {
-    console.log(event.target.id)
-    wx.navigateTo({
-      url: '/pages/class/class_search/search_result/index',
+    console.log(event.target.dataset.value)
+    var db = wx.cloud.database() //连接msg数据库
+    wx.cloud.init({
+      env: 'lemon-7glhwqyu5304e1f9',
+      traceUser: true,
+    })    
+    db.collection('class').where({
+      title: db.RegExp({//按照KeyWord模糊查询
+        regexp: event.target.dataset.value, //模糊搜索监听到的搜索信息
+        options: 'i', //不区分大小写
+      })
+    }).get().then(res => { //获取查询到的信息
+      if (res.data.length == 0) { //如果搜索信息在数据库中找不到
+        wx.showToast({
+          title: '没有找到对应课程',
+        })
+        return
+      }
+
+      var total = res.data.length //总匹配信息个数
+      var _collections = new Array() //声明一个数组
+      //console.log(total)
+      //将匹配信息存入数组
+      for (var i = 0; i < total; i++) {
+        _collections.push(JSON.parse(JSON.stringify(res.data[i])))
+      }
+      this.setData({
+        result: _collections
+      })
+      wx.navigateTo({
+        url: '/pages/class/class_search/search_result/index',
+        success: function(res) {
+          // 通过 eventChannel 向被打开页面传送数据
+          res.eventChannel.emit('acceptDataFromOpenerPage', { data: _collections})
+        }
+    })
+    }).catch(res => {
+      console.log(res)
     })
   },
 

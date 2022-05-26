@@ -2,6 +2,10 @@
   "usingComponents": {
     "community_post": "/components/community_post/community_post",
     "van-field": "@vant/weapp/field/index",
-    "van-uploader": "@vant/weapp/uploader/index"
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-toast": "@vant/weapp/toast/index"
   }
 }

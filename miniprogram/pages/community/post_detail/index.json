@@ -3,6 +3,10 @@
     "gl_navigate": "/components/gl_navigate/index",
     "community_post": "/components/community_post/community_post",
     "class_card": "/components/class_card/index",
-    "community_comment": "/components/community_comment/index"
+    "community_comment": "/components/community_comment/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-toast": "@vant/weapp/toast/index"
   }
 }

@@ -28,24 +28,44 @@
             </scroll-view>
         </view>
 
-        <view class="com-bg second">
+        <view class="com-bg second" id="sticky-container">
+            <van-sticky class="sticky" container="{{ container }}">
             <view class="com-cardhead">
                 <view class="head-text">公共区域</view>
-                <view class="community-filter">
+                <!-- <view class="community-filter">
                     <view class="head-choose-text">最新</view>
                     <image class="com-down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
                 </view>
                 <view class="community-filter">
                     <view class="head-choose-text">最热</view>
                     <image class="com-down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
-                </view>
+                </view> -->
+                <van-radio-group
+                    value="1"
+                    bind:change="onChange"
+                    direction="horizontal"
+                    class="radio"
+                >
+                <van-radio checked-color="#d6ab7c" icon-size="26rpx" name="1">最新</van-radio>
+                <van-radio checked-color="#d6ab7c" icon-size="26rpx" name="2">最热</van-radio>
+                </van-radio-group>
             </view>
+            </van-sticky>
             <view class="com-cardcontainer">
-                <community_post bindtap="clickToDetail" inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
-                <community_post bindtap="clickToDetail" inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
-                <community_post bindtap="clickToDetail" inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
-                <community_post bindtap="clickToDetail" inner-class="card" type="拓展" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"/>
-                <community_post bindtap="clickToDetail" inner-class="card" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post 
+                wx:for="{{commonCard}}" 
+                bindtap="clickToDetail" 
+                inner-class="card" 
+                type="{{item.type}}" 
+                comment="{{item.comment_num}}" 
+                favour="{{item.collect_num}}" 
+                like="{{item.like_num}}" 
+                content="{{item.content}}" 
+                info="{{item.user.kind==='teacher' ? item.user.educationInfo.school + ' '  + item.user.educationInfo.speciality : item.user.educatinoInfo.school + item.user.user.education.grade + item.user.user.education.class}}" 
+                name="{{item.user.nickname}}" 
+                headpic="{{item.user.avatar}}"
+                data-topicId="{{item._id}}"
+                />
             </view>
         </view>
     </view>
@@ -53,3 +73,4 @@
         <image class="new-image" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/add.png?sign=c45e2eb29eb082db12ab6ead6e9fcf4e&t=1652584568"></image>
     </view>
 </view>
+

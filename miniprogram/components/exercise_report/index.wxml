@@ -1,6 +1,6 @@
 <view class="exercisecard-container inner-class">
     练习报告
-    <view class="exercisecard-content">{{content}}</view>
+    <!-- <view class="exercisecard-content">{{content}}</view>
     <view class="exercisecard-option">{{option}}</view>
-    <view class="exercisecard-resolution">{{resolution}}</view>
+    <view class="exercisecard-resolution">{{resolution}}</view> -->
 </view>
