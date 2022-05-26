@@ -1,6 +1,8 @@
 // pages/community/post_new/index.js
 import Dialog from '../../../miniprogram_npm/@vant/weapp/dialog/dialog';
 import Toast from '../../../miniprogram_npm/@vant/weapp/toast/toast';
+const userStore = require('../../../stores/user-store')
+
 const citys = {
   普通: [''],
   拓展: ['拓展课1', '拓展课2', '拓展课3'],
@@ -62,6 +64,7 @@ Page({
   },
 
   afterRead(event) {
+    // 这里原本是发帖上传用的 需求砍掉了就暂时不用了
     const { file } = event.detail;
     console.log(file)
     // 要判断type是图片 否则报错
@@ -154,7 +157,7 @@ Page({
       "topic_location": {
       },
       "type": "",
-      "user_id": "636050766258dad005cb320f0d7bc76c"
+      "user_id": userStore.getUserData()._id
     }
     postData.content = this.data.message
     postData.type = typeMap.get(this.data.typeValue[0])

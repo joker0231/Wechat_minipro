@@ -55,6 +55,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mine/favourite/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/login/register/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

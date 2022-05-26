@@ -20,7 +20,7 @@
 
 .login_mask{
     width: 600rpx;
-    height: 1150rpx;
+    height: 1450rpx;
     margin-top: -80rpx;
     margin-left: -50rpx;
     opacity: 70%;
@@ -52,6 +52,27 @@
   margin-top: 15rpx;
   margin-bottom: 15rpx;
   padding-left: 20rpx;
+}
+
+.login_item .van-image {
+    background-color: white;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.login_item .van-image__error {
+  background-color: white;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.login_item .index--van-image__error-icon {
+  background-color: white;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
 }
 
 radio-group{
@@ -96,4 +117,21 @@ checkbox{
     margin-left: 25rpx;
     margin-top: 15rpx;
     font-size: medium;
+}
+
+
+.popStyle {
+  height: 400rpx;
+  padding: 100rpx 20rpx 0
+}
+
+.swiperStyle {
+  display: flex;
+  /* background-color: pink; */
+}
+
+.itemStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

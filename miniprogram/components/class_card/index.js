@@ -1,4 +1,5 @@
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
+const userStore = require('../../stores/user-store')
 
 Component({
     externalClasses: ['inner-class'],
@@ -56,7 +57,6 @@ Component({
               data: {
                 type: "createCollectClass",
                 body: {
-                  "_id" : this.data._id,
                   "author" : this.data.author,
                   "detail" : this.data.detail,
                   "grade" : this.data.grade,
@@ -65,7 +65,7 @@ Component({
                   "semester" : this.data.semester,
                   "subject" : this.data.subject,
                   "title" : this.data.title,
-                  "user_id": wx.getStorageSync("userid")
+                  "user_id": userStore.getUserData()._id
                 }
               }
             }).then((resp) => {
@@ -88,7 +88,7 @@ Component({
               },
               data: {
                 type: "deleteCollectClass",
-                _id: this.data._id
+                _id: this.data._id       // 取消收藏的id是这个吗？
               }
             }).then((resp) => {
               console.log(resp, 'deleteCollectClass')

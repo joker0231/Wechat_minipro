@@ -3,7 +3,17 @@
     <image class="login_bgimg" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/login_bgimage.jpg?sign=8787e0e4053213d48db6e9f25ba21f30&t=1651226286"></image>
     <view class="register_input">
         <view class="login_mask"/>
-        <view class="login_item" style="margin-top:-50rpx">
+        <view class="login_item" style="margin-top:-50rpx;display: flex; flex-direction: column;">
+            <text>头像（点击图片选择）</text>
+            <van-image
+              width="50"
+              height="50"
+              src="{{'https://cdn.ekko306.top/wx/' + imageCurrent + '.jpg'}}"
+              bind:click="showPopup"
+              style="margin-top: 20rpx;"
+            />
+        </view>
+        <view class="login_item">
             <text>姓名</text>
             <input bindinput="getName"/>
         </view>
@@ -65,3 +75,18 @@
 <van-action-sheet show="{{ showgrade }}" title="年级" bind:close="closegrade">
   <van-picker columns="{{ gradelist }}" bind:change="onchangegrade" />
 </van-action-sheet>
+<van-popup round="true" title="123" show="{{ show }}" bind:close="onClose" position="bottom" closeable close-icon="close">
+  <view class="popStyle">
+    <view style="text-align: center;margin-top: -70rpx;margin-bottom: 30rpx;">滑动选择头像</view>
+    <swiper class="swiperStyle" indicatorDots="true"	circular="true" bindchange="changeSwiper">
+      <swiper-item class="itemStyle" wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}}"	>
+        <van-image
+          width="10rem"
+          height="10rem"
+          fit="contain"
+          src="{{'https://cdn.ekko306.top/wx/' + item + '.jpg'}}"
+        />
+      </swiper-item>
+    </swiper>
+  </view>
+</van-popup>

@@ -22,11 +22,11 @@
             <view class="class-classes">
                 <text>{{item.title}}</text>
                 <!-- 不能用猫头鹰选择器 -->
-                <View style="margin-top: -14rpx">
+                <view style="margin-top: -14rpx">
                     <view wx:for="{{item.subArray}}">
                         <class_card inner-class="cardStyle" title="{{item.title}}" introduction="{{item.introduction}}" author="{{item.author}}" is_collected="{{item.is_collected}}" _id="{{item._id}}" detail="{{item.detail}}" grade="{{item.grade}}" semester="{{item.semester}}" subject="{{item.subject}}" type="class" />
                     </view>
-                </View>
+                </view>
             </view>
         </view>
 
@@ -77,3 +77,4 @@
         <button style="width: 500rpx; margin-bottom:30rpx" bindtap="getClassByGrade">确定</button>
     </view>
 </van-action-sheet>
+<van-notify id="van-notify" />
