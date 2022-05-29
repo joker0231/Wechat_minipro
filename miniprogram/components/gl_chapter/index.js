@@ -29,11 +29,13 @@ Component({
                 })
             }
         },
-        clickToQuizOnline: function() {
+        clickToQuizOnline: function(e) {
             if(this.data.forExercise) {
                 wx.navigateTo({
                     url: '/pages/exercise/exercise_online/index',
                 })
+            }else{
+                this.triggerEvent('changevideo', { param: e.target.dataset.href});
             }
             
         }

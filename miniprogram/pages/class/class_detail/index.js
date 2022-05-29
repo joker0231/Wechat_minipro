@@ -16,9 +16,15 @@ Page({
     is_collected: '',
     semester: '',
     subjct: '',
-    content: []
+    content: [],
+    href: ''
   },
 
+  changevideo: function(e){
+    this.setData({
+      href: e.detail.param
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

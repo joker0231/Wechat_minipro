@@ -11,9 +11,9 @@
             </view>
         </view>
         <view class="class-navigation">
-            <text bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'navswitch-style':''}}">专业</text>
-            <text bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'navswitch-style':''}}">拓展</text>
-            <text bindtap="navSwitch" data-index="2" class="{{navState==2 ? 'navswitch-style':''}}">娱乐</text>
+            <text bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'navswitch-style':''}}">语文</text>
+            <text bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'navswitch-style':''}}">数学</text>
+            <text bindtap="navSwitch" data-index="2" class="{{navState==2 ? 'navswitch-style':''}}">英语</text>
         </view>
     </view>
 
@@ -29,7 +29,6 @@
                 <exercise_chapter forExercise="{{true}}" chapter_num='第八章'/>
                 <exercise_chapter forExercise="{{true}}" chapter_num='第九章'/>
                 <exercise_chapter forExercise="{{true}}" chapter_num='第十章'/>
-
             </view>
         </view>
 

@@ -26,7 +26,7 @@
         <view style="content: ''; overflow: hidden;"></view>
         <view class="scroll-inner" >
         <view wx:for="{{content}}">
-        <class_chapter showLucky="{{false}}" chapter_num="{{item.chapter}}" section="{{item.classLink}}"/>
+        <class_chapter bind:changevideo="changevideo" showLucky="{{false}}" chapter_num="{{item.chapter}}" section="{{item.classLink}}"/>
         </view>
         </view>
       </scroll-view>
