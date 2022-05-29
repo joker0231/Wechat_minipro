@@ -1,3 +1,6 @@
+const userStore = require('../../../stores/user-store')
+import Notify from '../../../miniprogram_npm/@vant/weapp/notify/notify'
+
 Page({
     data: {
         index: null,
@@ -10,8 +13,16 @@ Page({
     },
     onLoad: function (options) {
       this.getClassByGrade()
+      const userData = userStore.getUserData()
+      console.log(userData, '用户westore数据')
+      const kindMap = new Map([['teacher', '教师'], ['student', '学生']])
+      const colorMap = new Map([['teacher', 'primary'], ['student', 'success']])
+      let string = '欢迎' + kindMap.get(userData.kind)+ userData.nickname + '登录！'
+      Notify({
+        type: colorMap.get(userData.kind),
+        message: string
+      })
     },
-    
     selectApply:function(e){
       let index = e.target.dataset.index
       let grade = e.target.dataset.grade

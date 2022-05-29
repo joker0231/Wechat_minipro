@@ -10,10 +10,18 @@
     <view class="mine-personalinfo">
         <view class="mine-mask1"/>
         <view  bindtap="clickToSpace"  class="mine-info">
-            <image class="mine-head" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/tab4.png?sign=459acdf6e3f821719265cdbc523923ef&t=1651474550"></image>
+            <image 
+              class="mine-head" 
+              src="{{userData.avatar||'https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/tab4.png?sign=459acdf6e3f821719265cdbc523923ef&t=1651474550'}}"
+            />
             <view>
-                <view class="mine-name">姓名</view>
-                <view class="mine-school">学校 年级 班级</view>
+                <view class="mine-name">{{userData.nickname}}</view>
+                <view wx:if="{{userData.kind === 'student'}}" class="mine-school">
+                  {{userData.educationInfo.school + ' ' + userData.educationInfo.grade + ' ' + userData.educationInfo.class}}
+                </view>
+                <view wx:if="{{userData.kind === 'teacher'}}" class="mine-school">
+                  {{userData.educationInfo.school}}
+                </view>
             </view>
         </view>
         <image  bindtap="clickToSpace"  class="right" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/%E5%90%91%E5%8F%B3.png?sign=f10db49242482e86ca50ac5177d18057&t=1651475010"></image>

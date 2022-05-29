@@ -1,5 +1,6 @@
 // pages/community/postDetail/index.js
 import Toast from '../../../miniprogram_npm/@vant/weapp/toast/toast'
+const userStore = require('../../../stores/user-store')
 
 
 Page({
@@ -151,7 +152,7 @@ Page({
       "community_comment_main_id": this.data.curretnMainCommentId,
       "content": this.data.commentValueSub,
       "date": Y+M+D,
-      "user_id": "636050766258dad005cb320f0d7bc76c"
+      "user_id": userStore.getUserData()._id
     }
 
     wx.cloud.callFunction({
@@ -213,7 +214,7 @@ Page({
       "content": this.data.commentValue,
       "date": Y+M+D,
       "like_num": 0,
-      "user_id": "636050766258dad005cb320f0d7bc76c",
+      "user_id": userStore.getUserData()._id,
       "vice_comment_num": 0
     }
 

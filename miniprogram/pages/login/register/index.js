@@ -8,8 +8,8 @@ Page({
     name: "",
     account: "",
     password: "",
-    sex: "",
-    kind: "学生",
+    sex: "男",
+    kind: "student",
     school: "",
     grade: "",
     class: 0,
@@ -18,7 +18,29 @@ Page({
     register_teacher: "register_hide",
     grade: '',
     gradelist: ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级', '初一', '初二', '初三'],
-    showgrade: false
+    showgrade: false,
+    show: false,
+    imageCurrent: 0
+  },
+
+  showPopup() {
+    if(this.data.imageCurrent === 0) {        // 一点技巧默认 失败的 让用户点击头像参数 点击第一次设置为1 以后如果不是首次失败 就直接打开
+      this.setData({ show: true, imageCurrent: 1 });
+    } else {
+      this.setData({show: true})
+    }
+    
+  },
+
+  onClose() {
+    this.setData({ show: false });
+  },
+
+  changeSwiper(event) {
+    console.log(event)
+    this.setData({
+      imageCurrent: event.detail.current+1
+    })
   },
 
   checkboxChange(e) {
@@ -30,7 +52,7 @@ Page({
   getAccount(event) {
     this.setData({
       account: event.detail.value
-    })
+    }, ()=>{console.log(this.data.account)})
   },
 
   getPassword(event) {
@@ -102,7 +124,7 @@ Page({
 
   changetostudent: function () {
     this.setData({
-      kind: "学生",
+      kind: "student",
       register_student: "register_show",
       register_teacher: "register_hide"
     })
@@ -110,7 +132,7 @@ Page({
 
   changetoteacher: function () {
     this.setData({
-      kind: "教师",
+      kind: "teacher",
       register_student: "register_hide",
       register_teacher: "register_show"
     })
@@ -125,7 +147,7 @@ Page({
       })
       return
     }
-    if (this.data.grade == "") {
+    if (this.data.kind === 'student' && this.data.grade == "") {
       wx.showToast({
         title: '请输入年级',
         icon: "none"
@@ -141,7 +163,7 @@ Page({
         type: "createUser",
         body: {
           "account": this.data.account,
-          "avatar": "null",
+          "avatar": this.data.imageCurrent === 0 ? 'null' :'https://cdn.ekko306.top/wx/' + this.data.imageCurrent + '.jpg',
           "checkIn": "0",
           "educationInfo": {
             "class": this.data.class,
@@ -160,12 +182,15 @@ Page({
     }).then((resp) => {
       console.log(resp, 'loginUser')
       wx.showToast({
-        title: '注册成功',
+        title: '注册成功！',
         icon: "success"
       })
-      wx.navigateTo({
-        url: '/pages/login/index/index',
-      })
+      setTimeout(()=> {
+        wx.navigateBack({
+          delta: 0,
+        })
+      }, 2000)
+      
     }).catch((e) => {
       console.log(e);
       wx.showToast({

@@ -1,7 +1,13 @@
-Page({
-    data: {},
-    onLoad: function (options) {
+const userStore = require("../../../stores/user-store")
 
+Page({
+    data: {
+      userData: {}
+    },
+    onLoad: function (options) {
+      this.setData({
+        userData: userStore.getUserData()
+      })
     },
 
     clickCheckIn: function() {

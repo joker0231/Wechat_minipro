@@ -1,3 +1,5 @@
+const userStore = require('../../../stores/user-store')
+
 // pages/index/community_headpic.js
 Page({
 
@@ -6,7 +8,8 @@ Page({
    */
   data: {
     account: '',
-    password: ''
+    password: '',
+    error_message: ''     // 错误信息
   },
 
   /**
@@ -66,6 +69,7 @@ Page({
   },
 
   getAccount(event) {
+    console.log(event)
     this.setData({
      account: event.detail.value
     })
@@ -78,14 +82,14 @@ Page({
     },
 
   clickLogin: function() {
-    if(this.data.account.length!=11){
-      console.log(this.data.account)
-      wx.showToast({
-        title: '手机号应为11位',
-        icon: "none"
-      })
-      return
-    }
+    // if(this.data.account.length!=11){
+    //   console.log(this.data.account)
+    //   wx.showToast({
+    //     title: '手机号应为11位',
+    //     icon: "none"
+    //   })
+    //   return
+    // }
     wx.cloud.callFunction({
       name: 'userFunctions',
       config: {
@@ -100,23 +104,17 @@ Page({
       if(resp.result.errMsg=="账号或密码错误！"){
         console.log(resp, 'loginUser')
                wx.showToast({
-          title: '密码不正确',
+          title: '账号或密码不正确',
           icon: "none"
         })
       }else{
         console.log(resp, 'loginUser')
-              wx.showToast({
-          title: '登录成功',
-          icon: "success",
-          success:function(){
-            wx.setStorageSync('userid', resp.result.data[0]._id)
-            setTimeout(function(){
-              wx.switchTab({
-                url: '/pages/class/index/index',
-              })
-            })
-          }
+        
+        wx.setStorageSync('userid', resp.result.data[0]._id)
+        wx.switchTab({
+          url: '/pages/class/index/index',
         })
+        userStore.init(resp.result.data[0]) // 成功全局保存参数了 其他地方获取 userStore就能使用用户数据
       }
     }).catch((e) => {
       console.log(e);
@@ -132,5 +130,18 @@ Page({
     wx.navigateTo({
       url: '/pages/login/register/index',
     })
+  },
+
+  checkPhone: function() {
+    console.log('触发检测')
+    if(this.data.account.length!=11) {
+      this.setData({
+        error_message: '*手机号应为11位'
+      })
+    } else {
+      this.setData({
+        error_message: ''
+      })
+    }
   }
 })

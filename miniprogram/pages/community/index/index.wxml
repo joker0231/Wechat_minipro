@@ -61,7 +61,7 @@
                 favour="{{item.collect_num}}" 
                 like="{{item.like_num}}" 
                 content="{{item.content}}" 
-                info="{{item.user.kind==='teacher' ? item.user.educationInfo.school + ' '  + item.user.educationInfo.speciality : item.user.educatinoInfo.school + item.user.user.education.grade + item.user.user.education.class}}" 
+                info="{{item.user.kind==='teacher' ? item.user.educationInfo.school + ' '  + item.user.educationInfo.speciality : item.user.educationInfo.school + ' ' + item.user.educationInfo.grade + ' ' + item.user.educationInfo.class}}" 
                 name="{{item.user.nickname}}" 
                 headpic="{{item.user.avatar}}"
                 data-topicId="{{item._id}}"

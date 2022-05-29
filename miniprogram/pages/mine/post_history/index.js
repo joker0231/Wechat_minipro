@@ -1,5 +1,6 @@
 import Dialog from '../../../miniprogram_npm/@vant/weapp/dialog/dialog';
 import Toast from '../../../miniprogram_npm/@vant/weapp/toast/toast'
+const userStore = require('../../../stores/user-store')
 
 Page({
     data: {
@@ -13,7 +14,7 @@ Page({
             },
             data: {
               type: "getUserTopic",
-              userId: "636050766258dad005cb320f0d7bc76c"
+              userId: userStore.getUserData()._id
             }
           }).then((resp) => {
             console.log(resp, 'getUserTopic')

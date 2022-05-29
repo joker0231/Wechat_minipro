@@ -68,7 +68,7 @@
 
 .com-cardhead{
     display: flex;
-    /* align-items: center; */
+    /* align-items: flex-start; */
     height: 78rpx;
     background-color: white;
     padding: 20rpx ;
@@ -77,10 +77,12 @@
     margin-top: 0 auto;
     /* border-top-left-radius: 20rpx;
     border-top-right-radius: 20rpx; */
+
 }
 
 .head-text {
     height: 38rpx;
+    line-height: 38rpx;
     font-size: 28rpx;
     background-color: rgba(255, 255, 255, 0);
     box-sizing: border-box;

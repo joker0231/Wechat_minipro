@@ -8,7 +8,14 @@
         <view class="login_mask"/>
         <view class="login_item">
             <text>手机号</text>
-            <input bindinput="getAccount"/>
+            <!-- <input bindinput="getAccount"/> -->
+            <van-field
+              class="vant"
+              border="{{ false }}"
+              model:value="{{account}}"
+              bind:blur="checkPhone"
+              error-message="{{error_message}}"
+            />
         </view>
         <view class="login_item">
             <text>密码</text>

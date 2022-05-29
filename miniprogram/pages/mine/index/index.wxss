@@ -107,6 +107,9 @@
 .mine-head{
     width: 140rpx;
     height: 140rpx;
+    margin-left: 20rpx;
+    margin-right: 25rpx;
+    border-radius: 50%;
 }
 
 .mine-name{

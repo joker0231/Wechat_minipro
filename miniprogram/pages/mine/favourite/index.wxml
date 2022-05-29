@@ -2,8 +2,19 @@
     <van-tabs active="{{ active }}" bind:change="onChange" title-active-color="#7B4D12" color="#FACD91">
         <van-tab title="课程">
             <view class="favourite-container">
-                <classcard/>
-                <classcard/>
+                <classcard 
+                  wx:for="{{collectClass}}"
+                  title="{{item.title}}"
+                  introduction="{{item.introduction}}"
+                  author="{{item.author}}" 
+                  is_collected="{{item.is_collected}}" 
+                  _id="{{item._id}}" 
+                  detail="{{item.detail}}" 
+                  grade="{{item.grade}}" 
+                  semester="{{item.semester}}" 
+                  subject="{{item.subject}}"
+                  type="class" 
+                />
             </view>
         </van-tab>
         <van-tab title="帖子">
