@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "exercise_chapter": "/components/gl_chapter/index"
+    "exercise_chapter": "/components/gl_chapter/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index"
   }
 }

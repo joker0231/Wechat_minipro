@@ -67,12 +67,6 @@
         },
         {
           "name": "",
-<<<<<<< HEAD
-          "pathName": "pages/exercise/index/index",
-          "query": "",
-          "scene": null,
-          "launchMode": "default"
-=======
           "pathName": "pages/mine/favourite/index",
           "query": "",
           "launchMode": "default",
@@ -84,7 +78,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
->>>>>>> syp
+        },
+        {
+          "name": "",
+          "pathName": "pages/exercise/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/exercise/exercise_online/index",
+          "query": "",
+          "scene": null,
+          "launchMode": "default"
         }
       ]
     }

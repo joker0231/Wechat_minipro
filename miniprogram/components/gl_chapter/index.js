@@ -30,9 +30,14 @@ Component({
             }
         },
         clickToQuizOnline: function(e) {
+            console.log(e.target.dataset)
             if(this.data.forExercise) {
                 wx.navigateTo({
                     url: '/pages/exercise/exercise_online/index',
+                    success: function(res) {
+                        // 通过 eventChannel 向被打开页面传送数据
+                        res.eventChannel.emit('acceptDataFromOpenerPage', { section: e.target.dataset.section,chapter:this.data.chapter_num})
+                    }
                 })
             }else{
                 this.triggerEvent('changevideo', { param: e.target.dataset.href});

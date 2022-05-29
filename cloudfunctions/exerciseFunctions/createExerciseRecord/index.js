@@ -8,12 +8,10 @@ const db = cloud.database();
 
 // 创建集合云函数入口函数
 exports.main = async (event, context) => {
-  const wxContext = cloud.getWXContext()
   try {
     // 创建集合
     await db.collection('record_exercise').add({
       // data 字段表示需新增的 JSON 数据
-      userId: wxContext.OPENID,
       data: event.body,
       success: function(res) {
         console.log(res)

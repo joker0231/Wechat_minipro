@@ -8,10 +8,9 @@ const db = cloud.database();
 
 // 创建集合云函数入口函数
 exports.main = async (event, context) => {
-  const wxContext = cloud.getWXContext()
   try {
     return await db.collection('record_exercise').where({
-      reportId: wxContext.OPENID,
+      data: event.body,
     }).get()
   } catch(e) {
     console.error(e)

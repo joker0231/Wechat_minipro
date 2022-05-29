@@ -8,7 +8,7 @@
             <text class="class-title">上课</text>
             <view>
                 <image bindtap="clickToSeach"  class="class-search" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/search.png?sign=9b4ef3ba117fbf72437677fc2cffe9bc&t=1651407998"></image>
-                <image class="class-note" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/%E8%AE%B0%E5%BD%95%20(1).png?sign=7122b1a872a180fc692544f0f2d6212d&t=1651408047"></image>
+                <image bindtap="clickToClassRecord" class="class-note" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/%E8%AE%B0%E5%BD%95%20(1).png?sign=7122b1a872a180fc692544f0f2d6212d&t=1651408047"></image>
             </view>
         </view>
         <view class="class-navigation">

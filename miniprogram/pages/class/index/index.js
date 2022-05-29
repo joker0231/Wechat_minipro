@@ -45,6 +45,12 @@ Page({
         })
     },
 
+    clickToClassRecord: function() {
+        wx.navigateTo({
+          url: '/pages/mine/record/index',
+        })
+    },
+
     showgrade:function (){
       this.setData({
           showgrade:true
