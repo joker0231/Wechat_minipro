@@ -4,6 +4,8 @@ Component({
     },
     properties: {
         chapter_num:String,
+        grade:String,
+        subject: String,
         showLucky: {
             type: Boolean,
             value: true
@@ -30,13 +32,18 @@ Component({
             }
         },
         clickToQuizOnline: function(e) {
-            console.log(e.target.dataset)
+            const data = {
+                section: e.target.dataset.section,
+                chapter:this.data.chapter_num,
+                subject:this.data.subject,
+                grade: this.data.grade
+            }
             if(this.data.forExercise) {
                 wx.navigateTo({
                     url: '/pages/exercise/exercise_online/index',
                     success: function(res) {
                         // 通过 eventChannel 向被打开页面传送数据
-                        res.eventChannel.emit('acceptDataFromOpenerPage', { section: e.target.dataset.section,chapter:this.data.chapter_num})
+                        res.eventChannel.emit('acceptDataFromExerciseIndex', { data: data })
                     }
                 })
             }else{

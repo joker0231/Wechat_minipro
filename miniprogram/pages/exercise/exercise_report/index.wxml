@@ -5,8 +5,8 @@
     <view class="card">
       <view class="front">
         <view class="left">
-          <view class="title-in">第x章 主题名称</view>
-          <view class="correct">一共答对<view class="bold">5</view>题</view>
+          <view class="title-in">{{section}}</view>
+          <view class="correct">一共答对<view class="bold">{{correct}}</view>题</view>
         </view>
         <image class="logo" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=9422a33fbe17b9b4643f416ab3ec445b&t=1652256405"></image>
       </view>
@@ -19,17 +19,12 @@
             <view class="pop-dots-wrapper">
               <view data-inputindex="{{index}}" bindtap="onClickToDetail" class="pop-dot-wrapper" wx:for="{{exercise}}">
                 <!-- 作对的颜色 绿色 -->
-                <view wx:if="{{index === 1}}" style="background-color: #caf982;" class="pop-dot">
-                  {{index + 1}}
-                </view>
-
-                 <!-- 没做的颜色 蓝绿色 -->
-                 <view wx:elif="{{index === 2}}" style="background-color:  #fb5266" class="pop-dot">
+                <view wx:if="{{item.judge}}" style="background-color: #caf982;" class="pop-dot">
                   {{index + 1}}
                 </view>
 
                 <!-- 其他：做错的颜色 红色 -->
-                <view wx:else style="background-color: #b4ebf1" class="pop-dot">
+                <view wx:else style="background-color: #fd542a" class="pop-dot">
                   {{index + 1}}
                 </view>
               </view>
@@ -37,7 +32,7 @@
           </scroll-view>
         </view>
         <view class="color-mean">
-          <view class="color-tip" wx:for="{{[{a: '#caf982', b: '正确'}, {a: '#fb5266', b: '错误'}, {a: '#b4ebf1', b: '未做'}]}}">
+          <view class="color-tip" wx:for="{{[{a: '#caf982', b: '正确'}, {a: '#fb5266', b: '错误'}]}}">
           <view class="color-dot" style="background-color: {{item.a}};"></view>          
            <view class="color-text">{{item.b}}</view>
           </view>
@@ -47,7 +42,7 @@
           错题解析
         </view>
         <view class="card-list">
-          <exercise_card inner-class="exercise_card" wx:for="{{['1', '2', '3', '4']}}" content="1.xxxxxxx" option="xxxxxx" resolution="解析：xxxxxxxx"/>
+          <exercise_card inner-class="exercise_card" wx:for="{{wrong_exercise}}" content="{{item.question}}" option="{{item.options}}" resolution="{{item.solution}}"/>
         </view>
 
 

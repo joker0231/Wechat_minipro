@@ -1,4 +1,5 @@
 // pages/exercise/online_quiz/index.js
+const exerciseStore = require('../../../stores/exercise-store')
 Page({
 
   /**
@@ -6,10 +7,15 @@ Page({
    */
   data: {
     exercise: [],
-    user_input: [],
+    user_input: [4,4,4,4,4,4],
     current: 0,
     show: false, // 弹出答题卡
-
+    section: null,
+    chapter: '',
+    subject: '',
+    grade: '',
+    wrong_exercise: [],
+    correct: 0
   },
 
   showPopup() {
@@ -24,6 +30,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const that = this
+    console.log(this.data)
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('acceptDataFromExerciseIndex', function (data) {
+      that.setData({
+        section: data.data.section,
+        chapter: data.data.chapter,
+        subject: data.data.subject,
+        grade: data.data.grade
+      })
+    })
+
     wx.setNavigationBarTitle({
       title: "动态课程标题"
     })
@@ -44,15 +62,14 @@ Page({
       },
       data: {
         type: "getExerciseList",
-        grade: "一年级",
-        subject: "语文",
-        section: "1.1"
+        grade: this.data.grade,
+        subject: this.data.subject,
+        section: this.data.section
       }
     }).then((resp) => {
       this.setData({
         exercise: resp.result.list
       })
-      console.log(this.data.exercise)
     }).catch((e) => {
       console.log(e);
     });
@@ -69,11 +86,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      user_input: new Array(this.data.exercise.length).fill('')
-    }, ()=>{
-      console.log(this.data.user_input)
-    })
+    // console.log(this.data.exercise.length)
+    // this.setData({
+    //   user_input: new Array(this.data.exercise.length).fill('')
+    // }, ()=>{
+    //   console.log(this.data.user_input)
+    // })
   },
 
   /**
@@ -132,13 +150,52 @@ Page({
     })
   },
 
+  judgeAnswer: function(){
+    const judge = [{judge:false},{judge:false},{judge:false},{judge:false},{judge:false},{judge:false}]
+    for(let i = 0;i<this.data.exercise.length;i++){
+      if(this.data.exercise[i].answer == this.data.user_input[i]){
+        judge[i].judge = true
+      }
+    }
+    let newExerciseList = this.mergeObj(this.data.exercise,judge)
+    this.setData({
+      exercise: newExerciseList
+    })
+  },
+
+  mergeObj: function(arr1, arr2) {
+    const result = []
+    for(let i = 0;i<this.data.exercise.length;i++){
+      let obj1 = arr1[i]
+      let obj2 = arr2[i]
+      let obj3 = {...obj1,...obj2}
+      result.push(obj3)
+    }
+    return result
+  },
+
+  findwrongexercise: function(exerciseList) {
+    for(let i = 0;i < exerciseList.length;i++){
+      if(!exerciseList[i].judge){
+        this.data.wrong_exercise.push(exerciseList[i])
+      }
+    }
+  },
+
   clickToReport() {
+    const that = this
     wx.showModal({
       title: '提交报告',
       content: '确定提交做题查看报告？',
       success (res) {
         if (res.confirm) {
           console.log('用户点击确定')
+          that.judgeAnswer()
+          that.findwrongexercise(that.data.exercise)
+          that.setData({
+            correct: 6 - that.data.wrong_exercise.length
+          })
+          exerciseStore.init(that.data.exercise,that.data.user_input,that.data.wrong_exercise,that.data.correct,that.data.section)
           wx.redirectTo({
             url: '/pages/exercise/exercise_report/index',
           })
@@ -158,9 +215,8 @@ Page({
   },
 
   onClickChoice(event) {
-    console.log(event.currentTarget.dataset.choiceindex)
     let prevUserInput = this.data.user_input
-    prevUserInput[this.data.current] = event.currentTarget.dataset.choiceindex + ''
+    prevUserInput[this.data.current] = event.currentTarget.dataset.choiceindex
     this.setData({
       user_input: prevUserInput
     }, ()=>{

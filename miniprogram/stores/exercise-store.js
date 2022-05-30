@@ -1,24 +1,50 @@
-import User from '../model/user'
+import Exercise from '../model/exercise'
 const { Store } = require('../miniprogram_npm/westore/index')   
 
-// 如果有频繁更改user数据 还需要搞一些update()方法 来触发全局别的地方更新 但是这里user数据只是暂时单纯设定一次后 全局读取 没有修改
-// 而且他的架构很纯 有的是吧这个store的数据用到页面里 太耦合了
-class UserStore extends Store {
+class ExerciseStore extends Store {
   constructor() {
     super()
-    this.userData = {}
-    this.user = new User()
+    this.exerciseListData = {}
+    this.userAnswerData =[]
+    this.wrongExerciseList = []
+    this.correct = 0
+    this.section = ''
+    this.exercise = new Exercise()
   }
 
-  init(userData) {
-    this.user.setUserData(userData)
-    this.userData = this.user.getUserData()
+  init(exerciseListData,userAnswerData,wrongExerciseList,correct,section) {
+    this.exercise.setExerciseListData(exerciseListData)
+    this.exerciseListData = this.exercise.getExerciseListData()
+    this.exercise.setUserAnswerData(userAnswerData)
+    this.userAnswerData = this.exercise.getUserAnswerData()
+    this.exercise.setWrongExerciseListData(wrongExerciseList)
+    this.wrongExerciseList = this.exercise.getWrongExerciseListData()
+    this.exercise.setCorrectData(correct)
+    this.correct = this.exercise.getCorrectData()
+    this.exercise.setSectionData(section)
+    this.section = this.exercise.getSectionData()
   }
 
-  getUserData() {
-    return this.userData;
+  getExerciseListData() {
+    return this.exerciseListData;
+  }
+
+  getUserAnswerData() {
+    return this.userAnswerData;
+  }
+
+  getWrongExerciseListData() {
+    return this.wrongExerciseList;
+  }
+
+  getCorrectData() {
+    return this.correct;
+  }
+
+  getSectionData() {
+    return this.section;
   }
 }
 
 
-module.exports = new UserStore
+module.exports = new ExerciseStore

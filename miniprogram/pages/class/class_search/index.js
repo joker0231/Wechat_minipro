@@ -64,6 +64,7 @@ Page({
       if (res.data.length == 0) { //如果搜索信息在数据库中找不到
         wx.showToast({
           title: '没有找到对应课程',
+          icon: 'none'
         })
         return
       }

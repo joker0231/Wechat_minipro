@@ -1,6 +1,6 @@
 <view class="exercise_header">
   <view class="show_index">{{current + 1 + '/' + exercise.length}}</view>
-  <view class="title-first">第x章 主题名称</view>
+  <view class="title-first">{{section}}</view>
   <image  bindtap="showPopup" class="sheet" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/answer_sheet.png?sign=821e7183b208e4871c406ca97b0b1a9e&t=1652085450"></image>
 </view>
 <view class="exercise_content"> 

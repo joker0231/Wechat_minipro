@@ -1,16 +1,52 @@
-class User {
+class Exercise {
   constructor() {
-    this.userData = {}
+    this.exerciseListData = {}
+    this.userAnswerData = []
+    this.wrongExerciseList = []
+    this.correct = 0
+    this.section = ''
   }
 
-  setUserData(inData) {
-    this.userData = inData
+  setExerciseListData(inData) {
+    this.exerciseListData = inData
   }
 
-  getUserData() {
-    return this.userData
+  getExerciseListData() {
+    return this.exerciseListData
+  }
+
+  setUserAnswerData(inData) {
+    this.userAnswerData = inData
+  }
+
+  getUserAnswerData() {
+    return this.userAnswerData
+  }
+
+  setWrongExerciseListData(inData) {
+    this.wrongExerciseList = inData
+  }
+
+  getWrongExerciseListData() {
+    return this.wrongExerciseList
+  }
+
+  setCorrectData(inData) {
+    this.correct = inData
+  }
+
+  getCorrectData() {
+    return this.correct
+  }
+
+  setSectionData(inData) {
+    this.section = inData
+  }
+
+  getSectionData() {
+    return this.section
   }
 }
 
 
-module.exports = User
+module.exports = Exercise
