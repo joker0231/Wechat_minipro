@@ -29,13 +29,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const that = this
-    const eventChannel = this.getOpenerEventChannel()
-    eventChannel.on('acceptDataFromOpenerPage', function (data) {
-      that.setData({
-        _id: data.data
-      })
+    this.setData({
+      _id: options.classId
     })
+    // const that = this
+    // const eventChannel = this.getOpenerEventChannel()
+    // eventChannel.on('acceptDataFromOpenerPage', function (data) {
+    //   that.setData({
+    //     _id: data.data
+    //   })
+    // })
 
     wx.cloud.callFunction({
       name: 'classFunctions',
@@ -73,8 +76,6 @@ Page({
         classId: this.data._id
       }
     }).then((resp) => {
-      console.log(resp.result.data[0].content)
-      console.log(222)
       this.setData({
         content: resp.result.data[0].content
       })

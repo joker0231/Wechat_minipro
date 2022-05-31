@@ -51,6 +51,22 @@ Page({
         })
     },
 
+    clickToDetail(event) {
+      
+    },
+
+    onClickToDetail: function(event) {
+        if(event.currentTarget.dataset.type === 'class') {
+          wx.navigateTo({
+            url: '/pages/class/class_detail/index?classId=' + event.currentTarget.dataset.classid,
+          })
+        } else if (event.currentTarget.dataset.type === 'extend') {
+            wx.navigateTo({
+                url: '/pages/class/extend_detail/index',
+            })
+        }
+    },
+
     showgrade:function (){
       this.setData({
           showgrade:true

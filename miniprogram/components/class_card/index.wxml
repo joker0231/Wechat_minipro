@@ -1,5 +1,5 @@
 <view class="classcard-container inner-class">
-    <view class="classcard-header" bindtap="onClickToDetail">
+    <view class="classcard-header">
         <image class="classcard-pic" src="{{photo}}"></image>
         <view class="classcard-info">
             <view class="classcard-infotitle">{{title}}</view>

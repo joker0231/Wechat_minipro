@@ -24,7 +24,7 @@
         <view wx:if="{{navState==0}}">
             <view class="class-classes">
                 <view wx:for="{{exercise_catalog}}">
-                    <exercise_chapter grade="{{grade}}" subject="{{subject}}" section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
+                    <exercise_chapter toexercisedetail="{{}}" bind:clickTopBar="clickme" data-section="{{item.exerciseSection}}" grade="{{grade}}" subject="{{subject}}" section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
                 </view>
             </view>
         </view>

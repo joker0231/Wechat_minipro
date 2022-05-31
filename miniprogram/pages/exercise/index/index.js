@@ -8,6 +8,7 @@ Page({
     gradebgcolor: '#dfdfdf',
     subject: "语文",
     exercise_catalog: [],
+    data: {}
   },
   onLoad: function (options) {
     this.getExerciseByGrade()
@@ -111,5 +112,15 @@ Page({
     this.setData({
       showgrade: false
     })
-  }
+  },
+
+  clickme:function(e){
+    this.setData({
+      data: e.detail
+    })
+    let queryBean = JSON.stringify(this.data.data)
+      wx.navigateTo({
+        url: '/pages/exercise/exercise_online/index?queryBean=' + queryBean,
+      })
+  },
 });

@@ -30,16 +30,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const that = this
-    console.log(this.data)
-    const eventChannel = this.getOpenerEventChannel()
-    eventChannel.on('acceptDataFromExerciseIndex', function (data) {
-      that.setData({
-        section: data.data.section,
-        chapter: data.data.chapter,
-        subject: data.data.subject,
-        grade: data.data.grade
-      })
+    var queryBean = JSON.parse(options.queryBean)
+    this.setData({
+        section: queryBean.section,
+        subject: queryBean.subject,
+        grade: queryBean.grade
     })
 
     wx.setNavigationBarTitle({
