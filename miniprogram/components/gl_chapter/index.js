@@ -38,18 +38,9 @@ Component({
                 grade: this.data.grade
             }
             this.triggerEvent('clickTopBar', data)
-            if(this.data.forExercise) {
-                // wx.navigateTo({
-                //     url: '/pages/exercise/exercise_online/index',
-                //     success: function(res) {
-                //         // 通过 eventChannel 向被打开页面传送数据
-                //         res.eventChannel.emit('acceptDataFromExerciseIndex', { data: data })
-                //     }
-                // })
-            }else{
+            if(!this.data.forExercise) {
                 this.triggerEvent('changevideo', { param: e.target.dataset.href});
             }
-            
         }
     }
 });
