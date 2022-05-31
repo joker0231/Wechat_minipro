@@ -29,7 +29,6 @@ Page({
       correct: correct,
       section: section
     })
-    console.log(section)
     wx.setNavigationBarTitle({
       title: '动态学科章节',
     })

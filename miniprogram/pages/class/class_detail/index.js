@@ -35,7 +35,6 @@ Page({
       that.setData({
         _id: data.data
       })
-      console.log(that.data._id)
     })
 
     wx.cloud.callFunction({
@@ -75,6 +74,7 @@ Page({
       }
     }).then((resp) => {
       console.log(resp.result.data[0].content)
+      console.log(222)
       this.setData({
         content: resp.result.data[0].content
       })

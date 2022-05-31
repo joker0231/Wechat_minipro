@@ -1,6 +1,14 @@
 <view class="exercisecard-container inner-class">
-    练习报告
-    <!-- <view class="exercisecard-content">{{content}}</view>
-    <view class="exercisecard-option">{{option}}</view>
-    <view class="exercisecard-resolution">{{resolution}}</view> -->
+    <view class="exercisecard-header" bindtap="onClickToDetail">
+        <image class="exercisecard-pic" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=9422a33fbe17b9b4643f416ab3ec445b&t=1652256405"></image>
+        <view class="exercisecard-info">
+            <view class="exercisecard-infotitle">{{chapter+section}}</view>
+            <view class="exercisecard-correctrate">本次练习答对了<view class="bold">{{correct}}</view>题</view>
+            <view class="exercisecard-tips">点击查看练习报告</view>
+        </view>
+    </view>
+    <view class="exercisecard-footer">
+        <view class="hr"/>
+        <view class="exercisecard-time">完成时间：{{complete_time}}</view>
+    </view>
 </view>

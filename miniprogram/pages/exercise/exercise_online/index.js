@@ -7,7 +7,7 @@ Page({
    */
   data: {
     exercise: [],
-    user_input: [4,4,4,4,4,4],
+    user_input: [4, 4, 4, 4, 4, 4],
     current: 0,
     show: false, // 弹出答题卡
     section: null,
@@ -146,37 +146,37 @@ Page({
   onClickNext() {
     let prevIndex = this.data.current
     this.setData({
-      current: prevIndex+1
+      current: prevIndex + 1
     })
   },
 
-  judgeAnswer: function(){
-    const judge = [{judge:false},{judge:false},{judge:false},{judge:false},{judge:false},{judge:false}]
-    for(let i = 0;i<this.data.exercise.length;i++){
-      if(this.data.exercise[i].answer == this.data.user_input[i]){
+  judgeAnswer: function () {
+    const judge = [{ judge: false }, { judge: false }, { judge: false }, { judge: false }, { judge: false }, { judge: false }]
+    for (let i = 0; i < this.data.exercise.length; i++) {
+      if (this.data.exercise[i].answer == this.data.user_input[i]) {
         judge[i].judge = true
       }
     }
-    let newExerciseList = this.mergeObj(this.data.exercise,judge)
+    let newExerciseList = this.mergeObj(this.data.exercise, judge)
     this.setData({
       exercise: newExerciseList
     })
   },
 
-  mergeObj: function(arr1, arr2) {
+  mergeObj: function (arr1, arr2) {
     const result = []
-    for(let i = 0;i<this.data.exercise.length;i++){
+    for (let i = 0; i < this.data.exercise.length; i++) {
       let obj1 = arr1[i]
       let obj2 = arr2[i]
-      let obj3 = {...obj1,...obj2}
+      let obj3 = { ...obj1, ...obj2 }
       result.push(obj3)
     }
     return result
   },
 
-  findwrongexercise: function(exerciseList) {
-    for(let i = 0;i < exerciseList.length;i++){
-      if(!exerciseList[i].judge){
+  findwrongexercise: function (exerciseList) {
+    for (let i = 0; i < exerciseList.length; i++) {
+      if (!exerciseList[i].judge) {
         this.data.wrong_exercise.push(exerciseList[i])
       }
     }
@@ -187,7 +187,7 @@ Page({
     wx.showModal({
       title: '提交报告',
       content: '确定提交做题查看报告？',
-      success (res) {
+      success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
           that.judgeAnswer()
@@ -195,7 +195,32 @@ Page({
           that.setData({
             correct: 6 - that.data.wrong_exercise.length
           })
-          exerciseStore.init(that.data.exercise,that.data.user_input,that.data.wrong_exercise,that.data.correct,that.data.section)
+
+          wx.cloud.callFunction({   //保存练习报告的数据
+            name: 'exerciseFunctions',
+            config: {
+              env: 'lemon-7glhwqyu5304e1f9'
+            },
+            data: {
+              type: "createExerciseRecord",
+              body: {
+                "exercise": that.data.exercise,
+                "user_input": that.data.user_input,
+                "section": that.data.section,
+                "chapter": that.data.chapter,
+                "subject": that.data.subject,
+                "grade": that.data.grade,
+                "wrong_exercise": that.data.wrong_exercise,
+                "correct": that.data.correct
+              }
+            }
+          }).then((resp) => {
+            console.log(resp)
+          }).catch((e) => {
+            console.log(e);
+          });
+
+          exerciseStore.init(that.data.exercise, that.data.user_input, that.data.wrong_exercise, that.data.correct, that.data.section)
           wx.redirectTo({
             url: '/pages/exercise/exercise_report/index',
           })
@@ -219,7 +244,7 @@ Page({
     prevUserInput[this.data.current] = event.currentTarget.dataset.choiceindex
     this.setData({
       user_input: prevUserInput
-    }, ()=>{
+    }, () => {
       console.log(this.data.user_input)
     })
 
@@ -237,7 +262,7 @@ Page({
     prevUserInput[this.data.current] = event.detail + ''
     this.setData({
       user_input: prevUserInput
-    }, ()=>{
+    }, () => {
       console.log(this.data.user_input)
     })
 
@@ -249,5 +274,5 @@ Page({
     //   wx.disableAlertBeforeUnload()
     // }
   }
-  
+
 })

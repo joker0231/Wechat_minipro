@@ -1,9 +1,10 @@
 Component({
   externalClasses: ['inner-class'],
   properties: {
-      content: String,
-      option:String,
-      resolution: String
+      chapter: String,
+      section:String,
+      correct: String,
+      complete_time:String
   },
   data: {},
   methods: {}

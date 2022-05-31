@@ -14,8 +14,8 @@
         </van-tab>
         <van-tab title="练习报告">
             <view class="favourite-container">
-                <exercise_report content="1.xxxxxxx" option="xxxxxx" resolution="解析：xxxxxxxx"/>
-                <exercise_report content="1.xxxxxxx" option="xxxxxx" resolution="解析：xxxxxxxx"/>
+                <exercise_report chapter="第一章" section="1.1 xxxx" correct="2" complete_time="2022年5月1日"/>
+                <exercise_report chapter="第一章" section="1.1 xxxx" correct="2" complete_time="2022年5月1日"/>
             </view>
         </van-tab>
     </van-tabs>
