@@ -1,4 +1,4 @@
-<view class='gs_banner'>
+<!-- <view class='gs_banner'>
     <view class='gs_continue'>
         <view>本月总共签到：<text>{{continuity}}</text>天</view>
     </view>
@@ -50,4 +50,10 @@
             </view>
         </view>
     </view>
+</view> -->
+
+
+
+<view>
+  <van-calendar title="本月您已签到1天" class="calendar" show="{{true}}"   poppable="{{ false }}" confirm-text="打卡" readonly />
 </view>

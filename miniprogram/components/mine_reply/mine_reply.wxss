@@ -1,6 +1,6 @@
 .reply-container{
     width: 636rpx;
-    height: 352rpx;
+    height: 302rpx;
     border-radius: 30rpx;
     background-color: #ffffff;
     padding: 20rpx;
