@@ -13,7 +13,7 @@
           <!-- 选择题情况 -->
           <view class="choice" wx:if="{{item.type === 'choice'}}">
             <view class="small-choice" wx:for="{{item.options}}">
-              <view wx:if="{{user_input[current] !== index + ''}}" bindtap="onClickChoice" data-choiceIndex="{{index}}" class="small-choice-text">{{item}}</view>
+              <view wx:if="{{user_input[current] !== index }}" bindtap="onClickChoice" data-choiceIndex="{{index}}" class="small-choice-text">{{item}}</view>
               <view wx:else style="background-color: orange;color: white;" bindtap="onClickChoice" data-choiceIndex="{{index}}" class="small-choice-text">{{item}}</view>
             </view>
           </view>

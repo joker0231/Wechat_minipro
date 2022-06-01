@@ -81,12 +81,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // console.log(this.data.exercise.length)
-    // this.setData({
-    //   user_input: new Array(this.data.exercise.length).fill('')
-    // }, ()=>{
-    //   console.log(this.data.user_input)
-    // })
+
   },
 
   /**
@@ -177,6 +172,18 @@ Page({
     }
   },
 
+  getDate(){
+    var date = new Date();
+    let Y = date.getFullYear() + '-';
+    let M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    let D = date.getDate() + ' ';
+    let h = date.getHours() + ':';
+    let m = date.getMinutes() + ':';
+    let s = date.getSeconds(); 
+    console.log(Y+M+D+h+m+s);
+    return Y+M+D+h+m+s
+  },
+
   clickToReport() {
     const that = this
     wx.showModal({
@@ -206,7 +213,8 @@ Page({
                 "subject": that.data.subject,
                 "grade": that.data.grade,
                 "wrong_exercise": that.data.wrong_exercise,
-                "correct": that.data.correct
+                "correct": that.data.correct,
+                "data": that.getDate()
               }
             }
           }).then((resp) => {
@@ -242,13 +250,6 @@ Page({
     }, () => {
       console.log(this.data.user_input)
     })
-
-    // 检查所有题目是否都做完  是的话关闭enableAlertBeforeUnload 
-    // https://www.jianshu.com/p/b2d912920a6a
-    // if(this.data.user_input.every(e=> e !== '')) {    // 效率更好的写法？
-    //   console.log('所有题目做完')
-    //   wx.disableAlertBeforeUnload()
-    // }
   },
 
   onInput(event) {
