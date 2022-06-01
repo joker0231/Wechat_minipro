@@ -1,4 +1,6 @@
 // pages/community/chat/index.js
+import TIM from 'tim-js-sdk';
+import TIMUploadPlugin from 'tim-upload-plugin';
 Page({
 
   /**

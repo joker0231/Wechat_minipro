@@ -17,6 +17,21 @@
   "resolved" "https://registry.npmmirror.com/rfdc/-/rfdc-1.3.0.tgz"
   "version" "1.3.0"
 
+"tim-js-sdk@^2.19.1":
+  "integrity" "sha512-M0BJ/Ttg7zCJg8UXke9RMEOlqrJ2ifatLtYVVE2BE2U2ebw67R5zReCidCTkcL0mTcEkVAD/bem6OlLLwqhCPA=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/tim-js-sdk/-/tim-js-sdk-2.19.1.tgz"
+  "version" "2.19.1"
+
+"tim-upload-plugin@^1.0.4":
+  "integrity" "sha512-Ib/Ql5vdKoLg2wSFBQ34nzBnaUFa6IxiV8060BF+RnWVlhBZSd3MpBXT32wWcmPj/Sl2yOSCM+dC4fn1sm+y/w=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/tim-upload-plugin/-/tim-upload-plugin-1.0.4.tgz"
+  "version" "1.0.4"
+
+"tim-wx-sdk@^2.19.1":
+  "integrity" "sha512-nd0GqiH57nfz+Tpg/NqBpgBtNwByeytHuBchXm8DwdscI5V6vwzVA0Nf3ZD0Noatb/afIlELdM7VMwii6nvPXw=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/tim-wx-sdk/-/tim-wx-sdk-2.19.1.tgz"
+  "version" "2.19.1"
+
 "westore@^0.1.9":
   "integrity" "sha512-XhYv8UUzlvBgkU0YKHF//i6TYpBaV0vY9irunIypANv1qfUKvKC8C5G8s8/tQczNMEGSr5qkCNgCl/uNaEqElg=="
   "resolved" "https://registry.npmmirror.com/westore/-/westore-0.1.9.tgz"
