@@ -1,5 +1,5 @@
 // pages/community/chat/index.js
-import TIM from 'tim-js-sdk';
+import TIM from 'tim-wx-sdk';
 import TIMUploadPlugin from 'tim-upload-plugin';
 Page({
 
