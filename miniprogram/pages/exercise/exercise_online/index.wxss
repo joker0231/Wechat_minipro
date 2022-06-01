@@ -57,6 +57,8 @@
   border-radius: 30rpx;
   box-shadow: 4rpx 6rpx 10rpx 0 rgba(0, 0, 0, 0.35);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .scroll {
@@ -71,7 +73,7 @@
 .two-buttons {
   display: flex;
   justify-content: space-between;
-  margin: 50rpx 34rpx
+  margin: auto 34rpx 100rpx 34rpx
 }
 
 .two-buttons view {

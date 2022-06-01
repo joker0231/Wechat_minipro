@@ -1,4 +1,5 @@
 const createClass = require('./createClass/index');
+const createSearchHistory = require('./createSearchHistory/index');
 const createClassRecord = require('./createClassRecord/index');
 const deleteClass = require('./deleteClass/index');
 const getClassAll = require('./getClassAll/index');
@@ -8,11 +9,13 @@ const createCollectClass = require('./createCollectClass/index');
 const createExpandclass = require('./createExpandclass/index');
 const deleteCollectClass = require('./deleteCollectClass/index');
 const deleteExpandclass = require('./deleteExpandclass/index');
+const deleteSearchHistory = require('./deleteSearchHistory/index');
 const getClassPostById = require('./getClassPostById/index');
 const getClassById = require('./getClassById/index');
 const getClassVideoById = require('./getClassVideoById/index');
-const getExpandclassById = require('./getExpandclassByGrade/index');
+const getExpandclassByGrade = require('./getExpandclassByGrade/index');
 const getGameAll = require('./getGameAll/index');
+const getSearchHistory = require('./getSearchHistory/index');
 const updateGame = require('./updateGame/index');
 
 // 云函数入口函数
@@ -21,6 +24,8 @@ exports.main = async (event, context) => {
   switch (event.type) {
     case 'createClass':
       return await createClass.main(event, context);
+    case 'createSearchHistory':
+      return await createSearchHistory.main(event, context);
     case 'deleteClass':
       return await deleteClass.main(event, context);
     case 'getClassAll':
@@ -39,6 +44,8 @@ exports.main = async (event, context) => {
       return await deleteCollectClass.main(event, context);
     case 'deleteExpandclass':
       return await deleteExpandclass.main(event, context);
+    case 'deleteSearchHistory':
+      return await deleteSearchHistory.main(event, context);
     case 'getClassById':
       return await getClassById.main(event, context);
     case 'getClassPostById':
@@ -49,6 +56,8 @@ exports.main = async (event, context) => {
       return await getExpandclassByGrade.main(event, context);
     case 'getGameAll':
       return await getGameAll.main(event, context);
+    case 'getSearchHistory':
+      return await getSearchHistory.main(event, context);
     case 'updateGame':
       return await updateGame.main(event, context);
   }

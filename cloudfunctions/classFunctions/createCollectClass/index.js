@@ -17,6 +17,15 @@ exports.main = async (event, context) => {
         console.log(res)
       }
     });
+    await db.collection('class').doc(event.classId).update({
+      // data 字段表示需新增的 JSON 数据
+      data: {
+        is_collected: true
+      },
+      success: function(res) {
+        console.log(res)
+      }
+    });
     return {
       success: true
     };

@@ -14,11 +14,11 @@
     <swiper-item class="swiper-item" wx:for="{{exercise}}">
       <view class="card">
         <scroll-view class="scroll" scroll-y="true">
-          <view class="title">{{item.title}}</view>
+          <view class="title">{{item.question}}</view>
 
           <!-- 选择题情况 -->
           <view class="choice" wx:if="{{item.type === 'choice'}}">
-            <view class="small-choice" wx:for="{{item.choices}}">
+            <view class="small-choice" wx:for="{{item.options}}">
               <view wx:if="{{user_input[current] !== index + ''}}" data-choiceIndex="{{index}}" class="small-choice-text">{{item}}</view>
               <view wx:else style="background-color: orange;color: white;" data-choiceIndex="{{index}}" class="small-choice-text">{{item}}</view>
             </view>
@@ -42,7 +42,7 @@
           <view class="text">
             参考答案：
             <view class="field">
-              <view class="answer">{{answer_array[current]}}</view>
+              <view class="answer">{{item.solution}}</view>
             </view>
           </view>
           

@@ -11,14 +11,21 @@ Page({
     //       subArray: ['1', '2', '3']
     //   }
     // ],
-    subArray: ['1', '2', '3','3','3','3','3']
+    subArray: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const that = this
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('acceptDataFromOpenerPage', function (data) {
+      that.setData({
+        subArray: data.data
+      })
+      console.log(that.data.subArray)
+    })
   },
 
   /**

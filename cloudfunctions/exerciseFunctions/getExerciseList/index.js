@@ -9,21 +9,17 @@ const db = cloud.database();
 // 创建集合云函数入口函数
 exports.main = async (event, context) => {
   try {
-    await db.collection('exercise')
+    return await db.collection('exercise')
     .aggregate()
     .match({
-      grade: event.grade,
       subject: event.subject,
       section: event.section,
+      grade: event.grade
     })
     .sample({
-      size: 5
+      size: 6
     })
     .end()
-    .then(res => {
-      console.log('[数据库] [查询记录] 成功: ', res)
-      return items = res.list;
-    })
   } catch(e) {
     console.error(e)
     return {

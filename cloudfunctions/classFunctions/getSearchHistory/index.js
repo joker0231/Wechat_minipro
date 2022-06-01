@@ -8,14 +8,9 @@ const db = cloud.database();
 
 // 创建集合云函数入口函数
 exports.main = async (event, context) => {
-  try {
-    return await db.collection('record_exercise').where({
-      data: event.body,
-    }).get()
-  } catch(e) {
-    console.error(e)
-    return {
-      error: e
-    }
-  }
+  exports.main = async (event, context) => {
+    // 返回数据库查询结果
+    let resp = await db.collection('search_history').get();
+    return resp
+  };
 };

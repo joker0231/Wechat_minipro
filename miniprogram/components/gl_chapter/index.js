@@ -4,6 +4,8 @@ Component({
     },
     properties: {
         chapter_num:String,
+        grade:String,
+        subject: String,
         showLucky: {
             type: Boolean,
             value: true
@@ -29,13 +31,16 @@ Component({
                 })
             }
         },
-        clickToQuizOnline: function() {
-            if(this.data.forExercise) {
-                wx.navigateTo({
-                    url: '/pages/exercise/exercise_online/index',
-                })
+        clickToQuizOnline: function(e) {
+            const data = {
+                section: e.target.dataset.section,
+                subject:this.data.subject,
+                grade: this.data.grade
             }
-            
+            this.triggerEvent('clickTopBar', data)
+            if(!this.data.forExercise) {
+                this.triggerEvent('changevideo', { param: e.target.dataset.href});
+            }
         }
     }
 });

@@ -55,6 +55,7 @@ Component({
                 env: 'lemon-7glhwqyu5304e1f9'
               },
               data: {
+                classId: this.data._id,
                 type: "createCollectClass",
                 body: {
                   "author" : this.data.author,
@@ -99,22 +100,22 @@ Component({
                 is_collected: false
             })
         },
-        onClickToDetail: function() {
-          const _id = this.data._id
-            if(this.properties.type === 'class') {
-                wx.navigateTo({
-                    url: '/pages/class/class_detail/index',
-                    success: function(res) {
-                      // 通过 eventChannel 向被打开页面传送数据
-                      res.eventChannel.emit('acceptDataFromOpenerPage', { data: _id})
-                    }
-                })
-            } else if (this.properties.type === 'extend') {
-                wx.navigateTo({
-                    url: '/pages/class/extend_detail/index',
-                })
-            }
+        // onClickToDetail: function() {
+        //   const _id = this.data._id
+        //     if(this.properties.type === 'class') {
+        //         wx.navigateTo({
+        //             url: '/pages/class/class_detail/index',
+        //             success: function(res) {
+        //               // 通过 eventChannel 向被打开页面传送数据
+        //               res.eventChannel.emit('acceptDataFromOpenerPage', { data: _id})
+        //             }
+        //         })
+        //     } else if (this.properties.type === 'extend') {
+        //         wx.navigateTo({
+        //             url: '/pages/class/extend_detail/index',
+        //         })
+        //     }
             
-        }
+        // }
     }
 });

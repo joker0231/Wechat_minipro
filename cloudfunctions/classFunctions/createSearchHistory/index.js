@@ -9,14 +9,10 @@ const db = cloud.database();
 // 创建集合云函数入口函数
 exports.main = async (event, context) => {
   try {
-    await db.collection('collect_class').where({
-      _id: event._id
-    }).remove()
-    await db.collection('class').doc(event._id).update({
+    // 创建集合
+    await db.collection('search_history').add({
       // data 字段表示需新增的 JSON 数据
-      data: {
-        is_collected: false
-      },
+      data: event.body,
       success: function(res) {
         console.log(res)
       }
@@ -24,10 +20,11 @@ exports.main = async (event, context) => {
     return {
       success: true
     };
-  } catch(e) {
-    console.error(e)
+  } catch (e) {
+    // 这里catch到的是该collection已经存在，从业务逻辑上来说是运行成功的，所以catch返回success给前端，避免工具在前端抛出异常
     return {
+      success: false,
       error: e
-    }
+    };
   }
 };
