@@ -12,10 +12,43 @@
   "resolved" "https://registry.npmjs.org/@vant/weapp/-/weapp-1.10.3.tgz"
   "version" "1.10.3"
 
+"@xmldom/xmldom@^0.8.2":
+  "integrity" "sha512-+R0juSseERyoPvnBQ/cZih6bpF7IpCXlWbHRoCRzYzqpz6gWHOgf8o4MOEf6KBVuOyqU+gCNLkCWVIJAro8XyQ=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/@xmldom/xmldom/-/xmldom-0.8.2.tgz"
+  "version" "0.8.2"
+
+"cos-wx-sdk-v5@^1.1.7":
+  "integrity" "sha512-Mtq3cVFHoSl2zUZtBv9Rxpa524A8SoO8Pg/LhwqciZrP27MnTYaM8GdPLATr5N7GL81jS/heyDRsP58eYTb11Q=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/cos-wx-sdk-v5/-/cos-wx-sdk-v5-1.1.7.tgz"
+  "version" "1.1.7"
+  dependencies:
+    "@xmldom/xmldom" "^0.8.2"
+    "mime" "^2.4.6"
+
+"mime@^2.4.6":
+  "integrity" "sha512-USPkMeET31rOMiarsBNIHZKLGgvKc/LrjofAnBlOttf5ajRvqiRA8QsenbcooctK6d6Ts6aqZXBA+XbkKthiQg=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/mime/-/mime-2.6.0.tgz"
+  "version" "2.6.0"
+
 "rfdc@^1.3.0":
   "integrity" "sha512-V2hovdzFbOi77/WajaSMXk2OLm+xNIeQdMMuB7icj7bk6zi2F8GGAxigcnDFpJHbNyNcgyJDiP+8nOrY5cZGrA=="
   "resolved" "https://registry.npmmirror.com/rfdc/-/rfdc-1.3.0.tgz"
   "version" "1.3.0"
+
+"tim-js-sdk@^2.19.1":
+  "integrity" "sha512-M0BJ/Ttg7zCJg8UXke9RMEOlqrJ2ifatLtYVVE2BE2U2ebw67R5zReCidCTkcL0mTcEkVAD/bem6OlLLwqhCPA=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/tim-js-sdk/-/tim-js-sdk-2.19.1.tgz"
+  "version" "2.19.1"
+
+"tim-upload-plugin@^1.0.4":
+  "integrity" "sha512-Ib/Ql5vdKoLg2wSFBQ34nzBnaUFa6IxiV8060BF+RnWVlhBZSd3MpBXT32wWcmPj/Sl2yOSCM+dC4fn1sm+y/w=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/tim-upload-plugin/-/tim-upload-plugin-1.0.4.tgz"
+  "version" "1.0.4"
+
+"tim-wx-sdk@^2.19.1":
+  "integrity" "sha512-nd0GqiH57nfz+Tpg/NqBpgBtNwByeytHuBchXm8DwdscI5V6vwzVA0Nf3ZD0Noatb/afIlELdM7VMwii6nvPXw=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/tim-wx-sdk/-/tim-wx-sdk-2.19.1.tgz"
+  "version" "2.19.1"
 
 "westore@^0.1.9":
   "integrity" "sha512-XhYv8UUzlvBgkU0YKHF//i6TYpBaV0vY9irunIypANv1qfUKvKC8C5G8s8/tQczNMEGSr5qkCNgCl/uNaEqElg=="

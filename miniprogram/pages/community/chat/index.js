@@ -1,4 +1,6 @@
 // pages/community/chat/index.js
+import TIM from 'tim-wx-sdk';
+import TIMUploadPlugin from 'tim-upload-plugin';
 Page({
 
   /**
@@ -12,7 +14,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**

@@ -100,8 +100,6 @@
     color: #7B4D12;
 }
 
-
-
 .game_area {
     display: grid;
     grid-template-columns: repeat(auto-fill, 250rpx);
