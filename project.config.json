@@ -47,7 +47,7 @@
   },
   "appid": "wx86f85654541e1cab",
   "projectname": "Mengdanyun-Township",
-  "libVersion": "2.14.1",
+  "libVersion": "2.24.3",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "srcMiniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
