@@ -4,10 +4,13 @@ Page({
     data: {
       userData: {}
     },
-    onLoad: function (options) {
+    onShow: function (options) {
       this.setData({
         userData: userStore.getUserData()
       })
+
+
+
     },
 
     clickCheckIn: function() {

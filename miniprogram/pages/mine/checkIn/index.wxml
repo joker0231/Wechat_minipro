@@ -55,5 +55,5 @@
 
 
 <view>
-  <van-calendar title="本月您已签到1天" class="calendar" show="{{true}}"   poppable="{{ false }}" confirm-text="打卡" readonly />
+  <van-calendar color="#F9F2E7" title="本月您已签到1天" class="calendar" show="{{true}}"   poppable="{{ false }}" confirm-text="打卡" readonly />
 </view>
