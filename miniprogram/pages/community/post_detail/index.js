@@ -137,6 +137,40 @@ Page({
   inputComment() {
     this.setData({ show: true })
   },
+
+  sendReplyInfo(target_topic_id, target_user_id, comment_user_id, content) {
+    var date = new Date();
+    let Y = date.getFullYear() + '-';
+    let M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    let D = date.getDate() + ' ';
+    let h = date.getHours() + ':';
+    let m = date.getMinutes() + ':';
+    let s = date.getSeconds(); 
+    const template = {
+      target_topic_id: target_topic_id,
+      target_user_id: target_user_id,
+      comment_user_id: comment_user_id,
+      content: content,
+      date: Y+M+D,
+      isChecked: false
+    }
+
+    wx.cloud.callFunction({
+      name: 'communityFunctions',
+      config: {
+        env: 'lemon-7glhwqyu5304e1f9'
+      },
+      data: {
+        type: "createTopicReply",
+        body: template
+      }
+    }).then((resp) => {
+      console.log(resp)
+    }).catch(err=>{
+      console.error(err)
+    })
+  },
+
   submitCommentSub() {
     console.log(this.data.commentValueSub)
     var date = new Date();
@@ -229,7 +263,11 @@ Page({
       }
     }).then((resp) => {
       console.log(resp, 'createMainComment')
-      // console.log(JSON.stringify(resp.result.data[0]), '123')
+
+      // 发布回复评论消息
+      const {detail} = this.data
+      this.sendReplyInfo(detail._id, detail.user._id, userStore.getUserData()._id, this.data.commentValue)
+
       Toast({
         duration: 1000,
         message: '发布成功'
