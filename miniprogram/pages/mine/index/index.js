@@ -5,6 +5,7 @@ Page({
       userData: {}
     },
     onShow: function (options) {
+      // ceshi
       this.setData({
         userData: userStore.getUserData()
       })
