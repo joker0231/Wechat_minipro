@@ -317,3 +317,7 @@ page{
 .calendar {
   --calendar-height: 1150rpx;
 }
+
+.hasChecked {
+  color: red !important;
+}

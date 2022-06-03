@@ -277,12 +277,139 @@
 
 //logs.js
 const util = require('util.js')
+const userStore = require('../../../stores/user-store')
+import Toast from '../../../miniprogram_npm/@vant/weapp/toast/toast'
+
 
 Page({
-    data: {
-        
+  data: {
+    checkInfo: {},
+    formatter: (day)=> {
+      // 下面为模板 获取checkInfo之后更新formatter函数
+      // 注意 这里暂时搞假数据 改变formmater函数把今天的变成已经签到 看不懂问我 本应该所有数据根据history_checkIn的这里写死1号和2号
+
+
+      const month = day.date.getMonth() + 1;
+      const date = day.date.getDate();
+
+      var dateToday = new Date(); 
+      let todayNum = dateToday.getDate();
+
+      if (month === 6) {
+        if (date === 1) {
+          day.topInfo = '已签到';
+          day.className="hasChecked"
+        } else if (date === 2) {
+          day.topInfo = '已签到';
+          day.className="hasChecked"
+        } else if (date === todayNum) { //假的
+          day.topInfo = '今天已签到';
+        }
+      }
+      return day;
     },
+    
+  },
     onLoad: function() {
-      
+      wx.cloud.callFunction({
+        name: 'personFunctions',
+        config: {
+          env: 'lemon-7glhwqyu5304e1f9'
+        },
+        data: {
+          type: "getCheckInDay",
+          userId: userStore.getUserData()._id
+        }
+      }).then((resp) => {
+        console.log(resp, '签到信息')
+        this.setData({
+          checkInfo: resp.result.data[0]
+        })
+
+        // 每次打开之后 更新 todayDate数据， 
+        const copy = Object.assign({}, resp.result.data[0])
+        var date = new Date();
+        let Y = date.getFullYear() + '-';
+        let M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        let D = date.getDate() + ' ';
+        let h = date.getHours() + ':';
+        let m = date.getMinutes() + ':';
+        let s = date.getSeconds(); 
+
+        copy.todayDate = Y+M+D
+        copy.isTodayIn = false
+        delete copy._id
+
+        wx.cloud.callFunction({
+          name: 'personFunctions',
+          config: {
+            env: 'lemon-7glhwqyu5304e1f9'
+          },
+          data: {
+            type: "updateCheckIn",
+            user_id: userStore.getUserData()._id,
+            body: copy
+          }
+        }).then(resp=>{
+          console.log('更新签到日期',resp)
+        })
+      })
+    },
+
+    clickCheckIn() {
+      console.log('点击打卡')
+      if(this.data.checkInfo.isTodayIn === false) {
+        let copy = Object.assign({}, this.data.checkInfo)
+        copy.isTodayIn = true
+        var date = new Date()
+        let day = date.getDate().toString()
+        copy.history_checkIn.push(day)
+        delete copy._id
+
+        console.log(copy, '修改过')
+
+
+        wx.cloud.callFunction({
+          name: 'personFunctions',
+          config: {
+            env: 'lemon-7glhwqyu5304e1f9'
+          },
+          data: {
+            type: "updateCheckIn",
+            user_id: userStore.getUserData()._id,
+            body: copy
+          }
+        }).then(resp=>{
+          console.log('更新签到日期',resp)
+
+          wx.cloud.callFunction({
+            name: 'personFunctions',
+            config: {
+              env: 'lemon-7glhwqyu5304e1f9'
+            },
+            data: {
+              type: "getCheckInDay",
+              userId: userStore.getUserData()._id
+            }
+          }).then((resp) => {
+            console.log(resp, '签到信息')
+
+
+
+
+            
+            this.setData({
+              checkInfo: resp.result.data[0]
+            }, ()=>{
+              Toast('签到成功！')
+            })
+
+          })
+        })
+
+
+      } else {
+        Toast('已经打过卡啦！')
+      }
     }
   })
