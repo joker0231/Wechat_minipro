@@ -36,6 +36,15 @@
   align-items: center;
 }
 
+.right .text {
+  color: #A2A3A4;
+  font-size: 24rpx;
+  width: 466rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .avatar{
   width: 89rpx;
   height: 89rpx;
@@ -77,6 +86,7 @@
   height: 32rpx;
   min-width: 32rpx;
 }
+
 .empty{
   display: flex;
   flex-direction: column;

@@ -97,6 +97,13 @@
           "name": "",
           "pathName": "pages/mine/record/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/login/index/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

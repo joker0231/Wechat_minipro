@@ -1,5 +1,6 @@
 // pages/mine/friendList/index.js
 var app = getApp()
+const userStore = require('../../../stores/user-store')
 Page({
 
   /**
@@ -7,9 +8,7 @@ Page({
    */
   data: {
     navState: 0,
-    userId: '',
     hasUserInfo: false,
-    userSign: '',
     nickName: '',
     msg: [],
     empty_show: true,
@@ -30,9 +29,9 @@ Page({
     var conversationID= e.currentTarget.dataset.conversationid // 置业顾问的conversationID（当前会话的人）
     var avatar= e.currentTarget.dataset.avatar
     var name= e.currentTarget.dataset.name
-    wx.navigateTo({
-      url: '/subpackages/message-detail/index?conversationID=' + conversationID + '&avatar=' + avatar  + '&name=' + name,
-    })
+    // wx.navigateTo({
+    //   url: '/subpackages/message-detail/index?conversationID=' + conversationID + '&avatar=' + avatar  + '&name=' + name,
+    // })
   },
   // 获取会话列表 （必须要在SDK处于ready状态调用（否则会报错））
   initRecentContactList() {
@@ -41,16 +40,14 @@ Page({
     var tim = app.globalData.tim
     let promise = tim.getConversationList();
     if(!promise) {
-      util.sLoadingHide()
       wx.showToast({
-        title: 'SDK not ready',
+        title: '登录已过期，需要重新登录噢～',
         icon: 'none',
         duration: 3000
       })
       return
     }
     promise.then(function(imResponse) {
-      util.sLoadingHide()
       console.log('会话列表')
       console.log(imResponse)
       // 如果最后一条消息是自定义消息的话，处理一下data
@@ -74,17 +71,9 @@ Page({
         number = number + e.unreadCount
       })
       if(number>0) {
-        wx.setTabBarBadge({
-          index: 2,
-          text: number.toString()
-        })
-      } else {
-        wx.hideTabBarRedDot({
-          index: 2
-        })
+        console.log("有未读信息")
       }
     }).catch(function(imError) {
-      util.sLoadingHide()
       wx.showToast({
         title: 'getConversationList error:' + imError,
         icon: 'none',
@@ -94,12 +83,32 @@ Page({
     })
   },
 
+  //腾讯云im的登录
+  loginIm() {
+    const userID = app.globalData.userID
+    const userSig = app.globalData.userSig
+    var tim = app.globalData.tim
+    let promise = tim.login({userID: userID, userSig: userSig});
+    promise.then(function(imResponse) {
+      console.log(imResponse)
+      console.log('登录成功')
+      wx.setStorageSync('isImLogin', true)
+      app.globalData.isImLogin = true
+    }).catch(function(imError) {
+      wx.showToast({
+        title: 'login error' + imError,
+        icon: 'none',
+        duration: 3000
+      })
+      console.warn('login error:', imError); // 登录失败的相关信息
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
@@ -113,7 +122,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (app.globalData.isImLogin) {
+	    // 已经登录了SDK处于read状态
+	    this.setData({
+	      hasUserInfo: true
+	    })
+	    // 由于登录是写在会话列表的 因此如果已经登录 （SDK处于ready状态）就直接获取会话列表（会话列表函数在下面会话列表里整体贴）
+	    this.initRecentContactList()
+	  } else {
+	    if (!app.globalData.isImLogin) {
+	      this.setData({
+	        hasUserInfo: true
+	      })
+	      // 登录im
+	      this.loginIm()
+	    } else {
+        console.log('im登录不成功')
+	      this.setData({
+	        hasUserInfo: false
+	      })
+	    }
+	  }
   },
 
   /**
