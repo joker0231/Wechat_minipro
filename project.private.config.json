@@ -39,10 +39,10 @@
         },
         {
           "name": "",
-          "pathName": "pages/login/register/index",
+          "pathName": "pages/login/index/index",
           "query": "",
-          "launchMode": "default",
-          "scene": null
+          "scene": null,
+          "launchMode": "default"
         },
         {
           "name": "",
@@ -104,8 +104,22 @@
           "name": "",
           "pathName": "pages/login/index/index",
           "query": "",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/login/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/login/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

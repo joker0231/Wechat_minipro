@@ -1,6 +1,7 @@
 Page({
     data: {
       commonCard: [],
+      teacher: []
     },
     onReady: function() {
 
@@ -21,6 +22,25 @@ Page({
           commonCard: resp.result
         }, ()=>{
           console.log(this.data.commonCard)
+        })
+        // console.log(JSON.stringify(resp.result.data[0]), '123')
+      }).catch((e) => {
+        console.log(e);
+      });
+
+      wx.cloud.callFunction({
+        name: 'userFunctions',
+        config: {
+          env: 'lemon-7glhwqyu5304e1f9'
+        },
+        data: {
+          type: "readUserByKind",
+          kind: 'teacher'
+        }
+      }).then((resp) => {
+        console.log(resp, 'getCommonCard')
+        this.setData({
+          teacher: resp.result.data
         })
         // console.log(JSON.stringify(resp.result.data[0]), '123')
       }).catch((e) => {

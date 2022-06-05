@@ -36,7 +36,6 @@
   width: 100%;
   background: #ffffff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 20rpx 25rpx;
 }
@@ -87,5 +86,6 @@ color: #cccccc;
   justify-content: center;
   align-items: center;
   font-size: 26rpx;
+  margin-left: 20rpx;
 }
 

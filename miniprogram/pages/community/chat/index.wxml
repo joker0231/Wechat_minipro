@@ -1,10 +1,18 @@
 <view class='chat' id="chat" style="min-height:{{height}}px; padding-bottom:116rpx; background-color:#EFF0F3">
-  <scroll-view wx:for="{{myMessages}}" wx:key="index" >
+  <scroll-view wx:for="{{myMessages}}" wx:key="index">
+    <view>
+      <view class="chat-item" wx:if="{{type}}" data-type="{{item.payload.data.type}}" data-id="{{item.payload.data.id}}">
+        <image wx:if="{{item.flow == 'in'}}" class='avatar' style="margin-right: 19rpx;" mode="scaleToFill" src="{{friendAvatarUrl ? friendAvatarUrl : 'https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=9c310247c41df5443a02d906ae3203ad&t=1654444010'}}"></image>
+        <!-- <class_card wx:if="{{type == 'class'}}" data-classid="{{cardId}}" data-type="class" bindtap="onClickToDetail" inner-class="cardStyle" title="{{cardInfo.title}}" introduction="{{cardInfo.introduction}}" author="{{cardInfo.author}}" is_collected="{{cardInfo.is_collected}}" _id="{{cardInfo._id}}" detail="{{cardInfo.detail}}" grade="{{cardInfo.grade}}" semester="{{cardInfo.semester}}" subject="{{cardInfo.subject}}" />
+        <exercise_card wx:elif="{{type == 'exercise'}} inner-class=" exercise_card" content="{{cardInfo.question}}" option="{{cardInfo.options}}" resolution="{{cardInfo.solution}}" />
+        <community_post wx:elif="{{type == 'post'}} bindtap="clickToDetail" inner-class="card" type="{{cardInfo.type}}" comment="{{cardInfo.comment_num}}" favour="{{cardInfo.collect_num}}" like="{{cardInfo.like_num}}" content="{{cardInfo.content}}" info="{{cardInfo.user.kind==='teacher' ? cardInfo.user.educationInfo.school + ' '  + cardInfo.user.educationInfo.speciality : cardInfo.user.educationInfo.school + ' ' + cardInfo.user.educationInfo.grade + ' ' + cardInfo.user.educationInfo.class}}" name="{{cardInfo.user.nickname}}" headpic="{{cardInfo.user.avatar}}" data-topicId="{{cardInfo._id}}" /> -->
+      </view>
+    </view>
     <view class="chat_box" wx:if="{{item.type != 'TIMCustomElem'}}">
       <view class="chat-item {{item.flow == 'in' ? '' : 'flex-wrap'}}">
-        <image wx:if="{{item.flow == 'in'}}" class='avatar' style="margin-right: 19rpx;" mode= "scaleToFill" src="{{friendAvatarUrl ? friendAvatarUrl : '/images/avatar.png'}}"></image>
+        <image wx:if="{{item.flow == 'in'}}" class='avatar' style="margin-right: 19rpx;" mode="scaleToFill" src="{{friendAvatarUrl ? friendAvatarUrl : 'https://6c65-lem-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=9c310247c41df5443a02d906ae3203ad&t=1654444010'}}"></image>
         <view class='avatar' style="margin-left: 19rpx" wx:else>
-          <open-data  type="userAvatarUrl"></open-data>
+          <open-data type="userAvatarUrl"></open-data>
         </view>
         <view class='content'>{{item.payload.text}}</view>
       </view>
@@ -12,9 +20,9 @@
   </scroll-view>
 </view>
 <view class="chat-footer" style="padding-bottom: calc({{tabBottom}}px + 25rpx)">
-<view class='input' bindtap="bindFocus">
-  <textarea class="inputArea" focus="{{focus}}" fixed="true" cursor-spacing="25" disable-default-padding="true" bindinput="bindKeyInput" bindfocus="bindfocus" bindblur="bindblur" value="{{inputValue}}" placeholder=""/>
-  <text class="placeHolder" wx:if="{{inputShow}}">对ta发送消息</text>
-</view>
+  <view class='input' bindtap="bindFocus">
+    <textarea class="inputArea" focus="{{focus}}" fixed="true" cursor-spacing="25" disable-default-padding="true" bindinput="bindKeyInput" bindfocus="bindfocus" bindblur="bindblur" value="{{inputValue}}" placeholder="" />
+    <text class="placeHolder" wx:if="{{inputShow}}">对ta发送消息</text>
+  </view>
   <view class='send' bindtap='bindConfirm'>发送</view>
 </view>

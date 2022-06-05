@@ -41,5 +41,10 @@
     font-weight: lighter;
     position: absolute;
     top: 100rpx;
-    left: 33rpx;
+    left: 25rpx;
+    overflow: hidden;
+    width: 72rpx;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

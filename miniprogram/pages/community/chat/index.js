@@ -19,7 +19,7 @@ Page({
     tim: '',
     userSign: '',
     userId: '', // 自己的id
-    friendID: '', // 好友的id
+    friendID: '18281', // 好友的id
     msgList: app.globalData.msgList,
     friendAvatarUrl: '',
     top_height: app.globalData.height,
@@ -31,7 +31,8 @@ Page({
     inputHeight: 0,
     inputShow:true,
     focus:false,
-    adjust: true
+    adjust: true,
+    cardInfo: {}
   },
 
   /**
@@ -39,10 +40,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    wx.showLoading({
-      title: '加载中...',
-      icon: 'none'
-    })
     that.setData({
       friendID: options.friendID,
       friendAvatarUrl: options.avatar,
@@ -52,7 +49,7 @@ Page({
       isDetail: true
     })
     wx.setNavigationBarTitle({
-      title: options.name
+      title: 'lily'
     })
     // 滚动到底部
     that.pageScrollToBottom()
@@ -333,6 +330,18 @@ Page({
     //   adjust: false
     // })
   },
+
+  onClickToDetail: function(event) {
+    if(event.currentTarget.dataset.type === 'class') {
+      wx.navigateTo({
+        url: '/pages/class/class_detail/index?classId=' + event.currentTarget.dataset.classid,
+      })
+    } else if (event.currentTarget.dataset.type === 'extend') {
+        wx.navigateTo({
+            url: '/pages/class/extend_detail/index',
+        })
+    }
+},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

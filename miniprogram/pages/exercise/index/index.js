@@ -118,6 +118,7 @@ Page({
     this.setData({
       data: e.detail
     })
+    console.log(this.data.data)
     let queryBean = JSON.stringify(this.data.data)
       wx.navigateTo({
         url: '/pages/exercise/exercise_online/index?queryBean=' + queryBean,
