@@ -284,32 +284,33 @@ import Toast from '../../../miniprogram_npm/@vant/weapp/toast/toast'
 Page({
   data: {
     checkInfo: {},
-    formatter: (day)=> {
-      // 下面为模板 获取checkInfo之后更新formatter函数
-      // 注意 这里暂时搞假数据 改变formmater函数把今天的变成已经签到 看不懂问我 本应该所有数据根据history_checkIn的这里写死1号和2号
-
-
-      const month = day.date.getMonth() + 1;
-      const date = day.date.getDate();
-
-      var dateToday = new Date(); 
-      let todayNum = dateToday.getDate();
-
-      if (month === 6) {
-        if (date === 1) {
-          day.topInfo = '已签到';
-          day.className="hasChecked"
-        } else if (date === 2) {
-          day.topInfo = '已签到';
-          day.className="hasChecked"
-        } else if (date === todayNum) { //假的
-          day.topInfo = '今天已签到';
-        }
-      }
-      return day;
-    },
+    formatter: ()=>{}
     
   },
+  formatterTemplate: (isTodayIn) => (day)=> {
+    // 下面为模板 获取checkInfo之后更新formatter函数
+    // 注意 这里暂时搞假数据 改变formmater函数把今天的变成已经签到 看不懂问我 本应该所有数据根据history_checkIn的这里写死1号和2号
+
+
+    const month = day.date.getMonth() + 1;
+    const date = day.date.getDate();
+
+    var dateToday = new Date(); 
+    let todayNum = dateToday.getDate();
+
+    if (month === 6) {
+      if (date === 1) {
+        day.topInfo = '已签到';
+        day.className="hasChecked"
+      } else if (date === 2) {
+        day.topInfo = '已签到';
+        day.className="hasChecked"
+      } else if (date === todayNum && isTodayIn) { //假的
+        day.topInfo = '今天已签到';
+      }
+    }
+    return day;
+    },
     onLoad: function() {
       wx.cloud.callFunction({
         name: 'personFunctions',
@@ -322,11 +323,18 @@ Page({
         }
       }).then((resp) => {
         console.log(resp, '签到信息')
+
+        //  这个是个高阶函数 函数的函数 HOC 可以理解用下
+        
+        
+
         this.setData({
-          checkInfo: resp.result.data[0]
+          checkInfo: resp.result.data[0],
+          formatter: this.formatterTemplate(resp.result.data[0].isTodayIn)
         })
 
-        // 每次打开之后 更新 todayDate数据， 
+        
+        // 下面是每天新打开的时候 检查 是否日期是今天的日期 否则就更新 todayDate和isTodayIn 
         const copy = Object.assign({}, resp.result.data[0])
         var date = new Date();
         let Y = date.getFullYear() + '-';
@@ -336,23 +344,25 @@ Page({
         let m = date.getMinutes() + ':';
         let s = date.getSeconds(); 
 
-        copy.todayDate = Y+M+D
-        copy.isTodayIn = false
-        delete copy._id
-
-        wx.cloud.callFunction({
-          name: 'personFunctions',
-          config: {
-            env: 'lemon-7glhwqyu5304e1f9'
-          },
-          data: {
-            type: "updateCheckIn",
-            user_id: userStore.getUserData()._id,
-            body: copy
-          }
-        }).then(resp=>{
-          console.log('更新签到日期',resp)
-        })
+        if(copy.todayDate !== Y+M+D) {
+          copy.todayDate = Y+M+D
+          copy.isTodayIn = false
+          delete copy._id
+          
+          wx.cloud.callFunction({
+            name: 'personFunctions',
+            config: {
+              env: 'lemon-7glhwqyu5304e1f9'
+            },
+            data: {
+              type: "updateCheckIn",
+              user_id: userStore.getUserData()._id,
+              body: copy
+            }
+          }).then(resp=>{
+            console.log('更新签到日期',resp)
+          })
+        }
       })
     },
 
@@ -399,9 +409,10 @@ Page({
 
             
             this.setData({
-              checkInfo: resp.result.data[0]
+              checkInfo: resp.result.data[0],
+              formatter: this.formatterTemplate(resp.result.data[0].isTodayIn)
             }, ()=>{
-              Toast('签到成功！')
+              console.log(this.data)
             })
 
           })

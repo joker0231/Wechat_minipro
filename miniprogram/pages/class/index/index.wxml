@@ -2,7 +2,7 @@
     <view class="class-header">
         <view class="class-headercontainer">
             <view class="class-grade" bindtap="showgrade">
-                <text>年级</text>
+                <text>{{grade}}</text>
                 <image class="down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
             </view>
             <text class="class-title">上课</text>

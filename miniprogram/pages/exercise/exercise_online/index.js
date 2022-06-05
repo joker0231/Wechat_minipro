@@ -30,12 +30,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var queryBean = JSON.parse(options.queryBean)
-    this.setData({
-        section: queryBean.section,
-        subject: queryBean.subject,
-        grade: queryBean.grade
-    })
+    // var queryBean = JSON.parse(options.queryBean)
+    // this.setData({
+    //     section: queryBean.section,
+    //     subject: queryBean.subject,
+    //     grade: queryBean.grade
+    // })
 
     wx.setNavigationBarTitle({
       title: "动态课程标题"
@@ -50,20 +50,39 @@ Page({
       },
     });
 
+    // wx.cloud.callFunction({
+    //   name: 'exerciseFunctions',
+    //   config: {
+    //     env: 'lemon-7glhwqyu5304e1f9'
+    //   },
+    //   data: {
+    //     type: "getExerciseList",
+    //     grade: this.data.grade,
+    //     subject: this.data.subject,
+    //     section: this.data.section
+    //   }
+    // }).then((resp) => {
+    //   this.setData({
+    //     exercise: resp.result.list
+    //   })
+    // }).catch((e) => {
+    //   console.log(e);
+    // });
+    
+    console.log(options)
     wx.cloud.callFunction({
       name: 'exerciseFunctions',
       config: {
         env: 'lemon-7glhwqyu5304e1f9'
       },
       data: {
-        type: "getExerciseList",
-        grade: this.data.grade,
-        subject: this.data.subject,
-        section: this.data.section
+        type: "getExerciseListBySectionId",
+        section_id: options.queryId
       }
     }).then((resp) => {
+      console.log(resp, '测试id数据')
       this.setData({
-        exercise: resp.result.list
+        exercise: resp.result.data
       })
     }).catch((e) => {
       console.log(e);

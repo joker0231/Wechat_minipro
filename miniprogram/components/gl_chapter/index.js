@@ -35,7 +35,8 @@ Component({
             const data = {
                 section: e.target.dataset.section,
                 subject:this.data.subject,
-                grade: this.data.grade
+                grade: this.data.grade,
+                section_id: e.target.dataset.id,
             }
             this.triggerEvent('clickTopBar', data)
             if(!this.data.forExercise) {

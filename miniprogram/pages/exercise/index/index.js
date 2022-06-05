@@ -8,7 +8,92 @@ Page({
     gradebgcolor: '#dfdfdf',
     subject: "语文",
     exercise_catalog: [],
-    data: {}
+    data: {},
+    exercise_catalog_fakeyuwen1gradeXia: {
+      "_id": "6d85a2b96287406705a6b497075dcea9",
+      "content": [
+          {
+              "chapter": "第一单元 识字",
+              "exerciseSection": [
+                  {
+                      "ifDone": false,
+                      "section": "1",
+                      "title": "我是中国人"
+                  },
+                  {
+                      "ifDone": false,
+                      "section": "1.2",
+                      "title": "我是小学生"
+                  }
+              ]
+          },
+          {
+              "chapter": "第二单元 课文",
+              "exerciseSection": [
+                  {
+                      "title": "null",
+                      "ifDone": false,
+                      "section": "2.1"
+                  }
+              ]
+          },
+          {
+              "chapter": "第三单元 课文",
+              "exerciseSection": [
+                  {
+                      "title": "null",
+                      "ifDone": false,
+                      "section": "2.1"
+                  }
+              ]
+          }
+      ],
+      "grade": "一年级",
+      "subject": "语文"
+    },
+    exercise_catalog_fakeyuwen6gradeXia: {
+      "_id": "6d85a2b96287406705a6b497075dcea8",
+      "content": [
+          {
+              "chapter": "第一单元",
+              "exerciseSection": [
+                  {
+                      "ifDone": false,
+                      "section": "1.1",
+                      "title": "第一节"
+                  },
+                  {
+                      "ifDone": false,
+                      "section": "1.2",
+                      "title": "第二节"
+                  }
+              ]
+          },
+          {
+              "chapter": "第二单元",
+              "exerciseSection": [
+                  {
+                      "title": "null",
+                      "ifDone": false,
+                      "section": "2.1"
+                  }
+              ]
+          },
+          {
+              "chapter": "第三单元",
+              "exerciseSection": [
+                  {
+                      "title": "null",
+                      "ifDone": false,
+                      "section": "2.1"
+                  }
+              ]
+          }
+      ],
+      "grade": "六年级",
+      "subject": "语文"
+    }
+  
   },
   onLoad: function (options) {
     this.getExerciseByGrade()
@@ -118,9 +203,14 @@ Page({
     this.setData({
       data: e.detail
     })
+    console.log(e)
     let queryBean = JSON.stringify(this.data.data)
+      // wx.navigateTo({
+      //   url: '/pages/exercise/exercise_online/index?queryBean=' + queryBean,
+      // })
+
       wx.navigateTo({
-        url: '/pages/exercise/exercise_online/index?queryBean=' + queryBean,
+        url: '/pages/exercise/exercise_online/index?queryId=' + e.detail.section_id,
       })
   },
 });

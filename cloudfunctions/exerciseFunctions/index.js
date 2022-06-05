@@ -8,6 +8,7 @@ const getExerciseList = require('./getExerciseList/index');
 const getExerciseRecord = require('./getExerciseRecord/index');
 const getExerciseRecordList = require('./getExerciseRecordList/index');
 const updateExercise = require('./updateExercise/index');
+const getExerciseListBySectionId = require('./getExerciseListBySectionId/index')
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -33,5 +34,7 @@ exports.main = async (event, context) => {
       return await getExerciseRecordList.main(event, context);
     case 'updateExercise':
       return await updateExercise.main(event, context);
+    case 'getExerciseListBySectionId':
+      return await getExerciseListBySectionId.main(event, context);
   }
 };

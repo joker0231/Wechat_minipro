@@ -46,6 +46,23 @@ Page({
       }
     }).then((resp) => {
       console.log(resp, 'createSearchHistory')
+
+      wx.cloud.callFunction({
+        name: 'classFunctions',
+        config: {
+          env: 'lemon-7glhwqyu5304e1f9'
+        },
+        data: {
+          type: "getSearchHistory"
+        }
+      }).then((resp) => {
+        console.log(resp, '搜索记录')
+        this.setData({
+          tags: resp.result.data
+        })
+      }).catch((e) => {
+        console.log(e);
+      });
     }).catch((e) => {
       console.log(e);
     });
@@ -94,7 +111,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */ 
-  onLoad: function (options) {
+  onShow: function (options) {
+    console.log(123123123123123)
     wx.cloud.callFunction({
       name: 'classFunctions',
       config: {
@@ -104,6 +122,7 @@ Page({
         type: "getSearchHistory"
       }
     }).then((resp) => {
+      console.log(resp, '搜索记录')
       this.setData({
         tags: resp.result.data
       })
@@ -116,13 +135,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
   },
 

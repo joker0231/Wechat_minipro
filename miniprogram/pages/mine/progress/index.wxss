@@ -8,6 +8,7 @@ ec-canvas {
 .my-style {
   --tabs-card-height: 80rpx;
   position: relative;
+  --tab-font-size: 30rpx;
 }
 
 .my-style .van-tab__pane--active {
