@@ -1,6 +1,6 @@
 <view class="exercise_header">
   <view class="show_index">{{current + 1 + '/' + exercise.length}}</view>
-  <view class="title-first">{{section}}</view>
+  <view class="title-first">{{"2 草原（第一课时）"}}</view>
   <image  bindtap="showPopup" class="sheet" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/answer_sheet.png?sign=821e7183b208e4871c406ca97b0b1a9e&t=1652085450"></image>
 </view>
 <view class="exercise_content"> 
@@ -8,7 +8,10 @@
     <swiper-item class="swiper-item" wx:for="{{exercise}}">
       <view class="card">
         <scroll-view class="scroll" scroll-y="true">
-          <view class="title">{{item.question}}</view>
+          <!-- <view class="title">{{item.question}}</view> -->
+          <view class="title">
+            <rich-text nodes="{{item.question}}"></rich-text>
+          </view>
 
           <!-- 选择题情况 -->
           <view class="choice" wx:if="{{item.type === 'choice'}}">

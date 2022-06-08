@@ -22,6 +22,7 @@ Page({
     const wrong_exercise = exerciseStore.getWrongExerciseListData()
     const correct = exerciseStore.getCorrectData()
     const section = exerciseStore.getSectionData()
+    console.log(exerciseList, userAnswer, wrong_exercise, correct, section, 'store里的结果')
     this.setData({
       exercise: exerciseList,
       user_input: userAnswer,
@@ -30,7 +31,7 @@ Page({
       section: section
     })
     wx.setNavigationBarTitle({
-      title: '动态学科章节',
+      title: '语文·上册·人教版',
     })
   },
 

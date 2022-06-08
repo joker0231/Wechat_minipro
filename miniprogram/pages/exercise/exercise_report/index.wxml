@@ -5,7 +5,8 @@
     <view class="card">
       <view class="front">
         <view class="left">
-          <view class="title-in">{{section}}</view>
+          <!-- <view class="title-in">{{section}}</view> -->
+          <view class="title-in">2. 草原（第一课时）</view>
           <view class="correct">一共答对<view class="bold">{{correct}}</view>题</view>
         </view>
         <image class="logo" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=9422a33fbe17b9b4643f416ab3ec445b&t=1652256405"></image>
@@ -19,7 +20,7 @@
             <view class="pop-dots-wrapper">
               <view data-inputindex="{{index}}" bindtap="onClickToDetail" class="pop-dot-wrapper" wx:for="{{exercise}}">
                 <!-- 作对的颜色 绿色 -->
-                <view wx:if="{{item.judge}}" style="background-color: #caf982;" class="pop-dot">
+                <view wx:if="{{item.judge.judge}}" style="background-color: #caf982;" class="pop-dot">
                   {{index + 1}}
                 </view>
 

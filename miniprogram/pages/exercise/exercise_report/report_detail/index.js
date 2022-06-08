@@ -22,7 +22,7 @@ Page({
       user_input: userAnswer
     })
     wx.setNavigationBarTitle({
-      title: "动态课程标题"
+      title: "语文·上册·人教版"
     })
   },
 
