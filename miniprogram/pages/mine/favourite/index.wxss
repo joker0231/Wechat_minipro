@@ -10,16 +10,16 @@ classcard {
     margin: 0 auto;
 }
 
-.favourite-container classcard + classcard {
+.favourite-container classcard+classcard {
     margin-top: 20rpx;
 }
 
 
-.favourite-container community_post + community_post {
+.favourite-container community_post+community_post {
     margin-top: 20rpx;
 }
 
-.favourite-container exercise_card + exercise_card {
+.favourite-container exercise_card+exercise_card {
     margin-top: 20rpx;
 }
 
@@ -29,4 +29,16 @@ exercise_card {
 
 community_post {
     margin: 0 auto;
-  }
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty_text {
+    font-size: 24rpx;
+    color: #AAAAAA;
+    margin-top: 52rpx;
+}

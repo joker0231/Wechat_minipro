@@ -1,32 +1,27 @@
 <view>
     <van-tabs active="{{ active }}" bind:change="onChange" title-active-color="#7B4D12" color="#FACD91">
         <van-tab title="课程">
-            <view class="favourite-container">
-                <classcard 
-                  wx:for="{{collectClass}}"
-                  title="{{item.title}}"
-                  introduction="{{item.introduction}}"
-                  author="{{item.author}}" 
-                  is_collected="{{item.is_collected}}" 
-                  _id="{{item._id}}" 
-                  detail="{{item.detail}}" 
-                  grade="{{item.grade}}" 
-                  semester="{{item.semester}}" 
-                  subject="{{item.subject}}"
-                  type="class" 
-                />
+            <view class="favourite-container" wx:for="{{collectClass}}">
+                <classcard wx:for="{{collectClass}}" title="{{item.title}}" introduction="{{item.introduction}}" author="{{item.author}}" is_collected="{{item.is_collected}}" _id="{{item._id}}" detail="{{item.detail}}" grade="{{item.grade}}" semester="{{item.semester}}" subject="{{item.subject}}" type="class" />
+                <view wx:if="{{ empty_showclass }}" class="empty">
+                    <view class="empty_text">暂无课程收藏记录~</view>
+                </view>
             </view>
         </van-tab>
         <van-tab title="帖子">
             <view class="favourite-container">
-                <community_post type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
-                <community_post type="题目" comment="2" favour="2" like="3" content="xxx" info="学校 班级" name="tom"/>
+                <community_post wx:for="{{collectPost}}" bindtap="clickToDetail" inner-class="card" type="{{item.type}}" comment="{{item.comment_num}}" favour="{{item.collect_num}}" like="{{item.like_num}}" content="{{item.content}}" info="{{item.user.kind==='teacher' ? item.user.educationInfo.school + ' '  + item.user.educationInfo.speciality : item.user.educationInfo.school + ' ' + item.user.educationInfo.grade + ' ' + item.user.educationInfo.class}}" name="{{item.user.nickname}}" headpic="{{item.user.avatar}}" data-topicId="{{item._id}}" />
+                <view wx:if="{{ empty_showpost }}" class="empty">
+                    <view class="empty_text">暂无收藏帖子记录~</view>
+                </view>
             </view>
         </van-tab>
         <van-tab title="题目">
             <view class="favourite-container">
-                <exercise_card content="1.xxxxxxx" option="xxxxxx" resolution="解析：xxxxxxxx"/>
-                <exercise_card content="1.xxxxxxx" option="xxxxxx" resolution="解析：xxxxxxxx"/>
+                <exercise_card inner-class="exercise_card" wx:for="{{collectExercise}}" content="{{item.question}}" userInput="{{item.user_input}}" option="{{item.options}}" resolution="{{item.solution}}" />
+                <view wx:if="{{ empty_showexericise }}" class="empty">
+                    <view class="empty_text">暂无收藏题目记录~</view>
+                </view>
             </view>
         </van-tab>
     </van-tabs>

@@ -10,7 +10,8 @@ Page({
     user_input: [],
     wrong_exercise: [],
     correct: 0,
-    section: ''
+    section: '',
+    title: ''
   },
 
   delHtmlTag: function (str) {
@@ -30,16 +31,15 @@ Page({
     // })
     const correct = exerciseStore.getCorrectData()
     const section = exerciseStore.getSectionData()
-    console.log(exerciseList, userAnswer, wrong_exercise, correct, section, 'store里的结果')
+    const title = exerciseStore.getTitleData()
+    console.log(exerciseList, userAnswer, wrong_exercise, correct, section,title, 'store里的结果')
     this.setData({
       exercise: exerciseList,
       user_input: userAnswer,
       wrong_exercise:wrong_exercise,
       correct: correct,
-      section: section
-    })
-    wx.setNavigationBarTitle({
-      title: '语文·上册·人教版',
+      section: section,
+      title:title
     })
   },
 

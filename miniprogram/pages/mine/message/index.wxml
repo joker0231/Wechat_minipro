@@ -1,32 +1,36 @@
 <view>
     <van-tabs active="{{ active }}" bind:change="onChange" title-active-color="#7B4D12" color="#FACD91">
         <van-tab title="实时">
-            <view>建议使用IM的实时消息</view>
-            <mine_message name="tom" content="xxxxx" time="2022年5月4日" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
-            <mine_message name="tom" content="xxxxx" time="2022年5月4日" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
+            <scroll-view class="friendList-container">
+                <view wx:for="{{msg}}" wx:key="index">
+                    <view class="item" bindtap="contactsClick" data-conversationid="{{item.conversationID}}" data-name="{{item.userProfile.nick}}" data-avatar="{{item.userProfile.avatar}}">
+                        <image src="{{item.userProfile.avatar ? item.userProfile.avatar : 'https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=e05d50a04eece6d1a5032d7cf44efb3e&t=1654361633'}}" class="avatar"></image>
+                        <view class="right">
+                            <view class="name">{{item.userProfile.nick}}</view>
+                            <view class="text" wx:if="{{item.lastMessage.type != 'TIMCustomElem'}}">{{item.lastMessage.payload.text}}</view>
+                            <view class="text" wx:if="{{item.lastMessage.type == 'TIMCustomElem'}}">{{item.lastMessage.payload.data.title || item.lastMessage.payload.description}}<text style="padding-left: 10rpx">{{item.lastMessage.payload.data.price || item.lastMessage.payload.extension}}元/m²·月</text></view>
+                        </view>
+                        <view class="time">{{filter.getDateDiff(item.lastMessage.lastTime, now)}}</view>
+                        <view class="unreadCount" wx:if="{{item.unreadCount > 0}}">{{item.unreadCount * 1 > 99 ? '99+' : item.unreadCount}}</view>
+                    </view>
+                </view>
+
+                <view wx:if="{{ empty_show }}" class="empty">
+                    <view class="empty_text">暂无聊天记录~</view>
+                </view>
+            </scroll-view>
+            <!-- <mine_message name="tom" content="xxxxx" time="2022年5月4日" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239" />
+            <mine_message name="tom" content="xxxxx" time="2022年5月4日" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239" /> -->
         </van-tab>
         <van-tab title="回帖">
             <view class="message-postcontainer">
-                <mine_reply 
-                  wx:for="{{reply_data}}"
-                  viewer_headpic="{{item.comment_user.avatar}}" 
-                  viewer_name="{{item.comment_user.nickname}}" 
-                  reply="{{item.content}}"
-                  type="{{item.target_topic.type}}" 
-                  comment="{{item.target_topic.comment_num}}"
-                  favour="{{item.target_topic.collect_num}}"
-                  like="{{item.target_topic.like_num}}"
-                  post_content="{{item.target_topic.content}}"
-                  author_info="{{item.target_user.educationInfo.school}}"
-                  author_name="{{item.target_user.nickname}}"
-                  author_pic="{{item.target_user.avatar}}"
-                />
+                <mine_reply wx:for="{{reply_data}}" viewer_headpic="{{item.comment_user.avatar}}" viewer_name="{{item.comment_user.nickname}}" reply="{{item.content}}" type="{{item.target_topic.type}}" comment="{{item.target_topic.comment_num}}" favour="{{item.target_topic.collect_num}}" like="{{item.target_topic.like_num}}" post_content="{{item.target_topic.content}}" author_info="{{item.target_user.educationInfo.school}}" author_name="{{item.target_user.nickname}}" author_pic="{{item.target_user.avatar}}" />
             </view>
         </van-tab>
         <van-tab title="新朋友">
             <view>建议使用IM的新好友</view>
-            <mine_friend name="tom" school="学校 年级" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
-            <mine_friend name="tom" school="学校 年级" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
+            <mine_friend name="tom" school="学校 年级" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239" />
+            <mine_friend name="tom" school="学校 年级" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239" />
         </van-tab>
     </van-tabs>
 </view>
