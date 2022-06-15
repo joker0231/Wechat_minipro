@@ -35,8 +35,6 @@ App({
       console.log('ready')
       that.globalData.isImLogin = true
       wx.setStorageSync('isImLogin', true)
-      // 收到离线消息和会话列表同步完毕通知，接入侧可以调用 sendMessage 等需要鉴权的接口
-      // event.name - TIM.EVENT.SDK_READY
     });
 
     tim.on(TIM.EVENT.MESSAGE_RECEIVED, function(event) {
@@ -72,9 +70,9 @@ App({
           index: 3
         })
       }
-      // 收到推送的单聊、群聊、群提示、群系统通知的新消息，可通过遍历 event.data 获取消息列表数据并渲染到页面
-      // event.name - TIM.EVENT.MESSAGE_RECEIVED
-      // event.data - 存储 Message 对象的数组 - [Message]
+      // SDK 收到对端已读消息的通知，即已读回执。使用前需要将 SDK 版本升级至 v2.7.0 或以上。仅支持单聊会话。
+      // event.name - TIM.EVENT.MESSAGE_READ_BY_PEER
+      // event.data - event.data - 存储 Message 对象的数组 - [Message] - 每个 Message 对象的 isPeerRead 属性值为 true
     })
   
     tim.on(TIM.EVENT.CONVERSATION_LIST_UPDATED, function(event) {
@@ -133,6 +131,8 @@ App({
     myMessages: new Map(),
     tabBottom: 0, // 全面屏底部黑条高度
     accountTid: '', //当前用户的tid
-    isDetail: true  
+    isDetail: true,
+    userID: null,
+    userSig: null
   }
 });

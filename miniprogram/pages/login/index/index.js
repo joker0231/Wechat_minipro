@@ -1,5 +1,6 @@
 const userStore = require('../../../stores/user-store')
-
+import { genTestUserSig } from '../../../debug/GenerateTestUserSig'
+const app = getApp()
 // pages/index/community_headpic.js
 Page({
 
@@ -7,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    account: '15927502515',
+    account: '18702745270',
     password: '123456',
     error_message: ''     // 错误信息
   },
@@ -81,6 +82,29 @@ Page({
     })
     },
 
+    loginIm() {
+      const userID = this.data.account
+      const userSig = genTestUserSig(userID).userSig
+      console.log(`TUI-login | login  | userSig:${userSig} userID:${userID}`)
+      app.globalData.userID = userID
+      app.globalData.userSig = userSig
+      var tim = app.globalData.tim
+      let promise = tim.login({userID: userID, userSig: userSig});
+      promise.then(function(imResponse) {
+        console.log(imResponse)
+        console.log('登录成功')
+        wx.setStorageSync('isImLogin', true)
+        app.globalData.isImLogin = true
+      }).catch(function(imError) {
+        wx.showToast({
+          title: 'login error' + imError,
+          icon: 'none',
+          duration: 3000
+        })
+        console.warn('login error:', imError); // 登录失败的相关信息
+      })
+    },
+
   clickLogin: function() {
     // if(this.data.account.length!=11){
     //   console.log(this.data.account)
@@ -108,9 +132,8 @@ Page({
           icon: "none"
         })
       }else{
-        console.log(resp, 'loginUser')
-        
         wx.setStorageSync('userid', resp.result.data[0]._id)
+        this.loginIm()
         wx.switchTab({
           url: '/pages/class/index/index',
         })

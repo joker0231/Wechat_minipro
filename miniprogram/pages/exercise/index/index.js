@@ -205,6 +205,7 @@ Page({
     })
     console.log(e.detail)
     // {section: "2", subject: "语文", grade: "六年级", section_id: "058dfefe629c9f5f075850e76db642ce"} 我加了section_id 到具体练习用_id查数据表
+    console.log(this.data.data)
     let queryBean = JSON.stringify(this.data.data)
       wx.navigateTo({
         url: '/pages/exercise/exercise_online/index?queryBean=' + queryBean,

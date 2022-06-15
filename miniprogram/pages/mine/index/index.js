@@ -46,8 +46,12 @@ Page({
 
 
     clickMessage: function() {
+      // wx.navigateTo({
+      //   url: '/pages/mine/message/index',
+      // })
+      // 这里改啦 再取TUI自带的消息列表里加入tab
       wx.navigateTo({
-        url: '/pages/mine/message/index',
+        url: '/TUI-CustomerService/pages/TUI-Conversation/conversation/conversation'
       })
     },
 

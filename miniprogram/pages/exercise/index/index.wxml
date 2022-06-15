@@ -50,7 +50,7 @@
         <view wx:elif="{{navState==1}}">
             <view class="class-classes">
                 <view wx:for="{{exercise_catalog}}">
-                    <exercise_chapter section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
+                    <exercise_chapter toexercisedetail="{{}}" bind:clickTopBar="clickme" data-section="{{item.exerciseSection}}" grade="{{grade}}" subject="{{subject}}" section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
                 </view>
             </view>
         </view>
@@ -58,7 +58,7 @@
         <view wx:elif="{{navState==2}}">
             <view class="class-classes">
                 <view wx:for="{{exercise_catalog}}">
-                    <exercise_chapter section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
+                    <exercise_chapter toexercisedetail="{{}}" bind:clickTopBar="clickme" data-section="{{item.exerciseSection}}" grade="{{grade}}" subject="{{subject}}" section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
                 </view>
             </view>
         </view>
@@ -66,7 +66,7 @@
         <view wx:elif="{{navState==3}}">
             <view class="class-classes">
                 <view wx:for="{{exercise_catalog}}">
-                    <exercise_chapter section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
+                    <exercise_chapter toexercisedetail="{{}}" bind:clickTopBar="clickme" data-section="{{item.exerciseSection}}" grade="{{grade}}" subject="{{subject}}" section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
                 </view>
             </view>
         </view>
@@ -74,7 +74,7 @@
         <view wx:elif="{{navState==4}}">
             <view class="class-classes">
                 <view wx:for="{{exercise_catalog}}">
-                    <exercise_chapter section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
+                    <exercise_chapter toexercisedetail="{{}}" bind:clickTopBar="clickme" data-section="{{item.exerciseSection}}" grade="{{grade}}" subject="{{subject}}" section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
                 </view>
             </view>
         </view>
@@ -82,7 +82,7 @@
         <view wx:else="{{navState==5}}">
             <view class="class-classes">
                 <view wx:for="{{exercise_catalog}}">
-                    <exercise_chapter section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
+                    <exercise_chapter toexercisedetail="{{}}" bind:clickTopBar="clickme" data-section="{{item.exerciseSection}}" grade="{{grade}}" subject="{{subject}}" section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
                 </view>
             </view>
         </view>

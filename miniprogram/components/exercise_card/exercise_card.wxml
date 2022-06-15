@@ -1,5 +1,17 @@
 <view class="exercisecard-container inner-class">
-    <view class="exercisecard-content">{{content}}</view>
-    <view class="exercisecard-option">{{option}}</view>
+    <!-- <view class="exercisecard-content">{{content}}</view> -->
+    <rich-text nodes="{{content}}"></rich-text>
+    <view wx:if="{{option.length !== 0}}" class="exercisecard-option" >
+      <view wx:for="{{option}}">{{item}}</view>
+    </view>
+    <!-- 选择题的情况 判断语句放前面 类似switch逻辑顺序 把0~3变成A~D -->
+    <view wx:if="{{userInput && option.length !== 0 && userInput === '0'}}" class="exercisecard-userInput">您的答案：A</view>     
+    <view wx:elif="{{userInput && option.length !== 0 && userInput === '1'}}" class="exercisecard-userInput">您的答案：B</view>     
+    <view wx:elif="{{userInput && option.length !== 0 && userInput === '2'}}" class="exercisecard-userInput">您的答案：C</view>     
+    <view wx:elif="{{userInput && option.length !== 0 && userInput === '3'}}" class="exercisecard-userInput">您的答案：D</view>      
+    <!-- 简答题的情况 直接返回用户输入 -->
+    <view wx:elif="{{userInput && option.length === 0}}" class="exercisecard-userInput">您的答案：{{userInput}}</view>
+    <!-- 未做情况 提示没有输入 就是userInput == false -->
+    <view wx:else class="exercisecard-userInput" style="color: #b4ebf1">您没有答案</view>
     <view class="exercisecard-resolution">{{resolution}}</view>
 </view>

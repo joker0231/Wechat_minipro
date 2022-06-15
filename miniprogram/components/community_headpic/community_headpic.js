@@ -1,6 +1,7 @@
 Component({
     properties: {
-        name: String
+        name: String,
+        headpic: String
     },
     data: {},
     methods: {}

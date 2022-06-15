@@ -14,18 +14,18 @@
       <view class="hr"></view>
       <view class="back">
         <view class="back-title">答题卡</view>
-        <view class="back-tip">点击题号查看所有题目解析</view>
+        <view class="back-tip">滑动点击题号查看所有题目解析</view>
         <view class="pop-scroll-wrapper">
           <scroll-view class="pop-scroll" scroll-y="true" scroll-x="true" enable-flex="true">
             <view class="pop-dots-wrapper">
-              <view data-inputindex="{{index}}" bindtap="onClickToDetail" class="pop-dot-wrapper" wx:for="{{exercise}}">
+              <view data-index="{{index}}" bindtap="onClickToDetail" class="pop-dot-wrapper" wx:for="{{exercise}}">
                 <!-- 作对的颜色 绿色 -->
-                <view wx:if="{{item.judge.judge}}" style="background-color: #caf982;" class="pop-dot">
+                <view wx:if="{{item.judge.judge}}" data-index="{{index}}" style="background-color: #caf982;" class="pop-dot" >
                   {{index + 1}}
                 </view>
 
                 <!-- 其他：做错的颜色 红色 -->
-                <view wx:else style="background-color: #fd542a" class="pop-dot">
+                <view wx:else style="background-color: #fd542a" class="pop-dot" data-index="{{index}}">
                   {{index + 1}}
                 </view>
               </view>
@@ -43,7 +43,14 @@
           错题解析
         </view>
         <view class="card-list">
-          <exercise_card inner-class="exercise_card" wx:for="{{wrong_exercise}}" content="{{item.question}}" option="{{item.options}}" resolution="{{item.solution}}"/>
+          <exercise_card
+            inner-class="exercise_card" 
+            wx:for="{{wrong_exercise}}" 
+            content="{{item.question}}" 
+            userInput="{{item.user_input}}"
+            option="{{item.options}}" 
+            resolution="{{item.solution}}"
+          />
         </view>
 
 

@@ -201,8 +201,16 @@ Page({
     //     this.data.wrong_exercise.push(exerciseList[i])
     //   }
     // }
+    
+    const exerciseCopy = [...this.data.exercise];
+    const user_inputCopy = [...this.data.user_input]; //es6 拷贝数组
 
-    const result = this.data.exercise.filter(e=>{return e.judge.judge === false})
+    exerciseCopy.forEach((e, index)=>{
+      if(e.judge.judge === false) {      // 错误的题
+        e.user_input = user_inputCopy[index]         // 给错误的题添加上用户的输入 来展示给错误的列表
+      }
+    })
+    const result = exerciseCopy.filter(e=>{return e.judge.judge === false})
     this.setData({
       wrong_exercise: result
     })
@@ -260,7 +268,7 @@ Page({
           // });
 
 
-          console.log(that.data)
+          console.log(that.data, 'westore存储的数据')
 
           exerciseStore.init(that.data.exercise, that.data.user_input, that.data.wrong_exercise, that.data.correct, that.data.section)
           wx.redirectTo({

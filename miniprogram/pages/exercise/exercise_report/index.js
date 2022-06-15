@@ -13,6 +13,9 @@ Page({
     section: ''
   },
 
+  delHtmlTag: function (str) {
+        return str.replace(/<[^>]+>/g,"");//去掉所有的html标记
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -20,6 +23,11 @@ Page({
     const exerciseList = exerciseStore.getExerciseListData()
     const userAnswer = exerciseStore.getUserAnswerData()
     const wrong_exercise = exerciseStore.getWrongExerciseListData()
+
+    // forEach是原地修改 map会创建新数组 所以这里用forEach
+    // wrong_exercise.forEach(e=>{
+    //   e.question = this.delHtmlTag(e.question)
+    // })
     const correct = exerciseStore.getCorrectData()
     const section = exerciseStore.getSectionData()
     console.log(exerciseList, userAnswer, wrong_exercise, correct, section, 'store里的结果')
@@ -41,9 +49,14 @@ Page({
     })
   },
 
-  onClickToDetail: function() {
+  onClickToDetail: function(e) {
+    // console.log(e.target.dataset.index)
+
+    // console.log(e)
+
+    // 这里传递id过去 改变那边的swip的index
     wx.navigateTo({
-      url: '/pages/exercise/exercise_report/report_detail/index',
+      url: '/pages/exercise/exercise_report/report_detail/index?swipeindex='+ e.target.dataset.index,
     })
   },
 
