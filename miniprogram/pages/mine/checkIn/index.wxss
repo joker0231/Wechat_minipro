@@ -1,4 +1,4 @@
-
+/* 
 page{
     background-color: #f4f4f4;
 }
@@ -245,7 +245,7 @@ page{
 #fuconl{
     color: #FF6666;
 }
-/* 签到弹窗 */
+
 .load{
     width: 80%;
     height: 600rpx;
@@ -310,4 +310,14 @@ page{
     background-color: #F8D168;
     color: #EB4331;
     font-size: 30rpx;
+}  */
+
+
+
+.calendar {
+  --calendar-height: 1150rpx;
+}
+
+.hasChecked {
+  color: red !important;
 }

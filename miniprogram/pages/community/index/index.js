@@ -55,8 +55,11 @@ Page({
         })
     },
     clickToChat: function() {
+      // wx.navigateTo({
+      //   url: '/pages/community/chat/index',
+      // })
       wx.navigateTo({
-        url: '/pages/community/chat/index',
+        url: '/TUI-CustomerService/pages/TUI-Chat/chat',
       })
     },
 

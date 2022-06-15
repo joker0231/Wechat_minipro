@@ -56,10 +56,12 @@ var option_radar = {  //指定图表的配置项和数据
       areaStyle: { color: ['#abc', '#abc', '#abc', '#abc'] }
     },  //设置分隔区域的样式
     indicator: [  //配置雷达图指示器，指定雷达图中的多个变量，跟data中value对应
-      { name: '语文', max: 20 }, { name: '数学', max: 20 },
-      { name: '外语', max: 20 }, { name: '物理', max: 20 },
-      //设置指示器的名称，最大值，标签的颜色
-      { name: '化学', max: 20 }]
+      { name: '语文', max: 20 }, 
+      { name: '数学', max: 20 },
+      { name: '外语', max: 20 },
+      // { name: '物理', max: 20 },
+      // { name: '化学', max: 20 }
+    ]
   }],
   series: [{
     name: '雷达图',  //系列名称，用于tooltip的显示，图例筛选

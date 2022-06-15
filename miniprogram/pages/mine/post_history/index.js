@@ -18,12 +18,16 @@ Page({
             }
           }).then((resp) => {
             console.log(resp, 'getUserTopic')
-            this.setData({
-              userTopic: resp.result
-            }, ()=>{
-              console.log(this.data.userTopic)
-            })
-            // console.log(JSON.stringify(resp.result.data[0]), '123')
+            if(resp) {
+              this.setData({
+                userTopic: resp.result
+              }, ()=>{
+                console.log(this.data.userTopic)
+              })
+            } else {
+              // 再调用自己 真的垃圾 有时候返回为null
+            }
+            
           }).catch((e) => {
             console.log(e);
           });
@@ -57,7 +61,7 @@ Page({
                 },
                 data: {
                   type: "getUserTopic",
-                  userId: "636050766258dad005cb320f0d7bc76c"
+                  userId: userStore.getUserData()._id
                 }
               }).then((resp) => {
                 console.log(resp, 'getUserTopic')

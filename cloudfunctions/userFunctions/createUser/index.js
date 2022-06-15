@@ -10,10 +10,32 @@ const db = cloud.database();
 exports.main = async (event, context) => {
   try {
     // 创建集合
-    await db.collection('user').add({
+    let newUser = await db.collection('user').add({
       // data 字段表示需新增的 JSON 数据
       data: event.body
     });
+
+    var date = new Date();
+    let Y = date.getFullYear() + '-';
+    let M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    let D = date.getDate() + ' ';
+    let h = date.getHours() + ':';
+    let m = date.getMinutes() + ':';
+    let s = date.getSeconds(); 
+
+    console.log(newUser)
+    let newUserId = newUser._id
+
+    let checkInTemplate = {
+      history_checkIn: [],
+      isTodayIn: false,
+      todayDate: Y+M+D,
+      user_id: newUserId
+    }
+    await db.collection('mine_checkIn').add({
+      data: checkInTemplate
+    });
+
     return {
       success: true
     };

@@ -28,7 +28,7 @@
 
 <view class="post-button" bindtap="clickPost">发帖</view>
 
-<van-action-sheet title="类型选择（基于浏览记录）" show="{{ show }}" bind:close="onClose" bind:chooseType>
+<van-action-sheet title="选择发帖类型" show="{{ show }}" bind:close="onClose" bind:chooseType>
   <van-picker columns="{{ columns }}" bind:change="onChange" />
 </van-action-sheet>
 

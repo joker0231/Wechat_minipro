@@ -11,6 +11,7 @@ const updateCommentLike = require('./updateCommentLike')
 const createCollectTopic = require('./createCollectTopic')
 const deleteCollectTopic = require('./deleteCollectTopic')
 const createTopicReply = require('./createTopicReply')
+const getReplyByUserId = require('./getReplyByUserId')
 
 
 // 云函数入口函数
@@ -43,5 +44,7 @@ exports.main = async (event, context) => {
       return await deleteCollectTopic.main(event, context)
     case 'createTopicReply':
       return await createTopicReply.main(event, context)
+    case 'getReplyByUserId':
+      return await getReplyByUserId.main(event, context)
   }
 };

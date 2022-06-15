@@ -17,10 +17,11 @@ Page({
     semester: '',
     subjct: '',
     content: [],
-    href: ''
+    href: 'https://cdn.ekko306.top/wx/yu_6.1_1_1.mp4'
   },
 
   changevideo: function(e){
+    console.log('触发触发')
     this.setData({
       href: e.detail.param
     })
@@ -76,8 +77,11 @@ Page({
         classId: this.data._id
       }
     }).then((resp) => {
+
+      console.log(resp.result.data[0].content[0].classLink[0].href, '123123123')
       this.setData({
-        content: resp.result.data[0].content
+        content: resp.result.data[0].content,
+        href: resp.result.data[0].content[0].classLink[0].href
       })
     }).catch((e) => {
       console.log(e);

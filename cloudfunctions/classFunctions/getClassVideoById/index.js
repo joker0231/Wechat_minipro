@@ -10,7 +10,7 @@ const db = cloud.database();
 exports.main = async (event, context) => {
   try {
     return await db.collection('class_video').where({
-      _id: event.classId
+      class_id: event.classId
     }).get()
   } catch(e) {
     console.error(e)

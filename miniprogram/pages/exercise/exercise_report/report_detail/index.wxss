@@ -128,7 +128,13 @@
 .field {
   --field-input-text-color: rgb(239,179,54);
   --cell-horizontal-padding: 0rpx;
+  --cell-vertical-padding: 4rpx;
 }
+
+.field textarea {
+  font-size: 28rpx;
+}
+
 
 .pop-title {
   margin-top: 28rpx;

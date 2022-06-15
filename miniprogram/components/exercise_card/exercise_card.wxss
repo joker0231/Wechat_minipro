@@ -12,3 +12,19 @@
 .exercisecard-content {
 
 }
+
+.exercisecard-option {
+  margin-top: 20rpx;
+  font-size: 12px;
+}
+
+.exercisecard-userInput {
+  font-size: 12px;
+  color: orange;
+}
+
+.exercisecard-resolution {
+  margin-top: 20rpx;
+  font-size: 12px;
+  color: gray
+}

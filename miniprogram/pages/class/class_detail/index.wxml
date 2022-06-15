@@ -1,7 +1,7 @@
 <view class="detail_container">
   <view id="outer">
     <!-- <text id="text">课程名称</text> -->
-    <video id="myVideo" src="https://cdn.ekko306.top/wx/temp.mp4" danmu-list="{{danmuList}}" controls></video>
+    <video id="myVideo" src="{{href}}" danmu-list="{{danmuList}}" controls></video>
   </view>
   <view class="detail-tabs">
     <van-tabs class="my-style" active="intro" bind:change="onChange" color="rgb(255,255,128)" line-width="120rpx" line-height="8rpx">

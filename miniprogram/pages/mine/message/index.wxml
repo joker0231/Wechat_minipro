@@ -7,7 +7,20 @@
         </van-tab>
         <van-tab title="回帖">
             <view class="message-postcontainer">
-                <mine_reply viewer_headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239" viewer_name="cici" reply="xxxxxxx" type="题目" comment="2" favour="3" like="1" post_content="xxxxx" author_info="学校 班级" author_name="tom" author_pic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239"/>
+                <mine_reply 
+                  wx:for="{{reply_data}}"
+                  viewer_headpic="{{item.comment_user.avatar}}" 
+                  viewer_name="{{item.comment_user.nickname}}" 
+                  reply="{{item.content}}"
+                  type="{{item.target_topic.type}}" 
+                  comment="{{item.target_topic.comment_num}}"
+                  favour="{{item.target_topic.collect_num}}"
+                  like="{{item.target_topic.like_num}}"
+                  post_content="{{item.target_topic.content}}"
+                  author_info="{{item.target_user.educationInfo.school}}"
+                  author_name="{{item.target_user.nickname}}"
+                  author_pic="{{item.target_user.avatar}}"
+                />
             </view>
         </van-tab>
         <van-tab title="新朋友">

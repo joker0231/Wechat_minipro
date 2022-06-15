@@ -14,14 +14,17 @@
     <swiper-item class="swiper-item" wx:for="{{exercise}}">
       <view class="card">
         <scroll-view class="scroll" scroll-y="true">
-          <view class="title">{{item.question}}</view>
+          <view class="title">
+          <rich-text nodes="{{item.question}}"></rich-text>
+          </view>
 
           <!-- 选择题情况 -->
           <view class="choice" wx:if="{{item.type === 'choice'}}">
             <view class="small-choice" wx:for="{{item.options}}">
-              <view wx:if="{{user_input[current] !== index + ''}}" data-choiceIndex="{{index}}" class="small-choice-text">{{item}}</view>
+              <view wx:if="{{user_input[current] !== index}}" data-choiceIndex="{{index}}" class="small-choice-text">{{item}}</view>
               <view wx:else style="background-color: orange;color: white;" data-choiceIndex="{{index}}" class="small-choice-text">{{item}}</view>
             </view>
+            <view wx:if="{{user_input[current] !== index}}" style="font-size: 28rpx; color: #b4ebf1">您没有选择答案</view>
           </view>
 
           <!-- 简答题情况 -->
@@ -29,14 +32,16 @@
             记录思路：
             <view class="field">
               <van-field
-                disabled="{{user_input[current] === ''}}"
                 class="field"
                 value="{{ user_input[current] === '' ? '没有填写思路！' : user_input[current] }}"
                 type="textarea"
-                placeholder="请输入简答思路"
+                placeholder="您没有简答思路"
                 autosize
+                wx:if="{{user_input[current] !== null}}"
                 border="{{ false }}"
+                readonly
               />
+              <view wx:else style="color: #b4ebf1;">您没有简答思路</view>
             </view>
           </view>
           <view class="text">

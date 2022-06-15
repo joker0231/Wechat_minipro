@@ -5,7 +5,8 @@
     <view class="card">
       <view class="front">
         <view class="left">
-          <view class="title-in">{{section}}</view>
+          <!-- <view class="title-in">{{section}}</view> -->
+          <view class="title-in">2. 草原（第一课时）</view>
           <view class="correct">一共答对<view class="bold">{{correct}}</view>题</view>
         </view>
         <image class="logo" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=9422a33fbe17b9b4643f416ab3ec445b&t=1652256405"></image>
@@ -13,18 +14,18 @@
       <view class="hr"></view>
       <view class="back">
         <view class="back-title">答题卡</view>
-        <view class="back-tip">点击题号查看所有题目解析</view>
+        <view class="back-tip">滑动点击题号查看所有题目解析</view>
         <view class="pop-scroll-wrapper">
           <scroll-view class="pop-scroll" scroll-y="true" scroll-x="true" enable-flex="true">
             <view class="pop-dots-wrapper">
-              <view data-inputindex="{{index}}" bindtap="onClickToDetail" class="pop-dot-wrapper" wx:for="{{exercise}}">
+              <view data-index="{{index}}" bindtap="onClickToDetail" class="pop-dot-wrapper" wx:for="{{exercise}}">
                 <!-- 作对的颜色 绿色 -->
-                <view wx:if="{{item.judge}}" style="background-color: #caf982;" class="pop-dot">
+                <view wx:if="{{item.judge.judge}}" data-index="{{index}}" style="background-color: #caf982;" class="pop-dot" >
                   {{index + 1}}
                 </view>
 
                 <!-- 其他：做错的颜色 红色 -->
-                <view wx:else style="background-color: #fd542a" class="pop-dot">
+                <view wx:else style="background-color: #fd542a" class="pop-dot" data-index="{{index}}">
                   {{index + 1}}
                 </view>
               </view>
@@ -42,7 +43,14 @@
           错题解析
         </view>
         <view class="card-list">
-          <exercise_card inner-class="exercise_card" wx:for="{{wrong_exercise}}" content="{{item.question}}" option="{{item.options}}" resolution="{{item.solution}}"/>
+          <exercise_card
+            inner-class="exercise_card" 
+            wx:for="{{wrong_exercise}}" 
+            content="{{item.question}}" 
+            userInput="{{item.user_input}}"
+            option="{{item.options}}" 
+            resolution="{{item.solution}}"
+          />
         </view>
 
 
