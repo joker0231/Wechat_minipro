@@ -51,10 +51,6 @@ Page({
         })
     },
 
-    clickToDetail(event) {
-      
-    },
-
     onClickToDetail: function(event) {
         if(event.currentTarget.dataset.type === 'class') {
           wx.navigateTo({
