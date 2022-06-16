@@ -7,9 +7,9 @@
     </view>
     <view class="com-container">
         <view class="com-bg">
-            <text>在线答疑</text>
+            <text>教师答疑</text>
             <scroll-view class="scroll" scroll-y="true" scroll-x="true" style=" white-space: nowrap; display: flex" >
-                <community_headpic wx:for="{{teacher}}" name="{{item.nickname}}" headpic="{{item.avatar}}" bindtap="clickToChat"/>
+                <community_headpic wx:for="{{teacher}}" name="{{item.nick}}" data-userid="{{item.userID}}" headpic="{{item.avatar}}" bindtap="clickToChat"/>
             </scroll-view>
         </view>
 

@@ -43,7 +43,7 @@
     top: 100rpx;
     left: 25rpx;
     overflow: hidden;
-    width: 72rpx;
+    width: 95rpx;
     text-align: center;
     white-space: nowrap;
     text-overflow: ellipsis;
