@@ -31,9 +31,10 @@
         <text>常用工具</text>
         <view class="hr"/>
         <view class="mine-tools">
-            <view bindtap="clickMessage" class="mine-tool">
+            <view bindtap="clickMessage" class="mine-tool" style="position: relative;">
                 <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/news.png?sign=89f299b731c5ae4f78c64251d424ef59&t=1651475202"></image>
                 <view>消息提醒</view>
+                <view wx:if="{{unreadCount !== 0}}" class="unreadCountStyle">{{unreadCount}}</view>
             </view>
             <view bindtap="clickFavourite" class="mine-tool">
                 <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/favourite.png?sign=e7ef7c912ace8f6fecc625f823bf8264&t=1651475293"></image>

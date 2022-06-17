@@ -385,21 +385,21 @@ Component({
         },
       }).then((res)=>{
         if(this.data.firstSendMessage) {
-				wx.aegis.reportEvent({
-					    name: 'sendMessage',
-					    ext1: 'sendMessage-success',
-					    ext2: 'imTuikitExternal',
-              ext3: app.globalData.SDKAppID
-        })
+				// wx.aegis.reportEvent({
+				// 	    name: 'sendMessage',
+				// 	    ext1: 'sendMessage-success',
+				// 	    ext2: 'imTuikitExternal',
+        //       ext3: app.globalData.SDKAppID
+        // })
       }
     }).catch((error) => {
         logger.log(`| TUI-chat | message-input | sendMessageError: ${error.code} `);
-        wx.aegis.reportEvent({
-          name: 'sendMessage',
-          ext1: `sendMessage-failed#error: ${error}`,
-          ext2: 'imTuikitExternal',
-          ext3: app.globalData.SDKAppID
-    })
+        // wx.aegis.reportEvent({
+        //   name: 'sendMessage',
+        //   ext1: `sendMessage-failed#error: ${error}`,
+        //   ext2: 'imTuikitExternal',
+        //   ext3: app.globalData.SDKAppID
+    // })
         this.triggerEvent('showMessageErrorImage', {
           showErrorImageFlag: error.code,
           message,

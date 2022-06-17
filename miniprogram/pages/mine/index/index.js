@@ -1,8 +1,9 @@
 const userStore = require("../../../stores/user-store")
-
+const app = getApp()
 Page({
     data: {
-      userData: {}
+      userData: {},
+      unreadCount: 0
     },
     onShow: function (options) {
       // ceshi
@@ -10,6 +11,22 @@ Page({
         userData: userStore.getUserData()
       })
 
+      let unreadCount = 0
+      wx.$TUIKit.getConversationList().then(res=>{
+        console.log('查询自己的消息', res)
+        res.data.conversationList.forEach((e)=>{
+          unreadCount += e.unreadCount;
+        })
+
+         // 分两次 避免影响UserData上面的
+        this.setData({
+          unreadCount
+        }, ()=>{
+          console.log(this.data.unreadCount, '未读消息个数')
+        })
+      })
+
+     
 
 
     },
@@ -21,9 +38,22 @@ Page({
     },
 
     clickLogout: function() {
-      wx.reLaunch({
+      wx.$TUIKit.logout().then(() => {
+        wx.clearStorage();
+        app.globalData.expiresIn = ''
+        app.globalData.sessionID = ''
+        app.globalData.userInfo = {
+          userID: '',
+          userSig: '',
+          token: '',
+          phone: '',
+        }
+        app.globalData.userProfile = null
+        wx.reLaunch({
         url: '/pages/login/index/index',
       })
+      });
+      
     },
 
     clickProgress: function() {

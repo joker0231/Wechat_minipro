@@ -193,6 +193,7 @@ Component({
     },
     // 收到的消息
     $onMessageReceived(value) {
+      console.log('收到新消息啦 这个事件再chat.js页面 还没有加载这个页面能够获取吗？')
       this.messageTimeForShow(value.data[0]);
       this.setData({
         UseData: value,

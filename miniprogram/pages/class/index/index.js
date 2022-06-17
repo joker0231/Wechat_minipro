@@ -22,6 +22,18 @@ Page({
         type: colorMap.get(userData.kind),
         message: string
       })
+
+        // 这个非要等ready之后 鬼知道怎么获取sdk状态 网上说监听TIM.EVENT.SDK_READY 在app.js
+        // wx.$TUIKit.updateMyProfile({
+        //   nick: userData.nickname,
+        //   avatar: userData.avatar
+        // }).then(resp=>{
+        //   console.log('资料更新成功', resp)
+        // })
+        
+        
+      
+      
     },
     selectApply:function(e){
       let index = e.target.dataset.index

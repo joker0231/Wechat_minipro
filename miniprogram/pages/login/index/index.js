@@ -1,5 +1,7 @@
 const userStore = require('../../../stores/user-store')
 import { genTestUserSig } from '../../../debug/GenerateTestUserSig'
+import logger from '../../../utils/logger'
+import { setTokenStorage } from '../../../utils/token'
 const app = getApp()
 // pages/index/community_headpic.js
 Page({
@@ -82,27 +84,42 @@ Page({
     })
     },
 
-    loginIm() {
+    loginIm(databaseData) {
+      // const userID = this.data.account
+      // const userSig = genTestUserSig(userID).userSig
+      // console.log(`TUI-login | login  | userSig:${userSig} userID:${userID}`)
+      // app.globalData.userID = userID
+      // app.globalData.userSig = userSig
+      // var tim = app.globalData.tim
+      // let promise = tim.login({userID: userID, userSig: userSig});
+      // promise.then(function(imResponse) {
+      //   console.log(imResponse)
+      //   console.log('登录成功')
+      //   wx.setStorageSync('isImLogin', true)
+      //   app.globalData.isImLogin = true
+      // }).catch(function(imError) {
+      //   wx.showToast({
+      //     title: 'login error' + imError,
+      //     icon: 'none',
+      //     duration: 3000
+      //   })
+      //   console.warn('login error:', imError); // 登录失败的相关信息
+      // })
       const userID = this.data.account
       const userSig = genTestUserSig(userID).userSig
-      console.log(`TUI-login | login  | userSig:${userSig} userID:${userID}`)
-      app.globalData.userID = userID
-      app.globalData.userSig = userSig
-      var tim = app.globalData.tim
-      let promise = tim.login({userID: userID, userSig: userSig});
-      promise.then(function(imResponse) {
-        console.log(imResponse)
-        console.log('登录成功')
-        wx.setStorageSync('isImLogin', true)
-        app.globalData.isImLogin = true
-      }).catch(function(imError) {
-        wx.showToast({
-          title: 'login error' + imError,
-          icon: 'none',
-          duration: 3000
-        })
-        console.warn('login error:', imError); // 登录失败的相关信息
+      logger.log(`TUI-login | login  | userSig:${userSig} userID:${userID}`)
+      app.globalData.userInfo = {
+        userSig,
+        userID,
+      }
+      setTokenStorage({
+        userInfo: app.globalData.userInfo,
       })
+      wx.$TUIKit.login({userID: userID, userSig: userSig})
+      .then((res)=>{
+        console.log(res, '登录成功')
+      })
+      .catch((err)=>{console.log(err, '登录失败')})
     },
 
   clickLogin: function() {
@@ -133,7 +150,8 @@ Page({
         })
       }else{
         wx.setStorageSync('userid', resp.result.data[0]._id)
-        this.loginIm()
+        // 这里获取用户数据存储到IM里去
+        this.loginIm(resp.result.data[0])
         wx.switchTab({
           url: '/pages/class/index/index',
         })
