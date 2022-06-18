@@ -4,7 +4,8 @@ const userStore = require('../../../stores/user-store')
 
 Page({
     data: {
-        userTopic: []
+        userTopic: [],
+        empty_show: false,
     },
     onLoad: function (options) {
         wx.cloud.callFunction({
@@ -18,7 +19,7 @@ Page({
             }
           }).then((resp) => {
             console.log(resp, 'getUserTopic')
-            if(resp) {
+            if(resp.result) {
               this.setData({
                 userTopic: resp.result
               }, ()=>{
@@ -26,6 +27,9 @@ Page({
               })
             } else {
               // 再调用自己 真的垃圾 有时候返回为null
+              this.setData({
+                empty_show: true,
+              })
             }
             
           }).catch((e) => {

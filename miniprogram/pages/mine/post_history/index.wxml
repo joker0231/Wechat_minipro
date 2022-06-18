@@ -16,7 +16,9 @@
         />
     <view data-topicId="{{item._id}}" class="delete" bindtap="clickDelete" slot="right">删除</view>
     </van-swipe-cell>
-
+    <view wx:if="{{ empty_show }}" class="empty">
+      <view class="empty_text">暂无发帖记录~</view>
+    </view>
     <van-dialog id="van-dialog" />
     <van-toast id="van-toast" />
    

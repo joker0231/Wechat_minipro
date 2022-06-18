@@ -26,7 +26,7 @@ Page({
 
     // 点击消息列表跳转到聊天详情页（需要把列表页的头像传过去，因为详情获取的数据里面没有聊天头像）
   contactsClick(e) {
-    var conversationID= e.currentTarget.dataset.conversationid // 置业顾问的conversationID（当前会话的人）
+    var conversationID= e.currentTarget.dataset.conversationid // 当前会话的人的conversationID
     var avatar= e.currentTarget.dataset.avatar
     var name= e.currentTarget.dataset.name
     // wx.navigateTo({

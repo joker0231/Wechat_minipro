@@ -15,7 +15,8 @@ Page({
     subject: '',
     grade: '',
     wrong_exercise: [],
-    correct: 0
+    correct: 0,
+    title:''
   },
 
   showPopup() {
@@ -36,12 +37,13 @@ Page({
     //     subject: queryBean.subject,
     //     grade: queryBean.grade
     // }) // 这里合并到下面收到数据后了 还是有异步问题
+    const {section, subject, grade, title, section_id} = queryBean
 
-    const {section, subject, grade, section_id} = queryBean
-
-    wx.setNavigationBarTitle({
-      title: "语文·上册·人教版"
+    this.setData({
+      title: queryBean.title,
+      section: queryBean.section,
     })
+
     wx.enableAlertBeforeUnload({
       message: "您的做题内容未提交报告 ，退出将丢失做题记录！未做完也可右上角直接提交查看结果！",
       success: function (res) {
@@ -52,46 +54,46 @@ Page({
       },
     });
 
-    // wx.cloud.callFunction({
-    //   name: 'exerciseFunctions',
-    //   config: {
-    //     env: 'lemon-7glhwqyu5304e1f9'
-    //   },
-    //   data: {
-    //     type: "getExerciseList",
-    //     grade: this.data.grade,
-    //     subject: this.data.subject,
-    //     section: this.data.section
-    //   }
-    // }).then((resp) => {
-    //   this.setData({
-    //     exercise: resp.result.list
-    //   })
-    // }).catch((e) => {
-    //   console.log(e);
-    // });
-    
-    console.log(options)
     wx.cloud.callFunction({
       name: 'exerciseFunctions',
       config: {
         env: 'lemon-7glhwqyu5304e1f9'
       },
       data: {
-        type: "getExerciseListBySectionId",
-        section_id: section_id,
+        type: "getExerciseList",
+        grade: grade,
+        subject: subject,
+        section: section
       }
     }).then((resp) => {
-      console.log(resp, '测试id数据')
       this.setData({
-        exercise: resp.result.data,
-        section,
-        subject,
-        grade
+        exercise: resp.result.list
       })
     }).catch((e) => {
       console.log(e);
     });
+    
+    console.log(options)
+    // wx.cloud.callFunction({
+    //   name: 'exerciseFunctions',
+    //   config: {
+    //     env: 'lemon-7glhwqyu5304e1f9'
+    //   },
+    //   data: {
+    //     type: "getExerciseListBySectionId",
+    //     section_id: section_id,
+    //   }
+    // }).then((resp) => {
+    //   console.log(resp, '测试id数据')
+    //   this.setData({
+    //     exercise: resp.result.data,
+    //     section,
+    //     subject,
+    //     grade
+    //   })
+    // }).catch((e) => {
+    //   console.log(e);
+    // });
   },
 
   /**
@@ -242,35 +244,35 @@ Page({
             correct: 6 - that.data.wrong_exercise.length
           })
 
-          // wx.cloud.callFunction({   //保存练习报告的数据
-          //   name: 'exerciseFunctions',
-          //   config: {
-          //     env: 'lemon-7glhwqyu5304e1f9'
-          //   },
-          //   data: {
-          //     type: "createExerciseRecord",
-          //     body: {
-          //       "exercise": that.data.exercise,
-          //       "user_input": that.data.user_input,
-          //       "section": that.data.section,
-          //       "chapter": that.data.chapter,
-          //       "subject": that.data.subject,
-          //       "grade": that.data.grade,
-          //       "wrong_exercise": that.data.wrong_exercise,
-          //       "correct": that.data.correct,
-          //       "data": that.getDate()
-          //     }
-          //   }
-          // }).then((resp) => {
-          //   console.log(resp)
-          // }).catch((e) => {
-          //   console.log(e);
-          // });
+          wx.cloud.callFunction({   //保存练习报告的数据
+            name: 'exerciseFunctions',
+            config: {
+              env: 'lemon-7glhwqyu5304e1f9'
+            },
+            data: {
+              type: "createExerciseRecord",
+              body: {
+                "exercise": that.data.exercise,
+                "user_input": that.data.user_input,
+                "section": that.data.section,
+                "chapter": that.data.chapter,
+                "subject": that.data.subject,
+                "grade": that.data.grade,
+                "wrong_exercise": that.data.wrong_exercise,
+                "correct": that.data.correct,
+                "data": that.getDate()
+              }
+            }
+          }).then((resp) => {
+            console.log(resp)
+          }).catch((e) => {
+            console.log(e);
+          });
 
 
           console.log(that.data, 'westore存储的数据')
 
-          exerciseStore.init(that.data.exercise, that.data.user_input, that.data.wrong_exercise, that.data.correct, that.data.section)
+          exerciseStore.init(that.data.title,that.data.exercise, that.data.user_input, that.data.wrong_exercise, that.data.correct, that.data.section)
           wx.redirectTo({
             url: '/pages/exercise/exercise_report/index',
           })

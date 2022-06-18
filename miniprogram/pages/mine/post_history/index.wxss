@@ -25,3 +25,15 @@ van-swipe-cell {
     line-height: 232rpx;
     text-align: center;
 }
+
+.empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .empty_text{
+    font-size: 24rpx;
+    color: #AAAAAA;
+    margin-top: 52rpx;
+  }

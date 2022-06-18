@@ -5,6 +5,7 @@ class Exercise {
     this.wrongExerciseList = []
     this.correct = 0
     this.section = ''
+    this.title = ''
   }
 
   setExerciseListData(inData) {
@@ -45,6 +46,14 @@ class Exercise {
 
   getSectionData() {
     return this.section
+  }
+
+  setTitleData(inData) {
+    this.title = inData
+  }
+
+  getTitleData() {
+    return this.title
   }
 }
 

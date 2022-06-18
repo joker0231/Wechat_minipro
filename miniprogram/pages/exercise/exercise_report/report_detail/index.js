@@ -8,7 +8,9 @@ Page({
   data: {
     exercise: [],
     user_input: [],
-    current: 0
+    current: 0,
+    title: '',
+    section:''
   },
 
   /**
@@ -17,14 +19,15 @@ Page({
   onLoad: function (options) {
     const exerciseList = exerciseStore.getExerciseListData()
     const userAnswer = exerciseStore.getUserAnswerData()
+    const title = exerciseStore.getTitleData()
+    const section = exerciseStore.getSectionData()
     console.log(options.swipeindex, '1231231')
     this.setData({
       exercise: exerciseList,
       user_input: userAnswer,
-      current: Number(options.swipeindex)
-    })
-    wx.setNavigationBarTitle({
-      title: "语文·上册·人教版"
+      current: Number(options.swipeindex),
+      title:title,
+      section: section
     })
   },
 

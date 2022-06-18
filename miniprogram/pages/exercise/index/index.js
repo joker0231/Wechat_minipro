@@ -210,9 +210,5 @@ Page({
       wx.navigateTo({
         url: '/pages/exercise/exercise_online/index?queryBean=' + queryBean,
       })
-
-      // wx.navigateTo({
-      //   url: '/pages/exercise/exercise_online/index?queryId=' + e.detail.section_id,
-      // })
   },
 });

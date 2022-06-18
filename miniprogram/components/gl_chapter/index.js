@@ -34,6 +34,7 @@ Component({
         clickToQuizOnline: function(e) {
             const data = {
                 section: e.target.dataset.section,
+                title: e.target.dataset.title,
                 subject:this.data.subject,
                 grade: this.data.grade,
                 section_id: e.target.dataset.id,

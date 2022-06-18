@@ -73,7 +73,7 @@
 .two-buttons {
   display: flex;
   justify-content: space-between;
-  margin: auto 34rpx 100rpx 34rpx
+  margin: auto 34rpx 100rpx 34rpx;
 }
 
 .two-buttons view {

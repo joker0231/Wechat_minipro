@@ -23,26 +23,8 @@
     <scroll-view class="class-container">
         <view wx:if="{{navState==0}}">
             <view class="class-classes">
-              <view style="font-size: 34rpx;font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;font-weight: 700;">上册</view>
                 <view wx:for="{{exercise_catalog}}">
                     <exercise_chapter toexercisedetail="{{}}" bind:clickTopBar="clickme" data-section="{{item.exerciseSection}}" grade="{{grade}}" subject="{{subject}}" section="{{item.exerciseSection}}" showLucky="{{true}}" forExercise="{{true}}" chapter_num="{{item.chapter}}" />
-                </view>
-            </view>
-            <!-- 下面是假的为了搞出上册和下册 真正要改改到数据库里去 而且操作可能不好 有个二选一的radio group筛选可能更好 -->
-            <view class="class-classes">
-              <view style="font-size: 34rpx;font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;font-weight: 700;">下册</view>
-                <view wx:for="{{grade === '一年级' ? exercise_catalog_fakeyuwen1gradeXia.content : exercise_catalog_fakeyuwen6gradeXia.content}}">
-                    <exercise_chapter 
-                      toexercisedetail="{{}}" 
-                      bind:clickTopBar="clickme" 
-                      data-section="{{item.exerciseSection}}"
-                      grade="{{grade}}" 
-                      subject="{{subject}}" 
-                      section="{{item.exerciseSection}}"
-                      showLucky="{{true}}" 
-                      forExercise="{{true}}" 
-                      chapter_num="{{item.chapter}}" 
-                    />
                 </view>
             </view>
         </view>

@@ -9,10 +9,11 @@ class ExerciseStore extends Store {
     this.wrongExerciseList = []
     this.correct = 0
     this.section = ''
+    this.title = ''
     this.exercise = new Exercise()
   }
 
-  init(exerciseListData,userAnswerData,wrongExerciseList,correct,section) {
+  init(title,exerciseListData,userAnswerData,wrongExerciseList,correct,section) {
     this.exercise.setExerciseListData(exerciseListData)
     this.exerciseListData = this.exercise.getExerciseListData()
     this.exercise.setUserAnswerData(userAnswerData)
@@ -23,6 +24,8 @@ class ExerciseStore extends Store {
     this.correct = this.exercise.getCorrectData()
     this.exercise.setSectionData(section)
     this.section = this.exercise.getSectionData()
+    this.exercise.setTitleData(title)
+    this.title = this.exercise.getTitleData()
   }
 
   getExerciseListData() {
@@ -43,6 +46,10 @@ class ExerciseStore extends Store {
 
   getSectionData() {
     return this.section;
+  }
+
+  getTitleData() {
+    return this.title;
   }
 }
 

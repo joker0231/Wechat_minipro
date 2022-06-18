@@ -6,3 +6,82 @@
     position: relative;
     justify-content: center;
 }
+
+.friendList-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 90rpx;
+  }
+  
+  .item{
+    border-bottom: 1px solid #EDEDED;
+    height: 149rpx;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.right .text {
+  color: #A2A3A4;
+  font-size: 24rpx;
+  width: 466rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.avatar{
+  width: 89rpx;
+  height: 89rpx;
+  border-radius: 50%;
+  margin-left: 40rpx;
+  margin-right: 22rpx;
+  box-sizing: content-box;
+}
+
+.name {
+  font-size:32rpx;
+  color:rgba(35,35,35,1);
+  margin-bottom: 8rpx;
+  display: flex;
+  align-items: center;
+}
+
+
+.item .time{
+  position: absolute;
+  right: 34rpx;
+  top: 44rpx;
+  color: #9EA2AC;
+  font-size: 20rpx;
+}
+
+.unreadCount {
+  position: absolute;
+  right: 34rpx;
+  top: 79rpx;
+  color: #fff;
+  background-color: #F00C22;
+  font-size: 20rpx;
+  border-radius: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10rpx;
+  height: 32rpx;
+  min-width: 32rpx;
+}
+
+.empty{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #efefef;
+}
+
+.empty_text{
+  font-size: 24rpx;
+  color: #AAAAAA;
+  margin-top: 52rpx;
+}

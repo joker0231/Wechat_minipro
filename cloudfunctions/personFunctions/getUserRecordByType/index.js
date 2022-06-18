@@ -10,7 +10,7 @@ const db = cloud.database();
 exports.main = async (event, context) => {
   exports.main = async (event, context) => {
     // 返回数据库查询结果
-    let resp = await db.collection('record_' + event.type).where({
+    let resp = await db.collection('record_' + event.recordType).where({
       user_id: event.userId,
     }).get();
     return resp

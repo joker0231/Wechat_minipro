@@ -6,7 +6,7 @@
 4. 右上角答题变成了 发帖 在线聊天 收藏三大件 （这里收藏是收藏一道道题目 历史记录是一个个做题报告） -->
 <view class="exercise_header">
   <view class="show_index">{{current + 1 + '/' + exercise.length}}</view>
-  <view class="title-first">第x章 主题名称</view>
+  <view class="title-first">{{section}}{{title}}</view>
   <gl_navigate></gl_navigate>
 </view>
 <view class="exercise_content"> 

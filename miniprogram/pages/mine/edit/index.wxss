@@ -58,3 +58,21 @@ input{
     margin-bottom: 22rpx;
     font-size: small;
 }
+
+.grade-detail{
+    width: 160rpx;
+    height: 56rpx;
+    padding: 4rpx;
+    border-radius: 32rpx;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 50rpx;
+    margin-top: 22rpx;
+    margin-bottom: 22rpx;
+    font-size: small;
+    background-color: #dfdfdf;
+  }
+
+.selected {
+    background-color: rgb(247, 199, 181);
+  }
