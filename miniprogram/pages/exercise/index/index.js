@@ -1,8 +1,9 @@
+const userStore = require('../../../stores/user-store')
 Page({
   data: {
     index: null,
     navState: 0,
-    grade: "一年级",
+    grade: useStore.getUserData().grade,
     showgrade: false,
     is_senior: false,
     gradebgcolor: '#dfdfdf',
