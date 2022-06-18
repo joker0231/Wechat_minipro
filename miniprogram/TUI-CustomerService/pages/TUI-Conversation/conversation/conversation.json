@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "TUI-conversation-item": "../../../components/tui-conversation/conversation-item/index",
-    "TUI-message-list": "../../../components/tui-chat/message-list/index"
+    "TUI-message-list": "../../../components/tui-chat/message-list/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
   }
 }

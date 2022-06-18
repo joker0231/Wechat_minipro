@@ -1,4 +1,9 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+  "van-calendar": "@vant/weapp/calendar/index",
+  "van-toast": "@vant/weapp/toast/index",
+  "ec-canvas": "../../../libs/ec-canvas/ec-canvas",
+  "van-tab": "@vant/weapp/tab/index",
+  "van-tabs": "@vant/weapp/tabs/index"},
   "navigationBarTitleText": "个人空间"
 }

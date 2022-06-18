@@ -105,7 +105,7 @@ Page({
 
     clickToFriendList: function() {
       wx.navigateTo({
-        url: '/pages/mine/friendList/index',
+        url: '/TUI-CustomerService/pages/friendList/index',
       })
     }
 });

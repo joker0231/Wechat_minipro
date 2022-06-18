@@ -1,7 +1,137 @@
-/* pages/mine/space/index.wxss */
-.background-image {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  z-index: -1;
+.space-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.space-bgimg{
+  height: 100%;
+  width: 100%;
+  opacity: 70%;
+  z-index: -2;
+  position:fixed;
+  top:0;
+  left:0;
+}
+
+.space-personalinfo{
+  width: 100%;
+  height: 18%;
+  border-radius: 50rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 15%;
+}
+
+.space-mask{
+  width: 100%;
+  height: 90%;
+  opacity: 70%;
+  background-color: #FFFFFF;
+  position: absolute;
+  border-radius: 50rpx;
+  z-index: -1;
+  margin-top: 15%;
+}
+
+.space-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.space-head{
+  width: 140rpx;
+  height: 140rpx;
+  margin-left: 20rpx;
+  margin-right: 25rpx;
+  border-radius: 50%;
+}
+
+.space-name{
+  font-size: large;
+}
+
+.space-school{
+  font-size: small;
+  color: #888888;
+  margin-top: 30rpx;
+}
+
+.space-button{
+  display: flex;
+}
+
+.space-button image{
+  height: 60rpx;
+  width: 60rpx;
+  margin-left: 38rpx;
+}
+
+
+.selected {
+  background-color: rgb(247, 199, 181);
+}
+
+.space-navigation{
+  margin-top: 20rpx;
+  height: 46rpx;
+  margin-bottom: 20rpx;
+}
+
+.space-navigation text{
+  font-size: medium;
+  margin-left: 54rpx;
+}
+
+.navswitch-style{
+  font-size: 35rpx;
+  color: #7B4D12;
+}
+
+.if-view {
+  height: 800rpx;
+  width: 700rpx;
+  position: relative;
+}
+
+/* pages/mine/progress/index.wxss */
+ec-canvas {
+  width: 700rpx;
+  height: 800rpx;
+}
+
+
+.my-style {
+  --tabs-card-height: 80rpx;
+  position: relative;
+  --tab-font-size: 30rpx;
+}
+
+.my-style .van-tab__pane--active {
+  height: auto;
+  margin: 0 38rpx;
+}
+
+
+.gl-container {
+  height: 600rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+
+.calendar {
+  --calendar-height: 750rpx;
+  --calendar-width: 750rpx;
+}
+
+.hasChecked {
+  color: red !important;
+}
+
+

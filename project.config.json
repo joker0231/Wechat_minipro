@@ -42,11 +42,11 @@
     "minifyWXML": true,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true
+    "ignoreUploadUnusedFiles": false
   },
   "appid": "wx86f85654541e1cab",
   "projectname": "Mengdanyun-Township",
-  "libVersion": "2.24.4",
+  "libVersion": "2.24.6",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "srcMiniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",

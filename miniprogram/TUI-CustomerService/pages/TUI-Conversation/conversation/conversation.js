@@ -8,6 +8,7 @@ Page({
    */
   data: {
     conversationList: [],
+    friendApplicationList: [],
     showSelectTag: false,
     array: [
       { name: '发起会话' },
@@ -18,6 +19,9 @@ Page({
     unreadCount: 0,
     conversationInfomation: {},
     transChenckID: '',
+    empty_showconversation: false,
+    empty_showpost: false,
+    empty_showfriend: false,
   },
 
   /**
@@ -26,13 +30,16 @@ Page({
   onLoad() {
     // 登入后拉去会话列表
     wx.$TUIKit.on(wx.$TUIKitEvent.CONVERSATION_LIST_UPDATED, this.onConversationListUpdated, this);
+    wx.$TUIKit.on(wx.$TUIKitEvent.FRIEND_APPLICATION_LIST_UPDATED, this.onConversationListUpdated, this);
     this.getConversationList();
+    this.getFriendApplicationList()
   },
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
     wx.$TUIKit.off(wx.$TUIKitEvent.CONVERSATION_LIST_UPDATED, this.onConversationListUpdated);
+    wx.$TUIKit.off(wx.$TUIKitEvent.FRIEND_APPLICATION_LIST_UPDATED, this.onFriendApplicationListUpdated);
   },
   // 跳转到子组件需要的参数
   handleRoute(event) {
@@ -41,8 +48,10 @@ Page({
       index: flagIndex,
     });
     this.getConversationList();
-    this.data.conversationInfomation = { conversationID: event.currentTarget.id,
-      unreadCount: this.data.conversationList[this.data.index].unreadCount };
+    this.data.conversationInfomation = {
+      conversationID: event.currentTarget.id,
+      unreadCount: this.data.conversationList[this.data.index].unreadCount
+    };
     const url = `../../TUI-Chat/chat?conversationInfomation=${JSON.stringify(this.data.conversationInfomation)}`;
     wx.navigateTo({
       url,
@@ -55,6 +64,14 @@ Page({
       conversationList: event.data,
     });
   },
+
+  // 更新好友申请列表
+  onFriendApplicationListUpdated(event) {
+    this.setData({
+      friendApplicationList: event.data,
+    });
+  },
+
   // 获取会话列表
   getConversationList() {
     wx.$TUIKit.getConversationList().then((imResponse) => {
@@ -130,4 +147,13 @@ Page({
       transChenckID: event.detail.checkID,
     });
   },
+
+  getFriendApplicationList() {
+    wx.$TUIKit.getFriendApplicationList().then((imResponse) => {
+      this.setData({
+        friendApplicationList: imResponse.data.friendApplicationList,
+        applicationUnreadCount: imResponse.data.unreadCount
+      });
+    });
+  }
 });

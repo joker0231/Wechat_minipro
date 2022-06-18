@@ -36,10 +36,7 @@
 }
 
 .conversation-list-area {
-  position: absolute;
   width: 100vw;
-  height: calc(100vh - 190px);
-  top: 176rpx;
 }
 
 .scoll-view {
@@ -119,4 +116,17 @@
   bottom: -33px;
   border-color: #fff transparent transparent;
 
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
+.empty_text {
+  font-size: 24rpx;
+  color: #AAAAAA;
+  margin-top: 52rpx;
 }

@@ -1,5 +1,6 @@
 // pages/exercise/online_quiz/index.js
 const exerciseStore = require('../../../stores/exercise-store')
+const userStore = require('../../../stores/user-store')
 Page({
 
   /**
@@ -252,6 +253,7 @@ Page({
             data: {
               type: "createExerciseRecord",
               body: {
+                "user_id": userStore.getUserData()._id,
                 "exercise": that.data.exercise,
                 "user_input": that.data.user_input,
                 "section": that.data.section,

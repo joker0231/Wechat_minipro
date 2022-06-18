@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "TUI-conversation-item": "../../../TUI-CustomerService/components/tui-conversation/conversation-item/index",
+    "TUI-message-list": "../../../TUI-CustomerService/components/tui-chat/message-list/index"
+  }
+}

@@ -70,22 +70,22 @@ Page({
           url: '/pages/community/classzone/index',
         })
     },
-    clickToChat: function(event) {
-      // wx.navigateTo({
-      //   url: '/pages/community/chat/index',
-      // })
+    // clickToChat: function(event) {
+    //   // wx.navigateTo({
+    //   //   url: '/pages/community/chat/index',
+    //   // })
 
-      let id = event.currentTarget.dataset.userid
+    //   let id = event.currentTarget.dataset.userid
 
-      const payloadData = {
-        conversationID: `C2C${id}`,
-      };
+    //   const payloadData = {
+    //     conversationID: `C2C${id}`,
+    //   };
 
-      console.log('目标地址', '/TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=' + JSON.stringify(payloadData))
-      wx.navigateTo({
-        url: '/TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=' + JSON.stringify(payloadData),
-      })
-    },
+    //   console.log('目标地址', '/TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=' + JSON.stringify(payloadData))
+    //   wx.navigateTo({
+    //     url: '/TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=' + JSON.stringify(payloadData),
+    //   })
+    // },
 
     clickToNewPost: function() {
       wx.navigateTo({
