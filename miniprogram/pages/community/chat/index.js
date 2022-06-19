@@ -1,4 +1,4 @@
-import TIM from 'tim-wx-sdk'
+// import TIM from 'tim-wx-sdk'
 const app = getApp()
 Page({
 

@@ -1,6 +1,7 @@
 // pages/community/postDetail/index.js
 import Toast from '../../../miniprogram_npm/@vant/weapp/toast/toast'
 const userStore = require('../../../stores/user-store')
+import fetchYun from '../../../utils/fetchYun'
 
 
 Page({
@@ -53,15 +54,10 @@ Page({
     // 上面是动态高度
     // 下面是数据
     console.log(123123123123123123123)
-    wx.cloud.callFunction({
-      name: 'communityFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "getTopicDetail",
-        postId: options.topicId
-      }
+    
+    fetchYun('communityFunctions', {
+      type: "getTopicDetail",
+      postId: options.topicId
     }).then((resp) => {
       this.setData({
         detail: resp.result,
@@ -155,15 +151,10 @@ Page({
       isChecked: false
     }
 
-    wx.cloud.callFunction({
-      name: 'communityFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "createTopicReply",
-        body: template
-      }
+    
+    fetchYun('communityFunctions', {
+      type: "createTopicReply",
+      body: template
     }).then((resp) => {
       console.log(resp)
     }).catch(err=>{
@@ -189,15 +180,10 @@ Page({
       "user_id": userStore.getUserData()._id
     }
 
-    wx.cloud.callFunction({
-      name: 'communityFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "createViceComment",
-        body: temp
-      }
+    
+    fetchYun('communityFunctions', {
+      type: "createViceComment",
+      body: temp
     }).then((resp) => {
       console.log(resp, 'createViceComment')
       // console.log(JSON.stringify(resp.result.data[0]), '123')
@@ -205,15 +191,11 @@ Page({
         duration: 1000,
         message: '发布成功'
       })
-      wx.cloud.callFunction({
-        name: 'communityFunctions',
-        config: {
-          env: 'lemon-7glhwqyu5304e1f9'
-        },
-        data: {
-          type: "getTopicDetail",
-          postId: this.data.topicId
-        }
+
+     
+      fetchYun('communityFunctions', {
+        type: "getTopicDetail",
+        postId: this.data.topicId
       }).then((resp) => {
         this.setData({
           detail: resp.result,
@@ -252,15 +234,10 @@ Page({
       "vice_comment_num": 0
     }
 
-    wx.cloud.callFunction({
-      name: 'communityFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "createMainComment",
-        body: template
-      }
+    
+    fetchYun('communityFunctions', {
+      type: "createMainComment",
+      body: template
     }).then((resp) => {
       console.log(resp, 'createMainComment')
 
@@ -272,15 +249,11 @@ Page({
         duration: 1000,
         message: '发布成功'
       })
-      wx.cloud.callFunction({
-        name: 'communityFunctions',
-        config: {
-          env: 'lemon-7glhwqyu5304e1f9'
-        },
-        data: {
-          type: "getTopicDetail",
-          postId: this.data.topicId
-        }
+
+      
+      fetchYun('communityFunctions', {
+        type: "getTopicDetail",
+        postId: this.data.topicId
       }).then((resp) => {
         this.setData({
           detail: resp.result,

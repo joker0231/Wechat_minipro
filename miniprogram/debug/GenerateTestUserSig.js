@@ -1,8 +1,13 @@
 /*eslint-disable*/
 import LibGenerateTestUserSig from './lib-generate-test-usersig-es.min.js'
 
+// wyc的IM
 const _SDKAPPID = 1400686860;
 const _SECRETKEY = '91be88fa5f0b0c1dea98873dbbc7f8cc70a7464b73c9f4b0ac6e98a4cf790b07';
+
+// syp的IM
+// const _SDKAPPID = 1400664742;
+// const _SECRETKEY = '1ed11fbc17aba5c7c6b932f1280f2aa9804d29d136e3906c8ddc6fa0bfeace90';
 /*
  * Module:   GenerateTestUserSig
  *

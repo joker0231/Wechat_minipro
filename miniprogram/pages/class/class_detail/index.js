@@ -1,4 +1,5 @@
 // pages/class/class_detail/index.js
+import fetchYun from '../../../utils/fetchYun'
 Page({
 
   /**
@@ -41,15 +42,9 @@ Page({
     //   })
     // })
 
-    wx.cloud.callFunction({
-      name: 'classFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "getClassById",
-        classId: this.data._id
-      }
+    fetchYun('classFunctions', {
+      type: "getClassById",
+      classId: this.data._id
     }).then((resp) => {
       const result = resp.result.data[0]
       this.setData({
@@ -66,16 +61,10 @@ Page({
     }).catch((e) => {
       console.log(e);
     });
-
-    wx.cloud.callFunction({
-      name: 'classFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "getClassVideoById",
-        classId: this.data._id
-      }
+    
+    fetchYun('classFunctions', {
+      type: "getClassVideoById",
+      classId: this.data._id
     }).then((resp) => {
 
       console.log(resp.result.data[0].content[0].classLink[0].href, '123123123')

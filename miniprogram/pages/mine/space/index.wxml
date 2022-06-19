@@ -1,5 +1,49 @@
-<!--pages/mine/space/index.wxml-->
-<text>个人空间</text>
-<image class="background-image" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/personbgimage.png?sign=d6ee14429c64afc4083e6ea4004dd117&t=1652698510"></image>
+<view class="space-container">
+  <image class="space-bgimg" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/personbgimage.png?sign=b7ae5ac2a29a7a5806004a6d48fb88e4&t=1651473040"></image>
+  <view class="space-mask" />
+  <view class="space-personalinfo">
+    <view bindtap="clickToSpace" class="space-info">
+      <image class="space-head" src="{{userData.avatar||'https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/tab4.png?sign=459acdf6e3f821719265cdbc523923ef&t=1651474550'}}" />
+      <view>
+        <view class="space-name">{{userData.nickname}}</view>
+        <view wx:if="{{userData.kind === 'student'}}" class="space-school">
+          {{userData.educationInfo.school + ' ' + userData.educationInfo.grade + ' ' + userData.educationInfo.class}}
+        </view>
+        <view wx:if="{{userData.kind === 'teacher'}}" class="space-school">
+          {{userData.educationInfo.school}}
+        </view>
+      </view>
+    </view>
+    <view class="space-button">
+      <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/add.png?sign=837f6826f0ac42709df38fa588dfbd1b&t=1655563697" bindtap="addfriend" />
+      <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/chat.png?sign=3949c07b5b9c2a783165e29dc4e0db95&t=1655563752" />
+    </view>
+  </view>
+  <view>
+    <view class="space-navigation">
+      <text bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'navswitch-style':''}}">打卡</text>
+      <text bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'navswitch-style':''}}">学习报告</text>
+    </view>
+      <scroll-view class="if-view" wx:if="{{navState==0}}">
+        <view style="width: 700rpx;">
+          <van-calendar show-title="{{false}}" show-confirm="{{false}}" readonly="{{true}}" color="orange"formatter="{{ formatter }}" class="calendar" show="{{true}}" poppable="{{ false }}" confirm-text="{{checkInfo.isTodayIn === false ? '打卡' : '已打卡'}}" readonly bind:confirm="clickCheckIn" />
+        </view>
+        <van-dialog id="van-dialog" />
+        <van-toast id="van-toast" />
+      </scroll-view>
 
-<view class="card"></view>
+      <scroll-view class="if-view" wx:if="{{navState==1}}">
+        <view class="gl-container">
+          <ec-canvas wx:if="{{ecFlag}}" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+        </view>
+
+
+        <van-tabs class="my-style" color="orange" active="radar" type="card" bind:change="onChange">
+          <van-tab name="radar" title="科目雷达图">展示了对语文，数学，外语，物理，化学各门课的视频学习数和联系数，反应掌握情况</van-tab>
+          <van-tab name="bar" title="打卡柱状图">展示一个月内每周打卡数，满七天为金色！</van-tab>
+          <van-tab name="pie" title="整体饼状图">展示用户整体活动分布图</van-tab>
+          <van-tab name="donut" title="题目环形图">展示用户做题正确率</van-tab>
+        </van-tabs>
+      </scroll-view>
+  </view>
+</view>

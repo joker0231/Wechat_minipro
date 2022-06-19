@@ -181,15 +181,9 @@ Page({
         // on close
       });
     } else {
-      wx.cloud.callFunction({
-        name: 'communityFunctions',
-        config: {
-          env: 'lemon-7glhwqyu5304e1f9'
-        },
-        data: {
-          type: "createNewPost",
-          body: postData
-        }
+      fetchYun('communityFunctions', {
+        type: "createNewPost",
+        body: postData
       }).then((resp) => {
         console.log(resp, 'createNewPost')
         // console.log(JSON.stringify(resp.result.data[0]), '123')

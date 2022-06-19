@@ -57,7 +57,7 @@
 <view>
   <van-calendar 
     color="orange" 
-    title="本月您已签到1天" 
+    title="{{'本月您已签到' + checkInfo.history_checkIn.length +'天'}}" 
     formatter="{{ formatter }}" 
     class="calendar" 
     show="{{true}}"   

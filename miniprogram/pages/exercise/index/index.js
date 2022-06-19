@@ -1,8 +1,9 @@
+const userStore = require('../../../stores/user-store')
 Page({
   data: {
     index: null,
     navState: 0,
-    grade: "一年级",
+    grade: '六年级',
     showgrade: false,
     is_senior: false,
     gradebgcolor: '#dfdfdf',
@@ -96,6 +97,9 @@ Page({
   
   },
   onLoad: function (options) {
+    const grade = userStore.getUserData().educationInfo.grade
+    console.log(grade, '用户年级')
+    this.setData({grade})
     this.getExerciseByGrade()
   },
 

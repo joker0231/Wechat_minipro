@@ -1,4 +1,5 @@
 // pages/class/class_search/index.js
+import fetchYun from '../../../utils/fetchYun'
 Page({
 
   /**
@@ -33,28 +34,20 @@ Page({
       return
     }
 
-    wx.cloud.callFunction({
-      name: 'classFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "createSearchHistory",
-        body:{
-          keyword:searchKey
-        }
+    
+
+    fetchYun('classFunctions', {
+      type: "createSearchHistory",
+      body:{
+        keyword:searchKey
       }
     }).then((resp) => {
       console.log(resp, 'createSearchHistory')
 
-      wx.cloud.callFunction({
-        name: 'classFunctions',
-        config: {
-          env: 'lemon-7glhwqyu5304e1f9'
-        },
-        data: {
-          type: "getSearchHistory"
-        }
+      
+
+      fetchYun('classFunctions', {
+        type: "getSearchHistory"
       }).then((resp) => {
         console.log(resp, '搜索记录')
         this.setData({
@@ -113,14 +106,10 @@ Page({
    */ 
   onShow: function (options) {
     console.log(123123123123123)
-    wx.cloud.callFunction({
-      name: 'classFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "getSearchHistory"
-      }
+    
+
+    fetchYun('classFunctions', {
+      type: "getSearchHistory"
     }).then((resp) => {
       console.log(resp, '搜索记录')
       this.setData({
@@ -184,15 +173,12 @@ Page({
     this.setData({
       tags: preData
     })
-    wx.cloud.callFunction({
-      name: 'classFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "deleteSearchHistory",
-        _id : event.target.dataset._id
-      }
+
+    
+
+    fetchYun('classFunctions', {
+      type: "deleteSearchHistory",
+      _id : event.target.dataset._id
     }).then((resp) => {
       console.log(resp, 'deleteSearchHistory')
     }).catch((e) => {

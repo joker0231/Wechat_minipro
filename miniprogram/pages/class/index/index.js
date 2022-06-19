@@ -1,6 +1,6 @@
 const userStore = require('../../../stores/user-store')
 import Notify from '../../../miniprogram_npm/@vant/weapp/notify/notify'
-
+import fetchYun from '../../../utils/fetchYun'
 Page({
     data: {
         index: null,
@@ -88,15 +88,10 @@ Page({
     },
 
     getClassByGrade: function (){
-      wx.cloud.callFunction({
-        name: 'classFunctions',
-        config: {
-          env: 'lemon-7glhwqyu5304e1f9'
-        },
-        data: {
-          type: "getClassByGrade",
-          grade: this.data.grade
-        }
+      
+      fetchYun('classFunctions', {
+        type: "getClassByGrade",
+        grade: this.data.grade
       }).then((resp) => {
         let classData = resp.result.data
         let chinese = []
@@ -171,15 +166,11 @@ Page({
         console.log(e);
       });
 
-      wx.cloud.callFunction({
-        name: 'classFunctions',
-        config: {
-          env: 'lemon-7glhwqyu5304e1f9'
-        },
-        data: {
-          type: "getExpandclassByGrade",
-          grade: this.data.grade
-        }
+      
+
+      fetchYun('classFunctions', {
+        type: "getExpandclassByGrade",
+        grade: this.data.grade
       }).then((resp) => {
         let expandclassData = resp.result.data
         this.setData({
@@ -202,8 +193,14 @@ Page({
             wx.navigateTo({
               url: '/pages/class/game_webview/index' + '?link=' + link ,
             })
+            wx.navigateTo({
+              url: '/pages/class/game_webview/index' + '?link=' + link ,
+            })
         } else {
             console.log(link, '本地')
+            wx.navigateTo({
+              url: link,
+            })
             wx.navigateTo({
               url: link,
             })

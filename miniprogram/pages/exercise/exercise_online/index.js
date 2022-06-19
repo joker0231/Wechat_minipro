@@ -1,5 +1,7 @@
 // pages/exercise/online_quiz/index.js
 const exerciseStore = require('../../../stores/exercise-store')
+const userStore = require('../../../stores/user-store');
+import fetchYun from '../../../utils/fetchYun'
 Page({
 
   /**
@@ -54,17 +56,12 @@ Page({
       },
     });
 
-    wx.cloud.callFunction({
-      name: 'exerciseFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "getExerciseList",
-        grade: grade,
-        subject: subject,
-        section: section
-      }
+    
+    fetchYun('exerciseFunctions', {
+      type: "getExerciseList",
+      grade: grade,
+      subject: subject,
+      section: section
     }).then((resp) => {
       this.setData({
         exercise: resp.result.list
@@ -74,15 +71,11 @@ Page({
     });
     
     console.log(options)
-    // wx.cloud.callFunction({
-    //   name: 'exerciseFunctions',
-    //   config: {
-    //     env: 'lemon-7glhwqyu5304e1f9'
-    //   },
-    //   data: {
-    //     type: "getExerciseListBySectionId",
-    //     section_id: section_id,
-    //   }
+
+    
+    // fetchYun('exerciseFunctions',  {
+    //   type: "getExerciseListBySectionId",
+    //   section_id: section_id,
     // }).then((resp) => {
     //   console.log(resp, '测试id数据')
     //   this.setData({
@@ -244,24 +237,20 @@ Page({
             correct: 6 - that.data.wrong_exercise.length
           })
 
-          wx.cloud.callFunction({   //保存练习报告的数据
-            name: 'exerciseFunctions',
-            config: {
-              env: 'lemon-7glhwqyu5304e1f9'
-            },
-            data: {
-              type: "createExerciseRecord",
-              body: {
-                "exercise": that.data.exercise,
-                "user_input": that.data.user_input,
-                "section": that.data.section,
-                "chapter": that.data.chapter,
-                "subject": that.data.subject,
-                "grade": that.data.grade,
-                "wrong_exercise": that.data.wrong_exercise,
-                "correct": that.data.correct,
-                "data": that.getDate()
-              }
+          // 保存练习报告数据
+          fetchYun('exerciseFunctions', {        
+            type: "createExerciseRecord",
+            body: {
+              "user_id": userStore.getUserData()._id,
+              "exercise": that.data.exercise,
+              "user_input": that.data.user_input,
+              "section": that.data.section,
+              "chapter": that.data.chapter,
+              "subject": that.data.subject,
+              "grade": that.data.grade,
+              "wrong_exercise": that.data.wrong_exercise,
+              "correct": that.data.correct,
+              "data": that.getDate()
             }
           }).then((resp) => {
             console.log(resp)

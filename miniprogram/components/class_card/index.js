@@ -1,5 +1,6 @@
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 const userStore = require('../../stores/user-store')
+import fetchYun from '../../utils/fetchYun'
 
 Component({
     externalClasses: ['inner-class'],
@@ -49,31 +50,28 @@ Component({
     methods: {
         onClickCollectedTrue: function() {
             Toast.success('收藏成功');
-            wx.cloud.callFunction({
-              name: 'classFunctions',
-              config: {
-                env: 'lemon-7glhwqyu5304e1f9'
-              },
-              data: {
-                classId: this.data._id,
-                type: "createCollectClass",
-                body: {
-                  "author" : this.data.author,
-                  "detail" : this.data.detail,
-                  "grade" : this.data.grade,
-                  "introduction" : this.data.introduction,
-                  "is_collected" : this.data.is_collected,
-                  "semester" : this.data.semester,
-                  "subject" : this.data.subject,
-                  "title" : this.data.title,
-                  "user_id": userStore.getUserData()._id
-                }
+
+            fetchYun('classFunctions', {
+              classId: this.data._id,
+              type: "createCollectClass",
+              body: {
+                "author" : this.data.author,
+                "detail" : this.data.detail,
+                "grade" : this.data.grade,
+                "introduction" : this.data.introduction,
+                "is_collected" : this.data.is_collected,
+                "semester" : this.data.semester,
+                "subject" : this.data.subject,
+                "title" : this.data.title,
+                "user_id": userStore.getUserData()._id
               }
-            }).then((resp) => {
-              console.log(resp, 'createCollectClass')
-            }).catch((e) => {
-              console.log(e);
-            });
+            }
+          ).then((resp) => {
+            console.log(resp, 'createCollectClass')
+          }).catch((e) => {
+            console.log(e);
+          });
+
             // 一个是前端样式改变 
             // 二个是后端数据存储 最好刷新整个外面的Array 涉及到子父通信了
             this.setData({
@@ -82,20 +80,16 @@ Component({
         },
         onClickCollectedFalse: function() {
             Toast.success('取消收藏成功');
-            wx.cloud.callFunction({
-              name: 'classFunctions',
-              config: {
-                env: 'lemon-7glhwqyu5304e1f9'
-              },
-              data: {
-                type: "deleteCollectClass",
-                _id: this.data._id       // 取消收藏的id是这个吗？
-              }
+
+            fetchYun('classFunctions', {
+              type: "deleteCollectClass",
+              _id: this.data._id       // 取消收藏的id是这个吗？
             }).then((resp) => {
               console.log(resp, 'deleteCollectClass')
             }).catch((e) => {
               console.log(e);
             });
+
             this.setData({
                 is_collected: false
             })

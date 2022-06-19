@@ -2,10 +2,6 @@
   "dependencies": {
     "@vant/area-data": "^1.2.4",
     "@vant/weapp": "^1.10.3",
-    "cos-wx-sdk-v5": "^1.1.7",
-    "tim-js-sdk": "^2.19.1",
-    "tim-upload-plugin": "^1.0.4",
-    "tim-wx-sdk": "^2.19.1",
     "westore": "^0.1.9"
   },
   "name": "wechat_minipro",

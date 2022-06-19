@@ -1,17 +1,13 @@
+import fetchYun from '../../../utils/fetchYun'
 Page({
     data: {
         classCard: []
     },
     onLoad: function (options) {
-        wx.cloud.callFunction({
-            name: 'communityFunctions',
-            config: {
-              env: 'lemon-7glhwqyu5304e1f9'
-            },
-            data: {
-              type: "getClassCard"
-            }
-          }).then((resp) => {
+      
+      fetchYun('communityFunctions', {
+        type: "getClassCard"
+      }).then((resp) => {
             console.log(resp, 'getCommonCard')
             this.setData({
               classCard: resp.result

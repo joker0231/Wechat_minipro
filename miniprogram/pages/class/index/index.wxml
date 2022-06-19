@@ -36,7 +36,15 @@
                 <!-- 不能用猫头鹰选择器 -->
                 <View style="margin-top: -14rpx">
                     <view wx:for="{{extendArray}}">
-                        <class_card  title="{{item.title}}" brief_intro="{{item.introduction}}" teacher_name="{{item.author}}" is_collected="{{item.is_collected}}" classId="{{item._id}}"   type="extend" inner-class="cardStyle"/>
+                        <class_card  
+                          title="{{item.title}}" 
+                          brief_intro="{{item.introduction}}" 
+                          teacher_name="{{item.author}}" 
+                          is_collected="{{item.is_collected}}" 
+                          classId="{{item._id}}" 
+                          type="extend" 
+                          inner-class="cardStyle"
+                        />
                     </view>
                 </View>
             </view>

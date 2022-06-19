@@ -1,6 +1,6 @@
 <view class="headpic-container">
     <!-- <view class="if-online" /> -->
-    <image class="headpic" src="{{headpic}}"></image>
-    <image class="headpic-add" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/addfriend.png?sign=fc1b5bc402fe3134e9b641a430cfb182&t=1651670517"></image>
+    <image class="headpic" src="{{headpic}}" bindtap="clickToChat"></image>
+    <image class="headpic-add" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/addfriend.png?sign=fc1b5bc402fe3134e9b641a430cfb182&t=1651670517" bindtap="addfriend"></image>
     <view class="headpic_name">{{name}}</view>
 </view>

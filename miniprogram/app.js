@@ -1,7 +1,8 @@
 // app.js
 // import TIM from 'tim-wx-sdk'
 import TIM from './static/tim-wx'
-import COS from "cos-wx-sdk-v5"         // 用来对象存储
+// import COS from "cos-wx-sdk-v5"         // 用来对象存储
+import TIMUploadPlugin from './static/tim-upload-plugin'
 import { SDKAPPID } from './debug/GenerateTestUserSig'
 
 const userStore = require('./stores/user-store')
@@ -147,6 +148,7 @@ App({
     const SDKAppID = this.globalData.SDKAppID
     wx.setStorageSync(`TIM_${SDKAppID}_isTUIKit`, true)
     wx.$TUIKit = TIM.create({ SDKAppID: this.globalData.SDKAppID })
+    wx.$TUIKit.registerPlugin({ 'tim-upload-plugin': TIMUploadPlugin })
     wx.$TUIKitTIM = TIM
     wx.$TUIKitEvent = TIM.EVENT
     wx.$TUIKitVersion = TIM.VERSION
