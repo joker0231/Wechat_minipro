@@ -1,4 +1,5 @@
 // pages/register/community_headpic.js
+import fetchYun from '../../../utils/fetchYun'
 Page({
 
   /**
@@ -154,30 +155,25 @@ Page({
       })
       return
     }
-    wx.cloud.callFunction({
-      name: 'userFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "createUser",
-        body: {
-          "account": this.data.account,
-          "avatar": this.data.imageCurrent === 0 ? 'null' :'https://cdn.ekko306.top/wx/' + this.data.imageCurrent + '.jpg',
-          "checkIn": "0",
-          "educationInfo": {
-            "class": this.data.class,
-            "grade": this.data.grade,
-            "school": this.data.school,
-            "speciality": this.data.speciality,
-          },
-          "kind": this.data.kind,
-          "nickname": this.data.name,
-          "password": this.data.password,
-          "sex":this.data.sex,
-          "admin_status": "null",
-          "admin_webId": "null"
-        }
+
+    fetchYun('userFunctions', {
+      type: "createUser",
+      body: {
+        "account": this.data.account,
+        "avatar": this.data.imageCurrent === 0 ? 'null' :'https://cdn.ekko306.top/wx/' + this.data.imageCurrent + '.jpg',
+        "checkIn": "0",
+        "educationInfo": {
+          "class": this.data.class,
+          "grade": this.data.grade,
+          "school": this.data.school,
+          "speciality": this.data.speciality,
+        },
+        "kind": this.data.kind,
+        "nickname": this.data.name,
+        "password": this.data.password,
+        "sex":this.data.sex,
+        "admin_status": "null",
+        "admin_webId": "null"
       }
     }).then((resp) => {
       console.log(resp, 'loginUser')

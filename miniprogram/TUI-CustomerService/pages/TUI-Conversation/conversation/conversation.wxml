@@ -25,14 +25,19 @@
       </view>
   </view> -->
     </van-tab>
-    <van-tab title="回帖">
+    <!-- <van-tab title="回帖">
       <view class="container">
-        <!-- <community_post wx:for="{{recordPost}}" bindtap="clickToDetail" inner-class="card" type="{{item.type}}" comment="{{item.comment_num}}" favour="{{item.collect_num}}" like="{{item.like_num}}" content="{{item.content}}" info="{{item.user.kind==='teacher' ? item.user.educationInfo.school + ' '  + item.user.educationInfo.speciality : item.user.educationInfo.school + ' ' + item.user.educationInfo.grade + ' ' + item.user.educationInfo.class}}" name="{{item.user.nickname}}" headpic="{{item.user.avatar}}" data-topicId="{{item._id}}" /> -->
+        <community_post wx:for="{{recordPost}}" bindtap="clickToDetail" inner-class="card" type="{{item.type}}" comment="{{item.comment_num}}" favour="{{item.collect_num}}" like="{{item.like_num}}" content="{{item.content}}" info="{{item.user.kind==='teacher' ? item.user.educationInfo.school + ' '  + item.user.educationInfo.speciality : item.user.educationInfo.school + ' ' + item.user.educationInfo.grade + ' ' + item.user.educationInfo.class}}" name="{{item.user.nickname}}" headpic="{{item.user.avatar}}" data-topicId="{{item._id}}" />
         <view wx:if="{{ empty_showpost }}" class="empty">
           <view class="empty_text">暂无回帖记录~</view>
         </view>
       </view>
-    </van-tab>
+    </van-tab> -->
+    <van-tab title="回帖">
+            <view class="container">
+                <mine_reply wx:for="{{reply_data}}" viewer_headpic="{{item.comment_user.avatar}}" viewer_name="{{item.comment_user.nickname}}" reply="{{item.content}}" type="{{item.target_topic.type}}" comment="{{item.target_topic.comment_num}}" favour="{{item.target_topic.collect_num}}" like="{{item.target_topic.like_num}}" post_content="{{item.target_topic.content}}" author_info="{{item.target_user.educationInfo.school}}" author_name="{{item.target_user.nickname}}" author_pic="{{item.target_user.avatar}}" />
+            </view>
+        </van-tab>
     <van-tab title="新朋友">
       <view class="container">
         <mine_friend wx:for="{{friendApplicationList}}" name="tom" school="学校 年级" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239" />

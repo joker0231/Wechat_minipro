@@ -1,4 +1,5 @@
-const userStore = require('../../../stores/user-store')
+const userStore = require('../../../stores/user-store');
+const { default: fetchYun } = require('../../../utils/fetchYun');
 var app = getApp()
 
 Page({
@@ -94,15 +95,10 @@ Page({
 
     onLoad: function (options) {
       
-      wx.cloud.callFunction({
-        name: 'communityFunctions',
-        config: {
-          env: 'lemon-7glhwqyu5304e1f9'
-        },
-        data: {
-          type: "getReplyByUserId",
-          userId: userStore.getUserData()._id
-        }
+      
+      fetchYun('communityFunctions', {
+        type: "getReplyByUserId",
+        userId: userStore.getUserData()._id
       }).then((resp) => {
         console.log(resp, '想要查看的消息')
         this.setData({

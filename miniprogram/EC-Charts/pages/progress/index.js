@@ -1,8 +1,6 @@
-const userStore = require("../../../stores/user-store")
-const app = getApp()
-const util = require('util.js')
-import Toast from '../../../miniprogram_npm/@vant/weapp/toast/toast'
-import * as echarts from '../../../libs/ec-canvas/echarts';
+// pages/mine/progress/community_headpic.js
+import * as echarts from '../../libs/ec-canvas/echarts';
+const userStore = require('../../../stores/user-store')
 
 let chart = null;
 
@@ -59,7 +57,7 @@ var option_radar = {  //指定图表的配置项和数据
       areaStyle: { color: ['#abc', '#abc', '#abc', '#abc'] }
     },  //设置分隔区域的样式
     indicator: [  //配置雷达图指示器，指定雷达图中的多个变量，跟data中value对应
-      { name: '语文', max: 20 },
+      { name: '语文', max: 20 }, 
       { name: '数学', max: 20 },
       { name: '外语', max: 20 },
       // { name: '物理', max: 20 },
@@ -112,18 +110,18 @@ var option_bar = {
     name: '天'
   },
   series: [{
-    data: [{ value: 1 }, { value: 2 }, { value: 3 }, { value: 7, itemStyle: { color: 'rgb(252,211,158)' } }],
-    type: 'bar',
-    name: '签到天数',
-    showBackground: true,
-    backgroundStyle: {
-      color: 'rgba(220, 220, 220, 0.8)',
-    },
-    label: {
-      show: true,
-      position: 'top',
-      formatter: '{c}天'
-    }
+      data: [{value: 1}, {value: 2}, {value: 3}, {value: 7, itemStyle: {color: 'rgb(252,211,158)'}}],
+      type: 'bar',
+      name: '签到天数',
+      showBackground: true,
+      backgroundStyle: {
+        color: 'rgba(220, 220, 220, 0.8)',
+      },
+      label: {
+        show: true,
+        position: 'top',
+        formatter: '{c}天'
+      }
   }]
 };
 var option_pie = {
@@ -162,38 +160,38 @@ var option_donut = {
     target: 'blank', top: '8%', left: '39%', textStyle: { color: 'rgb(252,211,158)', fontSize: 18, }
   },
   grid: {
-    top: 5,
-    bottom: 5,
+      top: 5,
+      bottom: 5,
   },
   color: ['pink'],
   series: [{
-    name: 'valueOfMarket',
-    type: 'pie',
-    center: ['50%', '50%'], // 饼图的圆心坐标
-    radius: ['60%', '70%'],
-    avoidLabelOverlap: false,
-    hoverAnimation: false,
-    label: { //  饼图图形上的文本标签
-      normal: { // normal 是图形在默认状态下的样式
-        show: true,
-        position: 'center',
-        color: '#000000',
-        fontSize: 14,
-        fontWeight: 'bold',
-        formatter: '{b}\n{c}%' // {b}:数据名； {c}：数据值； {d}：百分比
-      }
-    },
-    data: [
-      {
-        value: 54,
-        name: '做题正确率',
-        label: {
-          normal: {
-            show: true
+      name: 'valueOfMarket',
+      type: 'pie',
+      center: ['50%', '50%'], // 饼图的圆心坐标
+      radius: ['60%', '70%'],
+      avoidLabelOverlap: false,
+      hoverAnimation: false,
+      label: { //  饼图图形上的文本标签
+          normal: { // normal 是图形在默认状态下的样式
+              show: true,
+              position: 'center',
+              color: '#000000',
+              fontSize: 14,
+              fontWeight: 'bold',
+              formatter: '{b}\n{c}%' // {b}:数据名； {c}：数据值； {d}：百分比
           }
-        }
-      }
-    ]
+      },
+      data: [
+          {
+              value: 54,
+              name: '做题正确率',
+              label: {
+                  normal: {
+                      show: true
+                  }
+              }
+          }
+      ]
   }]
 }
 
@@ -214,29 +212,19 @@ function initChartWrapper(optionIn) {
   }
 }
 
+
 Page({
   data: {
-    userData: {},
-    unreadCount: 0,
-    navState: 0,
-    checkInfo: {},
-    formatter: () => { },
     ec: {
       onInit: chooseInitChart('radar'),
     },
-    ecFlag: true,
+    ecFlag: true
   },
-
-  navSwitch: function(e) {
-    // console.log(e.currentTarget.dataset.index)
-    let index = e.currentTarget.dataset.index;
-    this.setData({
-        navState:index
-    })
-},
-
+  onLoad() {
+    console.log(userStore.getUserData(), '看分包页面能不能获取westore')
+  },
   onReady() {
-    console.log(this.data, '123')
+    console.log(this.data,'123')
     // 这里再请求数据api 将数据更新到option里面去 每次替换option里的数据为最新的 可能要改chooseInitChart的入参
     setTimeout(function () {
       // 获取 chart 实例的方式
@@ -249,134 +237,10 @@ Page({
         onInit: chooseInitChart(event.detail.name)
       },
       ecFlag: false
-    }, () => {
+    }, ()=>{
       this.setData({
         ecFlag: true         // 触发Echarts重新渲染
       })
     })
   },
-  onShow: function (options) {
-    this.setData({
-      userData: userStore.getUserData()
-    })
-  },
-
-  addfriend: function () {
-    console.log('添加好友')
-    const userId = userStore.getUserData()._id
-    const name = this.properties.name
-    // 添加好友
-    wx.showModal({
-        title: '提交好友申请',
-        content: '确定添加该用户为好友吗？',
-        success(res) {
-            if (res.confirm) {
-                console.log('用户点击确定')
-                let promise = wx.$TUIKit.addFriend({
-                    to: userId,
-                    source: 'AddSource_Type_WX',
-                    remark: name,
-                });
-                promise.then(function (imResponse) {
-                    // 添加好友的请求发送成功
-                    const { code } = imResponse.data;
-                    if (code === 30539) {
-                        // 30539 说明 user1 设置了【需要经过自己确认对方才能添加自己为好友】，此时 SDK 会触发 TIM.EVENT.FRIEND_APPLICATION_LIST_UPDATED 事件
-                    } else if (code === 0) {
-                        // 0 说明 user1 设置了【允许任何人添加自己为好友】，此时 SDK 会触发 TIM.EVENT.FRIEND_LIST_UPDATED 事件
-                    }
-                    wx.showToast({
-                      title: '申请成功',
-                      icon: success
-                    })
-                }).catch(function (imError) {
-                    console.warn('addFriend error:', imError); // 添加好友失败的相关信息
-                });
-            } else if (res.cancel) {
-                console.log('用户点击取消')
-            }
-        }
-    })
-
-},
-
-  formatterTemplate: (isTodayIn) => (day) => {
-    // 下面为模板 获取checkInfo之后更新formatter函数
-    // 注意 这里暂时搞假数据 改变formmater函数把今天的变成已经签到 看不懂问我 本应该所有数据根据history_checkIn的这里写死1号和2号
-
-
-    const month = day.date.getMonth() + 1;
-    const date = day.date.getDate();
-
-    var dateToday = new Date();
-    let todayNum = dateToday.getDate();
-
-    if (month === 6) {
-      if (date === 1) {
-        day.topInfo = '已签到';
-        day.className = "hasChecked"
-      } else if (date === 2) {
-        day.topInfo = '已签到';
-        day.className = "hasChecked"
-      } else if (date === todayNum && isTodayIn) { //假的
-        day.topInfo = '今天已签到';
-      }
-    }
-    return day;
-  },
-  onLoad: function () {
-    wx.cloud.callFunction({
-      name: 'personFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "getCheckInDay",
-        userId: userStore.getUserData()._id
-      }
-    }).then((resp) => {
-      console.log(resp, '签到信息')
-
-      //  这个是个高阶函数 函数的函数 HOC 可以理解用下
-
-
-
-      this.setData({
-        checkInfo: resp.result.data[0],
-        formatter: this.formatterTemplate(resp.result.data[0].isTodayIn)
-      })
-
-
-      // 下面是每天新打开的时候 检查 是否日期是今天的日期 否则就更新 todayDate和isTodayIn 
-      const copy = Object.assign({}, resp.result.data[0])
-      var date = new Date();
-      let Y = date.getFullYear() + '-';
-      let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-      let D = date.getDate() + ' ';
-      let h = date.getHours() + ':';
-      let m = date.getMinutes() + ':';
-      let s = date.getSeconds();
-
-      if (copy.todayDate !== Y + M + D) {
-        copy.todayDate = Y + M + D
-        copy.isTodayIn = false
-        delete copy._id
-
-        wx.cloud.callFunction({
-          name: 'personFunctions',
-          config: {
-            env: 'lemon-7glhwqyu5304e1f9'
-          },
-          data: {
-            type: "updateCheckIn",
-            user_id: userStore.getUserData()._id,
-            body: copy
-          }
-        }).then(resp => {
-          console.log('更新签到日期', resp)
-        })
-      }
-    })
-  },
-
 });

@@ -1,4 +1,5 @@
 const userStore = require("../../../stores/user-store")
+import fetchYun from '../../../utils/fetchYun'
 Page({
     data: {
         showname: false,
@@ -52,16 +53,11 @@ Page({
                 that.setData({
                     avatar: avatar
                 })
-                wx.cloud.callFunction({
-                    name: 'userFunctions',
-                    config: {
-                        env: 'lemon-7glhwqyu5304e1f9'
-                    },
-                    data: {
-                        type: "updateUser",
-                        _id: userStore.getUserData()._id,
-                        avatar: avatar
-                    }
+                
+                fetchYun('userFunctions', {
+                  type: "updateUser",
+                  _id: userStore.getUserData()._id,
+                  avatar: avatar
                 }).then(resp => {
                     console.log('更新头像', resp)
                 })
@@ -70,44 +66,33 @@ Page({
     },
 
     changeName: function () {
-        wx.cloud.callFunction({
-            name: 'userFunctions',
-            config: {
-                env: 'lemon-7glhwqyu5304e1f9'
-            },
-            data: {
-                type: "updateUser",
-                _id: userStore.getUserData()._id,
-                nickname: this.data.nickname
-            }
-        }).then(resp => {
-            console.log('更新姓名', resp)
-            wx.showToast({
-                title: '修改姓名成功',
-                icon: 'success'
-            })
-            this.setData({
-                showname:false
-            })
-        })
+      fetchYun('userFunctions', {
+        type: "updateUser",
+        _id: userStore.getUserData()._id,
+        nickname: this.data.nickname
+      }).then(resp => {
+          console.log('更新姓名', resp)
+          wx.showToast({
+              title: '修改姓名成功',
+              icon: 'success'
+          })
+          this.setData({
+              showname:false
+          })
+      })
     },
 
     changeSchool: function () {
-        wx.cloud.callFunction({
-            name: 'userFunctions',
-            config: {
-                env: 'lemon-7glhwqyu5304e1f9'
-            },
-            data: {
-                type: "updateUser",
-                _id: userStore.getUserData()._id,
-                educationInfo:{
-                    "school": this.data.school,
-                    "grade":this.data.grade,
-                    "class": this.data.class
-                } 
-            }
-        }).then(resp => {
+      
+      fetchYun('userFunctions', {
+        type: "updateUser",
+        _id: userStore.getUserData()._id,
+        educationInfo:{
+            "school": this.data.school,
+            "grade":this.data.grade,
+            "class": this.data.class
+        } 
+    }).then(resp => {
             console.log('更新学校', resp)
             wx.showToast({
                 title: '修改学校成功',
@@ -120,21 +105,16 @@ Page({
     },
 
     changeGrade: function () {
-        wx.cloud.callFunction({
-            name: 'userFunctions',
-            config: {
-                env: 'lemon-7glhwqyu5304e1f9'
-            },
-            data: {
-                type: "updateUser",
-                _id: userStore.getUserData()._id,
-                educationInfo:{
-                    "school": this.data.school,
-                    "grade":this.data.grade,
-                    "class": this.data.class
-                }
-            }
-        }).then(resp => {
+      
+      fetchYun('userFunctions', {
+        type: "updateUser",
+        _id: userStore.getUserData()._id,
+        educationInfo:{
+            "school": this.data.school,
+            "grade":this.data.grade,
+            "class": this.data.class
+        }
+    }).then(resp => {
             console.log('更新年级', resp)
             wx.showToast({
                 title: '修改年级成功',
@@ -147,21 +127,16 @@ Page({
     },
 
     changeClass: function () {
-        wx.cloud.callFunction({
-            name: 'userFunctions',
-            config: {
-                env: 'lemon-7glhwqyu5304e1f9'
-            },
-            data: {
-                type: "updateUser",
-                _id: userStore.getUserData()._id,
-                educationInfo: {
-                    "school": this.data.school,
-                    "grade":this.data.grade,
-                    "class": this.data.class
-                }
-            }
-        }).then(resp => {
+      
+      fetchYun('userFunctions', {
+        type: "updateUser",
+        _id: userStore.getUserData()._id,
+        educationInfo: {
+            "school": this.data.school,
+            "grade":this.data.grade,
+            "class": this.data.class
+        }
+    }).then(resp => {
             console.log('更新班级', resp)
             wx.showToast({
                 title: '修改班级成功',
@@ -174,17 +149,12 @@ Page({
     },
 
     changeAccount: function () {
-        wx.cloud.callFunction({
-            name: 'userFunctions',
-            config: {
-                env: 'lemon-7glhwqyu5304e1f9'
-            },
-            data: {
-                type: "updateUser",
-                _id: userStore.getUserData()._id,
-                account: this.data.account
-            }
-        }).then(resp => {
+      
+      fetchYun('userFunctions', {
+        type: "updateUser",
+        _id: userStore.getUserData()._id,
+        account: this.data.account
+    }).then(resp => {
             console.log('更新手机号', resp)
             wx.showToast({
                 title: '修改手机号成功',
@@ -208,17 +178,12 @@ Page({
             showsex: false
         })
 
-        wx.cloud.callFunction({
-            name: 'userFunctions',
-            config: {
-                env: 'lemon-7glhwqyu5304e1f9'
-            },
-            data: {
-                type: "updateUser",
-                _id: userStore.getUserData()._id,
-                sex: '男'
-            }
-        }).then(resp => {
+        
+        fetchYun('userFunctions', {
+          type: "updateUser",
+          _id: userStore.getUserData()._id,
+          sex: '男'
+      }).then(resp => {
             console.log(resp)
         })
     },
@@ -229,17 +194,12 @@ Page({
             showsex: false
         })
 
-        wx.cloud.callFunction({
-            name: 'userFunctions',
-            config: {
-                env: 'lemon-7glhwqyu5304e1f9'
-            },
-            data: {
-                type: "updateUser",
-                _id: userStore.getUserData()._id,
-                sex: '女'
-            }
-        }).then(resp => {
+        
+        fetchYun('userFunctions', {
+          type: "updateUser",
+          _id: userStore.getUserData()._id,
+          sex: '女'
+      }).then(resp => {
             console.log(resp)
         })
     },

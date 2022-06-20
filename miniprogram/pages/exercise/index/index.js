@@ -1,4 +1,5 @@
 const userStore = require('../../../stores/user-store')
+import fetchYun from '../../../utils/fetchYun'
 Page({
   data: {
     index: null,
@@ -110,16 +111,12 @@ Page({
       navState: index,
       subject: subject
     })
-    wx.cloud.callFunction({
-      name: 'exerciseFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "getExerciseAll",
-        grade: this.data.grade,
-        subject: this.data.subject
-      }
+
+    
+    fetchYun('exerciseFunctions', {
+      type: "getExerciseAll",
+      grade: this.data.grade,
+      subject: this.data.subject
     }).then((resp) => {
       if (resp.result.data.length == 0) {
         this.setData({
@@ -173,16 +170,11 @@ Page({
         is_senior: false
       })
     }
-    wx.cloud.callFunction({
-      name: 'exerciseFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "getExerciseAll",
-        grade: this.data.grade,
-        subject: this.data.subject
-      }
+
+    fetchYun('exerciseFunctions', {
+      type: "getExerciseAll",
+      grade: this.data.grade,
+      subject: this.data.subject
     }).then((resp) => {
       if (resp.result.data.length == 0) {
         this.setData({

@@ -8,14 +8,12 @@
     <view class="fixed-header">
       <!-- <text class="extend_name">课程名称</text> -->
       <view class="extend_title">
-        <text>扩展课标题</text>
+        <text>{{expandClass.title}}</text>
         <gl_navigate></gl_navigate>
       </view>
-      <view class="basic_info">出处 作者 时间信息</view>
+      <view class="basic_info">{{expandClass.author + '　' + expandClass.grade}}</view>
     </view>
     <view class="rich_text">
-      <rich-text nodes="{{htmlsnip}}"></rich-text>
-      <rich-text nodes="{{htmlsnip}}"></rich-text>
       <rich-text nodes="{{htmlsnip}}"></rich-text>
       <!-- <rich-text nodes="{{htmlsnip}}"></rich-text>
       <rich-text nodes="{{htmlsnip}}"></rich-text>

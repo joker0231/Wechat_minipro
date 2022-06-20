@@ -1,4 +1,5 @@
 const userStore = require('../../../stores/user-store')
+import fetchYun from '../../../utils/fetchYun'
 Page({
     data: {
       collectClass: [],
@@ -9,22 +10,23 @@ Page({
       empty_showexericise: false,
     },
     onLoad: function (options) {
-      wx.cloud.callFunction({
-        name: 'personFunctions',
-        config: {
-          env: 'lemon-7glhwqyu5304e1f9'
-        },
-        data: {
-          type: "getUserCollectByType",
-          collectType: 'class',
-          userId: userStore.getUserData()._id
-        }
+      
+      fetchYun('personFunctions', {
+        type: "getUserCollectByType",
+        collectType: 'class',
+        userId: userStore.getUserData()._id
       }).then((resp) => {
-        console.log(resp)
-        if(resp.result.data.length){
-        this.setData({
-          collectClass: resp.result.data
+        console.log(resp, 123123123)
+
+        let originArr = resp.result.data
+        // 这里具体数据在class_info对象里 再处理一层
+        let classInfoArr = originArr.map(e=>{
+          return e.class_info
         })
+        if(resp.result.data.length){
+          this.setData({
+            collectClass: classInfoArr
+          })
         }else{
           this.setData({
             empty_showclass: true,
@@ -34,16 +36,10 @@ Page({
         console.log(e);
       });
 
-      wx.cloud.callFunction({
-        name: 'personFunctions',
-        config: {
-          env: 'lemon-7glhwqyu5304e1f9'
-        },
-        data: {
-          type: "getUserCollectByType",
-          collectType: 'exercise',
-          userId: userStore.getUserData()._id
-        }
+      fetchYun('personFunctions', {
+        type: "getUserCollectByType",
+        collectType: 'exercise',
+        userId: userStore.getUserData()._id
       }).then((resp) => {
         console.log(resp)
         if(resp.result.data.length){
@@ -59,16 +55,11 @@ Page({
         console.log(e);
       });
 
-      wx.cloud.callFunction({
-        name: 'personFunctions',
-        config: {
-          env: 'lemon-7glhwqyu5304e1f9'
-        },
-        data: {
-          type: "getUserCollectByType",
-          collectType: 'topic',
-          userId: userStore.getUserData()._id
-        }
+      
+      fetchYun('personFunctions', {
+        type: "getUserCollectByType",
+        collectType: 'topic',
+        userId: userStore.getUserData()._id
       }).then((resp) => {
         console.log(resp)
         if(resp.result.data.length){

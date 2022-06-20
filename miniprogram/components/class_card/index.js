@@ -1,6 +1,11 @@
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 const userStore = require('../../stores/user-store')
 import fetchYun from '../../utils/fetchYun'
+const photoMap = new Map([
+  ['语文', 'https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/chinese.png?sign=1fe8346ef8e8954beea9f00c27b633f7&t=1651498768'],
+  ['数学', 'https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/math.png?sign=627ef6201e5a411e9c150d653041f5bc&t=1655713748'],
+  ['英语', 'https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/english.png?sign=fba9b2c580e6567587995db64bbd0d15&t=1655713774']
+])
 
 Component({
     externalClasses: ['inner-class'],
@@ -19,7 +24,7 @@ Component({
         },
         photo: {
             type: String,
-            value: 'https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/chinese.png?sign=1fe8346ef8e8954beea9f00c27b633f7&t=1651498768'
+            value:  photoMap.get('语文')
         },
         author: {    
             type: String,
@@ -44,6 +49,10 @@ Component({
         type: {   // 类型是 分 class专业课 和 extend拓展课 样式相同 跳转链接和逻辑不同
             type: String,
             value: 'class'
+        },
+        collect_class_id: {
+          type: String,
+          value: ''                   // 收藏表的id 没有收藏默认是空字符串
         }
     },
     data: {},
@@ -51,26 +60,27 @@ Component({
         onClickCollectedTrue: function() {
             Toast.success('收藏成功');
 
+            console.log('要收藏的数据!!', this.data)
             fetchYun('classFunctions', {
-              classId: this.data._id,
               type: "createCollectClass",
-              body: {
-                "author" : this.data.author,
-                "detail" : this.data.detail,
-                "grade" : this.data.grade,
-                "introduction" : this.data.introduction,
-                "is_collected" : this.data.is_collected,
-                "semester" : this.data.semester,
-                "subject" : this.data.subject,
+              userId: userStore.getUserData()._id,
+              classInfoBody: {
+                "_id": this.data._id,
+                "type": this.data.type,
                 "title" : this.data.title,
-                "user_id": userStore.getUserData()._id
+                "semester" : this.data.semester,
+                "photo": this.data.photo,
+                "is_collected" : true,
+                "introduction" : this.data.introduction,
+                "grade" : this.data.grade,
+                "detail" : this.data.detail,
+                "author" : this.data.author,
+                "collect_class_id": this.data.collect_class_id
               }
             }
-          ).then((resp) => {
-            console.log(resp, 'createCollectClass')
-          }).catch((e) => {
-            console.log(e);
-          });
+            ).then((resp) => {
+              console.log(resp, 'createCollectClass')
+            })
 
             // 一个是前端样式改变 
             // 二个是后端数据存储 最好刷新整个外面的Array 涉及到子父通信了
@@ -80,10 +90,10 @@ Component({
         },
         onClickCollectedFalse: function() {
             Toast.success('取消收藏成功');
-
+            console.log(this.data)
             fetchYun('classFunctions', {
               type: "deleteCollectClass",
-              _id: this.data._id       // 取消收藏的id是这个吗？
+              _id: this.data.collect_class_id       // 取消收藏的id是这个吗？
             }).then((resp) => {
               console.log(resp, 'deleteCollectClass')
             }).catch((e) => {
@@ -111,5 +121,21 @@ Component({
         //     }
             
         // }
+    },
+    lifetimes: {
+      attached: function() {
+        // 这里是class组件给photo设置语文数学啥的图片 对于expand课程 原本父亲处理 这里也放这里处理 内部逻辑放里面
+        // 在组件实例进入页面节点树时执行
+        if(this.properties.type === 'class') {
+          this.setData({
+            photo: photoMap.get(this.properties.title.slice(0,2))
+          })
+        } else {
+            const {detail} = this.properties
+            let photo = detail.match(/<img [^>]*src="[^"]*"[^>]*>/gm).map(x => x.replace(/.*src="([^"]*)".*/, '$1'))[0]
+            this.setData({photo})
+        }
+        
+      }
     }
 });

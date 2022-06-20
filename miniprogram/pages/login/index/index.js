@@ -3,6 +3,8 @@ import { genTestUserSig } from '../../../debug/GenerateTestUserSig'
 import logger from '../../../utils/logger'
 import { setTokenStorage } from '../../../utils/token'
 const app = getApp()
+import fetchYun from '../../../utils/fetchYun'
+
 // pages/index/community_headpic.js
 Page({
 
@@ -131,16 +133,12 @@ Page({
     //   })
     //   return
     // }
-    wx.cloud.callFunction({
-      name: 'userFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "loginUser",
-        account: this.data.account,
-        password: this.data.password
-      }
+
+    
+    fetchYun('userFunctions', {
+      type: "loginUser",
+      account: this.data.account,
+      password: this.data.password
     }).then((resp) => {
       if(resp.result.errMsg=="账号或密码错误！"){
         console.log(resp, 'loginUser')

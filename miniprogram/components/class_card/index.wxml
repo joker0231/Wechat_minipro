@@ -9,9 +9,9 @@
     <view class="classcard-footer">
         <view class="hr"/>
         <view class="classcard-teacher">
-            <text bindtap="onClickToDetail">{{author}}</text>
-            <image wx:if="{{is_collected == true}}" bindtap="onClickCollectedFalse" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/love.png?sign=0180f45f2c372f276b7f200338ca0217&t=1651498880"></image>
-            <image wx:if="{{is_collected == false}}" bindtap="onClickCollectedTrue"  class="gray" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/love.png?sign=0180f45f2c372f276b7f200338ca0217&t=1651498880"></image>
+            <text>{{author}}</text>
+            <image wx:if="{{is_collected == true}}" catchtap="onClickCollectedFalse" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/love.png?sign=0180f45f2c372f276b7f200338ca0217&t=1651498880"></image>
+            <image wx:if="{{is_collected == false}}" catchtap="onClickCollectedTrue"  class="gray" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/love.png?sign=0180f45f2c372f276b7f200338ca0217&t=1651498880"></image>
         </view>
     </view>
 </view>

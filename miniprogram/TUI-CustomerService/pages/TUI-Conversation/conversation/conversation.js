@@ -1,4 +1,6 @@
 import logger from '../../../utils/logger';
+import fetchYun from '../../../utils/fetchYun'
+const userStore = require('../../../../stores/user-store.js')
 
 // eslint-disable-next-line no-undef
 Page({
@@ -22,12 +24,28 @@ Page({
     empty_showconversation: false,
     empty_showpost: false,
     empty_showfriend: false,
+    reply_data: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
+
+    console.log('123')
+    fetchYun('communityFunctions', {
+      type: "getReplyByUserId",
+      userId: userStore.getUserData()._id
+    }).then((resp) => {
+      console.log(resp, '想要查看的消息')
+      this.setData({
+        reply_data: resp.result
+      },()=>{
+        console.log(this.data.reply_data)
+      })
+    })
+
+
     // 登入后拉去会话列表
     wx.$TUIKit.on(wx.$TUIKitEvent.CONVERSATION_LIST_UPDATED, this.onConversationListUpdated, this);
     wx.$TUIKit.on(wx.$TUIKitEvent.FRIEND_APPLICATION_LIST_UPDATED, this.onConversationListUpdated, this);

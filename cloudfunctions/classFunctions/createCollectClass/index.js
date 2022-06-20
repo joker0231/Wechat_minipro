@@ -10,25 +10,37 @@ const db = cloud.database();
 exports.main = async (event, context) => {
   try {
     // 创建集合
-    await db.collection('collect_class').add({
-      // data 字段表示需新增的 JSON 数据
-      data: event.body,
-      success: function(res) {
-        console.log(res)
-      }
-    });
-    await db.collection('class').doc(event.classId).update({
+    // await db.collection('collect_class').add({
+    //   // data 字段表示需新增的 JSON 数据
+    //   data: event.body,
+    //   success: function(res) {
+    //     console.log(res)
+    //   }
+    // });
+    // await db.collection('class').doc(event.classId).update({
+    //   // data 字段表示需新增的 JSON 数据
+    //   data: {
+    //     is_collected: true //前端改的 后端不变
+    //   },
+    //   success: function(res) {
+    //     console.log(res)
+    //   }
+    // });
+    // return {
+    //   success: true
+    // };
+
+    let addResult = await db.collection('collect_class').add({
       // data 字段表示需新增的 JSON 数据
       data: {
-        is_collected: true
+        user_id: event.userId,
+        class_info: event.classInfoBody
       },
       success: function(res) {
         console.log(res)
       }
     });
-    return {
-      success: true
-    };
+    return addResult
   } catch (e) {
     // 这里catch到的是该collection已经存在，从业务逻辑上来说是运行成功的，所以catch返回success给前端，避免工具在前端抛出异常
     return {

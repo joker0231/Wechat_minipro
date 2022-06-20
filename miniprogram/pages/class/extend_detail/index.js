@@ -1,24 +1,34 @@
 // pages/class/extend_detail/index.js
+import fetchYun from '../../../utils/fetchYun'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    htmlsnip: 
-      `<div class="div_class">
-        <h1>Title</h1>
-        <p class="p">
-          Life is&nbsp;<i>like</i>&nbsp;a box of
-          <b>&nbsp;chocolates</b>.
-        </p>
-      </div>`
+    expandClass: {},
+    htmlsnip: ``
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let id = options.classId;
+
+    fetchYun('classFunctions', {
+      type: 'getExpandClassById',
+      classId: id
+    }).then(resp=>{
+      console.log(resp, 'expand数据')
+      this.setData({
+        expandClass: resp.result.data[0],
+        htmlsnip: resp.result.data[0].detail
+      })
+    })
+
+
+
     let screenHeight = wx.getSystemInfoSync().windowHeight
     let screenWidth = wx.getSystemInfoSync().windowWidth
     let ratio = 750 / screenWidth;

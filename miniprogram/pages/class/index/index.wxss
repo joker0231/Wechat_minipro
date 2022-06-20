@@ -125,6 +125,7 @@
     height: 250rpx;
     border-radius: 50%;
     background-color: #b4ebf1;
+    background-size: 250rpx 250rpx;
 }
 
 .grades-container{

@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "ec-canvas": "../../../libs/ec-canvas/ec-canvas",
+    "ec-canvas": "../../libs/ec-canvas/ec-canvas",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index"
   }

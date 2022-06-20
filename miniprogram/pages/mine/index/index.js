@@ -58,7 +58,7 @@ Page({
 
     clickProgress: function() {
       wx.navigateTo({
-        url: '/pages/mine/progress/index',
+        url: '/EC-Charts/pages/progress/index',
       })
     },
 
@@ -93,7 +93,7 @@ Page({
 
     clickToSpace: function() {
       wx.navigateTo({
-        url: '/pages/mine/space/index',
+        url: '/EC-Charts/pages/space/index',
       })
     },
 

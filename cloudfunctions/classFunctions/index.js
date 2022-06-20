@@ -17,6 +17,7 @@ const getExpandclassByGrade = require('./getExpandclassByGrade/index');
 const getGameAll = require('./getGameAll/index');
 const getSearchHistory = require('./getSearchHistory/index');
 const updateGame = require('./updateGame/index');
+const getExpandClassById = require('./getExpandClassById/index')
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -60,5 +61,7 @@ exports.main = async (event, context) => {
       return await getSearchHistory.main(event, context);
     case 'updateGame':
       return await updateGame.main(event, context);
+    case 'getExpandClassById':
+      return await getExpandClassById.main(event, context)
   }
 };

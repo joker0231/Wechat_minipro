@@ -1,5 +1,6 @@
 // pages/mine/record/index.js
 const userStore = require('../../../stores/user-store')
+import fetchYun from '../../../utils/fetchYun'
 Page({
 
   /**
@@ -18,16 +19,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.cloud.callFunction({
-      name: 'personFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "getUserRecordByType",
-        recordType: 'class',
-        userId: userStore.getUserData()._id
-      }
+    
+    fetchYun('personFunctions', {
+      type: "getUserRecordByType",
+      recordType: 'class',
+      userId: userStore.getUserData()._id
     }).then((resp) => {
       console.log(resp)
       if(resp.result.data.length){
@@ -43,16 +39,11 @@ Page({
       console.log(e);
     });
 
-    wx.cloud.callFunction({
-      name: 'personFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "getUserRecordByType",
-        recordType: 'exercise',
-        userId: userStore.getUserData()._id
-      }
+    
+    fetchYun('personFunctions', {
+      type: "getUserRecordByType",
+      recordType: 'exercise',
+      userId: userStore.getUserData()._id
     }).then((resp) => {
       console.log(resp)
       if(resp.result.data.length){
@@ -68,16 +59,11 @@ Page({
       console.log(e);
     });
 
-    wx.cloud.callFunction({
-      name: 'personFunctions',
-      config: {
-        env: 'lemon-7glhwqyu5304e1f9'
-      },
-      data: {
-        type: "getUserRecordByType",
-        recordType: 'topic',
-        userId: userStore.getUserData()._id
-      }
+    
+    fetchYun('personFunctions', {
+      type: "getUserRecordByType",
+      recordType: 'topic',
+      userId: userStore.getUserData()._id
     }).then((resp) => {
       console.log(resp)
       if(resp.result.data.length){

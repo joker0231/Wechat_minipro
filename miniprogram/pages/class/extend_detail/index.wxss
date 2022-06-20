@@ -66,6 +66,7 @@
 .rich_text {
   padding-left: 46rpx;
   padding-right: 46rpx;
+  margin-bottom: 30rpx;
 }
 
 

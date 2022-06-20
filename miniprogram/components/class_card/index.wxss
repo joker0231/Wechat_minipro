@@ -24,6 +24,7 @@
 .classcard-addinfo{
     font-size: 24rpx;
     color: #555555;
+    width: 450rpx;
 }
 
 .classcard-info{
@@ -32,6 +33,7 @@
 
 .classcard-infotitle {
     font-size: 32rpx;
+    width: 450rpx;
 }
 
 .hr{

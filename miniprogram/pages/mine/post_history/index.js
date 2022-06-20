@@ -1,6 +1,7 @@
 import Dialog from '../../../miniprogram_npm/@vant/weapp/dialog/dialog';
 import Toast from '../../../miniprogram_npm/@vant/weapp/toast/toast'
 const userStore = require('../../../stores/user-store')
+import fetchYun from '../../../utils/fetchYun'
 
 Page({
     data: {
@@ -8,16 +9,11 @@ Page({
         empty_show: false,
     },
     onLoad: function (options) {
-        wx.cloud.callFunction({
-            name: 'personFunctions',
-            config: {
-              env: 'lemon-7glhwqyu5304e1f9'
-            },
-            data: {
-              type: "getUserTopic",
-              userId: userStore.getUserData()._id
-            }
-          }).then((resp) => {
+      
+      fetchYun('personFunctions', {
+        type: "getUserTopic",
+        userId: userStore.getUserData()._id
+      }).then((resp) => {
             console.log(resp, 'getUserTopic')
             if(resp.result) {
               this.setData({
@@ -44,29 +40,20 @@ Page({
         message: '确认删除？',
       })
         .then(() => {
-          wx.cloud.callFunction({
-            name: 'communityFunctions',
-            config: {
-              env: 'lemon-7glhwqyu5304e1f9'
-            },
-            data: {
-              type: "deletePost",
-              postId: event.currentTarget.dataset.topicid
-            }
+
+          
+          fetchYun('communityFunctions', {
+            type: "deletePost",
+            postId: event.currentTarget.dataset.topicid
           }).then((resp) => {
             console.log(resp)
             // 提示删除
             if(resp.result.stats.removed === 1) {
               Toast('删除成功');
-              wx.cloud.callFunction({
-                name: 'personFunctions',
-                config: {
-                  env: 'lemon-7glhwqyu5304e1f9'
-                },
-                data: {
-                  type: "getUserTopic",
-                  userId: userStore.getUserData()._id
-                }
+              
+              fetchYun('communityFunctions', {
+                type: "getUserTopic",
+                userId: userStore.getUserData()._id
               }).then((resp) => {
                 console.log(resp, 'getUserTopic')
                 this.setData({

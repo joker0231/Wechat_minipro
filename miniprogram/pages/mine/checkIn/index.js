@@ -1,5 +1,6 @@
 // //logs.js
 // const util = require('util.js')
+// import fetchYun from '../../../utils/fetchYun'
 
 // Page({
 //     data: {
@@ -225,22 +226,17 @@
 //             isTodayIn: true,
 //             todayDate: '2022-05-20'
 //           }
-//           wx.cloud.callFunction({
-//             name: 'personFunctions',
-//             config: {
-//               env: 'lemon-7glhwqyu5304e1f9'
-//             },
-//             data: {
-//               type: "createNewCheckIn",
-//               body: template
-//             }
-//           }).then((resp) => {
-//             console.log(resp, 'createNewPost')
-//             // console.log(JSON.stringify(resp.result.data[0]), '123')
-//           }).catch((e) => {
-//             console.log(e);
-//           });
-//         console.log('大大大大大大的卡卡卡卡卡卡卡卡')
+          
+        //   fetchYun('personFunctions', {
+        //     type: "createNewCheckIn",
+        //     body: template
+        //   }).then((resp) => {
+        //     console.log(resp, 'createNewPost')
+        //     // console.log(JSON.stringify(resp.result.data[0]), '123')
+        //   }).catch((e) => {
+        //     console.log(e);
+        //   });
+        // console.log('大大大大大大的卡卡卡卡卡卡卡卡')
 
 
 //         let that = this
