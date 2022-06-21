@@ -3,10 +3,10 @@ import Dialog from '../../../miniprogram_npm/@vant/weapp/dialog/dialog';
 import Toast from '../../../miniprogram_npm/@vant/weapp/toast/toast';
 const userStore = require('../../../stores/user-store')
 
-const citys = {
+const allType = {
   普通: [''],
   拓展: ['拓展课1', '拓展课2', '拓展课3'],
-  课程: ['（最近看过？）语文六年级上册', '语文六年级下册', '数学六年级上册', '数学六年级下册'],
+  课程: ['语文六年级上册', '语文六年级下册', '数学六年级上册', '数学六年级下册'],
   题目: ['最近做过的题目1', '最近做过的题目2', '最近做过的题目3']
 };
 
@@ -29,38 +29,53 @@ Page({
     message: '',
     columns: [
       {
-        values: Object.keys(citys),
+        values: Object.keys(allType),
         className: 'column1',
       },
       {
-        values: citys['浙江'],
+        values: allType['普通'],
         className: 'column2',
         defaultIndex: 2,
       },
     ],
     show: false,
-    typeValue: [],
-    pickValue: [],   // 先picker这里 然后点击关闭弹层的时候 把值弄到 typeValue 页面的数据根据typeValue的,
+    typeValue: []
     
   },
   onChange(event) {
+    // 分两个逻辑 如果改变第一行 就设置第二个参数为第一行的第二个
+    // 如果改变第二行 就把第二行改进去
     const { picker, value, index } = event.detail;
-    picker.setColumnValues(1, citys[value[0]]);
-    console.log(value)
-    this.setData({
-      pickerValue: value
-    })
+
+
+    if(value[0] !== this.data.typeValue[0]) {        // 改变了第一行
+      picker.setColumnValues(1, allType[value[0]]);
+      let copyValue = [...value]
+      copyValue[1] = allType[value[0]][0]
+      this.setData({
+        typeValue: copyValue
+      }, ()=>{
+        console.log(this.data.typeValue)
+      })
+    } else {        // 改变了第二行
+      this.setData({
+        typeValue: value
+      }, ()=>{
+        console.log(this.data.typeValue)
+      })
+    }
+    
   },
 
   onClose() {
     this.setData({ show: false });
-    this.setData({
-      typeValue: this.data.pickerValue
-    })
   },
 
   chooseType() {
-    this.setData({ show: true });
+    this.setData({ 
+      show: true,
+      typeValue: ["普通", ""]
+    });
   },
 
   afterRead(event) {
