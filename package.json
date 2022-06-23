@@ -2,6 +2,7 @@
   "dependencies": {
     "@vant/area-data": "^1.2.4",
     "@vant/weapp": "^1.10.3",
+    "tim-wx-sdk": "^2.20.0",
     "westore": "^0.1.9"
   },
   "name": "wechat_minipro",

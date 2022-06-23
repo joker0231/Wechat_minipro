@@ -1,4 +1,5 @@
 const userStore = require('../../stores/user-store')
+
 Component({
     properties: {
         name: String,
@@ -26,7 +27,7 @@ Component({
 
         addfriend: function () {
             console.log('添加好友')
-            const userId = userStore.getUserData()._id
+            const userId = userStore.getUserData().account
             const name = this.properties.name
             // 添加好友
             wx.showModal({
@@ -42,6 +43,7 @@ Component({
                         });
                         promise.then(function (imResponse) {
                             // 添加好友的请求发送成功
+                            console.log(imResponse, '添加好友结果')
                             const { code } = imResponse.data;
                             if (code === 30539) {
                                 // 30539 说明 user1 设置了【需要经过自己确认对方才能添加自己为好友】，此时 SDK 会触发 TIM.EVENT.FRIEND_APPLICATION_LIST_UPDATED 事件

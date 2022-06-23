@@ -1,6 +1,6 @@
 // app.js
 // import TIM from 'tim-wx-sdk'
-import TIM from './static/tim-wx'
+import TIM from './static/tim-wx-friendship'
 // import COS from "cos-wx-sdk-v5"         // 用来对象存储
 import TIMUploadPlugin from './static/tim-upload-plugin'
 import { SDKAPPID } from './debug/GenerateTestUserSig'

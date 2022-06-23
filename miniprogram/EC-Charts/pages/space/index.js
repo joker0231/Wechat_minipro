@@ -264,7 +264,7 @@ Page({
 
   addfriend: function () {
     console.log('添加好友')
-    const userId = userStore.getUserData()._id
+    const userId = userStore.getUserData().account
     const name = this.properties.name
     // 添加好友
     wx.showModal({

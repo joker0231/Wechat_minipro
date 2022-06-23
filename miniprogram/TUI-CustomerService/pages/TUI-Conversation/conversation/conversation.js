@@ -168,6 +168,7 @@ Page({
 
   getFriendApplicationList() {
     wx.$TUIKit.getFriendApplicationList().then((imResponse) => {
+      console.log('好友请求信息', imResponse)
       this.setData({
         friendApplicationList: imResponse.data.friendApplicationList,
         applicationUnreadCount: imResponse.data.unreadCount

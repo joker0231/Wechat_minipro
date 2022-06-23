@@ -21,7 +21,7 @@ Page({
    */
   onLoad() {
     // 登入后拉去会话列表
-    wx.$TUIKit.on(wx.$TUIKitEvent.FRIEND_LIST_UPDATED, this.onFriendListUpdated, this);
+    // wx.$TUIKit.on(wx.$TUIKitEvent.FRIEND_LIST_UPDATED, this.onFriendListUpdated, this);
     this.getFriendList();
     console.log(this.data.friendList)
   },
@@ -29,7 +29,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-    wx.$TUIKit.off(wx.$TUIKitEvent.FRIEND_LIST_UPDATED, this.onFriendListUpdated);
+    // wx.$TUIKit.off(wx.$TUIKitEvent.FRIEND_LIST_UPDATED, this.onFriendListUpdated);
   },
 
   navSwitch: function(e) {
@@ -63,14 +63,14 @@ Page({
   getFriendList() {
     wx.$TUIKit.getFriendList().then((imResponse) => {
       console.log(imResponse)
-      this.setData({
-        friendList: imResponse.data,
-      });
-      if(this.data.friendList.length == 0){
-        this.setData({
-          empty_showclassmate: true
-        })
-      }
+      // this.setData({
+      //   friendList: imResponse.data,
+      // });
+      // if(this.data.friendList.length == 0){
+      //   this.setData({
+      //     empty_showclassmate: true
+      //   })
+      // }
     });
   },
   // 展示发起会话/发起群聊/加入群聊
