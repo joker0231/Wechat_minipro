@@ -48,7 +48,7 @@ Page({
 
     // 登入后拉去会话列表
     wx.$TUIKit.on(wx.$TUIKitEvent.CONVERSATION_LIST_UPDATED, this.onConversationListUpdated, this);
-    wx.$TUIKit.on(wx.$TUIKitEvent.FRIEND_APPLICATION_LIST_UPDATED, this.onConversationListUpdated, this);
+    wx.$TUIKit.on(wx.$TUIKitEvent.FRIEND_APPLICATION_LIST_UPDATED, this.onFriendApplicationListUpdated, this);
     this.getConversationList();
     this.getFriendApplicationList()
   },
@@ -167,6 +167,7 @@ Page({
   },
 
   getFriendApplicationList() {
+    console.log(34343)
     wx.$TUIKit.getFriendApplicationList().then((imResponse) => {
       console.log('好友请求信息', imResponse)
       this.setData({
@@ -174,5 +175,33 @@ Page({
         applicationUnreadCount: imResponse.data.unreadCount
       });
     });
-  }
+  },
+
+  addfriend: function (e) {
+    console.log('添加好友')
+    const name = this.properties.name
+    const userid = this.properties.userid
+    // 添加好友
+    wx.showModal({
+        title: '好友申请验证',
+        content: '确定添加该用户为好友吗？',
+        success(res) {
+            if (res.confirm) {
+                console.log('用户点击确定')
+                let promise = wx.$TUIKit.acceptFriendApplication({
+                  userID: e.target.dataset.friendid,
+                  remark: e.target.dataset.nick
+                });
+                promise.then(function(imResponse) {
+                  // 同意好友成功后，SDK 会触发 TIM.EVENT.FRIEND_APPLICATION_LIST_UPDATED 事件
+                }).catch(function(imError) {
+                  console.error('acceptFriendApplication error:', imError);
+                });
+            } else if (res.cancel) {
+                console.log('用户点击取消')
+            }
+        }
+    })
+
+}
 });

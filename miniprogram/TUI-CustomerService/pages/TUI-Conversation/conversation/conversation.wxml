@@ -40,7 +40,7 @@
         </van-tab>
     <van-tab title="新朋友">
       <view class="container">
-        <mine_friend wx:for="{{friendApplicationList}}" name="tom" school="学校 年级" headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/logo.png?sign=6439095f87d6cb1a7f5abe0d045ac9c6&t=1651722239" />
+        <mine_friend wx:for="{{friendApplicationList}}" name="{{item.nick}}" headpic="{{item.avatar}}" data-friendid="{{item.userID}}" data-friendname="{{item.nick}}" bindtap="addfriend" />
         <view wx:if="{{ empty_showfriend }}" class="empty">
           <view class="empty_text">暂无好友申请~</view>
         </view>

@@ -9,7 +9,7 @@
       <!-- <text class="extend_name">课程名称</text> -->
       <view class="extend_title">
         <text>{{expandClass.title}}</text>
-        <gl_navigate></gl_navigate>
+        <!-- <gl_navigate></gl_navigate> -->
       </view>
       <view class="basic_info">{{expandClass.author + '　' + expandClass.grade}}</view>
     </view>

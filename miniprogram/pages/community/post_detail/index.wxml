@@ -12,7 +12,7 @@
           <image class="title-image" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/report.png?sign=71ee3d6c8fe4935a74b0266cd03c6e3c&t=1652621924"></image>
           <view class="report">举报</view>
         </view>
-        <gl_navigate></gl_navigate>
+        <!-- <gl_navigate></gl_navigate> -->
       </view>
       <view class="basic_info">{{detail.date}}</view>
       <view class="selected-card">

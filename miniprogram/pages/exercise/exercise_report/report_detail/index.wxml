@@ -7,7 +7,7 @@
 <view class="exercise_header">
   <view class="show_index">{{current + 1 + '/' + exercise.length}}</view>
   <view class="title-first">{{section}}{{title}}</view>
-  <gl_navigate></gl_navigate>
+  <!-- <gl_navigate></gl_navigate> -->
 </view>
 <view class="exercise_content"> 
   <swiper class="swiper" current="{{current}}" bindchange="onChange">

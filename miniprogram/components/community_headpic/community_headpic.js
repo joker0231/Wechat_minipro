@@ -8,27 +8,27 @@ Component({
     },
     data: {},
     methods: {
-        clickToChat: function(event) {
+        clickToChat: function (event) {
             // wx.navigateTo({
             //   url: '/pages/community/chat/index',
             // })
-      
+
             let id = this.properties.userid
-      
+
             const payloadData = {
-              conversationID: `C2C${id}`,
+                conversationID: `C2C${id}`,
             };
-      
+
             console.log('目标地址', '/TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=' + JSON.stringify(payloadData))
             wx.navigateTo({
-              url: '/TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=' + JSON.stringify(payloadData),
+                url: '/TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=' + JSON.stringify(payloadData),
             })
-          },
+        },
 
         addfriend: function () {
             console.log('添加好友')
-            const userId = userStore.getUserData().account
             const name = this.properties.name
+            const userid = this.properties.userid
             // 添加好友
             wx.showModal({
                 title: '提交好友申请',
@@ -37,7 +37,7 @@ Component({
                     if (res.confirm) {
                         console.log('用户点击确定')
                         let promise = wx.$TUIKit.addFriend({
-                            to: userId,
+                            to: userid,
                             source: 'AddSource_Type_WX',
                             remark: name,
                         });
@@ -51,11 +51,11 @@ Component({
                                 // 0 说明 user1 设置了【允许任何人添加自己为好友】，此时 SDK 会触发 TIM.EVENT.FRIEND_LIST_UPDATED 事件
                             }
                             wx.showToast({
-                              title: '申请成功',
-                              icon: success
+                                title: '申请成功',
+                                icon: success
                             })
                         }).catch(function (imError) {
-                            console.warn('addFriend error:', imError); // 添加好友失败的相关信息
+                            console.error('addFriend error:', imError); // 添加好友失败的相关信息
                         });
                     } else if (res.cancel) {
                         console.log('用户点击取消')

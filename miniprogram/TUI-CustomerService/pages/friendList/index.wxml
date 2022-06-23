@@ -1,29 +1,14 @@
 <!--pages/mine/friendList/index.wxml-->
 <view>
-  <view class="friendList-navigation">
-    <text bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'navswitch-style':''}}">老师</text>
-    <text bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'navswitch-style':''}}">同学</text>
-  </view>
   <scroll-view class="friendList-container">
-      <view class="item" wx:if="{{navState==0}}">
+      <view class="item">
         <view class="friend-list-area">
           <scroll-view class="scoll-view" scroll-y="true">
-            <TUI-conversation-item wx:for="{{friendList}}" wx:key="index" id="{{item.conversationID}}" data-type="{{item.type}}" conversation="{{item}}" bindtap="handleRoute" bind:transCheckID="transCheckID" charge="{{transChenckID===item.conversationID}}"></TUI-conversation-item>
+            <mine_friend wx:for="{{friendList}}" name="{{item.remark}}" school="{{item.school}}" headpic="{{item.profile.avatar}}" data-userid="{{item.profile.userID}}" bindtap="clickToChat" />
           </scroll-view>
         </view>
         <view wx:if="{{ empty_showteacher }}" class="empty">
           <view class="empty_text">暂无教师好友记录~</view>
-        </view>
-      </view>
-
-      <view class="item" wx:if="{{navState==1}}">
-        <view class="friend-list-area">
-          <scroll-view class="scoll-view" scroll-y="true">
-            <TUI-conversation-item wx:for="{{friendList}}" wx:key="index" id="{{item.conversationID}}" data-type="{{item.type}}" conversation="{{item}}" bindtap="handleRoute" bind:transCheckID="transCheckID" charge="{{transChenckID===item.conversationID}}"></TUI-conversation-item>
-          </scroll-view>
-        </view>
-        <view wx:if="{{ empty_showclassmate }}" class="empty">
-          <view class="empty_text">暂无同学好友记录~</view>
         </view>
       </view>
     <!-- <view wx:for="{{msg}}" wx:key="index">

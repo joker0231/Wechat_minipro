@@ -11,7 +11,7 @@
         <view class="scroll-inner">
           <view class="class_title">
             <text>{{title}}</text>
-            <gl_navigate></gl_navigate>
+            <!-- <gl_navigate></gl_navigate> -->
           </view>
           <text class="info">{{author}}</text>
           <view class="intro-title">{{introduction}}</view>

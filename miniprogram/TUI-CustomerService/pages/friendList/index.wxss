@@ -1,36 +1,11 @@
 /* pages/mine/friendList/index.wxss */
-.friendList-navigation{
-  width: 100%;
-  height: 92rpx;
-  background-color: #FFFFFF;
-  box-shadow: 0 10rpx 10rpx gainsboro;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  display: flex;
-  align-items: center;
-}
-
-.friendList-navigation text{
-  font-size: medium;
-  margin-left: 54rpx;
-}
-
-.navswitch-style{
-  font-size: 35rpx;
-  color: #7B4D12;
-}
-
 .friendList-container{
   display: flex;
   flex-direction: column;
   position: relative;
-  top: 90rpx;
 }
 
 .item{
-  border-bottom: 1px solid #EDEDED;
-  height: 149rpx;
   display: flex;
   position: relative;
   align-items: center;
@@ -91,7 +66,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 1px solid #efefef;
 }
 
 .empty_text{

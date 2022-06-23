@@ -13,7 +13,6 @@ Page({
     empty_showclassmate: false,
     empty_showteacher: false,
     transChenckID: '',
-    navState: 0
   },
 
   /**
@@ -32,13 +31,6 @@ Page({
     // wx.$TUIKit.off(wx.$TUIKitEvent.FRIEND_LIST_UPDATED, this.onFriendListUpdated);
   },
 
-  navSwitch: function(e) {
-    // console.log(e.currentTarget.dataset.index)
-    let index = e.currentTarget.dataset.index;
-    this.setData({
-        navState:index
-    })
-},
   // 跳转到子组件需要的参数
   handleRoute(event) {
     const flagIndex = this.data.friendList.findIndex(item => item.conversationID === event.currentTarget.id);
@@ -63,14 +55,14 @@ Page({
   getFriendList() {
     wx.$TUIKit.getFriendList().then((imResponse) => {
       console.log(imResponse)
-      // this.setData({
-      //   friendList: imResponse.data,
-      // });
-      // if(this.data.friendList.length == 0){
-      //   this.setData({
-      //     empty_showclassmate: true
-      //   })
-      // }
+      this.setData({
+        friendList: imResponse.data,
+      });
+      if(this.data.friendList.length == 0){
+        this.setData({
+          empty_showclassmate: true
+        })
+      }
     });
   },
   // 展示发起会话/发起群聊/加入群聊
@@ -91,4 +83,21 @@ Page({
       transChenckID: event.detail.checkID,
     });
   },
+
+  clickToChat: function (event) {
+    // wx.navigateTo({
+    //   url: '/pages/community/chat/index',
+    // })
+
+    let id = event.target.dataset.userid
+
+    const payloadData = {
+        conversationID: `C2C${id}`,
+    };
+
+    console.log('目标地址', '/TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=' + JSON.stringify(payloadData))
+    wx.navigateTo({
+        url: '/TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=' + JSON.stringify(payloadData),
+    })
+},
 });
