@@ -42,7 +42,7 @@
     font-weight: bold;
     font-size: large;
     line-height: 60rpx;
-    margin-left: 10%;
+    margin: 0 auto;
 }
 
 .mine-button{
@@ -58,9 +58,9 @@
     height: 18%;
     border-radius: 50rpx;
     display: flex;
-    justify-content: space-around;
     align-items: center;
     margin-top: 5%;
+    padding-left: 100rpx;
 }
 
 .mine-mask1{
@@ -85,7 +85,7 @@
 
 .mine-mask3{
     width: 85%;
-    height: 26%;
+    height: 22%;
     opacity: 70%;
     background-color: #FFFFFF;
     position: absolute;
@@ -167,7 +167,7 @@
 
 .mine-otheroptions{
     width: 100%;
-    height: 26%;
+    height: 22%;
     border-radius: 50rpx;
     display: flex;
     flex-direction: column;

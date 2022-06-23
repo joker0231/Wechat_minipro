@@ -1,10 +1,6 @@
 <view class="mine-container">
     <image class="mine-bgimg" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/personbgimage.png?sign=b7ae5ac2a29a7a5806004a6d48fb88e4&t=1651473040"></image>
     <view class="mine-header">
-        <view class="mine-signbutton" bindtap="clickCheckIn">
-            <image class="mine-sign" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/sign_in.png?sign=1156de8f33a9d7a9ed929cc99ba9c602&t=1651473726"></image>
-            <text>每日签到</text>
-        </view>
         <text class="mine-title">个人信息</text>
     </view>
     <view class="mine-personalinfo">
@@ -24,7 +20,6 @@
                 </view>
             </view>
         </view>
-        <image  bindtap="clickToSpace"  class="right" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/%E5%90%91%E5%8F%B3.png?sign=f10db49242482e86ca50ac5177d18057&t=1651475010"></image>
     </view>
     <view class="mine-usualtools">
         <view class="mine-mask2"/>
@@ -42,7 +37,7 @@
             </view>
             <view bindtap="clickToRecord" class="mine-tool">
                 <image src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/notes.png?sign=84f6f51a0867b85c3f2dd5b9bdeee7b8&t=1651475310"></image>
-                <view>学习记录</view>
+                <view>浏览记录</view>
             </view>
         </view>
 
@@ -51,8 +46,6 @@
         <view class="mine-mask3"/>
         <view style="width:85%;margin-top:-17rpx">
             <view bindtap="clickPost" class="mine-option">我的发帖</view>
-            <view class="hr"/>
-            <view class="mine-option" bindtap="clickProgress">学习进度</view>
             <view class="hr"/>
             <view bindtap="clickToFriendList" class="mine-option">好友列表</view>
             <view class="hr"/>

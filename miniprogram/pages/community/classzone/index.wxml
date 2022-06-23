@@ -1,15 +1,5 @@
 <view>
     <view class="com-container">
-        <view class="com-bg first">
-            <text class="first-title">专区答疑</text>
-            <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
-                <community_headpic name="lily"/>
-                <community_headpic name="lily"/>
-                <community_headpic name="lily"/>
-                <community_headpic name="lily"/>
-                <community_headpic name="lily"/>
-            </scroll-view>
-        </view>
 
         <view class="com-bg second">
             <view class="com-cardhead">

@@ -90,12 +90,6 @@
         "selectedIconPath": "images/tab1.png"
       },
       {
-        "pagePath": "pages/exercise/index/index",
-        "text": "题库",
-        "iconPath": "images/tab2.png",
-        "selectedIconPath": "images/tab2.png"
-      },
-      {
         "pagePath": "pages/community/index/index",
         "text": "社区",
         "iconPath": "images/tab3.png",

@@ -1,18 +1,9 @@
 <view>
     <view class="com-header">
         <!-- 这里乱方法居中哈哈 要么不用flex 用position -->
-        <text class="com-title" style="opacity: 0;">区</text>
         <text class="com-title">社区</text>
-        <image class="com-headerpic" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/suggestion.png?sign=8afbdd101253b76c6414a5e98ad1393f&t=1651660017"></image>
     </view>
     <view class="com-container">
-        <view class="com-bg">
-            <text>教师答疑</text>
-            <scroll-view class="scroll" scroll-y="true" scroll-x="true" style=" white-space: nowrap; display: flex" >
-                <community_headpic wx:for="{{teacher}}" userid="{{item.userID}}" name="{{item.nick}}" data-userid="{{item.userID}}" headpic="{{item.avatar}}" bindtap="clickToChat"/>
-            </scroll-view>
-        </view>
-
         <view class="com-bg">
             <text>课程专区</text>
             <scroll-view scroll-y="true" scroll-x="true" style=" white-space: nowrap; display: flex" >
