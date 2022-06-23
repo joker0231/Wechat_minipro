@@ -1,6 +1,7 @@
 const getCommonCard = require('./getCommonCard')
 const getClassCard = require('./getClassCard')
 const createNewPost = require('./createNewPost')
+const createPostRecord = require('./createPostRecord')
 const getTopicDetail = require('./getTopicDetail')
 const deletePost = require('./deletePost')
 const createMainComment = require('./createMainComment')
@@ -24,6 +25,8 @@ exports.main = async (event, context) => {
       return await getClassCard.main(event, context)
     case 'createNewPost':
       return await createNewPost.main(event, context)
+    case 'createPostRecord':
+      return await createPostRecord.main(event, context)
     case 'getTopicDetail':
       return await getTopicDetail.main(event, context)
     case 'deletePost':

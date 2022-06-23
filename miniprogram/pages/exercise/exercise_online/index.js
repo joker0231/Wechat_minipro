@@ -44,6 +44,8 @@ Page({
     this.setData({
       title: queryBean.title,
       section: queryBean.section,
+      subject: queryBean.subject,
+      chapter: queryBean.chapter
     })
 
     wx.enableAlertBeforeUnload({

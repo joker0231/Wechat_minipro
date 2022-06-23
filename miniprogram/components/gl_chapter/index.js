@@ -38,6 +38,7 @@ Component({
                 subject:this.data.subject,
                 grade: this.data.grade,
                 section_id: e.target.dataset.id,
+                chapter: this.data.chapter_num
             }
             this.triggerEvent('clickTopBar', data)
             if(!this.data.forExercise) {

@@ -11,7 +11,7 @@ exports.main = async (event, context) => {
   exports.main = async (event, context) => {
     // 返回数据库查询结果
     let topic_fetch = await db.collection('community_topic').where({
-      type: {$in : ['common', 'extend']},
+      type: {$in : ['common', 'extend','post','class']},
     }).get();
 
 

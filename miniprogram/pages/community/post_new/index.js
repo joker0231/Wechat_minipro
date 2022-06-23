@@ -2,15 +2,16 @@
 import Dialog from '../../../miniprogram_npm/@vant/weapp/dialog/dialog';
 import Toast from '../../../miniprogram_npm/@vant/weapp/toast/toast';
 const userStore = require('../../../stores/user-store')
+import fetchYun from '../../../utils/fetchYun'
 
 const allType = {
   普通: [''],
-  拓展: ['拓展课1', '拓展课2', '拓展课3'],
-  课程: ['语文六年级上册', '语文六年级下册', '数学六年级上册', '数学六年级下册'],
-  题目: ['最近做过的题目1', '最近做过的题目2', '最近做过的题目3']
+  拓展: [''],
+  课程: ['语文', '数学', '英语'],
+  帖子: ['专业类', '拓展类', '题目类','其他']
 };
 
-const typeMap = new Map([['普通', 'common'], ['拓展', 'extend'], ['课程', 'class'], ['题目', 'exercise']])
+const typeMap = new Map([['普通', 'common'], ['拓展', 'extend'], ['课程', 'class'], ['帖子', 'post']])
 
 Page({
 
@@ -39,8 +40,15 @@ Page({
       },
     ],
     show: false,
-    typeValue: []
-    
+    choosecard: false,
+    typeValue: [],
+    recordClass: [],
+    recordPost: [],
+    empty_showclass: false,
+    empty_showpost: false,
+    chosenid: '',
+    chosentype: '',
+    choseninfo:{}
   },
   onChange(event) {
     // 分两个逻辑 如果改变第一行 就设置第二个参数为第一行的第二个
@@ -71,11 +79,65 @@ Page({
     this.setData({ show: false });
   },
 
+  onClose1() {
+    this.setData({ choosecard: false });
+  },
+
   chooseType() {
     this.setData({ 
       show: true,
       typeValue: ["普通", ""]
     });
+  },
+
+  chooseCard(){
+    this.setData({
+      choosecard:true
+    })
+  },
+
+  chooseit(e){
+    this.setData({
+      chosenid: e.target.dataset.id,
+      chosentype: e.target.dataset.type
+    })
+    if(this.data.type == '课程'){
+      if(e.target.dataset.type == '拓展'){
+        fetchYun('classFunctions', {
+          type: 'getExpandClassById',
+          classId: this.data.chosenid
+        }).then(resp=>{
+          console.log(resp, 'expand数据')
+          this.setData({
+            choseninfo: resp.result.data[0]
+          })
+        })
+      }else{
+        fetchYun('classFunctions', {
+          type: "getClassById",
+          classId: this.data.chosenid
+        }).then((resp) => {
+          this.setData({
+            choseninfo: resp.result.data[0]
+          })
+        }).catch((e) => {
+          console.log(e);
+        });
+      }
+    }else{
+      fetchYun('communityFunctions', {
+        type: "getTopicDetail",
+        postId: this.data.chosenid
+      }).then((resp) => {
+        this.setData({
+          choseninfo: resp.result   
+        })
+        console.log(resp)
+        // console.log(JSON.stringify(resp.result.data[0]), '123')
+      }).catch((e) => {
+        console.log(e);
+      });
+    }
   },
 
   afterRead(event) {
@@ -102,13 +164,45 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // Dialog.alert({
-    //   title: '类型选择',
-    //   message: '帖子类型选择默认为最近浏览记录，若要更全类型可去具体页面右上角发帖！',
-    // }).then(() => {
-    //   // on close
-    // });
-    // this.setData
+    
+    fetchYun('personFunctions', {
+      type: "getUserRecordByType",
+      recordType: 'class',
+      userId: userStore.getUserData()._id
+    }).then((resp) => {
+      console.log(resp)
+      if(resp.result.data.length){
+      this.setData({
+        recordClass: resp.result.data
+      })
+      }else{
+        this.setData({
+          empty_showclass: true,
+        })
+      }
+    }).catch((e) => {
+      console.log(e);
+    });
+
+    
+    fetchYun('personFunctions', {
+      type: "getUserRecordByType",
+      recordType: 'topic',
+      userId: userStore.getUserData()._id
+    }).then((resp) => {
+      console.log(resp)
+      if(resp.result.data.length){
+        this.setData({
+          recordPost: resp.result.data
+        })
+        }else{
+          this.setData({
+            empty_showpost: true,
+          })
+        }
+    }).catch((e) => {
+      console.log(e);
+    });
   },
 
   /**
@@ -172,7 +266,10 @@ Page({
       "topic_location": {
       },
       "type": "",
-      "user_id": userStore.getUserData()._id
+      "user_id": userStore.getUserData()._id,
+      "chosenid": this.data.chosenid,
+      "chosentype": this.data.chosentype,
+      "choseninfo": this.data.choseninfo
     }
     postData.content = this.data.message
     postData.type = typeMap.get(this.data.typeValue[0])

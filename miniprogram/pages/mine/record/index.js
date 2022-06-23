@@ -8,11 +8,11 @@ Page({
    */
   data: {
     recordClass: [],
-      recordExercise: [],
-      recordPost: [],
-      empty_showclass: false,
-      empty_showpost: false,
-      empty_showexericise: false,
+    recordExercise: [],
+    recordPost: [],
+    empty_showclass: false,
+    empty_showpost: false,
+    empty_showexericise: false,
   },
 
   /**
@@ -127,5 +127,25 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  clickToDetail(event) {
+    // console.log(event.currentTarget.dataset,'123')
+
+    let result = {}
+    fetchYun('communityFunctions', {
+      type: "getTopicDetail",
+      postId: event.currentTarget.dataset.topicid
+    }).then((resp) => {
+      console.log(resp)
+      // console.log(JSON.stringify(resp.result.data[0]), '123')
+    }).catch((e) => {
+      console.log(e);
+    });
+
+
+    wx.navigateTo({
+      url: '/pages/community/post_detail/index?topicId=' + event.currentTarget.dataset.topicid,
+    })
+  },
 })

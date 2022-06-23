@@ -1,38 +1,21 @@
 <!--pages/community/post_new/index.wxml-->
 <view class="post-card">
   <view class="post-select">
-  <!-- 逻辑有问题 再说 -->
+    <!-- 逻辑有问题 再说 -->
     <view class="select-title" bindtap="chooseType">{{ typeValue.length === 0 ? '类型选择' : typeValue[0] + '　' + typeValue[1]}}</view>
+    <image class="com-down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
+    <view class="select-title" bindtap="chooseCard">选择卡片</view>
     <image class="com-down" src="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/down.png?sign=d4c6cdbe06e52df56eb18e764616414d&t=1651407954"></image>
   </view>
   <view class="selected-card">
-   <!-- 这里有四种类型 分别展示不同的样式 -->
-
-    <community_post 
-      wx:if="{{typeValue[0]==='帖子'}}"
-      inner-class="card" 
-      type="拓展" 
-      comment="2" 
-      favour="2" 
-      like="3" 
-      content="你好" 
-      info="学校 班级" 
-      name="tom" 
-      headpic="https://6c65-lemon-7glhwqyu5304e1f9-1311072024.tcb.qcloud.la/exerchick.png?sign=291098ac3fdb400d8a5ceffc7b1db3d5&t=1651655139"
-    />
+    <!-- 这里有四种类型 分别展示不同的样式 -->
+    <classcard wx:if="{{chosentype==='课程'}}" title="{{choseninfo.title}}" introduction="{{choseninfo.introduction}}" author="{{choseninfo.author}}" is_collected="{{choseninfo.is_collected}}" _id="{{choseninfo._id}}" detail="{{choseninfo.detail}}" grade="{{choseninfo.grade}}" semester="{{choseninfo.semester}}" subject="{{choseninfo.subject}}" type="{{choseninfo.type}}"/>
+    <community_post wx:if="{{chosentype==='帖子'}}" inner-class="card" type="{{choseninfo.type}}" comment="{{choseninfo.comment}}" favour="{{choseninfo.favour}}" like="{{choseninfo.like}}" content="{{choseninfo.content}}" info="{{choseninfo.user.educationInfo.school}} {{choseninfo.user.educationInfo.grade}} {{choseninfo.user.educationInfo.class}}" name="{{choseninfo.user.nickname}}" headpic="{{choseninfo.user.avatar}}" />
   </view>
+
   <view class="input-content">
     <scroll-view scroll-y="true" class="scroll">
-      <van-field
-        class="field"
-        show-word-limit="true"
-        maxlength="300"
-        model:value="{{ message }}"
-        type="textarea"
-        placeholder="请输入发帖详情..."
-        autosize
-        border="{{ false }}"
-      />
+      <van-field class="field" show-word-limit="true" maxlength="300" model:value="{{ message }}" type="textarea" placeholder="请输入发帖详情..." autosize border="{{ false }}" />
     </scroll-view>
   </view>
 
@@ -43,6 +26,29 @@
 
 <van-action-sheet title="选择发帖类型" show="{{ show }}" bind:close="onClose" bind:chooseType>
   <van-picker columns="{{ columns }}" bind:change="onChange" />
+</van-action-sheet>
+
+<van-action-sheet title="选择卡片链接" show="{{ choosecard }}" bind:close="onClose1">
+  <view class="choosecard">
+    <van-tabs active="{{ active }}" title-active-color="#7B4D12" color="#FACD91">
+      <van-tab title="课程">
+        <view class="favourite-container">
+          <classcard wx:for="{{recordClass}}" title="{{item.title}}" introduction="{{item.introduction}}" author="{{item.author}}" is_collected="{{item.is_collected}}" _id="{{item._id}}" detail="{{item.detail}}" grade="{{item.grade}}" semester="{{item.semester}}" subject="{{item.subject}}" type="{{item.type}}" data-id="{{item.class_id}}" data-type="课程" data-classtype="{{item.type}}" bindtap="chooseit"/>
+          <view wx:if="{{ empty_showclass }}" class="empty">
+            <view class="empty_text">暂无课程学习记录~</view>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="帖子">
+        <view class="favourite-container">
+          <community_post wx:for="{{recordPost}}" bindtap="clickToDetail" inner-class="card" type="{{item.post_info.type}}" comment="{{item.post_info.comment_num}}" favour="{{item.post_info.collect_num}}" like="{{item.post_info.like_num}}" content="{{item.post_info.content}}" info="{{item.post_info.user.kind==='teacher' ? item.post_info.user.educationInfo.school + ' '  + item.user.post_info.educationInfo.speciality : item.post_info.user.educationInfo.school + ' ' + item.post_info.user.educationInfo.grade + ' ' + item.post_info.user.educationInfo.class}}" name="{{item.post_info.user.nickname}}" headpic="{{item.post_info.user.avatar}}" data-id="{{item.topic_id}}" data-type="帖子" bindtap="chooseit"/>
+          <view wx:if="{{ empty_showpost }}" class="empty">
+            <view class="empty_text">暂无帖子浏览记录~</view>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
 </van-action-sheet>
 
 <van-dialog id="van-dialog" />

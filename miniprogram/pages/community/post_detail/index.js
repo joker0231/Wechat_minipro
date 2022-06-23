@@ -23,7 +23,10 @@ Page({
     commentValueSub: '',
     postId: '',
     showSub: false,
-    curretnMainCommentId: ''
+    curretnMainCommentId: '',
+    chosenid: '',
+    chosentype: '',
+    choseninfo:{}
   },
 
   /**
@@ -61,9 +64,12 @@ Page({
     }).then((resp) => {
       this.setData({
         detail: resp.result,
-        topicId: options.topicId    
+        topicId: options.topicId,
+        chosenid: resp.result.chosenid,
+        chosentype: resp.result.chosentype,
+        choseninfo: resp.result.choseninfo
       },()=>{
-        console.log(this.data.detail)
+        console.log(this.data,9888)
       })
       // console.log(JSON.stringify(resp.result.data[0]), '123')
     }).catch((e) => {

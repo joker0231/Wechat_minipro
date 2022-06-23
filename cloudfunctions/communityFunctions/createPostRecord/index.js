@@ -10,12 +10,12 @@ const db = cloud.database();
 exports.main = async (event, context) => {
   try {
     // 创建集合
-    await db.collection('record_class').add({
+    await db.collection('record_topic').add({
       // data 字段表示需新增的 JSON 数据
       data: {
         user_id: event.userId,
-        class_info: event.class_info,
-        class_id: event.class_id,
+        post_info: event.post_info,
+        topic_id: event.topic_id,
       },
       success: function(res) {
         console.log(res)

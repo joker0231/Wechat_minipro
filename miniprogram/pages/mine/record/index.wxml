@@ -10,7 +10,7 @@
         </van-tab>
         <van-tab title="帖子">
             <view class="favourite-container">
-                <community_post wx:for="{{recordPost}}" bindtap="clickToDetail" inner-class="card" type="{{item.type}}" comment="{{item.comment_num}}" favour="{{item.collect_num}}" like="{{item.like_num}}" content="{{item.content}}" info="{{item.user.kind==='teacher' ? item.user.educationInfo.school + ' '  + item.user.educationInfo.speciality : item.user.educationInfo.school + ' ' + item.user.educationInfo.grade + ' ' + item.user.educationInfo.class}}" name="{{item.user.nickname}}" headpic="{{item.user.avatar}}" data-topicId="{{item._id}}" />
+                <community_post wx:for="{{recordPost}}" bindtap="clickToDetail" inner-class="card" type="{{item.post_info.type}}" comment="{{item.post_info.comment_num}}" favour="{{item.post_info.collect_num}}" like="{{item.post_info.like_num}}" content="{{item.post_info.content}}" info="{{item.post_info.user.kind==='teacher' ? item.post_info.user.educationInfo.school + ' '  + item.user.post_info.educationInfo.speciality : item.post_info.user.educationInfo.school + ' ' + item.post_info.user.educationInfo.grade + ' ' + item.post_info.user.educationInfo.class}}" name="{{item.post_info.user.nickname}}" headpic="{{item.post_info.user.avatar}}" data-topicId="{{item.topic_id}}" />
                 <view wx:if="{{ empty_showpost }}" class="empty">
                     <view class="empty_text">暂无帖子浏览记录~</view>
                 </view>
@@ -18,7 +18,7 @@
         </van-tab>
         <van-tab title="练习报告">
             <view class="favourite-container">
-                <exercise_card inner-class="exercise_card" wx:for="{{recordExercise}}" content="{{item.question}}" userInput="{{item.user_input}}" option="{{item.options}}" resolution="{{item.solution}}" />
+                <exercise_report inner-class="exercise_card" wx:for="{{recordExercise}}" chapter="{{item.chapter}}" section="{{item.section}}" correct="{{item.correct}}" complete_time="{{item.data}}" />
                 <view wx:if="{{ empty_showexericise }}" class="empty">
                     <view class="empty_text">暂无练习报告记录~</view>
                 </view>

@@ -161,3 +161,7 @@
   align-items: center;
 }
 
+.selected-card {
+  margin: 22rpx auto 22rpx auto;
+  display: flex;
+}

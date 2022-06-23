@@ -72,7 +72,7 @@
   color: #504f4f;
   font-size: 24rpx;
   height: 32rpx;
-  width: 280rpx;
+  width: 380rpx;
   /* text-align: right; */
   font-family: 'PingFangSC-Regular', 'PingFang SC', sans-serif;
 }
