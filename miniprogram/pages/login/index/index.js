@@ -12,7 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    account: '18702745270',
+    account: '33333333333',
     password: '123456',
     error_message: ''     // 错误信息
   },
