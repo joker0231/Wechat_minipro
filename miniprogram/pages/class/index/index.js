@@ -19,7 +19,7 @@ Page({
     },
     onShow: function (options) {
       
-      if(wx.getStorageSync('hasWelcome') !== 'true') {
+      if(wx.getStorageSync('hasWelcome') == 'true') {
         const userData = userStore.getUserData()
         console.log(userData, '用户westore数据')
         const kindMap = new Map([['teacher', '教师'], ['student', '学生']])

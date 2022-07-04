@@ -162,6 +162,7 @@ Page({
       icon:"none"
     })
     });
+
   },
 
   clickSignup: function() {
