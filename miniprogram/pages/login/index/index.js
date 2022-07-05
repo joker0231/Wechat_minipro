@@ -150,7 +150,7 @@ Page({
         wx.setStorageSync('userid', resp.result.data[0]._id)
         // 这里获取用户数据存储到IM里去
         this.loginIm(resp.result.data[0])
-        wx.switchTab({
+        wx.navigateTo({
           url: '/pages/class/index/index',
         })
         userStore.init(resp.result.data[0]) // 成功全局保存参数了 其他地方获取 userStore就能使用用户数据

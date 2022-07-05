@@ -1,10 +1,17 @@
 import fetchYun from '../../../utils/fetchYun'
+const userStore = require("../../../stores/user-store")
 Page({
     data: {
-        classCard: []
+        classCard: [],
+        isteacher: false
     },
     onLoad: function (options) {
-      
+      if(userStore.getUserData().kind == 'teacher'){
+        this.setData({
+          isteacher: true
+        })
+      }
+
       fetchYun('communityFunctions', {
         type: "getClassCard"
       }).then((resp) => {

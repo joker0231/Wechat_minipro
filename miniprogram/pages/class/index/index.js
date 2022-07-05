@@ -1,6 +1,7 @@
 const userStore = require('../../../stores/user-store')
 import Notify from '../../../miniprogram_npm/@vant/weapp/notify/notify'
 import fetchYun from '../../../utils/fetchYun'
+var app = getApp();
 Page({
     data: {
         index: null,
@@ -18,8 +19,8 @@ Page({
         userCollectClass: []
     },
     onShow: function (options) {
-      
-      if(wx.getStorageSync('hasWelcome') == 'true') {
+      console.log(app.globalData)
+      if(wx.getStorageSync('hasWelcome') !== 'true') {
         const userData = userStore.getUserData()
         console.log(userData, '用户westore数据')
         const kindMap = new Map([['teacher', '教师'], ['student', '学生']])
@@ -31,11 +32,14 @@ Page({
         })        
         wx.setStorageSync('hasWelcome', 'true')
       }
-      
 
       this.getClassByGrade()
 
-      
+      if(userStore.getUserData().kind == 'student'){
+        app.editTabBar();
+      }else{
+        app.editTabBar1()
+      }
       
       
     },

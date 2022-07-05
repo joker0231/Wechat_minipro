@@ -141,14 +141,16 @@
     width: 100rpx;
     height: 100rpx;
     position: fixed;
-    bottom: 40rpx;
+    bottom: 60rpx;
     right: 56rpx;
     background-color: white;
     border-radius: 50%;
+    z-index: 101;
 }
 
 
 .new-image {
     width: 100rpx;
     height: 100rpx;
+    z-index: 102;
 }

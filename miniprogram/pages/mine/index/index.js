@@ -3,13 +3,24 @@ const app = getApp()
 Page({
     data: {
       userData: {},
-      unreadCount: 0
+      unreadCount: 0,
+      isteacher: false
     },
     onShow: function (options) {
       // ceshi
       this.setData({
         userData: userStore.getUserData()
       })
+
+      if(userStore.getUserData().kind == 'student'){
+        app.editTabBar();
+      }else{
+        app.editTabBar1()
+        this.setData({
+          isteacher: true
+        })
+      }
+      
 
       let unreadCount = 0
       wx.$TUIKit.getConversationList().then(res=>{

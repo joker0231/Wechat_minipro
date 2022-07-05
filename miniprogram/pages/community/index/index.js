@@ -4,7 +4,8 @@ const userStore = require("../../../stores/user-store")
 Page({
   data: {
     commonCard: [],
-    teacher: []
+    teacher: [],
+    isteacher: false
   },
   onReady: function () {
 
@@ -12,6 +13,14 @@ Page({
   onShow: function (options) {
     console.log('123')
 
+    if(userStore.getUserData().kind == 'student'){
+      app.editTabBar();
+    }else{
+      app.editTabBar1()
+      this.setData({
+        isteacher: true
+      })
+    };  
     fetchYun("communityFunctions", { type: "getCommonCard" }).then(resp => {
       console.log(resp,77777)
       this.setData({

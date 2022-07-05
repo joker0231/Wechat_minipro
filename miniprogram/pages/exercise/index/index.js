@@ -1,5 +1,6 @@
 const userStore = require('../../../stores/user-store')
 import fetchYun from '../../../utils/fetchYun'
+var app = getApp();
 Page({
   data: {
     index: null,
@@ -102,6 +103,14 @@ Page({
     console.log(grade, '用户年级')
     this.setData({grade})
     this.getExerciseByGrade()
+  },
+
+  onShow:function(){
+    if(userStore.getUserData().kind == 'student'){
+      app.editTabBar();
+    }else{
+      app.editTabBar1()
+    };    //显示自定义的底部导航
   },
 
   navSwitch: function (e) {

@@ -8,6 +8,85 @@ import { SDKAPPID } from './debug/GenerateTestUserSig'
 const userStore = require('./stores/user-store')
 App({
   globalData: {
+    tabBar: {
+      "color": "#666666",
+      "selectedColor": "#7B4D12",
+      "backgroundColor": "black",
+      "list": [
+        {
+          "pagePath": "/pages/class/index/index",
+          "text": "课程",
+          "iconPath": "../../../images/tab1.png",
+          "selectedIconPath": "../../../images/tab1.png",
+          "clas": "menu-item",
+          "selectedColor": "#7B4D12",
+          active: true
+        },
+        {
+          "pagePath": "/pages/exercise/index/index",
+          "text": "题库",
+          "iconPath": "../../../images/tab2.png",
+          "selectedIconPath": "../../../images/tab2.png",
+          "clas": "menu-item",
+          "selectedColor": "#7B4D12",
+          active: false
+        },
+        {
+          "pagePath": "/pages/community/index/index",
+          "text": "社区",
+          "iconPath": "../../../images/tab3.png",
+          "selectedIconPath": "../../../images/tab3.png",
+          "clas": "menu-item",
+          "selectedColor": "#7B4D12",
+          active: false
+        },
+        {
+          "pagePath": "/pages/mine/index/index",
+          "text": "我的",
+          "iconPath": "../../../images/tab4.png",
+          "selectedIconPath": "../../../images/tab4.png",
+          "clas": "menu-item",
+          "selectedColor": "#7B4D12",
+          active: false
+        }
+      ],
+      "position": "bottom"
+    },
+    tabBar1: {
+      "color": "#666666",
+      "selectedColor": "#7B4D12",
+      "backgroundColor": "black",
+      "list": [
+        {
+          "pagePath": "/pages/class/index/index",
+          "text": "课程",
+          "iconPath": "../../../images/tab1.png",
+          "selectedIconPath": "../../../images/tab1.png",
+          "clas": "menu-item1",
+          "selectedColor": "#7B4D12",
+          active: true
+        },
+        {
+          "pagePath": "/pages/community/index/index",
+          "text": "社区",
+          "iconPath": "../../../images/tab3.png",
+          "selectedIconPath": "../../../images/tab3.png",
+          "clas": "menu-item1",
+          "selectedColor": "#7B4D12",
+          active: false
+        },
+        {
+          "pagePath": "/pages/mine/index/index",
+          "text": "我的",
+          "iconPath": "../../../images/tab4.png",
+          "selectedIconPath": "../../../images/tab4.png",
+          "clas": "menu-item1",
+          "selectedColor": "#7B4D12",
+          active: false
+        }
+      ],
+      "position": "bottom"
+    },
     tim: '',
     isImLogin: false,
     msgList: [],
@@ -33,6 +112,47 @@ App({
       });
     }
     this.iminit()
+  },
+
+  editTabBar: function () {
+    //使用getCurrentPages可以获取当前加载中所有的页面对象的一个数组，数组最后一个就是当前页面。
+ 
+    var curPageArr = getCurrentPages();    //获取加载的页面
+    var curPage = curPageArr[curPageArr.length - 1];    //获取当前页面的对象
+    var pagePath = curPage.route;    //当前页面url
+    if (pagePath.indexOf('/') != 0) {
+      pagePath = '/' + pagePath;
+    }
+    
+    var tabBar = this.globalData.tabBar;
+    for (var i = 0; i < tabBar.list.length; i++) {
+      tabBar.list[i].active = false;
+      if (tabBar.list[i].pagePath == pagePath) {
+        tabBar.list[i].active = true;    //根据页面地址设置当前页面状态    
+      }
+    }
+    curPage.setData({
+      tabBar: tabBar
+    });
+  },
+  //第二种底部，原理同上
+  editTabBar1: function () {
+    var curPageArr = getCurrentPages();
+    var curPage = curPageArr[curPageArr.length - 1];
+    var pagePath = curPage.route;
+    if (pagePath.indexOf('/') != 0) {
+      pagePath = '/' + pagePath;
+    }
+    var tabBar = this.globalData.tabBar1;
+    for (var i = 0; i < tabBar.list.length; i++) {
+      tabBar.list[i].active = false;
+      if (tabBar.list[i].pagePath == pagePath) {
+        tabBar.list[i].active = true;
+      }
+    }
+    curPage.setData({
+      tabBar: tabBar
+    });
   },
 
   iminit() {

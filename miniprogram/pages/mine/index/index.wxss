@@ -45,6 +45,13 @@
     margin-left: 10%;
 }
 
+.mine-title1{
+    font-weight: bold;
+    font-size: large;
+    line-height: 60rpx;
+    margin-left: 40%;
+}
+
 .mine-button{
     border-radius: 20px;
     background-color: #FFFF80;
@@ -86,6 +93,16 @@
 .mine-mask3{
     width: 85%;
     height: 26%;
+    opacity: 70%;
+    background-color: #FFFFFF;
+    position: absolute;
+    border-radius: 50rpx;
+    z-index: -1;
+}
+
+.mine-mask4{
+    width: 85%;
+    height: 21%;
     opacity: 70%;
     background-color: #FFFFFF;
     position: absolute;

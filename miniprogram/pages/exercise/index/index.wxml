@@ -1,4 +1,6 @@
 <view>
+    <import src="../../../template/tabbar.wxml"/>
+    <template is="tabBar" data="{{tabBar}}"/>
     <view class="class-header">
         <view class="class-headercontainer">
             <view class="class-grade" bindtap="showgrade">
